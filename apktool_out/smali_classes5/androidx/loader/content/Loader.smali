@@ -1,0 +1,640 @@
+.class public Landroidx/loader/content/Loader;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroidx/loader/content/Loader$OnLoadCanceledListener;,
+        Landroidx/loader/content/Loader$OnLoadCompleteListener;,
+        Landroidx/loader/content/Loader$ForceLoadContentObserver;
+    }
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<D:",
+        "Ljava/lang/Object;",
+        ">",
+        "Ljava/lang/Object;"
+    }
+.end annotation
+
+
+# instance fields
+.field public a:I
+
+.field public b:Landroidx/loader/content/Loader$OnLoadCompleteListener;
+
+.field public c:Landroidx/loader/content/Loader$OnLoadCanceledListener;
+
+.field public d:Landroid/content/Context;
+
+.field public e:Z
+
+.field public f:Z
+
+.field public g:Z
+
+.field public h:Z
+
+.field public i:Z
+
+
+# virtual methods
+.method public abandon()V
+    .locals 1
+    .annotation build Landroidx/annotation/MainThread;
+    .end annotation
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Landroidx/loader/content/Loader;->f:Z
+
+    invoke-virtual {p0}, Landroidx/loader/content/Loader;->onAbandon()V
+
+    return-void
+.end method
+
+.method public cancelLoad()Z
+    .locals 0
+    .annotation build Landroidx/annotation/MainThread;
+    .end annotation
+
+    invoke-virtual {p0}, Landroidx/loader/content/Loader;->onCancelLoad()Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public commitContentChanged()V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Landroidx/loader/content/Loader;->i:Z
+
+    return-void
+.end method
+
+.method public dataToString(Ljava/lang/Object;)Ljava/lang/String;
+    .locals 1
+    .param p1    # Ljava/lang/Object;
+        .annotation build Landroidx/annotation/Nullable;
+        .end annotation
+    .end param
+    .annotation build Landroidx/annotation/NonNull;
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TD;)",
+            "Ljava/lang/String;"
+        }
+    .end annotation
+
+    new-instance p0, Ljava/lang/StringBuilder;
+
+    const/16 v0, 0x40
+
+    invoke-direct {p0, v0}, Ljava/lang/StringBuilder;-><init>(I)V
+
+    invoke-static {p1, p0}, Landroidx/core/util/DebugUtils;->a(Ljava/lang/Object;Ljava/lang/StringBuilder;)V
+
+    const-string/jumbo p1, "}"
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public deliverCancellation()V
+    .locals 0
+    .annotation build Landroidx/annotation/MainThread;
+    .end annotation
+
+    iget-object p0, p0, Landroidx/loader/content/Loader;->c:Landroidx/loader/content/Loader$OnLoadCanceledListener;
+
+    if-eqz p0, :cond_0
+
+    invoke-interface {p0}, Landroidx/loader/content/Loader$OnLoadCanceledListener;->a()V
+
+    :cond_0
+    return-void
+.end method
+
+.method public deliverResult(Ljava/lang/Object;)V
+    .locals 0
+    .param p1    # Ljava/lang/Object;
+        .annotation build Landroidx/annotation/Nullable;
+        .end annotation
+    .end param
+    .annotation build Landroidx/annotation/MainThread;
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TD;)V"
+        }
+    .end annotation
+
+    iget-object p0, p0, Landroidx/loader/content/Loader;->b:Landroidx/loader/content/Loader$OnLoadCompleteListener;
+
+    if-eqz p0, :cond_0
+
+    invoke-interface {p0, p1}, Landroidx/loader/content/Loader$OnLoadCompleteListener;->a(Ljava/lang/Object;)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public dump(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
+    .locals 0
+
+    invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string p2, "mId="
+
+    invoke-virtual {p3, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget p2, p0, Landroidx/loader/content/Loader;->a:I
+
+    invoke-virtual {p3, p2}, Ljava/io/PrintWriter;->print(I)V
+
+    const-string p2, " mListener="
+
+    invoke-virtual {p3, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-object p2, p0, Landroidx/loader/content/Loader;->b:Landroidx/loader/content/Loader$OnLoadCompleteListener;
+
+    invoke-virtual {p3, p2}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
+
+    iget-boolean p2, p0, Landroidx/loader/content/Loader;->e:Z
+
+    if-nez p2, :cond_0
+
+    iget-boolean p2, p0, Landroidx/loader/content/Loader;->h:Z
+
+    if-nez p2, :cond_0
+
+    iget-boolean p2, p0, Landroidx/loader/content/Loader;->i:Z
+
+    if-eqz p2, :cond_1
+
+    :cond_0
+    invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string p2, "mStarted="
+
+    invoke-virtual {p3, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-boolean p2, p0, Landroidx/loader/content/Loader;->e:Z
+
+    invoke-virtual {p3, p2}, Ljava/io/PrintWriter;->print(Z)V
+
+    const-string p2, " mContentChanged="
+
+    invoke-virtual {p3, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-boolean p2, p0, Landroidx/loader/content/Loader;->h:Z
+
+    invoke-virtual {p3, p2}, Ljava/io/PrintWriter;->print(Z)V
+
+    const-string p2, " mProcessingChange="
+
+    invoke-virtual {p3, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-boolean p2, p0, Landroidx/loader/content/Loader;->i:Z
+
+    invoke-virtual {p3, p2}, Ljava/io/PrintWriter;->println(Z)V
+
+    :cond_1
+    iget-boolean p2, p0, Landroidx/loader/content/Loader;->f:Z
+
+    if-nez p2, :cond_3
+
+    iget-boolean p2, p0, Landroidx/loader/content/Loader;->g:Z
+
+    if-eqz p2, :cond_2
+
+    goto :goto_0
+
+    :cond_2
+    return-void
+
+    :cond_3
+    :goto_0
+    invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string p1, "mAbandoned="
+
+    invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-boolean p1, p0, Landroidx/loader/content/Loader;->f:Z
+
+    invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Z)V
+
+    const-string p1, " mReset="
+
+    invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-boolean p0, p0, Landroidx/loader/content/Loader;->g:Z
+
+    invoke-virtual {p3, p0}, Ljava/io/PrintWriter;->println(Z)V
+
+    return-void
+.end method
+
+.method public forceLoad()V
+    .locals 0
+    .annotation build Landroidx/annotation/MainThread;
+    .end annotation
+
+    invoke-virtual {p0}, Landroidx/loader/content/Loader;->onForceLoad()V
+
+    return-void
+.end method
+
+.method public getContext()Landroid/content/Context;
+    .locals 0
+    .annotation build Landroidx/annotation/NonNull;
+    .end annotation
+
+    iget-object p0, p0, Landroidx/loader/content/Loader;->d:Landroid/content/Context;
+
+    return-object p0
+.end method
+
+.method public getId()I
+    .locals 0
+
+    iget p0, p0, Landroidx/loader/content/Loader;->a:I
+
+    return p0
+.end method
+
+.method public isAbandoned()Z
+    .locals 0
+
+    iget-boolean p0, p0, Landroidx/loader/content/Loader;->f:Z
+
+    return p0
+.end method
+
+.method public isReset()Z
+    .locals 0
+
+    iget-boolean p0, p0, Landroidx/loader/content/Loader;->g:Z
+
+    return p0
+.end method
+
+.method public isStarted()Z
+    .locals 0
+
+    iget-boolean p0, p0, Landroidx/loader/content/Loader;->e:Z
+
+    return p0
+.end method
+
+.method public onAbandon()V
+    .locals 0
+    .annotation build Landroidx/annotation/MainThread;
+    .end annotation
+
+    return-void
+.end method
+
+.method public onCancelLoad()Z
+    .locals 0
+
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
+.method public onContentChanged()V
+    .locals 1
+    .annotation build Landroidx/annotation/MainThread;
+    .end annotation
+
+    iget-boolean v0, p0, Landroidx/loader/content/Loader;->e:Z
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Landroidx/loader/content/Loader;->forceLoad()V
+
+    return-void
+
+    :cond_0
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Landroidx/loader/content/Loader;->h:Z
+
+    return-void
+.end method
+
+.method public onForceLoad()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onReset()V
+    .locals 0
+    .annotation build Landroidx/annotation/MainThread;
+    .end annotation
+
+    return-void
+.end method
+
+.method public onStartLoading()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onStopLoading()V
+    .locals 0
+    .annotation build Landroidx/annotation/MainThread;
+    .end annotation
+
+    return-void
+.end method
+
+.method public registerListener(ILandroidx/loader/content/Loader$OnLoadCompleteListener;)V
+    .locals 1
+    .param p2    # Landroidx/loader/content/Loader$OnLoadCompleteListener;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroidx/annotation/MainThread;
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I",
+            "Landroidx/loader/content/Loader$OnLoadCompleteListener<",
+            "TD;>;)V"
+        }
+    .end annotation
+
+    iget-object v0, p0, Landroidx/loader/content/Loader;->b:Landroidx/loader/content/Loader$OnLoadCompleteListener;
+
+    if-nez v0, :cond_0
+
+    iput-object p2, p0, Landroidx/loader/content/Loader;->b:Landroidx/loader/content/Loader$OnLoadCompleteListener;
+
+    iput p1, p0, Landroidx/loader/content/Loader;->a:I
+
+    return-void
+
+    :cond_0
+    const-string p0, "There is already a listener registered"
+
+    invoke-static {p0}, Lls4;->g(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public registerOnLoadCanceledListener(Landroidx/loader/content/Loader$OnLoadCanceledListener;)V
+    .locals 1
+    .param p1    # Landroidx/loader/content/Loader$OnLoadCanceledListener;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroidx/annotation/MainThread;
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroidx/loader/content/Loader$OnLoadCanceledListener<",
+            "TD;>;)V"
+        }
+    .end annotation
+
+    iget-object v0, p0, Landroidx/loader/content/Loader;->c:Landroidx/loader/content/Loader$OnLoadCanceledListener;
+
+    if-nez v0, :cond_0
+
+    iput-object p1, p0, Landroidx/loader/content/Loader;->c:Landroidx/loader/content/Loader$OnLoadCanceledListener;
+
+    return-void
+
+    :cond_0
+    const-string p0, "There is already a listener registered"
+
+    invoke-static {p0}, Lls4;->g(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public reset()V
+    .locals 1
+    .annotation build Landroidx/annotation/MainThread;
+    .end annotation
+
+    invoke-virtual {p0}, Landroidx/loader/content/Loader;->onReset()V
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Landroidx/loader/content/Loader;->g:Z
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Landroidx/loader/content/Loader;->e:Z
+
+    iput-boolean v0, p0, Landroidx/loader/content/Loader;->f:Z
+
+    iput-boolean v0, p0, Landroidx/loader/content/Loader;->h:Z
+
+    iput-boolean v0, p0, Landroidx/loader/content/Loader;->i:Z
+
+    return-void
+.end method
+
+.method public rollbackContentChanged()V
+    .locals 1
+
+    iget-boolean v0, p0, Landroidx/loader/content/Loader;->i:Z
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Landroidx/loader/content/Loader;->onContentChanged()V
+
+    :cond_0
+    return-void
+.end method
+
+.method public final startLoading()V
+    .locals 1
+    .annotation build Landroidx/annotation/MainThread;
+    .end annotation
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Landroidx/loader/content/Loader;->e:Z
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Landroidx/loader/content/Loader;->g:Z
+
+    iput-boolean v0, p0, Landroidx/loader/content/Loader;->f:Z
+
+    invoke-virtual {p0}, Landroidx/loader/content/Loader;->onStartLoading()V
+
+    return-void
+.end method
+
+.method public stopLoading()V
+    .locals 1
+    .annotation build Landroidx/annotation/MainThread;
+    .end annotation
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Landroidx/loader/content/Loader;->e:Z
+
+    invoke-virtual {p0}, Landroidx/loader/content/Loader;->onStopLoading()V
+
+    return-void
+.end method
+
+.method public takeContentChanged()Z
+    .locals 2
+
+    iget-boolean v0, p0, Landroidx/loader/content/Loader;->h:Z
+
+    const/4 v1, 0x0
+
+    iput-boolean v1, p0, Landroidx/loader/content/Loader;->h:Z
+
+    iget-boolean v1, p0, Landroidx/loader/content/Loader;->i:Z
+
+    or-int/2addr v1, v0
+
+    iput-boolean v1, p0, Landroidx/loader/content/Loader;->i:Z
+
+    return v0
+.end method
+
+.method public toString()Ljava/lang/String;
+    .locals 2
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const/16 v1, 0x40
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
+
+    invoke-static {p0, v0}, Landroidx/core/util/DebugUtils;->a(Ljava/lang/Object;Ljava/lang/StringBuilder;)V
+
+    const-string v1, " id="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget p0, p0, Landroidx/loader/content/Loader;->a:I
+
+    const-string/jumbo v1, "}"
+
+    invoke-static {v0, v1, p0}, Lh92;->s(Ljava/lang/StringBuilder;Ljava/lang/String;I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public unregisterListener(Landroidx/loader/content/Loader$OnLoadCompleteListener;)V
+    .locals 1
+    .param p1    # Landroidx/loader/content/Loader$OnLoadCompleteListener;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroidx/annotation/MainThread;
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroidx/loader/content/Loader$OnLoadCompleteListener<",
+            "TD;>;)V"
+        }
+    .end annotation
+
+    iget-object v0, p0, Landroidx/loader/content/Loader;->b:Landroidx/loader/content/Loader$OnLoadCompleteListener;
+
+    if-eqz v0, :cond_1
+
+    if-ne v0, p1, :cond_0
+
+    const/4 p1, 0x0
+
+    iput-object p1, p0, Landroidx/loader/content/Loader;->b:Landroidx/loader/content/Loader$OnLoadCompleteListener;
+
+    return-void
+
+    :cond_0
+    const-string p0, "Attempting to unregister the wrong listener"
+
+    invoke-static {p0}, Le65;->o(Ljava/lang/String;)V
+
+    return-void
+
+    :cond_1
+    const-string p0, "No listener register"
+
+    invoke-static {p0}, Lls4;->g(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public unregisterOnLoadCanceledListener(Landroidx/loader/content/Loader$OnLoadCanceledListener;)V
+    .locals 1
+    .param p1    # Landroidx/loader/content/Loader$OnLoadCanceledListener;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroidx/annotation/MainThread;
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroidx/loader/content/Loader$OnLoadCanceledListener<",
+            "TD;>;)V"
+        }
+    .end annotation
+
+    iget-object v0, p0, Landroidx/loader/content/Loader;->c:Landroidx/loader/content/Loader$OnLoadCanceledListener;
+
+    if-eqz v0, :cond_1
+
+    if-ne v0, p1, :cond_0
+
+    const/4 p1, 0x0
+
+    iput-object p1, p0, Landroidx/loader/content/Loader;->c:Landroidx/loader/content/Loader$OnLoadCanceledListener;
+
+    return-void
+
+    :cond_0
+    const-string p0, "Attempting to unregister the wrong listener"
+
+    invoke-static {p0}, Le65;->o(Ljava/lang/String;)V
+
+    return-void
+
+    :cond_1
+    const-string p0, "No listener register"
+
+    invoke-static {p0}, Lls4;->g(Ljava/lang/String;)V
+
+    return-void
+.end method

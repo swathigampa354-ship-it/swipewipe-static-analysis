@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/dynamic_screen_page_container_activity_default_retry_custom_ui_retry_container" android:background="#dd000000" android:focusable="true" android:visibility="gone" android:clickable="true" android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="20.0dp" android:layout_marginEnd="20.0dp">
+            <TextView android:textSize="20.0sp" android:textStyle="bold" android:textColor="#ffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/dynamic_screen_page_container_activity_default_loader_custom_ui_title" />
+            <TextView android:textSize="14.0sp" android:textStyle="italic" android:textColor="#d0d0d0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/dynamic_screen_page_container_activity_default_loader_custom_ui_subtitle" />
+            <Button android:layout_gravity="center" android:id="@id/dynamic_screen_page_container_activity_default_retry_custom_ui_retry" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="18.0dp" android:text="@string/dynamic_screen_page_container_activity_default_loader_custom_ui_retry" />
+        </LinearLayout>
+    </FrameLayout>
+</merge>

@@ -1,0 +1,165 @@
+.class Lcom/bytedance/sdk/openadsdk/common/wey$1;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Landroid/view/View$OnClickListener;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/bytedance/sdk/openadsdk/common/wey;->ro()V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = null
+.end annotation
+
+
+# instance fields
+.field final synthetic fm:Ljava/lang/String;
+
+.field final synthetic jnr:Lcom/bytedance/sdk/openadsdk/common/wey;
+
+.field final synthetic lb:Ljava/lang/String;
+
+.field final synthetic ro:Ljava/lang/String;
+
+.field final synthetic yz:Ljava/lang/String;
+
+
+# direct methods
+.method public constructor <init>(Lcom/bytedance/sdk/openadsdk/common/wey;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/common/wey$1;->jnr:Lcom/bytedance/sdk/openadsdk/common/wey;
+
+    iput-object p2, p0, Lcom/bytedance/sdk/openadsdk/common/wey$1;->fm:Ljava/lang/String;
+
+    iput-object p3, p0, Lcom/bytedance/sdk/openadsdk/common/wey$1;->ro:Ljava/lang/String;
+
+    iput-object p4, p0, Lcom/bytedance/sdk/openadsdk/common/wey$1;->lb:Ljava/lang/String;
+
+    iput-object p5, p0, Lcom/bytedance/sdk/openadsdk/common/wey$1;->yz:Ljava/lang/String;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public onClick(Landroid/view/View;)V
+    .locals 5
+
+    const-string v0, "Pangle|SafeDK: Execution> Lcom/bytedance/sdk/openadsdk/common/wey$1;->onClick(Landroid/view/View;)V"
+
+    invoke-static {v0}, Lcom/safedk/android/utils/Logger;->d(Ljava/lang/String;)I
+
+    const-string v0, "com.bytedance.sdk"
+
+    const-string v0, "com.bytedance.sdk"
+
+    invoke-static {v0, p1}, Lcom/safedk/android/analytics/brandsafety/creatives/CreativeInfoManager;->onViewClicked(Ljava/lang/String;Landroid/view/View;)V
+
+    invoke-virtual/range {p0 .. p1}, Lcom/bytedance/sdk/openadsdk/common/wey$1;->safedk_wey$1_onClick_4de8a322319157ede88ef2f9b3a74674(Landroid/view/View;)V
+
+    return-void
+.end method
+
+.method public safedk_wey$1_onClick_4de8a322319157ede88ef2f9b3a74674(Landroid/view/View;)V
+    .locals 7
+    .param p1, "p0"    # Landroid/view/View;
+
+    iget-object p1, p0, Lcom/bytedance/sdk/openadsdk/common/wey$1;->jnr:Lcom/bytedance/sdk/openadsdk/common/wey;
+
+    invoke-virtual {p1}, Landroid/app/Dialog;->getContext()Landroid/content/Context;
+
+    move-result-object p1
+
+    const-string v0, "clipboard"
+
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Landroid/content/ClipboardManager;
+
+    if-eqz p1, :cond_1
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v2, p0, Lcom/bytedance/sdk/openadsdk/common/wey$1;->fm:Ljava/lang/String;
+
+    iget-object v3, p0, Lcom/bytedance/sdk/openadsdk/common/wey$1;->ro:Ljava/lang/String;
+
+    iget-object v4, p0, Lcom/bytedance/sdk/openadsdk/common/wey$1;->lb:Ljava/lang/String;
+
+    iget-object v5, p0, Lcom/bytedance/sdk/openadsdk/common/wey$1;->yz:Ljava/lang/String;
+
+    iget-object p0, p0, Lcom/bytedance/sdk/openadsdk/common/wey$1;->jnr:Lcom/bytedance/sdk/openadsdk/common/wey;
+
+    invoke-static {p0}, Lcom/bytedance/sdk/openadsdk/common/wey;->fm(Lcom/bytedance/sdk/openadsdk/common/wey;)Ljava/lang/String;
+
+    move-result-object v6
+
+    const-string v1, "8.1.0.3"
+
+    filled-new-array/range {v1 .. v6}, [Ljava/lang/String;
+
+    move-result-object p0
+
+    const/4 v1, 0x0
+
+    :goto_0
+    invoke-static {}, Lcom/bytedance/sdk/openadsdk/common/wey;->fm()[Ljava/lang/String;
+
+    move-result-object v2
+
+    array-length v2, v2
+
+    if-ge v1, v2, :cond_0
+
+    invoke-static {}, Lcom/bytedance/sdk/openadsdk/common/wey;->fm()[Ljava/lang/String;
+
+    move-result-object v2
+
+    aget-object v2, v2, v1
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v2, ": "
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    aget-object v2, p0, v1
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v2, "\n"
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const-string p0, "pangle sdk build info"
+
+    invoke-static {p0, v0}, Landroid/content/ClipData;->newPlainText(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Landroid/content/ClipData;
+
+    move-result-object p0
+
+    :try_start_0
+    invoke-virtual {p1, p0}, Landroid/content/ClipboardManager;->setPrimaryClip(Landroid/content/ClipData;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :catchall_0
+    :cond_1
+    return-void
+.end method

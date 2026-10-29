@@ -1,0 +1,83 @@
+.class public final Landroidx/compose/runtime/external/kotlinx/collections/immutable/implementations/immutableSet/TrieNodeKt;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# annotations
+.annotation runtime Lkotlin/Metadata;
+    d1 = {
+        "\u0000\u0002\n\u0000\u00a8\u0006\u0000"
+    }
+    d2 = {
+        "runtime"
+    }
+    k = 0x2
+    mv = {
+        0x2,
+        0x0,
+        0x0
+    }
+    xi = 0x30
+.end annotation
+
+
+# direct methods
+.method public static final a(Ljava/lang/Object;[Ljava/lang/Object;I)[Ljava/lang/Object;
+    .locals 3
+
+    array-length v0, p1
+
+    add-int/lit8 v0, v0, 0x1
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x6
+
+    invoke-static {p1, v1, v0, p2, v2}, Lbf;->j([Ljava/lang/Object;I[Ljava/lang/Object;II)V
+
+    add-int/lit8 v1, p2, 0x1
+
+    array-length v2, p1
+
+    invoke-static {p1, v1, v0, p2, v2}, Lbf;->h([Ljava/lang/Object;I[Ljava/lang/Object;II)V
+
+    aput-object p0, v0, p2
+
+    return-object v0
+.end method
+
+.method public static final b(I[Ljava/lang/Object;)[Ljava/lang/Object;
+    .locals 3
+
+    array-length v0, p1
+
+    add-int/lit8 v0, v0, -0x1
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x6
+
+    invoke-static {p1, v1, v0, p0, v2}, Lbf;->j([Ljava/lang/Object;I[Ljava/lang/Object;II)V
+
+    add-int/lit8 v1, p0, 0x1
+
+    array-length v2, p1
+
+    invoke-static {p1, p0, v0, v1, v2}, Lbf;->h([Ljava/lang/Object;I[Ljava/lang/Object;II)V
+
+    return-object v0
+.end method
+
+.method public static final c(II)I
+    .locals 0
+
+    shr-int/2addr p0, p1
+
+    and-int/lit8 p0, p0, 0x1f
+
+    return p0
+.end method

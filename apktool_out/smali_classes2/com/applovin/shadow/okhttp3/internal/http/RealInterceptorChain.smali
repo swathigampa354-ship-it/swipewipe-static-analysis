@@ -1,0 +1,756 @@
+.class public final Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Lcom/applovin/shadow/okhttp3/Interceptor$Chain;
+
+
+# annotations
+.annotation runtime Lkotlin/Metadata;
+    d1 = {
+        "\u0000L\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0008\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u000f\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0003\n\u0002\u0018\u0002\n\u0002\u0008\u0003\n\u0002\u0018\u0002\n\u0002\u0008\u0003\u0018\u00002\u00020\u0001BM\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u000c\u0010\u0004\u001a\u0008\u0012\u0004\u0012\u00020\u00060\u0005\u0012\u0006\u0010\u0007\u001a\u00020\u0008\u0012\u0008\u0010\t\u001a\u0004\u0018\u00010\n\u0012\u0006\u0010\u000b\u001a\u00020\u000c\u0012\u0006\u0010\r\u001a\u00020\u0008\u0012\u0006\u0010\u000e\u001a\u00020\u0008\u0012\u0006\u0010\u000f\u001a\u00020\u0008\u00a2\u0006\u0002\u0010\u0010J\u0008\u0010\u0002\u001a\u00020\u001cH\u0016J\u0008\u0010\r\u001a\u00020\u0008H\u0016J\n\u0010\u001d\u001a\u0004\u0018\u00010\u001eH\u0016JK\u0010\u001f\u001a\u00020\u00002\u0008\u0008\u0002\u0010\u0007\u001a\u00020\u00082\n\u0008\u0002\u0010\t\u001a\u0004\u0018\u00010\n2\u0008\u0008\u0002\u0010\u000b\u001a\u00020\u000c2\u0008\u0008\u0002\u0010\r\u001a\u00020\u00082\u0008\u0008\u0002\u0010\u000e\u001a\u00020\u00082\u0008\u0008\u0002\u0010\u000f\u001a\u00020\u0008H\u0000\u00a2\u0006\u0002\u0008 J\u0010\u0010!\u001a\u00020\"2\u0006\u0010\u000b\u001a\u00020\u000cH\u0016J\u0008\u0010\u000e\u001a\u00020\u0008H\u0016J\u0008\u0010\u000b\u001a\u00020\u000cH\u0016J\u0018\u0010#\u001a\u00020\u00012\u0006\u0010$\u001a\u00020\u00082\u0006\u0010%\u001a\u00020&H\u0016J\u0018\u0010\'\u001a\u00020\u00012\u0006\u0010$\u001a\u00020\u00082\u0006\u0010%\u001a\u00020&H\u0016J\u0018\u0010(\u001a\u00020\u00012\u0006\u0010$\u001a\u00020\u00082\u0006\u0010%\u001a\u00020&H\u0016J\u0008\u0010\u000f\u001a\u00020\u0008H\u0016R\u0014\u0010\u0002\u001a\u00020\u0003X\u0080\u0004\u00a2\u0006\u0008\n\u0000\u001a\u0004\u0008\u0011\u0010\u0012R\u000e\u0010\u0013\u001a\u00020\u0008X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u0014\u0010\r\u001a\u00020\u0008X\u0080\u0004\u00a2\u0006\u0008\n\u0000\u001a\u0004\u0008\u0014\u0010\u0015R\u0016\u0010\t\u001a\u0004\u0018\u00010\nX\u0080\u0004\u00a2\u0006\u0008\n\u0000\u001a\u0004\u0008\u0016\u0010\u0017R\u000e\u0010\u0007\u001a\u00020\u0008X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0014\u0010\u0004\u001a\u0008\u0012\u0004\u0012\u00020\u00060\u0005X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0014\u0010\u000e\u001a\u00020\u0008X\u0080\u0004\u00a2\u0006\u0008\n\u0000\u001a\u0004\u0008\u0018\u0010\u0015R\u0014\u0010\u000b\u001a\u00020\u000cX\u0080\u0004\u00a2\u0006\u0008\n\u0000\u001a\u0004\u0008\u0019\u0010\u001aR\u0014\u0010\u000f\u001a\u00020\u0008X\u0080\u0004\u00a2\u0006\u0008\n\u0000\u001a\u0004\u0008\u001b\u0010\u0015\u00a8\u0006)"
+    }
+    d2 = {
+        "Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;",
+        "Lcom/applovin/shadow/okhttp3/Interceptor$Chain;",
+        "call",
+        "Lcom/applovin/shadow/okhttp3/internal/connection/RealCall;",
+        "interceptors",
+        "",
+        "Lcom/applovin/shadow/okhttp3/Interceptor;",
+        "index",
+        "",
+        "exchange",
+        "Lcom/applovin/shadow/okhttp3/internal/connection/Exchange;",
+        "request",
+        "Lcom/applovin/shadow/okhttp3/Request;",
+        "connectTimeoutMillis",
+        "readTimeoutMillis",
+        "writeTimeoutMillis",
+        "(Lokhttp3/internal/connection/RealCall;Ljava/util/List;ILokhttp3/internal/connection/Exchange;Lokhttp3/Request;III)V",
+        "getCall$okhttp",
+        "()Lokhttp3/internal/connection/RealCall;",
+        "calls",
+        "getConnectTimeoutMillis$okhttp",
+        "()I",
+        "getExchange$okhttp",
+        "()Lokhttp3/internal/connection/Exchange;",
+        "getReadTimeoutMillis$okhttp",
+        "getRequest$okhttp",
+        "()Lokhttp3/Request;",
+        "getWriteTimeoutMillis$okhttp",
+        "Lcom/applovin/shadow/okhttp3/Call;",
+        "connection",
+        "Lcom/applovin/shadow/okhttp3/Connection;",
+        "copy",
+        "copy$okhttp",
+        "proceed",
+        "Lcom/applovin/shadow/okhttp3/Response;",
+        "withConnectTimeout",
+        "timeout",
+        "unit",
+        "Ljava/util/concurrent/TimeUnit;",
+        "withReadTimeout",
+        "withWriteTimeout",
+        "okhttp"
+    }
+    k = 0x1
+    mv = {
+        0x1,
+        0x8,
+        0x0
+    }
+    xi = 0x30
+.end annotation
+
+
+# instance fields
+.field private final call:Lcom/applovin/shadow/okhttp3/internal/connection/RealCall;
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+.end field
+
+.field private calls:I
+
+.field private final connectTimeoutMillis:I
+
+.field private final exchange:Lcom/applovin/shadow/okhttp3/internal/connection/Exchange;
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
+.end field
+
+.field private final index:I
+
+.field private final interceptors:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List<",
+            "Lcom/applovin/shadow/okhttp3/Interceptor;",
+            ">;"
+        }
+    .end annotation
+
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+.end field
+
+.field private final readTimeoutMillis:I
+
+.field private final request:Lcom/applovin/shadow/okhttp3/Request;
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+.end field
+
+.field private final writeTimeoutMillis:I
+
+
+# direct methods
+.method public constructor <init>(Lcom/applovin/shadow/okhttp3/internal/connection/RealCall;Ljava/util/List;ILcom/applovin/shadow/okhttp3/internal/connection/Exchange;Lcom/applovin/shadow/okhttp3/Request;III)V
+    .locals 0
+    .param p1    # Lcom/applovin/shadow/okhttp3/internal/connection/RealCall;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+    .param p2    # Ljava/util/List;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+    .param p4    # Lcom/applovin/shadow/okhttp3/internal/connection/Exchange;
+        .annotation build Lorg/jetbrains/annotations/Nullable;
+        .end annotation
+    .end param
+    .param p5    # Lcom/applovin/shadow/okhttp3/Request;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/applovin/shadow/okhttp3/internal/connection/RealCall;",
+            "Ljava/util/List<",
+            "+",
+            "Lcom/applovin/shadow/okhttp3/Interceptor;",
+            ">;I",
+            "Lcom/applovin/shadow/okhttp3/internal/connection/Exchange;",
+            "Lcom/applovin/shadow/okhttp3/Request;",
+            "III)V"
+        }
+    .end annotation
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-virtual {p5}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->call:Lcom/applovin/shadow/okhttp3/internal/connection/RealCall;
+
+    iput-object p2, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->interceptors:Ljava/util/List;
+
+    iput p3, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->index:I
+
+    iput-object p4, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->exchange:Lcom/applovin/shadow/okhttp3/internal/connection/Exchange;
+
+    iput-object p5, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->request:Lcom/applovin/shadow/okhttp3/Request;
+
+    iput p6, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->connectTimeoutMillis:I
+
+    iput p7, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->readTimeoutMillis:I
+
+    iput p8, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->writeTimeoutMillis:I
+
+    return-void
+.end method
+
+.method public static synthetic copy$okhttp$default(Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;ILcom/applovin/shadow/okhttp3/internal/connection/Exchange;Lcom/applovin/shadow/okhttp3/Request;IIIILjava/lang/Object;)Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;
+    .locals 0
+
+    and-int/lit8 p8, p7, 0x1
+
+    if-eqz p8, :cond_0
+
+    iget p1, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->index:I
+
+    :cond_0
+    and-int/lit8 p8, p7, 0x2
+
+    if-eqz p8, :cond_1
+
+    iget-object p2, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->exchange:Lcom/applovin/shadow/okhttp3/internal/connection/Exchange;
+
+    :cond_1
+    and-int/lit8 p8, p7, 0x4
+
+    if-eqz p8, :cond_2
+
+    iget-object p3, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->request:Lcom/applovin/shadow/okhttp3/Request;
+
+    :cond_2
+    and-int/lit8 p8, p7, 0x8
+
+    if-eqz p8, :cond_3
+
+    iget p4, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->connectTimeoutMillis:I
+
+    :cond_3
+    and-int/lit8 p8, p7, 0x10
+
+    if-eqz p8, :cond_4
+
+    iget p5, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->readTimeoutMillis:I
+
+    :cond_4
+    and-int/lit8 p7, p7, 0x20
+
+    if-eqz p7, :cond_5
+
+    iget p6, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->writeTimeoutMillis:I
+
+    :cond_5
+    move p7, p5
+
+    move p8, p6
+
+    move-object p5, p3
+
+    move p6, p4
+
+    move p3, p1
+
+    move-object p4, p2
+
+    move-object p2, p0
+
+    invoke-virtual/range {p2 .. p8}, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->copy$okhttp(ILcom/applovin/shadow/okhttp3/internal/connection/Exchange;Lcom/applovin/shadow/okhttp3/Request;III)Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+
+# virtual methods
+.method public call()Lcom/applovin/shadow/okhttp3/Call;
+    .locals 0
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+
+    iget-object p0, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->call:Lcom/applovin/shadow/okhttp3/internal/connection/RealCall;
+
+    return-object p0
+.end method
+
+.method public connectTimeoutMillis()I
+    .locals 0
+
+    iget p0, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->connectTimeoutMillis:I
+
+    return p0
+.end method
+
+.method public connection()Lcom/applovin/shadow/okhttp3/Connection;
+    .locals 0
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
+
+    iget-object p0, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->exchange:Lcom/applovin/shadow/okhttp3/internal/connection/Exchange;
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0}, Lcom/applovin/shadow/okhttp3/internal/connection/Exchange;->getConnection$okhttp()Lcom/applovin/shadow/okhttp3/internal/connection/RealConnection;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    return-object p0
+.end method
+
+.method public final copy$okhttp(ILcom/applovin/shadow/okhttp3/internal/connection/Exchange;Lcom/applovin/shadow/okhttp3/Request;III)Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;
+    .locals 9
+    .param p2    # Lcom/applovin/shadow/okhttp3/internal/connection/Exchange;
+        .annotation build Lorg/jetbrains/annotations/Nullable;
+        .end annotation
+    .end param
+    .param p3    # Lcom/applovin/shadow/okhttp3/Request;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+
+    invoke-virtual {p3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    new-instance v0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;
+
+    iget-object v1, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->call:Lcom/applovin/shadow/okhttp3/internal/connection/RealCall;
+
+    iget-object v2, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->interceptors:Ljava/util/List;
+
+    move v3, p1
+
+    move-object v4, p2
+
+    move-object v5, p3
+
+    move v6, p4
+
+    move v7, p5
+
+    move v8, p6
+
+    invoke-direct/range {v0 .. v8}, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;-><init>(Lcom/applovin/shadow/okhttp3/internal/connection/RealCall;Ljava/util/List;ILcom/applovin/shadow/okhttp3/internal/connection/Exchange;Lcom/applovin/shadow/okhttp3/Request;III)V
+
+    return-object v0
+.end method
+
+.method public final getCall$okhttp()Lcom/applovin/shadow/okhttp3/internal/connection/RealCall;
+    .locals 0
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+
+    iget-object p0, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->call:Lcom/applovin/shadow/okhttp3/internal/connection/RealCall;
+
+    return-object p0
+.end method
+
+.method public final getConnectTimeoutMillis$okhttp()I
+    .locals 0
+
+    iget p0, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->connectTimeoutMillis:I
+
+    return p0
+.end method
+
+.method public final getExchange$okhttp()Lcom/applovin/shadow/okhttp3/internal/connection/Exchange;
+    .locals 0
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
+
+    iget-object p0, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->exchange:Lcom/applovin/shadow/okhttp3/internal/connection/Exchange;
+
+    return-object p0
+.end method
+
+.method public final getReadTimeoutMillis$okhttp()I
+    .locals 0
+
+    iget p0, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->readTimeoutMillis:I
+
+    return p0
+.end method
+
+.method public final getRequest$okhttp()Lcom/applovin/shadow/okhttp3/Request;
+    .locals 0
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+
+    iget-object p0, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->request:Lcom/applovin/shadow/okhttp3/Request;
+
+    return-object p0
+.end method
+
+.method public final getWriteTimeoutMillis$okhttp()I
+    .locals 0
+
+    iget p0, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->writeTimeoutMillis:I
+
+    return p0
+.end method
+
+.method public proceed(Lcom/applovin/shadow/okhttp3/Request;)Lcom/applovin/shadow/okhttp3/Response;
+    .locals 14
+    .param p1    # Lcom/applovin/shadow/okhttp3/Request;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    iget v0, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->index:I
+
+    iget-object v1, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->interceptors:Ljava/util/List;
+
+    invoke-interface {v1}, Ljava/util/List;->size()I
+
+    move-result v1
+
+    const/4 v2, 0x0
+
+    if-ge v0, v1, :cond_7
+
+    iget v0, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->calls:I
+
+    const/4 v1, 0x1
+
+    add-int/2addr v0, v1
+
+    iput v0, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->calls:I
+
+    iget-object v0, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->exchange:Lcom/applovin/shadow/okhttp3/internal/connection/Exchange;
+
+    const-string v3, " must call proceed() exactly once"
+
+    const-string v4, "network interceptor "
+
+    if-eqz v0, :cond_2
+
+    invoke-virtual {v0}, Lcom/applovin/shadow/okhttp3/internal/connection/Exchange;->getFinder$okhttp()Lcom/applovin/shadow/okhttp3/internal/connection/ExchangeFinder;
+
+    move-result-object v0
+
+    invoke-virtual {p1}, Lcom/applovin/shadow/okhttp3/Request;->url()Lcom/applovin/shadow/okhttp3/HttpUrl;
+
+    move-result-object v5
+
+    invoke-virtual {v0, v5}, Lcom/applovin/shadow/okhttp3/internal/connection/ExchangeFinder;->sameHostAndPort(Lcom/applovin/shadow/okhttp3/HttpUrl;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iget v0, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->calls:I
+
+    if-ne v0, v1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    iget-object p1, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->interceptors:Ljava/util/List;
+
+    iget p0, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->index:I
+
+    sub-int/2addr p0, v1
+
+    invoke-interface {p1, p0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object p0
+
+    invoke-static {p0, v3, v4}, Lza0;->d(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/String;)V
+
+    return-object v2
+
+    :cond_1
+    iget-object p1, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->interceptors:Ljava/util/List;
+
+    iget p0, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->index:I
+
+    sub-int/2addr p0, v1
+
+    invoke-interface {p1, p0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object p0
+
+    const-string p1, " must retain the same host and port"
+
+    invoke-static {p0, p1, v4}, Lza0;->d(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/String;)V
+
+    return-object v2
+
+    :cond_2
+    :goto_0
+    iget v0, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->index:I
+
+    add-int/lit8 v6, v0, 0x1
+
+    const/16 v12, 0x3a
+
+    const/4 v13, 0x0
+
+    const/4 v7, 0x0
+
+    const/4 v9, 0x0
+
+    const/4 v10, 0x0
+
+    const/4 v11, 0x0
+
+    move-object v5, p0
+
+    move-object v8, p1
+
+    invoke-static/range {v5 .. v13}, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->copy$okhttp$default(Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;ILcom/applovin/shadow/okhttp3/internal/connection/Exchange;Lcom/applovin/shadow/okhttp3/Request;IIIILjava/lang/Object;)Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;
+
+    move-result-object p0
+
+    iget-object p1, v5, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->interceptors:Ljava/util/List;
+
+    iget v0, v5, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->index:I
+
+    invoke-interface {p1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Lcom/applovin/shadow/okhttp3/Interceptor;
+
+    invoke-interface {p1, p0}, Lcom/applovin/shadow/okhttp3/Interceptor;->intercept(Lcom/applovin/shadow/okhttp3/Interceptor$Chain;)Lcom/applovin/shadow/okhttp3/Response;
+
+    move-result-object v0
+
+    const-string v6, "interceptor "
+
+    if-eqz v0, :cond_6
+
+    iget-object v7, v5, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->exchange:Lcom/applovin/shadow/okhttp3/internal/connection/Exchange;
+
+    if-eqz v7, :cond_4
+
+    iget v7, v5, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->index:I
+
+    add-int/2addr v7, v1
+
+    iget-object v5, v5, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->interceptors:Ljava/util/List;
+
+    invoke-interface {v5}, Ljava/util/List;->size()I
+
+    move-result v5
+
+    if-ge v7, v5, :cond_4
+
+    iget p0, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->calls:I
+
+    if-ne p0, v1, :cond_3
+
+    goto :goto_1
+
+    :cond_3
+    invoke-static {p1, v3, v4}, Lza0;->d(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/String;)V
+
+    return-object v2
+
+    :cond_4
+    :goto_1
+    invoke-virtual {v0}, Lcom/applovin/shadow/okhttp3/Response;->body()Lcom/applovin/shadow/okhttp3/ResponseBody;
+
+    move-result-object p0
+
+    if-eqz p0, :cond_5
+
+    return-object v0
+
+    :cond_5
+    const-string p0, " returned a response with no body"
+
+    invoke-static {p1, p0, v6}, Lza0;->d(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/String;)V
+
+    return-object v2
+
+    :cond_6
+    const-string p0, " returned null"
+
+    invoke-static {p1, p0, v6}, Lln2;->g(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/String;)V
+
+    return-object v2
+
+    :cond_7
+    const-string p0, "Check failed."
+
+    invoke-static {p0}, Lls4;->g(Ljava/lang/String;)V
+
+    return-object v2
+.end method
+
+.method public readTimeoutMillis()I
+    .locals 0
+
+    iget p0, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->readTimeoutMillis:I
+
+    return p0
+.end method
+
+.method public request()Lcom/applovin/shadow/okhttp3/Request;
+    .locals 0
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+
+    iget-object p0, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->request:Lcom/applovin/shadow/okhttp3/Request;
+
+    return-object p0
+.end method
+
+.method public withConnectTimeout(ILjava/util/concurrent/TimeUnit;)Lcom/applovin/shadow/okhttp3/Interceptor$Chain;
+    .locals 12
+    .param p2    # Ljava/util/concurrent/TimeUnit;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+
+    invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    iget-object v0, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->exchange:Lcom/applovin/shadow/okhttp3/internal/connection/Exchange;
+
+    if-nez v0, :cond_0
+
+    const-string v0, "connectTimeout"
+
+    int-to-long v1, p1
+
+    invoke-static {v0, v1, v2, p2}, Lcom/applovin/shadow/okhttp3/internal/Util;->checkDuration(Ljava/lang/String;JLjava/util/concurrent/TimeUnit;)I
+
+    move-result v7
+
+    const/16 v10, 0x37
+
+    const/4 v11, 0x0
+
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
+
+    const/4 v6, 0x0
+
+    const/4 v8, 0x0
+
+    const/4 v9, 0x0
+
+    move-object v3, p0
+
+    invoke-static/range {v3 .. v11}, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->copy$okhttp$default(Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;ILcom/applovin/shadow/okhttp3/internal/connection/Exchange;Lcom/applovin/shadow/okhttp3/Request;IIIILjava/lang/Object;)Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_0
+    const-string p0, "Timeouts can\'t be adjusted in a network interceptor"
+
+    invoke-static {p0}, Lls4;->g(Ljava/lang/String;)V
+
+    const/4 p0, 0x0
+
+    return-object p0
+.end method
+
+.method public withReadTimeout(ILjava/util/concurrent/TimeUnit;)Lcom/applovin/shadow/okhttp3/Interceptor$Chain;
+    .locals 12
+    .param p2    # Ljava/util/concurrent/TimeUnit;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+
+    invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    iget-object v0, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->exchange:Lcom/applovin/shadow/okhttp3/internal/connection/Exchange;
+
+    if-nez v0, :cond_0
+
+    const-string v0, "readTimeout"
+
+    int-to-long v1, p1
+
+    invoke-static {v0, v1, v2, p2}, Lcom/applovin/shadow/okhttp3/internal/Util;->checkDuration(Ljava/lang/String;JLjava/util/concurrent/TimeUnit;)I
+
+    move-result v8
+
+    const/16 v10, 0x2f
+
+    const/4 v11, 0x0
+
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
+
+    const/4 v6, 0x0
+
+    const/4 v7, 0x0
+
+    const/4 v9, 0x0
+
+    move-object v3, p0
+
+    invoke-static/range {v3 .. v11}, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->copy$okhttp$default(Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;ILcom/applovin/shadow/okhttp3/internal/connection/Exchange;Lcom/applovin/shadow/okhttp3/Request;IIIILjava/lang/Object;)Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_0
+    const-string p0, "Timeouts can\'t be adjusted in a network interceptor"
+
+    invoke-static {p0}, Lls4;->g(Ljava/lang/String;)V
+
+    const/4 p0, 0x0
+
+    return-object p0
+.end method
+
+.method public withWriteTimeout(ILjava/util/concurrent/TimeUnit;)Lcom/applovin/shadow/okhttp3/Interceptor$Chain;
+    .locals 12
+    .param p2    # Ljava/util/concurrent/TimeUnit;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+
+    invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    iget-object v0, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->exchange:Lcom/applovin/shadow/okhttp3/internal/connection/Exchange;
+
+    if-nez v0, :cond_0
+
+    const-string v0, "writeTimeout"
+
+    int-to-long v1, p1
+
+    invoke-static {v0, v1, v2, p2}, Lcom/applovin/shadow/okhttp3/internal/Util;->checkDuration(Ljava/lang/String;JLjava/util/concurrent/TimeUnit;)I
+
+    move-result v9
+
+    const/16 v10, 0x1f
+
+    const/4 v11, 0x0
+
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
+
+    const/4 v6, 0x0
+
+    const/4 v7, 0x0
+
+    const/4 v8, 0x0
+
+    move-object v3, p0
+
+    invoke-static/range {v3 .. v11}, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->copy$okhttp$default(Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;ILcom/applovin/shadow/okhttp3/internal/connection/Exchange;Lcom/applovin/shadow/okhttp3/Request;IIIILjava/lang/Object;)Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_0
+    const-string p0, "Timeouts can\'t be adjusted in a network interceptor"
+
+    invoke-static {p0}, Lls4;->g(Ljava/lang/String;)V
+
+    const/4 p0, 0x0
+
+    return-object p0
+.end method
+
+.method public writeTimeoutMillis()I
+    .locals 0
+
+    iget p0, p0, Lcom/applovin/shadow/okhttp3/internal/http/RealInterceptorChain;->writeTimeoutMillis:I
+
+    return p0
+.end method

@@ -1,0 +1,195 @@
+.class public Lcom/mbridge/msdk/nativex/view/MBNativeRollView;
+.super Landroid/widget/LinearLayout;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/mbridge/msdk/nativex/view/MBNativeRollView$a;
+    }
+.end annotation
+
+
+# instance fields
+.field private a:Lcom/mbridge/msdk/nativex/view/RollingBCView;
+
+.field private b:Landroid/content/Context;
+
+.field private c:Lcom/mbridge/msdk/out/NativeListener$FilpListener;
+
+
+# direct methods
+.method public constructor <init>(Landroid/content/Context;)V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    .line 44
+    invoke-direct {p0, p1, v0}, Lcom/mbridge/msdk/nativex/view/MBNativeRollView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+    .locals 4
+
+    invoke-direct {p0, p1, p2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+
+    iput-object p1, p0, Lcom/mbridge/msdk/nativex/view/MBNativeRollView;->b:Landroid/content/Context;
+
+    new-instance p2, Lcom/mbridge/msdk/nativex/view/RollingBCView;
+
+    invoke-direct {p2, p1}, Lcom/mbridge/msdk/nativex/view/RollingBCView;-><init>(Landroid/content/Context;)V
+
+    iput-object p2, p0, Lcom/mbridge/msdk/nativex/view/MBNativeRollView;->a:Lcom/mbridge/msdk/nativex/view/RollingBCView;
+
+    invoke-virtual {p0, p2}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
+
+    invoke-static {p1}, Lcom/mbridge/msdk/foundation/tools/v0;->j(Landroid/content/Context;)F
+
+    move-result p1
+
+    new-instance p2, Landroid/widget/LinearLayout$LayoutParams;
+
+    float-to-double v0, p1
+
+    const-wide v2, 0x3feccccccccccccdL    # 0.9
+
+    mul-double/2addr v0, v2
+
+    double-to-int p1, v0
+
+    const/4 v0, -0x2
+
+    invoke-direct {p2, p1, v0}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+
+    iget-object p1, p0, Lcom/mbridge/msdk/nativex/view/MBNativeRollView;->a:Lcom/mbridge/msdk/nativex/view/RollingBCView;
+
+    invoke-virtual {p1, p2}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    const/4 p1, 0x0
+
+    invoke-virtual {p0, p1}, Landroid/view/ViewGroup;->setClipChildren(Z)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
+    .locals 0
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "NewApi"
+        }
+    .end annotation
+
+    .line 43
+    invoke-direct {p0, p1, p2, p3}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public dispatchTouchEvent(Landroid/view/MotionEvent;)Z
+    .locals 1
+    .param p1, "me"    # Landroid/view/MotionEvent;
+
+    const-string v0, "com.mintegral.msdk"
+
+    invoke-static {v0, p0, p1}, Lcom/safedk/android/analytics/brandsafety/DetectTouchUtils;->viewOnTouch(Ljava/lang/String;Landroid/view/View;Landroid/view/MotionEvent;)V
+
+    invoke-super {p0, p1}, Landroid/widget/LinearLayout;->dispatchTouchEvent(Landroid/view/MotionEvent;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method protected onMeasure(II)V
+    .locals 1
+    .param p1, "widthMeasureSpec"    # I
+    .param p2, "heightMeasureSpec"    # I
+
+    const-string v0, "com.mintegral.msdk"
+
+    const/4 v0, 0x1
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0, v0}, Lcom/mbridge/msdk/nativex/view/MBNativeRollView;->setMeasuredDimension(II)V
+
+    return-void
+
+    :cond_0
+    invoke-super {p0, p1, p2}, Landroid/widget/LinearLayout;->onMeasure(II)V
+
+    return-void
+.end method
+
+.method public onTouchEvent(Landroid/view/MotionEvent;)Z
+    .locals 0
+
+    iget-object p0, p0, Lcom/mbridge/msdk/nativex/view/MBNativeRollView;->a:Lcom/mbridge/msdk/nativex/view/RollingBCView;
+
+    invoke-virtual {p0, p1}, Landroid/view/View;->dispatchTouchEvent(Landroid/view/MotionEvent;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public setData(Ljava/util/List;Landroid/content/Context;Ljava/lang/String;Lcom/mbridge/msdk/nativex/view/MBNativeRollView$a;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List<",
+            "Lcom/mbridge/msdk/out/Frame;",
+            ">;",
+            "Landroid/content/Context;",
+            "Ljava/lang/String;",
+            "Lcom/mbridge/msdk/nativex/view/MBNativeRollView$a;",
+            ")V"
+        }
+    .end annotation
+
+    iget-object p0, p0, Lcom/mbridge/msdk/nativex/view/MBNativeRollView;->a:Lcom/mbridge/msdk/nativex/view/RollingBCView;
+
+    invoke-virtual {p0, p1, p2, p3, p4}, Lcom/mbridge/msdk/nativex/view/RollingBCView;->setData(Ljava/util/List;Landroid/content/Context;Ljava/lang/String;Lcom/mbridge/msdk/nativex/view/MBNativeRollView$a;)V
+
+    return-void
+.end method
+
+.method public setFilpListening(Lcom/mbridge/msdk/out/NativeListener$FilpListener;)V
+    .locals 0
+
+    if-eqz p1, :cond_0
+
+    iput-object p1, p0, Lcom/mbridge/msdk/nativex/view/MBNativeRollView;->c:Lcom/mbridge/msdk/out/NativeListener$FilpListener;
+
+    iget-object p0, p0, Lcom/mbridge/msdk/nativex/view/MBNativeRollView;->a:Lcom/mbridge/msdk/nativex/view/RollingBCView;
+
+    invoke-virtual {p0, p1}, Lcom/mbridge/msdk/nativex/view/RollingBCView;->setFilpListening(Lcom/mbridge/msdk/out/NativeListener$FilpListener;)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public setFrameWidth(I)V
+    .locals 2
+
+    new-instance v0, Landroid/widget/LinearLayout$LayoutParams;
+
+    const/4 v1, -0x2
+
+    invoke-direct {v0, p1, v1}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+
+    iget-object p0, p0, Lcom/mbridge/msdk/nativex/view/MBNativeRollView;->a:Lcom/mbridge/msdk/nativex/view/RollingBCView;
+
+    invoke-virtual {p0, v0}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    return-void
+.end method

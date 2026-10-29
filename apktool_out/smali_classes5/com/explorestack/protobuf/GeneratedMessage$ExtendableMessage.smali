@@ -1,0 +1,903 @@
+.class public abstract Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;
+.super Lcom/explorestack/protobuf/GeneratedMessage;
+.source "SourceFile"
+
+# interfaces
+.implements Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessageOrBuilder;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/explorestack/protobuf/GeneratedMessage;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x409
+    name = "ExtendableMessage"
+.end annotation
+
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage$ExtensionWriter;
+    }
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<MessageType:",
+        "Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;",
+        ">",
+        "Lcom/explorestack/protobuf/GeneratedMessage;",
+        "Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessageOrBuilder<",
+        "TMessageType;>;"
+    }
+.end annotation
+
+
+# static fields
+.field private static final serialVersionUID:J = 0x1L
+
+
+# instance fields
+.field private final extensions:Lcom/explorestack/protobuf/FieldSet;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/explorestack/protobuf/FieldSet<",
+            "Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 1
+
+    invoke-direct {p0}, Lcom/explorestack/protobuf/GeneratedMessage;-><init>()V
+
+    invoke-static {}, Lcom/explorestack/protobuf/FieldSet;->newFieldSet()Lcom/explorestack/protobuf/FieldSet;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;->extensions:Lcom/explorestack/protobuf/FieldSet;
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/explorestack/protobuf/GeneratedMessage$ExtendableBuilder;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/explorestack/protobuf/GeneratedMessage$ExtendableBuilder<",
+            "TMessageType;*>;)V"
+        }
+    .end annotation
+
+    .line 10
+    invoke-direct {p0, p1}, Lcom/explorestack/protobuf/GeneratedMessage;-><init>(Lcom/explorestack/protobuf/GeneratedMessage$Builder;)V
+
+    .line 11
+    invoke-static {p1}, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableBuilder;->access$400(Lcom/explorestack/protobuf/GeneratedMessage$ExtendableBuilder;)Lcom/explorestack/protobuf/FieldSet;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;->extensions:Lcom/explorestack/protobuf/FieldSet;
+
+    return-void
+.end method
+
+.method public static synthetic access$600(Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;)Lcom/explorestack/protobuf/FieldSet;
+    .locals 0
+
+    iget-object p0, p0, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;->extensions:Lcom/explorestack/protobuf/FieldSet;
+
+    return-object p0
+.end method
+
+.method private verifyContainingType(Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;)V
+    .locals 0
+
+    invoke-virtual {p1}, Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;->getContainingType()Lcom/explorestack/protobuf/Descriptors$Descriptor;
+
+    move-result-object p1
+
+    invoke-virtual {p0}, Lcom/explorestack/protobuf/GeneratedMessage;->getDescriptorForType()Lcom/explorestack/protobuf/Descriptors$Descriptor;
+
+    move-result-object p0
+
+    if-ne p1, p0, :cond_0
+
+    return-void
+
+    :cond_0
+    const-string p0, "FieldDescriptor does not match message type."
+
+    invoke-static {p0}, Le65;->o(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method private verifyExtensionContainingType(Lcom/explorestack/protobuf/Extension;)V
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/explorestack/protobuf/Extension<",
+            "TMessageType;*>;)V"
+        }
+    .end annotation
+
+    invoke-virtual {p1}, Lcom/explorestack/protobuf/Extension;->getDescriptor()Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;->getContainingType()Lcom/explorestack/protobuf/Descriptors$Descriptor;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Lcom/explorestack/protobuf/GeneratedMessage;->getDescriptorForType()Lcom/explorestack/protobuf/Descriptors$Descriptor;
+
+    move-result-object v1
+
+    if-ne v0, v1, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-virtual {p1}, Lcom/explorestack/protobuf/Extension;->getDescriptor()Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;->getContainingType()Lcom/explorestack/protobuf/Descriptors$Descriptor;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Lcom/explorestack/protobuf/Descriptors$Descriptor;->getFullName()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p0}, Lcom/explorestack/protobuf/GeneratedMessage;->getDescriptorForType()Lcom/explorestack/protobuf/Descriptors$Descriptor;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Lcom/explorestack/protobuf/Descriptors$Descriptor;->getFullName()Ljava/lang/String;
+
+    move-result-object p0
+
+    const-string v0, "\"."
+
+    const-string v1, "Extension is for type \""
+
+    const-string v2, "\" which does not match message type \""
+
+    invoke-static {v1, p1, v2, p0, v0}, Lza0;->f(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public extensionsAreInitialized()Z
+    .locals 0
+
+    iget-object p0, p0, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;->extensions:Lcom/explorestack/protobuf/FieldSet;
+
+    invoke-virtual {p0}, Lcom/explorestack/protobuf/FieldSet;->isInitialized()Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public extensionsSerializedSize()I
+    .locals 0
+
+    iget-object p0, p0, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;->extensions:Lcom/explorestack/protobuf/FieldSet;
+
+    invoke-virtual {p0}, Lcom/explorestack/protobuf/FieldSet;->getSerializedSize()I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public extensionsSerializedSizeAsMessageSet()I
+    .locals 0
+
+    iget-object p0, p0, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;->extensions:Lcom/explorestack/protobuf/FieldSet;
+
+    invoke-virtual {p0}, Lcom/explorestack/protobuf/FieldSet;->getMessageSetSerializedSize()I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public getAllFields()Ljava/util/Map;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Map<",
+            "Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;",
+            "Ljava/lang/Object;",
+            ">;"
+        }
+    .end annotation
+
+    const/4 v0, 0x0
+
+    invoke-static {p0, v0}, Lcom/explorestack/protobuf/GeneratedMessage;->access$800(Lcom/explorestack/protobuf/GeneratedMessage;Z)Ljava/util/Map;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;->getExtensionFields()Ljava/util/Map;
+
+    move-result-object p0
+
+    invoke-interface {v0, p0}, Ljava/util/Map;->putAll(Ljava/util/Map;)V
+
+    invoke-static {v0}, Ljava/util/Collections;->unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public getAllFieldsRaw()Ljava/util/Map;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Map<",
+            "Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;",
+            "Ljava/lang/Object;",
+            ">;"
+        }
+    .end annotation
+
+    const/4 v0, 0x0
+
+    invoke-static {p0, v0}, Lcom/explorestack/protobuf/GeneratedMessage;->access$800(Lcom/explorestack/protobuf/GeneratedMessage;Z)Ljava/util/Map;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;->getExtensionFields()Ljava/util/Map;
+
+    move-result-object p0
+
+    invoke-interface {v0, p0}, Ljava/util/Map;->putAll(Ljava/util/Map;)V
+
+    invoke-static {v0}, Ljava/util/Collections;->unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public final getExtension(Lcom/explorestack/protobuf/Extension;)Ljava/lang/Object;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<Type:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Lcom/explorestack/protobuf/Extension<",
+            "TMessageType;TType;>;)TType;"
+        }
+    .end annotation
+
+    .line 61
+    invoke-virtual {p0, p1}, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;->getExtension(Lcom/explorestack/protobuf/ExtensionLite;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public final getExtension(Lcom/explorestack/protobuf/Extension;I)Ljava/lang/Object;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<Type:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Lcom/explorestack/protobuf/Extension<",
+            "TMessageType;",
+            "Ljava/util/List<",
+            "TType;>;>;I)TType;"
+        }
+    .end annotation
+
+    .line 63
+    invoke-virtual {p0, p1, p2}, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;->getExtension(Lcom/explorestack/protobuf/ExtensionLite;I)Ljava/lang/Object;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public final getExtension(Lcom/explorestack/protobuf/ExtensionLite;)Ljava/lang/Object;
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<Type:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Lcom/explorestack/protobuf/ExtensionLite<",
+            "TMessageType;TType;>;)TType;"
+        }
+    .end annotation
+
+    invoke-static {p1}, Lcom/explorestack/protobuf/GeneratedMessage;->access$500(Lcom/explorestack/protobuf/ExtensionLite;)Lcom/explorestack/protobuf/Extension;
+
+    move-result-object p1
+
+    invoke-direct {p0, p1}, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;->verifyExtensionContainingType(Lcom/explorestack/protobuf/Extension;)V
+
+    invoke-virtual {p1}, Lcom/explorestack/protobuf/Extension;->getDescriptor()Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;
+
+    move-result-object v0
+
+    iget-object p0, p0, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;->extensions:Lcom/explorestack/protobuf/FieldSet;
+
+    invoke-virtual {p0, v0}, Lcom/explorestack/protobuf/FieldSet;->getField(Lcom/explorestack/protobuf/FieldSet$FieldDescriptorLite;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    if-nez p0, :cond_2
+
+    invoke-virtual {v0}, Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;->isRepeated()Z
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    sget-object p0, Ljava/util/Collections;->EMPTY_LIST:Ljava/util/List;
+
+    return-object p0
+
+    :cond_0
+    invoke-virtual {v0}, Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;->getJavaType()Lcom/explorestack/protobuf/Descriptors$FieldDescriptor$JavaType;
+
+    move-result-object p0
+
+    sget-object v1, Lcom/explorestack/protobuf/Descriptors$FieldDescriptor$JavaType;->MESSAGE:Lcom/explorestack/protobuf/Descriptors$FieldDescriptor$JavaType;
+
+    if-ne p0, v1, :cond_1
+
+    invoke-virtual {p1}, Lcom/explorestack/protobuf/Extension;->getMessageDefaultInstance()Lcom/explorestack/protobuf/Message;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_1
+    invoke-virtual {v0}, Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;->getDefaultValue()Ljava/lang/Object;
+
+    move-result-object p0
+
+    invoke-virtual {p1, p0}, Lcom/explorestack/protobuf/Extension;->fromReflectionType(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_2
+    invoke-virtual {p1, p0}, Lcom/explorestack/protobuf/Extension;->fromReflectionType(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public final getExtension(Lcom/explorestack/protobuf/ExtensionLite;I)Ljava/lang/Object;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<Type:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Lcom/explorestack/protobuf/ExtensionLite<",
+            "TMessageType;",
+            "Ljava/util/List<",
+            "TType;>;>;I)TType;"
+        }
+    .end annotation
+
+    .line 55
+    invoke-static {p1}, Lcom/explorestack/protobuf/GeneratedMessage;->access$500(Lcom/explorestack/protobuf/ExtensionLite;)Lcom/explorestack/protobuf/Extension;
+
+    move-result-object p1
+
+    .line 56
+    invoke-direct {p0, p1}, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;->verifyExtensionContainingType(Lcom/explorestack/protobuf/Extension;)V
+
+    .line 57
+    invoke-virtual {p1}, Lcom/explorestack/protobuf/Extension;->getDescriptor()Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;
+
+    move-result-object v0
+
+    .line 58
+    iget-object p0, p0, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;->extensions:Lcom/explorestack/protobuf/FieldSet;
+
+    .line 59
+    invoke-virtual {p0, v0, p2}, Lcom/explorestack/protobuf/FieldSet;->getRepeatedField(Lcom/explorestack/protobuf/FieldSet$FieldDescriptorLite;I)Ljava/lang/Object;
+
+    move-result-object p0
+
+    .line 60
+    invoke-virtual {p1, p0}, Lcom/explorestack/protobuf/Extension;->singularFromReflectionType(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public final getExtension(Lcom/explorestack/protobuf/GeneratedMessage$GeneratedExtension;)Ljava/lang/Object;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<Type:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Lcom/explorestack/protobuf/GeneratedMessage$GeneratedExtension<",
+            "TMessageType;TType;>;)TType;"
+        }
+    .end annotation
+
+    .line 62
+    invoke-virtual {p0, p1}, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;->getExtension(Lcom/explorestack/protobuf/ExtensionLite;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public final getExtension(Lcom/explorestack/protobuf/GeneratedMessage$GeneratedExtension;I)Ljava/lang/Object;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<Type:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Lcom/explorestack/protobuf/GeneratedMessage$GeneratedExtension<",
+            "TMessageType;",
+            "Ljava/util/List<",
+            "TType;>;>;I)TType;"
+        }
+    .end annotation
+
+    .line 64
+    invoke-virtual {p0, p1, p2}, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;->getExtension(Lcom/explorestack/protobuf/ExtensionLite;I)Ljava/lang/Object;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public final getExtensionCount(Lcom/explorestack/protobuf/Extension;)I
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<Type:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Lcom/explorestack/protobuf/Extension<",
+            "TMessageType;",
+            "Ljava/util/List<",
+            "TType;>;>;)I"
+        }
+    .end annotation
+
+    .line 18
+    invoke-virtual {p0, p1}, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;->getExtensionCount(Lcom/explorestack/protobuf/ExtensionLite;)I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public final getExtensionCount(Lcom/explorestack/protobuf/ExtensionLite;)I
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<Type:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Lcom/explorestack/protobuf/ExtensionLite<",
+            "TMessageType;",
+            "Ljava/util/List<",
+            "TType;>;>;)I"
+        }
+    .end annotation
+
+    invoke-static {p1}, Lcom/explorestack/protobuf/GeneratedMessage;->access$500(Lcom/explorestack/protobuf/ExtensionLite;)Lcom/explorestack/protobuf/Extension;
+
+    move-result-object p1
+
+    invoke-direct {p0, p1}, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;->verifyExtensionContainingType(Lcom/explorestack/protobuf/Extension;)V
+
+    invoke-virtual {p1}, Lcom/explorestack/protobuf/Extension;->getDescriptor()Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;
+
+    move-result-object p1
+
+    iget-object p0, p0, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;->extensions:Lcom/explorestack/protobuf/FieldSet;
+
+    invoke-virtual {p0, p1}, Lcom/explorestack/protobuf/FieldSet;->getRepeatedFieldCount(Lcom/explorestack/protobuf/FieldSet$FieldDescriptorLite;)I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public final getExtensionCount(Lcom/explorestack/protobuf/GeneratedMessage$GeneratedExtension;)I
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<Type:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Lcom/explorestack/protobuf/GeneratedMessage$GeneratedExtension<",
+            "TMessageType;",
+            "Ljava/util/List<",
+            "TType;>;>;)I"
+        }
+    .end annotation
+
+    .line 19
+    invoke-virtual {p0, p1}, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;->getExtensionCount(Lcom/explorestack/protobuf/ExtensionLite;)I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public getExtensionFields()Ljava/util/Map;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Map<",
+            "Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;",
+            "Ljava/lang/Object;",
+            ">;"
+        }
+    .end annotation
+
+    iget-object p0, p0, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;->extensions:Lcom/explorestack/protobuf/FieldSet;
+
+    invoke-virtual {p0}, Lcom/explorestack/protobuf/FieldSet;->getAllFields()Ljava/util/Map;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public getField(Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;)Ljava/lang/Object;
+    .locals 1
+
+    invoke-virtual {p1}, Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;->isExtension()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    invoke-direct {p0, p1}, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;->verifyContainingType(Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;)V
+
+    iget-object p0, p0, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;->extensions:Lcom/explorestack/protobuf/FieldSet;
+
+    invoke-virtual {p0, p1}, Lcom/explorestack/protobuf/FieldSet;->getField(Lcom/explorestack/protobuf/FieldSet$FieldDescriptorLite;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    if-nez p0, :cond_2
+
+    invoke-virtual {p1}, Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;->isRepeated()Z
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    sget-object p0, Ljava/util/Collections;->EMPTY_LIST:Ljava/util/List;
+
+    return-object p0
+
+    :cond_0
+    invoke-virtual {p1}, Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;->getJavaType()Lcom/explorestack/protobuf/Descriptors$FieldDescriptor$JavaType;
+
+    move-result-object p0
+
+    sget-object v0, Lcom/explorestack/protobuf/Descriptors$FieldDescriptor$JavaType;->MESSAGE:Lcom/explorestack/protobuf/Descriptors$FieldDescriptor$JavaType;
+
+    if-ne p0, v0, :cond_1
+
+    invoke-virtual {p1}, Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;->getMessageType()Lcom/explorestack/protobuf/Descriptors$Descriptor;
+
+    move-result-object p0
+
+    invoke-static {p0}, Lcom/explorestack/protobuf/DynamicMessage;->getDefaultInstance(Lcom/explorestack/protobuf/Descriptors$Descriptor;)Lcom/explorestack/protobuf/DynamicMessage;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_1
+    invoke-virtual {p1}, Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;->getDefaultValue()Ljava/lang/Object;
+
+    move-result-object p0
+
+    :cond_2
+    return-object p0
+
+    :cond_3
+    invoke-super {p0, p1}, Lcom/explorestack/protobuf/GeneratedMessage;->getField(Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public getRepeatedField(Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;I)Ljava/lang/Object;
+    .locals 1
+
+    invoke-virtual {p1}, Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;->isExtension()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-direct {p0, p1}, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;->verifyContainingType(Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;)V
+
+    iget-object p0, p0, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;->extensions:Lcom/explorestack/protobuf/FieldSet;
+
+    invoke-virtual {p0, p1, p2}, Lcom/explorestack/protobuf/FieldSet;->getRepeatedField(Lcom/explorestack/protobuf/FieldSet$FieldDescriptorLite;I)Ljava/lang/Object;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_0
+    invoke-super {p0, p1, p2}, Lcom/explorestack/protobuf/GeneratedMessage;->getRepeatedField(Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;I)Ljava/lang/Object;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public getRepeatedFieldCount(Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;)I
+    .locals 1
+
+    invoke-virtual {p1}, Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;->isExtension()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-direct {p0, p1}, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;->verifyContainingType(Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;)V
+
+    iget-object p0, p0, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;->extensions:Lcom/explorestack/protobuf/FieldSet;
+
+    invoke-virtual {p0, p1}, Lcom/explorestack/protobuf/FieldSet;->getRepeatedFieldCount(Lcom/explorestack/protobuf/FieldSet$FieldDescriptorLite;)I
+
+    move-result p0
+
+    return p0
+
+    :cond_0
+    invoke-super {p0, p1}, Lcom/explorestack/protobuf/GeneratedMessage;->getRepeatedFieldCount(Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;)I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public final hasExtension(Lcom/explorestack/protobuf/Extension;)Z
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<Type:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Lcom/explorestack/protobuf/Extension<",
+            "TMessageType;TType;>;)Z"
+        }
+    .end annotation
+
+    .line 18
+    invoke-virtual {p0, p1}, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;->hasExtension(Lcom/explorestack/protobuf/ExtensionLite;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public final hasExtension(Lcom/explorestack/protobuf/ExtensionLite;)Z
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<Type:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Lcom/explorestack/protobuf/ExtensionLite<",
+            "TMessageType;TType;>;)Z"
+        }
+    .end annotation
+
+    invoke-static {p1}, Lcom/explorestack/protobuf/GeneratedMessage;->access$500(Lcom/explorestack/protobuf/ExtensionLite;)Lcom/explorestack/protobuf/Extension;
+
+    move-result-object p1
+
+    invoke-direct {p0, p1}, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;->verifyExtensionContainingType(Lcom/explorestack/protobuf/Extension;)V
+
+    iget-object p0, p0, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;->extensions:Lcom/explorestack/protobuf/FieldSet;
+
+    invoke-virtual {p1}, Lcom/explorestack/protobuf/Extension;->getDescriptor()Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Lcom/explorestack/protobuf/FieldSet;->hasField(Lcom/explorestack/protobuf/FieldSet$FieldDescriptorLite;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public final hasExtension(Lcom/explorestack/protobuf/GeneratedMessage$GeneratedExtension;)Z
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<Type:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Lcom/explorestack/protobuf/GeneratedMessage$GeneratedExtension<",
+            "TMessageType;TType;>;)Z"
+        }
+    .end annotation
+
+    .line 19
+    invoke-virtual {p0, p1}, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;->hasExtension(Lcom/explorestack/protobuf/ExtensionLite;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public hasField(Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;)Z
+    .locals 1
+
+    invoke-virtual {p1}, Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;->isExtension()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-direct {p0, p1}, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;->verifyContainingType(Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;)V
+
+    iget-object p0, p0, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;->extensions:Lcom/explorestack/protobuf/FieldSet;
+
+    invoke-virtual {p0, p1}, Lcom/explorestack/protobuf/FieldSet;->hasField(Lcom/explorestack/protobuf/FieldSet$FieldDescriptorLite;)Z
+
+    move-result p0
+
+    return p0
+
+    :cond_0
+    invoke-super {p0, p1}, Lcom/explorestack/protobuf/GeneratedMessage;->hasField(Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public isInitialized()Z
+    .locals 1
+
+    invoke-super {p0}, Lcom/explorestack/protobuf/GeneratedMessage;->isInitialized()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;->extensionsAreInitialized()Z
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    const/4 p0, 0x1
+
+    return p0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
+.method public makeExtensionsImmutable()V
+    .locals 0
+
+    iget-object p0, p0, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;->extensions:Lcom/explorestack/protobuf/FieldSet;
+
+    invoke-virtual {p0}, Lcom/explorestack/protobuf/FieldSet;->makeImmutable()V
+
+    return-void
+.end method
+
+.method public newExtensionWriter()Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage$ExtensionWriter;
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage<",
+            "TMessageType;>.ExtensionWriter;"
+        }
+    .end annotation
+
+    new-instance v0, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage$ExtensionWriter;
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x0
+
+    invoke-direct {v0, p0, v1, v2}, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage$ExtensionWriter;-><init>(Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;ZLcom/explorestack/protobuf/GeneratedMessage$1;)V
+
+    return-object v0
+.end method
+
+.method public newMessageSetExtensionWriter()Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage$ExtensionWriter;
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage<",
+            "TMessageType;>.ExtensionWriter;"
+        }
+    .end annotation
+
+    new-instance v0, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage$ExtensionWriter;
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    invoke-direct {v0, p0, v1, v2}, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage$ExtensionWriter;-><init>(Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;ZLcom/explorestack/protobuf/GeneratedMessage$1;)V
+
+    return-object v0
+.end method
+
+.method public parseUnknownField(Lcom/explorestack/protobuf/CodedInputStream;Lcom/explorestack/protobuf/UnknownFieldSet$Builder;Lcom/explorestack/protobuf/ExtensionRegistryLite;I)Z
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    invoke-virtual {p0}, Lcom/explorestack/protobuf/GeneratedMessage;->getDescriptorForType()Lcom/explorestack/protobuf/Descriptors$Descriptor;
+
+    move-result-object v3
+
+    new-instance v4, Lcom/explorestack/protobuf/MessageReflection$ExtensionAdapter;
+
+    iget-object p0, p0, Lcom/explorestack/protobuf/GeneratedMessage$ExtendableMessage;->extensions:Lcom/explorestack/protobuf/FieldSet;
+
+    invoke-direct {v4, p0}, Lcom/explorestack/protobuf/MessageReflection$ExtensionAdapter;-><init>(Lcom/explorestack/protobuf/FieldSet;)V
+
+    move-object v0, p1
+
+    move-object v1, p2
+
+    move-object v2, p3
+
+    move v5, p4
+
+    invoke-static/range {v0 .. v5}, Lcom/explorestack/protobuf/MessageReflection;->mergeFieldFrom(Lcom/explorestack/protobuf/CodedInputStream;Lcom/explorestack/protobuf/UnknownFieldSet$Builder;Lcom/explorestack/protobuf/ExtensionRegistryLite;Lcom/explorestack/protobuf/Descriptors$Descriptor;Lcom/explorestack/protobuf/MessageReflection$MergeTarget;I)Z
+
+    move-result p0
+
+    return p0
+.end method

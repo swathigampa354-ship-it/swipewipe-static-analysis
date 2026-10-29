@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:animateLayoutChanges="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="20.0dp" android:paddingEnd="20.0dp">
+        <TextView android:textSize="17.0sp" android:textStyle="bold" android:textColor="@color/uf_dark_on_background_color" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/uf_popup_view_experience_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:layout_marginBottom="10.0dp" android:maxWidth="300.0dp" android:text="@string/user_feedback__pop_up__title" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/uf_dark_on_background_color" android:layout_gravity="center_horizontal" android:id="@id/uf_popup_view_experience_subtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/user_feedback__pop_up__text" />
+        <LinearLayout android:layout_gravity="center_horizontal" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginBottom="10.0dp">
+            <com.mwm.sdk.userfeedback.internal.user_feedback_corner_view.UserFeedbackCornerView android:layout_gravity="center" android:id="@id/experience_layout_sad1" android:clipToPadding="false" android:layout_width="50.0dp" android:layout_height="50.0dp" android:layout_margin="10.0dp" android:foreground="@drawable/uf_custom_ripple_round" android:elevation="0.0dp" app:uf_cornerViewAll="@dimen/uf_card_corner_radius_round" app:uf_cornerViewType="type_surface">
+                <ImageView android:layout_gravity="center" android:layout_width="40.0dp" android:layout_height="40.0dp" android:src="@null" />
+            </com.mwm.sdk.userfeedback.internal.user_feedback_corner_view.UserFeedbackCornerView>
+            <com.mwm.sdk.userfeedback.internal.user_feedback_corner_view.UserFeedbackCornerView android:layout_gravity="center" android:id="@id/experience_layout_sad2" android:clipToPadding="false" android:layout_width="50.0dp" android:layout_height="50.0dp" android:layout_margin="10.0dp" android:foreground="@drawable/uf_custom_ripple_round" android:elevation="0.0dp" app:uf_cornerViewAll="@dimen/uf_card_corner_radius_round" app:uf_cornerViewType="type_surface">
+                <ImageView android:layout_gravity="center" android:layout_width="40.0dp" android:layout_height="40.0dp" android:src="@null" />
+            </com.mwm.sdk.userfeedback.internal.user_feedback_corner_view.UserFeedbackCornerView>
+            <com.mwm.sdk.userfeedback.internal.user_feedback_corner_view.UserFeedbackCornerView android:layout_gravity="center" android:id="@id/experience_layout_happy" android:clipToPadding="false" android:layout_width="50.0dp" android:layout_height="50.0dp" android:layout_margin="10.0dp" android:foreground="@drawable/uf_custom_ripple_round" android:elevation="0.0dp" app:uf_cornerViewAll="@dimen/uf_card_corner_radius_round" app:uf_cornerViewType="type_surface">
+                <ImageView android:layout_gravity="center" android:layout_width="40.0dp" android:layout_height="40.0dp" android:src="@null" />
+            </com.mwm.sdk.userfeedback.internal.user_feedback_corner_view.UserFeedbackCornerView>
+        </LinearLayout>
+    </LinearLayout>
+</merge>

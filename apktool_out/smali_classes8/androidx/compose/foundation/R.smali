@@ -1,0 +1,11 @@
+.class public final Landroidx/compose/foundation/R;
+.super Ljava/lang/Object;
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroidx/compose/foundation/R$id;,
+        Landroidx/compose/foundation/R$string;
+    }
+.end annotation

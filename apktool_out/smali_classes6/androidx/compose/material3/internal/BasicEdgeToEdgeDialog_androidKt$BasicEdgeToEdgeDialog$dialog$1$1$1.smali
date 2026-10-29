@@ -1,0 +1,95 @@
+.class final Landroidx/compose/material3/internal/BasicEdgeToEdgeDialog_androidKt$BasicEdgeToEdgeDialog$dialog$1$1$1;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Lkotlin/jvm/functions/Function2;
+
+
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Lkotlin/jvm/functions/Function2<",
+        "Landroidx/compose/runtime/Composer;",
+        "Ljava/lang/Integer;",
+        "Lkotlin/Unit;",
+        ">;"
+    }
+.end annotation
+
+.annotation runtime Lkotlin/Metadata;
+    k = 0x3
+    mv = {
+        0x2,
+        0x0,
+        0x0
+    }
+    xi = 0x30
+.end annotation
+
+
+# virtual methods
+.method public final invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 2
+
+    check-cast p1, Landroidx/compose/runtime/Composer;
+
+    check-cast p2, Ljava/lang/Number;
+
+    invoke-virtual {p2}, Ljava/lang/Number;->intValue()I
+
+    move-result p0
+
+    and-int/lit8 p2, p0, 0x3
+
+    const/4 v0, 0x2
+
+    const/4 v1, 0x1
+
+    if-eq p2, v0, :cond_0
+
+    move p2, v1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p2, 0x0
+
+    :goto_0
+    and-int/2addr p0, v1
+
+    invoke-interface {p1, p0, p2}, Landroidx/compose/runtime/Composer;->A(IZ)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_2
+
+    invoke-interface {p1}, Landroidx/compose/runtime/Composer;->G()Ljava/lang/Object;
+
+    move-result-object p0
+
+    sget-object p2, Landroidx/compose/runtime/Composer$Companion;->a:Landroidx/compose/runtime/Composer$Companion$Empty$1;
+
+    if-ne p0, p2, :cond_1
+
+    new-instance p0, Landroidx/compose/material3/internal/PredictiveBackStateImpl;
+
+    invoke-direct {p0}, Landroidx/compose/material3/internal/PredictiveBackStateImpl;-><init>()V
+
+    invoke-interface {p1, p0}, Landroidx/compose/runtime/Composer;->B(Ljava/lang/Object;)V
+
+    :cond_1
+    check-cast p0, Landroidx/compose/material3/internal/PredictiveBackStateImpl;
+
+    const/4 p0, 0x0
+
+    throw p0
+
+    :cond_2
+    invoke-interface {p1}, Landroidx/compose/runtime/Composer;->k()V
+
+    sget-object p0, Lkotlin/Unit;->a:Lkotlin/Unit;
+
+    return-object p0
+.end method

@@ -1,0 +1,267 @@
+.class final Landroidx/compose/material3/ClockDialNode$pointerInputDragNode$1$2$1;
+.super Lc04;
+.source "SourceFile"
+
+# interfaces
+.implements Lkotlin/jvm/functions/Function2;
+
+
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Lc04;",
+        "Lkotlin/jvm/functions/Function2<",
+        "Lkotlinx/coroutines/CoroutineScope;",
+        "Lqb0<",
+        "-",
+        "Lkotlin/Unit;",
+        ">;",
+        "Ljava/lang/Object;",
+        ">;"
+    }
+.end annotation
+
+.annotation runtime Lkotlin/Metadata;
+    d1 = {
+        "\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\n"
+    }
+    d2 = {
+        "<anonymous>",
+        "",
+        "Lkotlinx/coroutines/CoroutineScope;"
+    }
+    k = 0x3
+    mv = {
+        0x2,
+        0x0,
+        0x0
+    }
+    xi = 0x30
+.end annotation
+
+.annotation runtime Lwh0;
+    c = "androidx.compose.material3.ClockDialNode$pointerInputDragNode$1$2$1"
+    f = "TimePicker.kt"
+    l = {
+        0x603
+    }
+    m = "invokeSuspend"
+.end annotation
+
+
+# instance fields
+.field final synthetic $dragAmount:Landroidx/compose/ui/geometry/Offset;
+
+.field label:I
+
+.field final synthetic this$0:Landroidx/compose/material3/ClockDialNode;
+
+
+# direct methods
+.method public constructor <init>(Landroidx/compose/material3/ClockDialNode;Landroidx/compose/ui/geometry/Offset;Lqb0;)V
+    .locals 0
+
+    iput-object p1, p0, Landroidx/compose/material3/ClockDialNode$pointerInputDragNode$1$2$1;->this$0:Landroidx/compose/material3/ClockDialNode;
+
+    iput-object p2, p0, Landroidx/compose/material3/ClockDialNode$pointerInputDragNode$1$2$1;->$dragAmount:Landroidx/compose/ui/geometry/Offset;
+
+    const/4 p1, 0x2
+
+    invoke-direct {p0, p1, p3}, Lc04;-><init>(ILqb0;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final create(Ljava/lang/Object;Lqb0;)Lqb0;
+    .locals 1
+
+    new-instance p1, Landroidx/compose/material3/ClockDialNode$pointerInputDragNode$1$2$1;
+
+    iget-object v0, p0, Landroidx/compose/material3/ClockDialNode$pointerInputDragNode$1$2$1;->this$0:Landroidx/compose/material3/ClockDialNode;
+
+    iget-object p0, p0, Landroidx/compose/material3/ClockDialNode$pointerInputDragNode$1$2$1;->$dragAmount:Landroidx/compose/ui/geometry/Offset;
+
+    invoke-direct {p1, v0, p0, p2}, Landroidx/compose/material3/ClockDialNode$pointerInputDragNode$1$2$1;-><init>(Landroidx/compose/material3/ClockDialNode;Landroidx/compose/ui/geometry/Offset;Lqb0;)V
+
+    return-object p1
+.end method
+
+.method public final invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 0
+
+    check-cast p1, Lkotlinx/coroutines/CoroutineScope;
+
+    check-cast p2, Lqb0;
+
+    invoke-virtual {p0, p1, p2}, Landroidx/compose/material3/ClockDialNode$pointerInputDragNode$1$2$1;->create(Ljava/lang/Object;Lqb0;)Lqb0;
+
+    move-result-object p0
+
+    check-cast p0, Landroidx/compose/material3/ClockDialNode$pointerInputDragNode$1$2$1;
+
+    sget-object p1, Lkotlin/Unit;->a:Lkotlin/Unit;
+
+    invoke-virtual {p0, p1}, Landroidx/compose/material3/ClockDialNode$pointerInputDragNode$1$2$1;->invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
+
+    const/4 p0, 0x0
+
+    throw p0
+.end method
+
+.method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 8
+
+    sget-object v0, Ljc0;->a:Ljc0;
+
+    iget v0, p0, Landroidx/compose/material3/ClockDialNode$pointerInputDragNode$1$2$1;->label:I
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x1
+
+    if-eqz v0, :cond_1
+
+    if-eq v0, v2, :cond_0
+
+    new-instance p0, Ljava/lang/IllegalStateException;
+
+    const-string p1, "call to \'resume\' before \'invoke\' with coroutine"
+
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    :cond_0
+    invoke-static {p1}, Lmh1;->y(Ljava/lang/Object;)V
+
+    iget-object p0, p0, Landroidx/compose/material3/ClockDialNode$pointerInputDragNode$1$2$1;->this$0:Landroidx/compose/material3/ClockDialNode;
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-static {p0}, Landroidx/compose/ui/node/DelegatableNodeKt;->g(Landroidx/compose/ui/node/DelegatableNode;)Landroidx/compose/ui/node/LayoutNode;
+
+    move-result-object p0
+
+    iget-object p0, p0, Landroidx/compose/ui/node/LayoutNode;->B:Landroidx/compose/ui/unit/Density;
+
+    sget p1, Landroidx/compose/material3/TimePickerKt;->b:F
+
+    invoke-interface {p0, p1}, Landroidx/compose/ui/unit/Density;->toPx-0680j_4(F)F
+
+    throw v1
+
+    :cond_1
+    invoke-static {p1}, Lmh1;->y(Ljava/lang/Object;)V
+
+    iget-object p1, p0, Landroidx/compose/material3/ClockDialNode$pointerInputDragNode$1$2$1;->this$0:Landroidx/compose/material3/ClockDialNode;
+
+    iget v0, p1, Landroidx/compose/material3/ClockDialNode;->q:F
+
+    iget-object v3, p0, Landroidx/compose/material3/ClockDialNode$pointerInputDragNode$1$2$1;->$dragAmount:Landroidx/compose/ui/geometry/Offset;
+
+    iget-wide v3, v3, Landroidx/compose/ui/geometry/Offset;->a:J
+
+    const/16 v5, 0x20
+
+    shr-long/2addr v3, v5
+
+    long-to-int v3, v3
+
+    invoke-static {v3}, Ljava/lang/Float;->intBitsToFloat(I)F
+
+    move-result v3
+
+    add-float/2addr v3, v0
+
+    iput v3, p1, Landroidx/compose/material3/ClockDialNode;->q:F
+
+    iget-object p1, p0, Landroidx/compose/material3/ClockDialNode$pointerInputDragNode$1$2$1;->this$0:Landroidx/compose/material3/ClockDialNode;
+
+    iget v0, p1, Landroidx/compose/material3/ClockDialNode;->r:F
+
+    iget-object v3, p0, Landroidx/compose/material3/ClockDialNode$pointerInputDragNode$1$2$1;->$dragAmount:Landroidx/compose/ui/geometry/Offset;
+
+    iget-wide v3, v3, Landroidx/compose/ui/geometry/Offset;->a:J
+
+    const-wide v6, 0xffffffffL
+
+    and-long/2addr v3, v6
+
+    long-to-int v3, v3
+
+    invoke-static {v3}, Ljava/lang/Float;->intBitsToFloat(I)F
+
+    move-result v3
+
+    add-float/2addr v3, v0
+
+    iput v3, p1, Landroidx/compose/material3/ClockDialNode;->r:F
+
+    iget-object p1, p0, Landroidx/compose/material3/ClockDialNode$pointerInputDragNode$1$2$1;->this$0:Landroidx/compose/material3/ClockDialNode;
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    iget v0, p1, Landroidx/compose/material3/ClockDialNode;->r:F
+
+    iget-object p1, p1, Landroidx/compose/material3/ClockDialNode;->s:Landroidx/compose/runtime/MutableState;
+
+    check-cast p1, Landroidx/compose/runtime/SnapshotMutableStateImpl;
+
+    invoke-virtual {p1}, Landroidx/compose/runtime/SnapshotMutableStateImpl;->getValue()Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Landroidx/compose/ui/unit/IntOffset;
+
+    iget-wide v3, p1, Landroidx/compose/ui/unit/IntOffset;->a:J
+
+    and-long/2addr v3, v6
+
+    long-to-int p1, v3
+
+    int-to-float p1, p1
+
+    sub-float/2addr v0, p1
+
+    iget-object p1, p0, Landroidx/compose/material3/ClockDialNode$pointerInputDragNode$1$2$1;->this$0:Landroidx/compose/material3/ClockDialNode;
+
+    iget v3, p1, Landroidx/compose/material3/ClockDialNode;->q:F
+
+    iget-object p1, p1, Landroidx/compose/material3/ClockDialNode;->s:Landroidx/compose/runtime/MutableState;
+
+    check-cast p1, Landroidx/compose/runtime/SnapshotMutableStateImpl;
+
+    invoke-virtual {p1}, Landroidx/compose/runtime/SnapshotMutableStateImpl;->getValue()Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Landroidx/compose/ui/unit/IntOffset;
+
+    iget-wide v6, p1, Landroidx/compose/ui/unit/IntOffset;->a:J
+
+    shr-long v4, v6, v5
+
+    long-to-int p1, v4
+
+    int-to-float p1, p1
+
+    sub-float/2addr v3, p1
+
+    sget p1, Landroidx/compose/material3/TimePickerKt;->a:F
+
+    float-to-double v4, v0
+
+    float-to-double v6, v3
+
+    invoke-static {v4, v5, v6, v7}, Ljava/lang/Math;->atan2(DD)D
+
+    iget-object p1, p0, Landroidx/compose/material3/ClockDialNode$pointerInputDragNode$1$2$1;->this$0:Landroidx/compose/material3/ClockDialNode;
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    iput v2, p0, Landroidx/compose/material3/ClockDialNode$pointerInputDragNode$1$2$1;->label:I
+
+    throw v1
+.end method

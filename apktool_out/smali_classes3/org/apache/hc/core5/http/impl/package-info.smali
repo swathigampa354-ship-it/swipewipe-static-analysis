@@ -1,0 +1,3 @@
+.class interface abstract synthetic Lorg/apache/hc/core5/http/impl/package-info;
+.super Ljava/lang/Object;
+.source "SourceFile"

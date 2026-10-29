@@ -1,0 +1,486 @@
+.class public final Lcom/applovin/shadow/okhttp3/internal/platform/Android10Platform;
+.super Lcom/applovin/shadow/okhttp3/internal/platform/Platform;
+.source "SourceFile"
+
+
+# annotations
+.annotation build Lcom/applovin/shadow/okhttp3/internal/SuppressSignatureCheck;
+.end annotation
+
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/applovin/shadow/okhttp3/internal/platform/Android10Platform$Companion;
+    }
+.end annotation
+
+.annotation runtime Lkotlin/Metadata;
+    d1 = {
+        "\u0000J\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\u0008\u0007\u0018\u0000 \u00172\u00020\u0001:\u0001\u0017B\u0005\u00a2\u0006\u0002\u0010\u0002J\u0010\u0010\u0006\u001a\u00020\u00072\u0006\u0010\u0008\u001a\u00020\tH\u0016J(\u0010\n\u001a\u00020\u000b2\u0006\u0010\u000c\u001a\u00020\r2\u0008\u0010\u000e\u001a\u0004\u0018\u00010\u000f2\u000c\u0010\u0010\u001a\u0008\u0012\u0004\u0012\u00020\u00110\u0004H\u0016J\u0012\u0010\u0012\u001a\u0004\u0018\u00010\u000f2\u0006\u0010\u000c\u001a\u00020\rH\u0016J\u0010\u0010\u0013\u001a\u00020\u00142\u0006\u0010\u000e\u001a\u00020\u000fH\u0017J\u0012\u0010\u0008\u001a\u0004\u0018\u00010\t2\u0006\u0010\u0015\u001a\u00020\u0016H\u0016R\u0014\u0010\u0003\u001a\u0008\u0012\u0004\u0012\u00020\u00050\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000\u00a8\u0006\u0018"
+    }
+    d2 = {
+        "Lcom/applovin/shadow/okhttp3/internal/platform/Android10Platform;",
+        "Lcom/applovin/shadow/okhttp3/internal/platform/Platform;",
+        "()V",
+        "socketAdapters",
+        "",
+        "Lcom/applovin/shadow/okhttp3/internal/platform/android/SocketAdapter;",
+        "buildCertificateChainCleaner",
+        "Lcom/applovin/shadow/okhttp3/internal/tls/CertificateChainCleaner;",
+        "trustManager",
+        "Ljavax/net/ssl/X509TrustManager;",
+        "configureTlsExtensions",
+        "",
+        "sslSocket",
+        "Ljavax/net/ssl/SSLSocket;",
+        "hostname",
+        "",
+        "protocols",
+        "Lcom/applovin/shadow/okhttp3/Protocol;",
+        "getSelectedProtocol",
+        "isCleartextTrafficPermitted",
+        "",
+        "sslSocketFactory",
+        "Ljavax/net/ssl/SSLSocketFactory;",
+        "Companion",
+        "okhttp"
+    }
+    k = 0x1
+    mv = {
+        0x1,
+        0x8,
+        0x0
+    }
+    xi = 0x30
+.end annotation
+
+
+# static fields
+.field public static final Companion:Lcom/applovin/shadow/okhttp3/internal/platform/Android10Platform$Companion;
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+.end field
+
+.field private static final isSupported:Z
+
+
+# instance fields
+.field private final socketAdapters:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List<",
+            "Lcom/applovin/shadow/okhttp3/internal/platform/android/SocketAdapter;",
+            ">;"
+        }
+    .end annotation
+
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+.end field
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 2
+
+    new-instance v0, Lcom/applovin/shadow/okhttp3/internal/platform/Android10Platform$Companion;
+
+    const/4 v1, 0x0
+
+    invoke-direct {v0, v1}, Lcom/applovin/shadow/okhttp3/internal/platform/Android10Platform$Companion;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+
+    sput-object v0, Lcom/applovin/shadow/okhttp3/internal/platform/Android10Platform;->Companion:Lcom/applovin/shadow/okhttp3/internal/platform/Android10Platform$Companion;
+
+    sget-object v0, Lcom/applovin/shadow/okhttp3/internal/platform/Platform;->Companion:Lcom/applovin/shadow/okhttp3/internal/platform/Platform$Companion;
+
+    invoke-virtual {v0}, Lcom/applovin/shadow/okhttp3/internal/platform/Platform$Companion;->isAndroid()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v1, 0x1d
+
+    if-lt v0, v1, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    sput-boolean v0, Lcom/applovin/shadow/okhttp3/internal/platform/Android10Platform;->isSupported:Z
+
+    return-void
+.end method
+
+.method public constructor <init>()V
+    .locals 6
+
+    invoke-direct {p0}, Lcom/applovin/shadow/okhttp3/internal/platform/Platform;-><init>()V
+
+    sget-object v0, Lcom/applovin/shadow/okhttp3/internal/platform/android/Android10SocketAdapter;->Companion:Lcom/applovin/shadow/okhttp3/internal/platform/android/Android10SocketAdapter$Companion;
+
+    invoke-virtual {v0}, Lcom/applovin/shadow/okhttp3/internal/platform/android/Android10SocketAdapter$Companion;->buildIfSupported()Lcom/applovin/shadow/okhttp3/internal/platform/android/SocketAdapter;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/applovin/shadow/okhttp3/internal/platform/android/DeferredSocketAdapter;
+
+    sget-object v2, Lcom/applovin/shadow/okhttp3/internal/platform/android/AndroidSocketAdapter;->Companion:Lcom/applovin/shadow/okhttp3/internal/platform/android/AndroidSocketAdapter$Companion;
+
+    invoke-virtual {v2}, Lcom/applovin/shadow/okhttp3/internal/platform/android/AndroidSocketAdapter$Companion;->getPlayProviderFactory()Lcom/applovin/shadow/okhttp3/internal/platform/android/DeferredSocketAdapter$Factory;
+
+    move-result-object v2
+
+    invoke-direct {v1, v2}, Lcom/applovin/shadow/okhttp3/internal/platform/android/DeferredSocketAdapter;-><init>(Lcom/applovin/shadow/okhttp3/internal/platform/android/DeferredSocketAdapter$Factory;)V
+
+    new-instance v2, Lcom/applovin/shadow/okhttp3/internal/platform/android/DeferredSocketAdapter;
+
+    sget-object v3, Lcom/applovin/shadow/okhttp3/internal/platform/android/ConscryptSocketAdapter;->Companion:Lcom/applovin/shadow/okhttp3/internal/platform/android/ConscryptSocketAdapter$Companion;
+
+    invoke-virtual {v3}, Lcom/applovin/shadow/okhttp3/internal/platform/android/ConscryptSocketAdapter$Companion;->getFactory()Lcom/applovin/shadow/okhttp3/internal/platform/android/DeferredSocketAdapter$Factory;
+
+    move-result-object v3
+
+    invoke-direct {v2, v3}, Lcom/applovin/shadow/okhttp3/internal/platform/android/DeferredSocketAdapter;-><init>(Lcom/applovin/shadow/okhttp3/internal/platform/android/DeferredSocketAdapter$Factory;)V
+
+    new-instance v3, Lcom/applovin/shadow/okhttp3/internal/platform/android/DeferredSocketAdapter;
+
+    sget-object v4, Lcom/applovin/shadow/okhttp3/internal/platform/android/BouncyCastleSocketAdapter;->Companion:Lcom/applovin/shadow/okhttp3/internal/platform/android/BouncyCastleSocketAdapter$Companion;
+
+    invoke-virtual {v4}, Lcom/applovin/shadow/okhttp3/internal/platform/android/BouncyCastleSocketAdapter$Companion;->getFactory()Lcom/applovin/shadow/okhttp3/internal/platform/android/DeferredSocketAdapter$Factory;
+
+    move-result-object v4
+
+    invoke-direct {v3, v4}, Lcom/applovin/shadow/okhttp3/internal/platform/android/DeferredSocketAdapter;-><init>(Lcom/applovin/shadow/okhttp3/internal/platform/android/DeferredSocketAdapter$Factory;)V
+
+    const/4 v4, 0x4
+
+    new-array v4, v4, [Lcom/applovin/shadow/okhttp3/internal/platform/android/SocketAdapter;
+
+    const/4 v5, 0x0
+
+    aput-object v0, v4, v5
+
+    const/4 v0, 0x1
+
+    aput-object v1, v4, v0
+
+    const/4 v0, 0x2
+
+    aput-object v2, v4, v0
+
+    const/4 v0, 0x3
+
+    aput-object v3, v4, v0
+
+    invoke-static {v4}, Lef;->v([Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object v0
+
+    new-instance v1, Ljava/util/ArrayList;
+
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+
+    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :cond_0
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    move-object v3, v2
+
+    check-cast v3, Lcom/applovin/shadow/okhttp3/internal/platform/android/SocketAdapter;
+
+    invoke-interface {v3}, Lcom/applovin/shadow/okhttp3/internal/platform/android/SocketAdapter;->isSupported()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto :goto_0
+
+    :cond_1
+    iput-object v1, p0, Lcom/applovin/shadow/okhttp3/internal/platform/Android10Platform;->socketAdapters:Ljava/util/List;
+
+    return-void
+.end method
+
+.method public static final synthetic access$isSupported$cp()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/applovin/shadow/okhttp3/internal/platform/Android10Platform;->isSupported:Z
+
+    return v0
+.end method
+
+
+# virtual methods
+.method public buildCertificateChainCleaner(Ljavax/net/ssl/X509TrustManager;)Lcom/applovin/shadow/okhttp3/internal/tls/CertificateChainCleaner;
+    .locals 1
+    .param p1    # Ljavax/net/ssl/X509TrustManager;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    sget-object v0, Lcom/applovin/shadow/okhttp3/internal/platform/android/AndroidCertificateChainCleaner;->Companion:Lcom/applovin/shadow/okhttp3/internal/platform/android/AndroidCertificateChainCleaner$Companion;
+
+    invoke-virtual {v0, p1}, Lcom/applovin/shadow/okhttp3/internal/platform/android/AndroidCertificateChainCleaner$Companion;->buildIfSupported(Ljavax/net/ssl/X509TrustManager;)Lcom/applovin/shadow/okhttp3/internal/platform/android/AndroidCertificateChainCleaner;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    return-object v0
+
+    :cond_0
+    invoke-super {p0, p1}, Lcom/applovin/shadow/okhttp3/internal/platform/Platform;->buildCertificateChainCleaner(Ljavax/net/ssl/X509TrustManager;)Lcom/applovin/shadow/okhttp3/internal/tls/CertificateChainCleaner;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public configureTlsExtensions(Ljavax/net/ssl/SSLSocket;Ljava/lang/String;Ljava/util/List;)V
+    .locals 2
+    .param p1    # Ljavax/net/ssl/SSLSocket;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+    .param p2    # Ljava/lang/String;
+        .annotation build Lorg/jetbrains/annotations/Nullable;
+        .end annotation
+    .end param
+    .param p3    # Ljava/util/List;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljavax/net/ssl/SSLSocket;",
+            "Ljava/lang/String;",
+            "Ljava/util/List<",
+            "+",
+            "Lcom/applovin/shadow/okhttp3/Protocol;",
+            ">;)V"
+        }
+    .end annotation
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-virtual {p3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    iget-object p0, p0, Lcom/applovin/shadow/okhttp3/internal/platform/Android10Platform;->socketAdapters:Ljava/util/List;
+
+    check-cast p0, Ljava/lang/Iterable;
+
+    invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
+    :cond_0
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v1, v0
+
+    check-cast v1, Lcom/applovin/shadow/okhttp3/internal/platform/android/SocketAdapter;
+
+    invoke-interface {v1, p1}, Lcom/applovin/shadow/okhttp3/internal/platform/android/SocketAdapter;->matchesSocket(Ljavax/net/ssl/SSLSocket;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    :goto_0
+    check-cast v0, Lcom/applovin/shadow/okhttp3/internal/platform/android/SocketAdapter;
+
+    if-eqz v0, :cond_2
+
+    invoke-interface {v0, p1, p2, p3}, Lcom/applovin/shadow/okhttp3/internal/platform/android/SocketAdapter;->configureTlsExtensions(Ljavax/net/ssl/SSLSocket;Ljava/lang/String;Ljava/util/List;)V
+
+    :cond_2
+    return-void
+.end method
+
+.method public getSelectedProtocol(Ljavax/net/ssl/SSLSocket;)Ljava/lang/String;
+    .locals 3
+    .param p1    # Ljavax/net/ssl/SSLSocket;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    iget-object p0, p0, Lcom/applovin/shadow/okhttp3/internal/platform/Android10Platform;->socketAdapters:Ljava/util/List;
+
+    check-cast p0, Ljava/lang/Iterable;
+
+    invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
+    :cond_0
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_1
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v2, v0
+
+    check-cast v2, Lcom/applovin/shadow/okhttp3/internal/platform/android/SocketAdapter;
+
+    invoke-interface {v2, p1}, Lcom/applovin/shadow/okhttp3/internal/platform/android/SocketAdapter;->matchesSocket(Ljavax/net/ssl/SSLSocket;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    goto :goto_0
+
+    :cond_1
+    move-object v0, v1
+
+    :goto_0
+    check-cast v0, Lcom/applovin/shadow/okhttp3/internal/platform/android/SocketAdapter;
+
+    if-eqz v0, :cond_2
+
+    invoke-interface {v0, p1}, Lcom/applovin/shadow/okhttp3/internal/platform/android/SocketAdapter;->getSelectedProtocol(Ljavax/net/ssl/SSLSocket;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_2
+    return-object v1
+.end method
+
+.method public isCleartextTrafficPermitted(Ljava/lang/String;)Z
+    .locals 0
+    .param p1    # Ljava/lang/String;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "NewApi"
+        }
+    .end annotation
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-static {}, Landroid/security/NetworkSecurityPolicy;->getInstance()Landroid/security/NetworkSecurityPolicy;
+
+    move-result-object p0
+
+    invoke-virtual {p0, p1}, Landroid/security/NetworkSecurityPolicy;->isCleartextTrafficPermitted(Ljava/lang/String;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public trustManager(Ljavax/net/ssl/SSLSocketFactory;)Ljavax/net/ssl/X509TrustManager;
+    .locals 3
+    .param p1    # Ljavax/net/ssl/SSLSocketFactory;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    iget-object p0, p0, Lcom/applovin/shadow/okhttp3/internal/platform/Android10Platform;->socketAdapters:Ljava/util/List;
+
+    check-cast p0, Ljava/lang/Iterable;
+
+    invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
+    :cond_0
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_1
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v2, v0
+
+    check-cast v2, Lcom/applovin/shadow/okhttp3/internal/platform/android/SocketAdapter;
+
+    invoke-interface {v2, p1}, Lcom/applovin/shadow/okhttp3/internal/platform/android/SocketAdapter;->matchesSocketFactory(Ljavax/net/ssl/SSLSocketFactory;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    goto :goto_0
+
+    :cond_1
+    move-object v0, v1
+
+    :goto_0
+    check-cast v0, Lcom/applovin/shadow/okhttp3/internal/platform/android/SocketAdapter;
+
+    if-eqz v0, :cond_2
+
+    invoke-interface {v0, p1}, Lcom/applovin/shadow/okhttp3/internal/platform/android/SocketAdapter;->trustManager(Ljavax/net/ssl/SSLSocketFactory;)Ljavax/net/ssl/X509TrustManager;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_2
+    return-object v1
+.end method

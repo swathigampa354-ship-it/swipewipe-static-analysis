@@ -1,0 +1,16 @@
+{
+  "client_id": "919ef2d2-3be2-4b5e-8188-9719153ab30a",
+  "authorization_user_agent": "DEFAULT",
+  "redirect_uri": "msauth://com.afternoonproducts.swipewipe/8ts26mGj6t7PmVVLmnatebPzCVE%3D",
+  "broker_redirect_uri_registered": false,
+  "account_mode": "SINGLE",
+  "authorities": [
+    {
+      "type": "AAD",
+      "audience": {
+        "type": "PersonalMicrosoftAccount",
+        "tenant_id": "consumers"
+      }
+    }
+  ]
+}

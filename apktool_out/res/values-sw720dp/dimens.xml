@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dynamic_screen_dimens_auto_scale_10dp">14.0dp</dimen>
+    <dimen name="dynamic_screen_dimens_auto_scale_11dp">15.0dp</dimen>
+    <dimen name="dynamic_screen_dimens_auto_scale_120dp">168.0dp</dimen>
+    <dimen name="dynamic_screen_dimens_auto_scale_12dp">17.0dp</dimen>
+    <dimen name="dynamic_screen_dimens_auto_scale_14dp">20.0dp</dimen>
+    <dimen name="dynamic_screen_dimens_auto_scale_15dp">21.0dp</dimen>
+    <dimen name="dynamic_screen_dimens_auto_scale_16dp">22.0dp</dimen>
+    <dimen name="dynamic_screen_dimens_auto_scale_18dp">25.0dp</dimen>
+    <dimen name="dynamic_screen_dimens_auto_scale_20dp">28.0dp</dimen>
+    <dimen name="dynamic_screen_dimens_auto_scale_240dp">336.0dp</dimen>
+    <dimen name="dynamic_screen_dimens_auto_scale_24dp">34.0dp</dimen>
+    <dimen name="dynamic_screen_dimens_auto_scale_26dp">36.0dp</dimen>
+    <dimen name="dynamic_screen_dimens_auto_scale_28dp">39.0dp</dimen>
+    <dimen name="dynamic_screen_dimens_auto_scale_32dp">45.0dp</dimen>
+    <dimen name="dynamic_screen_dimens_auto_scale_38dp">53.0dp</dimen>
+    <dimen name="dynamic_screen_dimens_auto_scale_48dp">67.0dp</dimen>
+    <dimen name="dynamic_screen_dimens_auto_scale_4dp">6.0dp</dimen>
+    <dimen name="dynamic_screen_dimens_auto_scale_56dp">78.0dp</dimen>
+    <dimen name="dynamic_screen_dimens_auto_scale_64dp">90.0dp</dimen>
+    <dimen name="dynamic_screen_dimens_auto_scale_72dp">101.0dp</dimen>
+    <dimen name="dynamic_screen_dimens_auto_scale_8dp">11.0dp</dimen>
+</resources>

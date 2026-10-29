@@ -1,0 +1,43 @@
+.class public interface abstract Lcom/google/android/exoplayer2/source/chunk/MediaChunkIterator;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# static fields
+.field public static final EMPTY:Lcom/google/android/exoplayer2/source/chunk/MediaChunkIterator;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 2
+
+    new-instance v0, Lk51;
+
+    const/16 v1, 0x9
+
+    invoke-direct {v0, v1}, Lk51;-><init>(I)V
+
+    sput-object v0, Lcom/google/android/exoplayer2/source/chunk/MediaChunkIterator;->EMPTY:Lcom/google/android/exoplayer2/source/chunk/MediaChunkIterator;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public abstract getChunkEndTimeUs()J
+.end method
+
+.method public abstract getChunkStartTimeUs()J
+.end method
+
+.method public abstract getDataSpec()Lcom/google/android/exoplayer2/upstream/DataSpec;
+.end method
+
+.method public abstract isEnded()Z
+.end method
+
+.method public abstract next()Z
+.end method
+
+.method public abstract reset()V
+.end method

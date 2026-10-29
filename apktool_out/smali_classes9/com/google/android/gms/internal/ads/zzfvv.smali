@@ -1,0 +1,83 @@
+.class public final Lcom/google/android/gms/internal/ads/zzfvv;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# instance fields
+.field private final zza:Lcom/google/android/gms/internal/ads/zzfxj;
+
+.field private final zzb:Ljava/lang/String;
+
+.field private final zzc:Lcom/google/android/gms/internal/ads/zzfvb;
+
+.field private final zzd:Ljava/lang/String;
+
+
+# direct methods
+.method public constructor <init>(Landroid/view/View;Lcom/google/android/gms/internal/ads/zzfvb;Ljava/lang/String;)V
+    .locals 0
+    .param p3    # Ljava/lang/String;
+        .annotation build Landroidx/annotation/Nullable;
+        .end annotation
+    .end param
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    new-instance p3, Lcom/google/android/gms/internal/ads/zzfxj;
+
+    invoke-direct {p3, p1}, Lcom/google/android/gms/internal/ads/zzfxj;-><init>(Landroid/view/View;)V
+
+    iput-object p3, p0, Lcom/google/android/gms/internal/ads/zzfvv;->zza:Lcom/google/android/gms/internal/ads/zzfxj;
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/google/android/gms/internal/ads/zzfvv;->zzb:Ljava/lang/String;
+
+    iput-object p2, p0, Lcom/google/android/gms/internal/ads/zzfvv;->zzc:Lcom/google/android/gms/internal/ads/zzfvb;
+
+    const-string p1, "Ad overlay"
+
+    iput-object p1, p0, Lcom/google/android/gms/internal/ads/zzfvv;->zzd:Ljava/lang/String;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final zza()Lcom/google/android/gms/internal/ads/zzfxj;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/gms/internal/ads/zzfvv;->zza:Lcom/google/android/gms/internal/ads/zzfxj;
+
+    return-object p0
+.end method
+
+.method public final zzb()Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/gms/internal/ads/zzfvv;->zzb:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method public final zzc()Lcom/google/android/gms/internal/ads/zzfvb;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/gms/internal/ads/zzfvv;->zzc:Lcom/google/android/gms/internal/ads/zzfvb;
+
+    return-object p0
+.end method
+
+.method public final zzd()Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/gms/internal/ads/zzfvv;->zzd:Ljava/lang/String;
+
+    return-object p0
+.end method

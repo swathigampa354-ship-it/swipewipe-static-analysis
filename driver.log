@@ -1,0 +1,563 @@
+[jhmcp] loading APK: /data/data/com.termux/files/home/rea/swipewipe/base.apk (threads=2 resources=full)
+[main] INFO jadx.api.JadxDecompiler - loading ...
+[12:46:27] another driver instance holds .driver.lock; exiting without work
+[main] INFO jadx.core.utils.android.AndroidResourcesUtils - Found several 'R' class candidates: [androidx.appcompat.R, androidx.biometric.R, androidx.cardview.R, androidx.compose.material.icons.R, androidx.customview.R, androidx.legacy.coreutils.R, androidx.media3.exoplayer.R, androidx.viewpager.R, com.facebook.R, com.facebook.bolts.R, com.facebook.share.R, com.mbridge.msdk.R, com.microsoft.identity.common.R, com.mwm.sdk.sessionskit.R, com.vungle.ads.R, io.bidmachine.media3.exoplayer.dash.R, androidx.compose.material.icons.extended.R, androidx.compose.ui.unit.R, androidx.constraintlayout.widget.R, androidx.exifinterface.R, androidx.lifecycle.runtime.compose.R, androidx.media.R, androidx.media3.container.R, androidx.media3.ui.compose.R, androidx.privacysandbox.ads.adservices.java.R, androidx.room.R, androidx.room.ktx.R, androidx.sqlite.db.framework.R, androidx.versionedparcelable.R, com.android.installreferrer.R, com.google.android.exoplayer2.database.R, com.google.android.gms.measurement.api.R, com.microsoft.identity.msal.R, com.mwm.sdk.adskit.google_ump_consent.R, com.mwm.sdk.adskit.max_mediation_pangle.R, com.mwm.sdk.appkits.helper.dynamicscreen.R, androidx.compose.ui.graphics.R, androidx.datastore.core.R, androidx.graphics.shapes.R, androidx.lifecycle.ktx.R, androidx.lifecycle.livedata.R, androidx.lifecycle.livedata.core.R, androidx.media3.database.R, androidx.navigationevent.R, androidx.sqlite.db.R, com.applovin.mediation.adapters.bidmachine.R, com.applovin.mediation.adapters.inneractive.R, com.google.android.gms.appset.R, com.google.android.gms.auth.R, com.moloco.sdk.acm.R, com.mwm.ai.madmode.common.R, com.mwm.sdk.adskit.max.R, com.mwm.sdk.appkits.helper.installreferrer.R, com.mwm.sdk.appkits.helper.ledger.R, com.mwm.sdk.appkits.mad_mode.R, com.mwm.sdk.billingkit.gms.R, io.bidmachine.ads.networks.gam.base.R, io.bidmachine.ads.networks.gam_dynamic.versions.v21_0_0.R, io.bidmachine.ads.networks.gam_dynamic.versions.v23_0_0.R, io.bidmachine.media3.common.R, androidx.activity.ktx.R, androidx.compose.foundation.layout.R, androidx.compose.ui.util.R, androidx.core.viewtree.R, androidx.cursoradapter.R, androidx.datastore.preferences.R, androidx.lifecycle.process.R, androidx.lifecycle.viewmodel.ktx.R, androidx.media3.common.R, androidx.media3.common.ktx.R, androidx.media3.datasource.R, androidx.media3.extractor.R, androidx.navigation.common.R, androidx.navigationevent.compose.R, androidx.savedstate.R, androidx.tracing.R, com.applovin.mediation.adapters.google.R, com.applovin.mediation.adapters.ironsource.R, com.google.android.gms.identitycredentials.R, com.google.android.gms.measurement.sdk.api.R, com.google.android.gms.measurement_base.R, com.moloco.sdk.protobuf.R, com.mwm.android.sdk.dynamic_screen_glide.R, com.mwm.sdk.abtestkit.R, com.mwm.sdk.accountkit2.helper.facebook.R, com.mwm.sdk.adskit.max_mediation_fan.R, com.mwm.sdk.appkits.mad_mode_helper.R, com.mwm.sdk.appkits_helper_adskit.R, com.squareup.picasso.R, io.bidmachine.ads.networks.gam.R, io.bidmachine.ads.networks.gam.versions.v21_0_0.R, io.bidmachine.ads.networks.gam_dynamic.versions.v22_0_0.R, io.bidmachine.media3.container.R, io.bidmachine.media3.datasource.R, io.bidmachine.media3.decoder.R, org.chromium.net.R, androidx.appcompat.resources.R, androidx.compose.animation.R, androidx.compose.runtime.retain.R, androidx.core.ktx.R, androidx.customview.poolingcontainer.R, androidx.datastore.datastore.R, androidx.datastore.preferences.core.R, androidx.emoji2.R, androidx.lifecycle.runtime.R, androidx.lifecycle.viewmodel.compose.R, androidx.localbroadcastmanager.R, androidx.preference.ktx.R, androidx.print.R, androidx.profileinstaller.R, androidx.savedstate.compose.R, androidx.savedstate.ktx.R, androidx.slidingpanelayout.R, androidx.viewpager2.R, androidx.webkit.R, androidx.window.R, com.applovin.mediation.adapters.facebook.R, com.google.android.exoplayer2.decoder.R, com.google.android.exoplayer2.upstream.R, com.google.android.gms.auth.api.phone.R, com.mwm.sdk.accountkit2.helper.google.R, com.mwm.sdk.adskit.max_mediation_bidmachine.R, com.mwm.sdk.adskit.max_mediation_moloco.R, com.mwm.sdk.basekit.R, com.unity3d.ads.R, io.bidmachine.R, io.bidmachine.ads.networks.gam_dynamic.R, androidx.arch.core.R, androidx.compose.animation.core.R, androidx.compose.runtime.saveable.R, androidx.compose.ui.geometry.R, androidx.compose.ui.text.R, androidx.datastore.datastore.anchor.R, androidx.documentfile.R, androidx.emoji2.viewsintegration.R, androidx.hilt.navigation.compose.R, androidx.lifecycle.lifecycle.viewmodel.anchor.R, androidx.lifecycle.viewmodel.savedstate.R, androidx.media3.decoder.R, androidx.privacysandbox.ads.adservices.R, com.apm.insight.R, com.bykv.vk.openvk.gecko.R, com.google.android.exoplayer2.extractor.R, com.google.android.gms.ads_identifier.R, com.google.android.gms.auth.blockstore.R, com.google.android.gms.measurement.sdk.R, com.google.android.gms.tasks.R, com.mwm.sdk.adskit.max_mediation_admob.R, com.mwm.sdk.adskit.max_mediation_fyber.R, com.mwm.sdk.adskit.max_mediation_unityads.R, com.mwm.sdk.appkits.helper.facebookevent.R, com.mwm.sdk.billingkit.R, com.mwm.sdk.ledger.R, io.bidmachine.ads.networks.gam.versions.v23_0_0.R, io.bidmachine.media3.database.R, io.bidmachine.media3.extractor.R, io.bidmachine.util.R, androidx.coordinatorlayout.R, androidx.fragment.ktx.R, androidx.legacy.v4.R, androidx.loader.R, androidx.vectordrawable.R, com.applovin.sdk.R, com.facebook.gamingservices.R, com.facebook.login.R, com.fyber.inneractive.sdk.R, com.google.android.exoplayer2.core.R, com.google.android.exoplayer2.ui.R, com.google.android.gms.base.R, com.google.android.gms.stats.R, com.iab.omid.library.fyber.R, com.inmobi.ads.R, com.mwm.sdk.accountkit2.R, com.mwm.sdk.appkits.helper.firebase.R, com.mwm.swipewipe.dynamic_screen.R, io.bidmachine.analytics.internal.q.b.R, io.bidmachine.media3.exoplayer.R, androidx.activity.compose.R, androidx.autofill.R, androidx.browser.R, androidx.compose.material.R, androidx.media3.ui.R, androidx.transition.R, androidx.vectordrawable.animated.R, com.appsflyer.R, com.bytedance.R, com.bytedance.pag.shell.R, com.facebook.applinks.R, com.facebook.messenger.R, com.google.android.gms.fido.R, com.iab.omid.library.appodeal.R, com.ironsource.sdk.mediation.R, com.mwm.sdk.adskit.R, com.mwm.sdk.eventkit.gms.R, com.mwm.sdk.userfeedback.R, io.bidmachine.analytics.internal.q.a.R, io.bidmachine.media3.ui.R, io.bidmachine.rendering.R, androidx.asynclayoutinflater.R, androidx.compose.material.ripple.R, androidx.compose.runtime.R, androidx.compose.runtime.annotation.R, androidx.compose.ui.tooling.preview.R, androidx.core.R, androidx.credentials.play.services.auth.R, androidx.dynamicanimation.R, androidx.fragment.R, androidx.graphics.path.R, androidx.lifecycle.livedata.ktx.R, androidx.lifecycle.service.R, androidx.recyclerview.R, androidx.window.core.R, com.applovin.mediation.adapters.googleadmanager.R, com.facebook.ads.R, com.google.android.exoplayer2.common.R, com.google.android.gms.ads.impl.R, com.google.android.gms.auth.api.R, com.google.android.gms.location.R, com.google.android.gms.places_placereport.R, com.iab.omid.library.inmobi.R, com.ironsource.adqualitysdk.sdk.R, com.moloco.sdk.R, com.mwm.sdk.adskit.max_mediation_google_ad_manager.R, io.bidmachine.ads.networks.gam.versions.v22_0_0.R, io.bidmachine.ads.networks.gam_dynamic.base.R, io.bidmachine.analytics.R, io.bidmachine.media3.exoplayer.hls.R, androidx.activity.R, androidx.annotation.experimental.R, androidx.compose.foundation.R, androidx.compose.ui.R, androidx.lifecycle.livedata.core.ktx.R, androidx.lifecycle.viewmodel.R, androidx.preference.R, androidx.swiperefreshlayout.R, androidx.tracing.ktx.R, androidx.work.R, androidx.work.ktx.R, com.applovin.mediation.adapters.inmobi.R, com.applovin.mediation.adapters.moloco.R, com.facebook.common.R, com.facebook.core.R, com.google.android.gms.ads.R, com.google.android.gms.common.R, com.moloco.sdk.xenoss.sdkdevkit.android.adrenderer.internal.vast.k.R, com.mwm.sdk.adskit.max_mediation_inmobi.R, com.mwm.sdk.adskit.max_mediation_mintegral.R, com.mwm.sdk.adskit.max_mediation_vungle.R, com.mwm.sdk.appkits.helper.account.R, com.mwm.sdk.appkits.helper.billing.R, com.mwm.sdk.appkits_helper_abtest.R, com.mwm.sdk.plumbing.network.R, androidx.compose.material3.R, androidx.credentials.R, androidx.drawerlayout.R, androidx.hilt.lifecycle.viewmodel.R, androidx.hilt.lifecycle.viewmodel.compose.R, androidx.interpolator.R, androidx.legacy.coreui.R, androidx.navigation.R, androidx.navigation.compose.R, androidx.startup.R, com.applovin.mediation.adapters.bytedance.R, com.applovin.mediation.adapters.mintegral.R, com.applovin.mediation.adapters.unityads.R, com.applovin.mediation.adapters.vungle.R, com.google.android.gms.cronet.R, com.mwm.android.sdk.dynamic_screen.R, com.mwm.sdk.adskit.max_mediation_ironsource.R, com.mwm.sdk.appkits.helper.event.R, com.mwm.sdk.eventkit.R]
+[main] INFO jadx.core.utils.android.AndroidResourcesUtils - App 'R' class not found, put all resources ids into : 'com.afternoonproducts.swipewipe.R'
+[main] WARN jadx.core.dex.nodes.RootNode - Found duplicated class: kotlin.Metadata, count: 2, sources:
+  assets/audience_network/classes2.dex
+  classes6.dex
+ Keep class with source: classes6.dex, others will be removed.
+[main] INFO jadx.core.dex.nodes.RootNode - Loaded classes: 91473, methods: 496680, instructions: 13536913
+[jhmcp] loading APK: /data/data/com.termux/files/home/rea/swipewipe/base.apk (threads=2 resources=full)
+[main] INFO jadx.api.JadxDecompiler - loading ...
+[06:16:03] another driver instance holds .driver.lock; exiting without work
+[06:16:12] another driver instance holds .driver.lock; exiting without work
+[main] INFO jadx.core.utils.android.AndroidResourcesUtils - Found several 'R' class candidates: [androidx.appcompat.R, androidx.biometric.R, androidx.cardview.R, androidx.compose.material.icons.R, androidx.customview.R, androidx.legacy.coreutils.R, androidx.media3.exoplayer.R, androidx.viewpager.R, com.facebook.R, com.facebook.bolts.R, com.facebook.share.R, com.mbridge.msdk.R, com.microsoft.identity.common.R, com.mwm.sdk.sessionskit.R, com.vungle.ads.R, io.bidmachine.media3.exoplayer.dash.R, androidx.compose.material.icons.extended.R, androidx.compose.ui.unit.R, androidx.constraintlayout.widget.R, androidx.exifinterface.R, androidx.lifecycle.runtime.compose.R, androidx.media.R, androidx.media3.container.R, androidx.media3.ui.compose.R, androidx.privacysandbox.ads.adservices.java.R, androidx.room.R, androidx.room.ktx.R, androidx.sqlite.db.framework.R, androidx.versionedparcelable.R, com.android.installreferrer.R, com.google.android.exoplayer2.database.R, com.google.android.gms.measurement.api.R, com.microsoft.identity.msal.R, com.mwm.sdk.adskit.google_ump_consent.R, com.mwm.sdk.adskit.max_mediation_pangle.R, com.mwm.sdk.appkits.helper.dynamicscreen.R, androidx.compose.ui.graphics.R, androidx.datastore.core.R, androidx.graphics.shapes.R, androidx.lifecycle.ktx.R, androidx.lifecycle.livedata.R, androidx.lifecycle.livedata.core.R, androidx.media3.database.R, androidx.navigationevent.R, androidx.sqlite.db.R, com.applovin.mediation.adapters.bidmachine.R, com.applovin.mediation.adapters.inneractive.R, com.google.android.gms.appset.R, com.google.android.gms.auth.R, com.moloco.sdk.acm.R, com.mwm.ai.madmode.common.R, com.mwm.sdk.adskit.max.R, com.mwm.sdk.appkits.helper.installreferrer.R, com.mwm.sdk.appkits.helper.ledger.R, com.mwm.sdk.appkits.mad_mode.R, com.mwm.sdk.billingkit.gms.R, io.bidmachine.ads.networks.gam.base.R, io.bidmachine.ads.networks.gam_dynamic.versions.v21_0_0.R, io.bidmachine.ads.networks.gam_dynamic.versions.v23_0_0.R, io.bidmachine.media3.common.R, androidx.activity.ktx.R, androidx.compose.foundation.layout.R, androidx.compose.ui.util.R, androidx.core.viewtree.R, androidx.cursoradapter.R, androidx.datastore.preferences.R, androidx.lifecycle.process.R, androidx.lifecycle.viewmodel.ktx.R, androidx.media3.common.R, androidx.media3.common.ktx.R, androidx.media3.datasource.R, androidx.media3.extractor.R, androidx.navigation.common.R, androidx.navigationevent.compose.R, androidx.savedstate.R, androidx.tracing.R, com.applovin.mediation.adapters.google.R, com.applovin.mediation.adapters.ironsource.R, com.google.android.gms.identitycredentials.R, com.google.android.gms.measurement.sdk.api.R, com.google.android.gms.measurement_base.R, com.moloco.sdk.protobuf.R, com.mwm.android.sdk.dynamic_screen_glide.R, com.mwm.sdk.abtestkit.R, com.mwm.sdk.accountkit2.helper.facebook.R, com.mwm.sdk.adskit.max_mediation_fan.R, com.mwm.sdk.appkits.mad_mode_helper.R, com.mwm.sdk.appkits_helper_adskit.R, com.squareup.picasso.R, io.bidmachine.ads.networks.gam.R, io.bidmachine.ads.networks.gam.versions.v21_0_0.R, io.bidmachine.ads.networks.gam_dynamic.versions.v22_0_0.R, io.bidmachine.media3.container.R, io.bidmachine.media3.datasource.R, io.bidmachine.media3.decoder.R, org.chromium.net.R, androidx.appcompat.resources.R, androidx.compose.animation.R, androidx.compose.runtime.retain.R, androidx.core.ktx.R, androidx.customview.poolingcontainer.R, androidx.datastore.datastore.R, androidx.datastore.preferences.core.R, androidx.emoji2.R, androidx.lifecycle.runtime.R, androidx.lifecycle.viewmodel.compose.R, androidx.localbroadcastmanager.R, androidx.preference.ktx.R, androidx.print.R, androidx.profileinstaller.R, androidx.savedstate.compose.R, androidx.savedstate.ktx.R, androidx.slidingpanelayout.R, androidx.viewpager2.R, androidx.webkit.R, androidx.window.R, com.applovin.mediation.adapters.facebook.R, com.google.android.exoplayer2.decoder.R, com.google.android.exoplayer2.upstream.R, com.google.android.gms.auth.api.phone.R, com.mwm.sdk.accountkit2.helper.google.R, com.mwm.sdk.adskit.max_mediation_bidmachine.R, com.mwm.sdk.adskit.max_mediation_moloco.R, com.mwm.sdk.basekit.R, com.unity3d.ads.R, io.bidmachine.R, io.bidmachine.ads.networks.gam_dynamic.R, androidx.arch.core.R, androidx.compose.animation.core.R, androidx.compose.runtime.saveable.R, androidx.compose.ui.geometry.R, androidx.compose.ui.text.R, androidx.datastore.datastore.anchor.R, androidx.documentfile.R, androidx.emoji2.viewsintegration.R, androidx.hilt.navigation.compose.R, androidx.lifecycle.lifecycle.viewmodel.anchor.R, androidx.lifecycle.viewmodel.savedstate.R, androidx.media3.decoder.R, androidx.privacysandbox.ads.adservices.R, com.apm.insight.R, com.bykv.vk.openvk.gecko.R, com.google.android.exoplayer2.extractor.R, com.google.android.gms.ads_identifier.R, com.google.android.gms.auth.blockstore.R, com.google.android.gms.measurement.sdk.R, com.google.android.gms.tasks.R, com.mwm.sdk.adskit.max_mediation_admob.R, com.mwm.sdk.adskit.max_mediation_fyber.R, com.mwm.sdk.adskit.max_mediation_unityads.R, com.mwm.sdk.appkits.helper.facebookevent.R, com.mwm.sdk.billingkit.R, com.mwm.sdk.ledger.R, io.bidmachine.ads.networks.gam.versions.v23_0_0.R, io.bidmachine.media3.database.R, io.bidmachine.media3.extractor.R, io.bidmachine.util.R, androidx.coordinatorlayout.R, androidx.fragment.ktx.R, androidx.legacy.v4.R, androidx.loader.R, androidx.vectordrawable.R, com.applovin.sdk.R, com.facebook.gamingservices.R, com.facebook.login.R, com.fyber.inneractive.sdk.R, com.google.android.exoplayer2.core.R, com.google.android.exoplayer2.ui.R, com.google.android.gms.base.R, com.google.android.gms.stats.R, com.iab.omid.library.fyber.R, com.inmobi.ads.R, com.mwm.sdk.accountkit2.R, com.mwm.sdk.appkits.helper.firebase.R, com.mwm.swipewipe.dynamic_screen.R, io.bidmachine.analytics.internal.q.b.R, io.bidmachine.media3.exoplayer.R, androidx.activity.compose.R, androidx.autofill.R, androidx.browser.R, androidx.compose.material.R, androidx.media3.ui.R, androidx.transition.R, androidx.vectordrawable.animated.R, com.appsflyer.R, com.bytedance.R, com.bytedance.pag.shell.R, com.facebook.applinks.R, com.facebook.messenger.R, com.google.android.gms.fido.R, com.iab.omid.library.appodeal.R, com.ironsource.sdk.mediation.R, com.mwm.sdk.adskit.R, com.mwm.sdk.eventkit.gms.R, com.mwm.sdk.userfeedback.R, io.bidmachine.analytics.internal.q.a.R, io.bidmachine.media3.ui.R, io.bidmachine.rendering.R, androidx.asynclayoutinflater.R, androidx.compose.material.ripple.R, androidx.compose.runtime.R, androidx.compose.runtime.annotation.R, androidx.compose.ui.tooling.preview.R, androidx.core.R, androidx.credentials.play.services.auth.R, androidx.dynamicanimation.R, androidx.fragment.R, androidx.graphics.path.R, androidx.lifecycle.livedata.ktx.R, androidx.lifecycle.service.R, androidx.recyclerview.R, androidx.window.core.R, com.applovin.mediation.adapters.googleadmanager.R, com.facebook.ads.R, com.google.android.exoplayer2.common.R, com.google.android.gms.ads.impl.R, com.google.android.gms.auth.api.R, com.google.android.gms.location.R, com.google.android.gms.places_placereport.R, com.iab.omid.library.inmobi.R, com.ironsource.adqualitysdk.sdk.R, com.moloco.sdk.R, com.mwm.sdk.adskit.max_mediation_google_ad_manager.R, io.bidmachine.ads.networks.gam.versions.v22_0_0.R, io.bidmachine.ads.networks.gam_dynamic.base.R, io.bidmachine.analytics.R, io.bidmachine.media3.exoplayer.hls.R, androidx.activity.R, androidx.annotation.experimental.R, androidx.compose.foundation.R, androidx.compose.ui.R, androidx.lifecycle.livedata.core.ktx.R, androidx.lifecycle.viewmodel.R, androidx.preference.R, androidx.swiperefreshlayout.R, androidx.tracing.ktx.R, androidx.work.R, androidx.work.ktx.R, com.applovin.mediation.adapters.inmobi.R, com.applovin.mediation.adapters.moloco.R, com.facebook.common.R, com.facebook.core.R, com.google.android.gms.ads.R, com.google.android.gms.common.R, com.moloco.sdk.xenoss.sdkdevkit.android.adrenderer.internal.vast.k.R, com.mwm.sdk.adskit.max_mediation_inmobi.R, com.mwm.sdk.adskit.max_mediation_mintegral.R, com.mwm.sdk.adskit.max_mediation_vungle.R, com.mwm.sdk.appkits.helper.account.R, com.mwm.sdk.appkits.helper.billing.R, com.mwm.sdk.appkits_helper_abtest.R, com.mwm.sdk.plumbing.network.R, androidx.compose.material3.R, androidx.credentials.R, androidx.drawerlayout.R, androidx.hilt.lifecycle.viewmodel.R, androidx.hilt.lifecycle.viewmodel.compose.R, androidx.interpolator.R, androidx.legacy.coreui.R, androidx.navigation.R, androidx.navigation.compose.R, androidx.startup.R, com.applovin.mediation.adapters.bytedance.R, com.applovin.mediation.adapters.mintegral.R, com.applovin.mediation.adapters.unityads.R, com.applovin.mediation.adapters.vungle.R, com.google.android.gms.cronet.R, com.mwm.android.sdk.dynamic_screen.R, com.mwm.sdk.adskit.max_mediation_ironsource.R, com.mwm.sdk.appkits.helper.event.R, com.mwm.sdk.eventkit.R]
+[main] INFO jadx.core.utils.android.AndroidResourcesUtils - App 'R' class not found, put all resources ids into : 'com.afternoonproducts.swipewipe.R'
+[main] WARN jadx.core.dex.nodes.RootNode - Found duplicated class: kotlin.Metadata, count: 2, sources:
+  assets/audience_network/classes2.dex
+  classes6.dex
+ Keep class with source: classes6.dex, others will be removed.
+[main] INFO jadx.core.dex.nodes.RootNode - Loaded classes: 91473, methods: 496680, instructions: 13536913
+[04:26:14] preflight MemAvailable=2195444 kB
+[jhmcp] loading APK: /data/data/com.termux/files/home/rea/swipewipe/base.apk (threads=2 resources=none)
+[main] INFO jadx.api.JadxDecompiler - loading ...
+[main] INFO jadx.core.utils.android.AndroidResourcesUtils - Found several 'R' class candidates: [androidx.appcompat.R, androidx.biometric.R, androidx.cardview.R, androidx.compose.material.icons.R, androidx.customview.R, androidx.legacy.coreutils.R, androidx.media3.exoplayer.R, androidx.viewpager.R, com.facebook.R, com.facebook.bolts.R, com.facebook.share.R, com.mbridge.msdk.R, com.microsoft.identity.common.R, com.mwm.sdk.sessionskit.R, com.vungle.ads.R, io.bidmachine.media3.exoplayer.dash.R, androidx.compose.material.icons.extended.R, androidx.compose.ui.unit.R, androidx.constraintlayout.widget.R, androidx.exifinterface.R, androidx.lifecycle.runtime.compose.R, androidx.media.R, androidx.media3.container.R, androidx.media3.ui.compose.R, androidx.privacysandbox.ads.adservices.java.R, androidx.room.R, androidx.room.ktx.R, androidx.sqlite.db.framework.R, androidx.versionedparcelable.R, com.android.installreferrer.R, com.google.android.exoplayer2.database.R, com.google.android.gms.measurement.api.R, com.microsoft.identity.msal.R, com.mwm.sdk.adskit.google_ump_consent.R, com.mwm.sdk.adskit.max_mediation_pangle.R, com.mwm.sdk.appkits.helper.dynamicscreen.R, androidx.compose.ui.graphics.R, androidx.datastore.core.R, androidx.graphics.shapes.R, androidx.lifecycle.ktx.R, androidx.lifecycle.livedata.R, androidx.lifecycle.livedata.core.R, androidx.media3.database.R, androidx.navigationevent.R, androidx.sqlite.db.R, com.applovin.mediation.adapters.bidmachine.R, com.applovin.mediation.adapters.inneractive.R, com.google.android.gms.appset.R, com.google.android.gms.auth.R, com.moloco.sdk.acm.R, com.mwm.ai.madmode.common.R, com.mwm.sdk.adskit.max.R, com.mwm.sdk.appkits.helper.installreferrer.R, com.mwm.sdk.appkits.helper.ledger.R, com.mwm.sdk.appkits.mad_mode.R, com.mwm.sdk.billingkit.gms.R, io.bidmachine.ads.networks.gam.base.R, io.bidmachine.ads.networks.gam_dynamic.versions.v21_0_0.R, io.bidmachine.ads.networks.gam_dynamic.versions.v23_0_0.R, io.bidmachine.media3.common.R, androidx.activity.ktx.R, androidx.compose.foundation.layout.R, androidx.compose.ui.util.R, androidx.core.viewtree.R, androidx.cursoradapter.R, androidx.datastore.preferences.R, androidx.lifecycle.process.R, androidx.lifecycle.viewmodel.ktx.R, androidx.media3.common.R, androidx.media3.common.ktx.R, androidx.media3.datasource.R, androidx.media3.extractor.R, androidx.navigation.common.R, androidx.navigationevent.compose.R, androidx.savedstate.R, androidx.tracing.R, com.applovin.mediation.adapters.google.R, com.applovin.mediation.adapters.ironsource.R, com.google.android.gms.identitycredentials.R, com.google.android.gms.measurement.sdk.api.R, com.google.android.gms.measurement_base.R, com.moloco.sdk.protobuf.R, com.mwm.android.sdk.dynamic_screen_glide.R, com.mwm.sdk.abtestkit.R, com.mwm.sdk.accountkit2.helper.facebook.R, com.mwm.sdk.adskit.max_mediation_fan.R, com.mwm.sdk.appkits.mad_mode_helper.R, com.mwm.sdk.appkits_helper_adskit.R, com.squareup.picasso.R, io.bidmachine.ads.networks.gam.R, io.bidmachine.ads.networks.gam.versions.v21_0_0.R, io.bidmachine.ads.networks.gam_dynamic.versions.v22_0_0.R, io.bidmachine.media3.container.R, io.bidmachine.media3.datasource.R, io.bidmachine.media3.decoder.R, org.chromium.net.R, androidx.appcompat.resources.R, androidx.compose.animation.R, androidx.compose.runtime.retain.R, androidx.core.ktx.R, androidx.customview.poolingcontainer.R, androidx.datastore.datastore.R, androidx.datastore.preferences.core.R, androidx.emoji2.R, androidx.lifecycle.runtime.R, androidx.lifecycle.viewmodel.compose.R, androidx.localbroadcastmanager.R, androidx.preference.ktx.R, androidx.print.R, androidx.profileinstaller.R, androidx.savedstate.compose.R, androidx.savedstate.ktx.R, androidx.slidingpanelayout.R, androidx.viewpager2.R, androidx.webkit.R, androidx.window.R, com.applovin.mediation.adapters.facebook.R, com.google.android.exoplayer2.decoder.R, com.google.android.exoplayer2.upstream.R, com.google.android.gms.auth.api.phone.R, com.mwm.sdk.accountkit2.helper.google.R, com.mwm.sdk.adskit.max_mediation_bidmachine.R, com.mwm.sdk.adskit.max_mediation_moloco.R, com.mwm.sdk.basekit.R, com.unity3d.ads.R, io.bidmachine.R, io.bidmachine.ads.networks.gam_dynamic.R, androidx.arch.core.R, androidx.compose.animation.core.R, androidx.compose.runtime.saveable.R, androidx.compose.ui.geometry.R, androidx.compose.ui.text.R, androidx.datastore.datastore.anchor.R, androidx.documentfile.R, androidx.emoji2.viewsintegration.R, androidx.hilt.navigation.compose.R, androidx.lifecycle.lifecycle.viewmodel.anchor.R, androidx.lifecycle.viewmodel.savedstate.R, androidx.media3.decoder.R, androidx.privacysandbox.ads.adservices.R, com.apm.insight.R, com.bykv.vk.openvk.gecko.R, com.google.android.exoplayer2.extractor.R, com.google.android.gms.ads_identifier.R, com.google.android.gms.auth.blockstore.R, com.google.android.gms.measurement.sdk.R, com.google.android.gms.tasks.R, com.mwm.sdk.adskit.max_mediation_admob.R, com.mwm.sdk.adskit.max_mediation_fyber.R, com.mwm.sdk.adskit.max_mediation_unityads.R, com.mwm.sdk.appkits.helper.facebookevent.R, com.mwm.sdk.billingkit.R, com.mwm.sdk.ledger.R, io.bidmachine.ads.networks.gam.versions.v23_0_0.R, io.bidmachine.media3.database.R, io.bidmachine.media3.extractor.R, io.bidmachine.util.R, androidx.coordinatorlayout.R, androidx.fragment.ktx.R, androidx.legacy.v4.R, androidx.loader.R, androidx.vectordrawable.R, com.applovin.sdk.R, com.facebook.gamingservices.R, com.facebook.login.R, com.fyber.inneractive.sdk.R, com.google.android.exoplayer2.core.R, com.google.android.exoplayer2.ui.R, com.google.android.gms.base.R, com.google.android.gms.stats.R, com.iab.omid.library.fyber.R, com.inmobi.ads.R, com.mwm.sdk.accountkit2.R, com.mwm.sdk.appkits.helper.firebase.R, com.mwm.swipewipe.dynamic_screen.R, io.bidmachine.analytics.internal.q.b.R, io.bidmachine.media3.exoplayer.R, androidx.activity.compose.R, androidx.autofill.R, androidx.browser.R, androidx.compose.material.R, androidx.media3.ui.R, androidx.transition.R, androidx.vectordrawable.animated.R, com.appsflyer.R, com.bytedance.R, com.bytedance.pag.shell.R, com.facebook.applinks.R, com.facebook.messenger.R, com.google.android.gms.fido.R, com.iab.omid.library.appodeal.R, com.ironsource.sdk.mediation.R, com.mwm.sdk.adskit.R, com.mwm.sdk.eventkit.gms.R, com.mwm.sdk.userfeedback.R, io.bidmachine.analytics.internal.q.a.R, io.bidmachine.media3.ui.R, io.bidmachine.rendering.R, androidx.asynclayoutinflater.R, androidx.compose.material.ripple.R, androidx.compose.runtime.R, androidx.compose.runtime.annotation.R, androidx.compose.ui.tooling.preview.R, androidx.core.R, androidx.credentials.play.services.auth.R, androidx.dynamicanimation.R, androidx.fragment.R, androidx.graphics.path.R, androidx.lifecycle.livedata.ktx.R, androidx.lifecycle.service.R, androidx.recyclerview.R, androidx.window.core.R, com.applovin.mediation.adapters.googleadmanager.R, com.facebook.ads.R, com.google.android.exoplayer2.common.R, com.google.android.gms.ads.impl.R, com.google.android.gms.auth.api.R, com.google.android.gms.location.R, com.google.android.gms.places_placereport.R, com.iab.omid.library.inmobi.R, com.ironsource.adqualitysdk.sdk.R, com.moloco.sdk.R, com.mwm.sdk.adskit.max_mediation_google_ad_manager.R, io.bidmachine.ads.networks.gam.versions.v22_0_0.R, io.bidmachine.ads.networks.gam_dynamic.base.R, io.bidmachine.analytics.R, io.bidmachine.media3.exoplayer.hls.R, androidx.activity.R, androidx.annotation.experimental.R, androidx.compose.foundation.R, androidx.compose.ui.R, androidx.lifecycle.livedata.core.ktx.R, androidx.lifecycle.viewmodel.R, androidx.preference.R, androidx.swiperefreshlayout.R, androidx.tracing.ktx.R, androidx.work.R, androidx.work.ktx.R, com.applovin.mediation.adapters.inmobi.R, com.applovin.mediation.adapters.moloco.R, com.facebook.common.R, com.facebook.core.R, com.google.android.gms.ads.R, com.google.android.gms.common.R, com.moloco.sdk.xenoss.sdkdevkit.android.adrenderer.internal.vast.k.R, com.mwm.sdk.adskit.max_mediation_inmobi.R, com.mwm.sdk.adskit.max_mediation_mintegral.R, com.mwm.sdk.adskit.max_mediation_vungle.R, com.mwm.sdk.appkits.helper.account.R, com.mwm.sdk.appkits.helper.billing.R, com.mwm.sdk.appkits_helper_abtest.R, com.mwm.sdk.plumbing.network.R, androidx.compose.material3.R, androidx.credentials.R, androidx.drawerlayout.R, androidx.hilt.lifecycle.viewmodel.R, androidx.hilt.lifecycle.viewmodel.compose.R, androidx.interpolator.R, androidx.legacy.coreui.R, androidx.navigation.R, androidx.navigation.compose.R, androidx.startup.R, com.applovin.mediation.adapters.bytedance.R, com.applovin.mediation.adapters.mintegral.R, com.applovin.mediation.adapters.unityads.R, com.applovin.mediation.adapters.vungle.R, com.google.android.gms.cronet.R, com.mwm.android.sdk.dynamic_screen.R, com.mwm.sdk.adskit.max_mediation_ironsource.R, com.mwm.sdk.appkits.helper.event.R, com.mwm.sdk.eventkit.R]
+[main] INFO jadx.core.utils.android.AndroidResourcesUtils - App 'R' class not found, put all resources ids into : 'com.afternoonproducts.swipewipe.R'
+[main] WARN jadx.core.dex.nodes.RootNode - Found duplicated class: kotlin.Metadata, count: 2, sources:
+  assets/audience_network/classes2.dex
+  classes6.dex
+ Keep class with source: classes6.dex, others will be removed.
+[main] INFO jadx.core.dex.nodes.RootNode - Loaded classes: 91473, methods: 496680, instructions: 13536913
+[jhmcp] eager load failed: Java heap space
+Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+	at java.base/java.util.Arrays.copyOf(Arrays.java:3541)
+	at java.base/jdk.internal.loader.Resource.getBytes(Resource.java:120)
+	at java.base/jdk.internal.loader.URLClassPath$JarLoader$2.getBytes(URLClassPath.java:862)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.defineClass(BuiltinClassLoader.java:859)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.findClassOnClassPathOrNull(BuiltinClassLoader.java:760)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClassOrNull(BuiltinClassLoader.java:681)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:639)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526)
+	at kotlin.reflect.jvm.internal.impl.SpecialJvmAnnotations.<clinit>(SpecialJvmAnnotations.kt:22)
+	at kotlin.reflect.jvm.internal.KClassImpl.<clinit>(KClassImpl.kt:658)
+	at kotlin.reflect.jvm.internal.CachesKt.K_CLASS_CACHE$lambda$0(caches.kt:14)
+	at kotlin.reflect.jvm.internal.CachesKt.accessor$CachesKt$lambda0(caches.kt)
+	at kotlin.reflect.jvm.internal.CachesKt$$Lambda$0.invoke(Unknown Source)
+	at kotlin.reflect.jvm.internal.ComputableClassValue.computeValue(CacheByClass.kt:49)
+	at kotlin.reflect.jvm.internal.ComputableClassValue.computeValue(CacheByClass.kt:46)
+	at java.base/java.lang.ClassValue.getFromHashMap(ClassValue.java:229)
+	at java.base/java.lang.ClassValue.getFromBackup(ClassValue.java:211)
+	at java.base/java.lang.ClassValue.get(ClassValue.java:117)
+	at kotlin.reflect.jvm.internal.ClassValueCache.get(CacheByClass.kt:63)
+	at kotlin.reflect.jvm.internal.CachesKt.getOrCreateKotlinClass(caches.kt:19)
+	at kotlin.reflect.jvm.internal.ReflectionFactoryImpl.getOrCreateKotlinClass(ReflectionFactoryImpl.java:47)
+	at kotlin.jvm.internal.Reflection.getOrCreateKotlinClass(Reflection.java:60)
+	at io.github.oshai.kotlinlogging.KotlinLogging.<clinit>(KotlinLogging.kt:28)
+	at io.modelcontextprotocol.kotlin.sdk.utils.PathSegmentTemplateMatcher.<clinit>(PathSegmentTemplateMatcher.kt:91)
+	at io.modelcontextprotocol.kotlin.sdk.server.ServerOptions.<init>(Server.kt:89)
+	at io.modelcontextprotocol.kotlin.sdk.server.ServerOptions.<init>(Server.kt:86)
+	at com.atxx.jhmcp.MainKt.main$buildServer(Main.kt:239)
+	at com.atxx.jhmcp.MainKt.access$main$buildServer(Main.kt:1)
+	at com.atxx.jhmcp.MainKt$main$3.invoke(Main.kt:255)
+	at com.atxx.jhmcp.MainKt$main$3.invoke(Main.kt:255)
+	at com.atxx.jhmcp.MainKt$runStdio$1.invokeSuspend(Main.kt:262)
+[12:09:04] preflight MemAvailable=2094568 kB
+[jhmcp] loading APK: /data/data/com.termux/files/home/rea/swipewipe/base.apk (threads=2 resources=none)
+[main] INFO jadx.api.JadxDecompiler - loading ...
+[main] INFO jadx.core.utils.android.AndroidResourcesUtils - Found several 'R' class candidates: [androidx.appcompat.R, androidx.biometric.R, androidx.cardview.R, androidx.compose.material.icons.R, androidx.customview.R, androidx.legacy.coreutils.R, androidx.media3.exoplayer.R, androidx.viewpager.R, com.facebook.R, com.facebook.bolts.R, com.facebook.share.R, com.mbridge.msdk.R, com.microsoft.identity.common.R, com.mwm.sdk.sessionskit.R, com.vungle.ads.R, io.bidmachine.media3.exoplayer.dash.R, androidx.compose.material.icons.extended.R, androidx.compose.ui.unit.R, androidx.constraintlayout.widget.R, androidx.exifinterface.R, androidx.lifecycle.runtime.compose.R, androidx.media.R, androidx.media3.container.R, androidx.media3.ui.compose.R, androidx.privacysandbox.ads.adservices.java.R, androidx.room.R, androidx.room.ktx.R, androidx.sqlite.db.framework.R, androidx.versionedparcelable.R, com.android.installreferrer.R, com.google.android.exoplayer2.database.R, com.google.android.gms.measurement.api.R, com.microsoft.identity.msal.R, com.mwm.sdk.adskit.google_ump_consent.R, com.mwm.sdk.adskit.max_mediation_pangle.R, com.mwm.sdk.appkits.helper.dynamicscreen.R, androidx.compose.ui.graphics.R, androidx.datastore.core.R, androidx.graphics.shapes.R, androidx.lifecycle.ktx.R, androidx.lifecycle.livedata.R, androidx.lifecycle.livedata.core.R, androidx.media3.database.R, androidx.navigationevent.R, androidx.sqlite.db.R, com.applovin.mediation.adapters.bidmachine.R, com.applovin.mediation.adapters.inneractive.R, com.google.android.gms.appset.R, com.google.android.gms.auth.R, com.moloco.sdk.acm.R, com.mwm.ai.madmode.common.R, com.mwm.sdk.adskit.max.R, com.mwm.sdk.appkits.helper.installreferrer.R, com.mwm.sdk.appkits.helper.ledger.R, com.mwm.sdk.appkits.mad_mode.R, com.mwm.sdk.billingkit.gms.R, io.bidmachine.ads.networks.gam.base.R, io.bidmachine.ads.networks.gam_dynamic.versions.v21_0_0.R, io.bidmachine.ads.networks.gam_dynamic.versions.v23_0_0.R, io.bidmachine.media3.common.R, androidx.activity.ktx.R, androidx.compose.foundation.layout.R, androidx.compose.ui.util.R, androidx.core.viewtree.R, androidx.cursoradapter.R, androidx.datastore.preferences.R, androidx.lifecycle.process.R, androidx.lifecycle.viewmodel.ktx.R, androidx.media3.common.R, androidx.media3.common.ktx.R, androidx.media3.datasource.R, androidx.media3.extractor.R, androidx.navigation.common.R, androidx.navigationevent.compose.R, androidx.savedstate.R, androidx.tracing.R, com.applovin.mediation.adapters.google.R, com.applovin.mediation.adapters.ironsource.R, com.google.android.gms.identitycredentials.R, com.google.android.gms.measurement.sdk.api.R, com.google.android.gms.measurement_base.R, com.moloco.sdk.protobuf.R, com.mwm.android.sdk.dynamic_screen_glide.R, com.mwm.sdk.abtestkit.R, com.mwm.sdk.accountkit2.helper.facebook.R, com.mwm.sdk.adskit.max_mediation_fan.R, com.mwm.sdk.appkits.mad_mode_helper.R, com.mwm.sdk.appkits_helper_adskit.R, com.squareup.picasso.R, io.bidmachine.ads.networks.gam.R, io.bidmachine.ads.networks.gam.versions.v21_0_0.R, io.bidmachine.ads.networks.gam_dynamic.versions.v22_0_0.R, io.bidmachine.media3.container.R, io.bidmachine.media3.datasource.R, io.bidmachine.media3.decoder.R, org.chromium.net.R, androidx.appcompat.resources.R, androidx.compose.animation.R, androidx.compose.runtime.retain.R, androidx.core.ktx.R, androidx.customview.poolingcontainer.R, androidx.datastore.datastore.R, androidx.datastore.preferences.core.R, androidx.emoji2.R, androidx.lifecycle.runtime.R, androidx.lifecycle.viewmodel.compose.R, androidx.localbroadcastmanager.R, androidx.preference.ktx.R, androidx.print.R, androidx.profileinstaller.R, androidx.savedstate.compose.R, androidx.savedstate.ktx.R, androidx.slidingpanelayout.R, androidx.viewpager2.R, androidx.webkit.R, androidx.window.R, com.applovin.mediation.adapters.facebook.R, com.google.android.exoplayer2.decoder.R, com.google.android.exoplayer2.upstream.R, com.google.android.gms.auth.api.phone.R, com.mwm.sdk.accountkit2.helper.google.R, com.mwm.sdk.adskit.max_mediation_bidmachine.R, com.mwm.sdk.adskit.max_mediation_moloco.R, com.mwm.sdk.basekit.R, com.unity3d.ads.R, io.bidmachine.R, io.bidmachine.ads.networks.gam_dynamic.R, androidx.arch.core.R, androidx.compose.animation.core.R, androidx.compose.runtime.saveable.R, androidx.compose.ui.geometry.R, androidx.compose.ui.text.R, androidx.datastore.datastore.anchor.R, androidx.documentfile.R, androidx.emoji2.viewsintegration.R, androidx.hilt.navigation.compose.R, androidx.lifecycle.lifecycle.viewmodel.anchor.R, androidx.lifecycle.viewmodel.savedstate.R, androidx.media3.decoder.R, androidx.privacysandbox.ads.adservices.R, com.apm.insight.R, com.bykv.vk.openvk.gecko.R, com.google.android.exoplayer2.extractor.R, com.google.android.gms.ads_identifier.R, com.google.android.gms.auth.blockstore.R, com.google.android.gms.measurement.sdk.R, com.google.android.gms.tasks.R, com.mwm.sdk.adskit.max_mediation_admob.R, com.mwm.sdk.adskit.max_mediation_fyber.R, com.mwm.sdk.adskit.max_mediation_unityads.R, com.mwm.sdk.appkits.helper.facebookevent.R, com.mwm.sdk.billingkit.R, com.mwm.sdk.ledger.R, io.bidmachine.ads.networks.gam.versions.v23_0_0.R, io.bidmachine.media3.database.R, io.bidmachine.media3.extractor.R, io.bidmachine.util.R, androidx.coordinatorlayout.R, androidx.fragment.ktx.R, androidx.legacy.v4.R, androidx.loader.R, androidx.vectordrawable.R, com.applovin.sdk.R, com.facebook.gamingservices.R, com.facebook.login.R, com.fyber.inneractive.sdk.R, com.google.android.exoplayer2.core.R, com.google.android.exoplayer2.ui.R, com.google.android.gms.base.R, com.google.android.gms.stats.R, com.iab.omid.library.fyber.R, com.inmobi.ads.R, com.mwm.sdk.accountkit2.R, com.mwm.sdk.appkits.helper.firebase.R, com.mwm.swipewipe.dynamic_screen.R, io.bidmachine.analytics.internal.q.b.R, io.bidmachine.media3.exoplayer.R, androidx.activity.compose.R, androidx.autofill.R, androidx.browser.R, androidx.compose.material.R, androidx.media3.ui.R, androidx.transition.R, androidx.vectordrawable.animated.R, com.appsflyer.R, com.bytedance.R, com.bytedance.pag.shell.R, com.facebook.applinks.R, com.facebook.messenger.R, com.google.android.gms.fido.R, com.iab.omid.library.appodeal.R, com.ironsource.sdk.mediation.R, com.mwm.sdk.adskit.R, com.mwm.sdk.eventkit.gms.R, com.mwm.sdk.userfeedback.R, io.bidmachine.analytics.internal.q.a.R, io.bidmachine.media3.ui.R, io.bidmachine.rendering.R, androidx.asynclayoutinflater.R, androidx.compose.material.ripple.R, androidx.compose.runtime.R, androidx.compose.runtime.annotation.R, androidx.compose.ui.tooling.preview.R, androidx.core.R, androidx.credentials.play.services.auth.R, androidx.dynamicanimation.R, androidx.fragment.R, androidx.graphics.path.R, androidx.lifecycle.livedata.ktx.R, androidx.lifecycle.service.R, androidx.recyclerview.R, androidx.window.core.R, com.applovin.mediation.adapters.googleadmanager.R, com.facebook.ads.R, com.google.android.exoplayer2.common.R, com.google.android.gms.ads.impl.R, com.google.android.gms.auth.api.R, com.google.android.gms.location.R, com.google.android.gms.places_placereport.R, com.iab.omid.library.inmobi.R, com.ironsource.adqualitysdk.sdk.R, com.moloco.sdk.R, com.mwm.sdk.adskit.max_mediation_google_ad_manager.R, io.bidmachine.ads.networks.gam.versions.v22_0_0.R, io.bidmachine.ads.networks.gam_dynamic.base.R, io.bidmachine.analytics.R, io.bidmachine.media3.exoplayer.hls.R, androidx.activity.R, androidx.annotation.experimental.R, androidx.compose.foundation.R, androidx.compose.ui.R, androidx.lifecycle.livedata.core.ktx.R, androidx.lifecycle.viewmodel.R, androidx.preference.R, androidx.swiperefreshlayout.R, androidx.tracing.ktx.R, androidx.work.R, androidx.work.ktx.R, com.applovin.mediation.adapters.inmobi.R, com.applovin.mediation.adapters.moloco.R, com.facebook.common.R, com.facebook.core.R, com.google.android.gms.ads.R, com.google.android.gms.common.R, com.moloco.sdk.xenoss.sdkdevkit.android.adrenderer.internal.vast.k.R, com.mwm.sdk.adskit.max_mediation_inmobi.R, com.mwm.sdk.adskit.max_mediation_mintegral.R, com.mwm.sdk.adskit.max_mediation_vungle.R, com.mwm.sdk.appkits.helper.account.R, com.mwm.sdk.appkits.helper.billing.R, com.mwm.sdk.appkits_helper_abtest.R, com.mwm.sdk.plumbing.network.R, androidx.compose.material3.R, androidx.credentials.R, androidx.drawerlayout.R, androidx.hilt.lifecycle.viewmodel.R, androidx.hilt.lifecycle.viewmodel.compose.R, androidx.interpolator.R, androidx.legacy.coreui.R, androidx.navigation.R, androidx.navigation.compose.R, androidx.startup.R, com.applovin.mediation.adapters.bytedance.R, com.applovin.mediation.adapters.mintegral.R, com.applovin.mediation.adapters.unityads.R, com.applovin.mediation.adapters.vungle.R, com.google.android.gms.cronet.R, com.mwm.android.sdk.dynamic_screen.R, com.mwm.sdk.adskit.max_mediation_ironsource.R, com.mwm.sdk.appkits.helper.event.R, com.mwm.sdk.eventkit.R]
+[main] INFO jadx.core.utils.android.AndroidResourcesUtils - App 'R' class not found, put all resources ids into : 'com.afternoonproducts.swipewipe.R'
+[main] WARN jadx.core.dex.nodes.RootNode - Found duplicated class: kotlin.Metadata, count: 2, sources:
+  assets/audience_network/classes2.dex
+  classes6.dex
+ Keep class with source: classes6.dex, others will be removed.
+[main] INFO jadx.core.dex.nodes.RootNode - Loaded classes: 91473, methods: 496680, instructions: 13536913
+[jhmcp] loaded in 149323ms, classes=63031
+[jhmcp] package filter include=[com.afternoonproducts.swipewipe, com.mwm.swipewipe] exclude=[] (jadx still parsed all 63031 top-level classes; dropped ones are unloaded)
+kotlin-logging: initializing... active logger factory: Slf4jLoggerFactory
+[main] INFO FeatureRegistry[Tool] - Adding Tool: "status"
+[main] INFO FeatureRegistry[Tool] - Added Tool: "status"
+[main] INFO FeatureRegistry[Tool] - Notifying listeners on feature update
+[main] INFO FeatureRegistry[Tool] - Adding Tool: "load_apk"
+[main] INFO FeatureRegistry[Tool] - Added Tool: "load_apk"
+[main] INFO FeatureRegistry[Tool] - Notifying listeners on feature update
+[main] INFO FeatureRegistry[Tool] - Adding Tool: "unload_apk"
+[main] INFO FeatureRegistry[Tool] - Added Tool: "unload_apk"
+[main] INFO FeatureRegistry[Tool] - Notifying listeners on feature update
+[main] INFO FeatureRegistry[Tool] - Adding Tool: "get_app_info"
+[main] INFO FeatureRegistry[Tool] - Added Tool: "get_app_info"
+[main] INFO FeatureRegistry[Tool] - Notifying listeners on feature update
+[main] INFO FeatureRegistry[Tool] - Adding Tool: "get_android_manifest"
+[main] INFO FeatureRegistry[Tool] - Added Tool: "get_android_manifest"
+[main] INFO FeatureRegistry[Tool] - Notifying listeners on feature update
+[main] INFO FeatureRegistry[Tool] - Adding Tool: "get_main_activity_class"
+[main] INFO FeatureRegistry[Tool] - Added Tool: "get_main_activity_class"
+[main] INFO FeatureRegistry[Tool] - Notifying listeners on feature update
+[main] INFO FeatureRegistry[Tool] - Adding Tool: "list_classes"
+[main] INFO FeatureRegistry[Tool] - Added Tool: "list_classes"
+[main] INFO FeatureRegistry[Tool] - Notifying listeners on feature update
+[main] INFO FeatureRegistry[Tool] - Adding Tool: "get_main_application_classes_names"
+[main] INFO FeatureRegistry[Tool] - Added Tool: "get_main_application_classes_names"
+[main] INFO FeatureRegistry[Tool] - Notifying listeners on feature update
+[main] INFO FeatureRegistry[Tool] - Adding Tool: "get_class_source"
+[main] INFO FeatureRegistry[Tool] - Added Tool: "get_class_source"
+[main] INFO FeatureRegistry[Tool] - Notifying listeners on feature update
+[main] INFO FeatureRegistry[Tool] - Adding Tool: "get_class_summary"
+[main] INFO FeatureRegistry[Tool] - Added Tool: "get_class_summary"
+[main] INFO FeatureRegistry[Tool] - Notifying listeners on feature update
+[main] INFO FeatureRegistry[Tool] - Adding Tool: "get_smali_of_class"
+[main] INFO FeatureRegistry[Tool] - Added Tool: "get_smali_of_class"
+[main] INFO FeatureRegistry[Tool] - Notifying listeners on feature update
+[main] INFO FeatureRegistry[Tool] - Adding Tool: "get_fields_of_class"
+[main] INFO FeatureRegistry[Tool] - Added Tool: "get_fields_of_class"
+[main] INFO FeatureRegistry[Tool] - Notifying listeners on feature update
+[main] INFO FeatureRegistry[Tool] - Adding Tool: "get_inner_classes"
+[main] INFO FeatureRegistry[Tool] - Added Tool: "get_inner_classes"
+[main] INFO FeatureRegistry[Tool] - Notifying listeners on feature update
+[main] INFO FeatureRegistry[Tool] - Adding Tool: "resolve_class"
+[main] INFO FeatureRegistry[Tool] - Added Tool: "resolve_class"
+[main] INFO FeatureRegistry[Tool] - Notifying listeners on feature update
+[main] INFO FeatureRegistry[Tool] - Adding Tool: "get_methods_of_class"
+[main] INFO FeatureRegistry[Tool] - Added Tool: "get_methods_of_class"
+[main] INFO FeatureRegistry[Tool] - Notifying listeners on feature update
+[main] INFO FeatureRegistry[Tool] - Adding Tool: "get_method_by_name"
+[main] INFO FeatureRegistry[Tool] - Added Tool: "get_method_by_name"
+[main] INFO FeatureRegistry[Tool] - Notifying listeners on feature update
+[main] INFO FeatureRegistry[Tool] - Adding Tool: "get_method_body"
+[main] INFO FeatureRegistry[Tool] - Added Tool: "get_method_body"
+[main] INFO FeatureRegistry[Tool] - Notifying listeners on feature update
+[main] INFO FeatureRegistry[Tool] - Adding Tool: "get_method_smali"
+[main] INFO FeatureRegistry[Tool] - Added Tool: "get_method_smali"
+[main] INFO FeatureRegistry[Tool] - Notifying listeners on feature update
+[main] INFO FeatureRegistry[Tool] - Adding Tool: "search_method_by_name"
+[main] INFO FeatureRegistry[Tool] - Added Tool: "search_method_by_name"
+[main] INFO FeatureRegistry[Tool] - Notifying listeners on feature update
+[main] INFO FeatureRegistry[Tool] - Adding Tool: "search_classes_by_keyword"
+[main] INFO FeatureRegistry[Tool] - Added Tool: "search_classes_by_keyword"
+[main] INFO FeatureRegistry[Tool] - Notifying listeners on feature update
+[main] INFO FeatureRegistry[Tool] - Adding Tool: "get_xrefs_to_class"
+[main] INFO FeatureRegistry[Tool] - Added Tool: "get_xrefs_to_class"
+[main] INFO FeatureRegistry[Tool] - Notifying listeners on feature update
+[main] INFO FeatureRegistry[Tool] - Adding Tool: "get_xrefs_to_method"
+[main] INFO FeatureRegistry[Tool] - Added Tool: "get_xrefs_to_method"
+[main] INFO FeatureRegistry[Tool] - Notifying listeners on feature update
+[main] INFO FeatureRegistry[Tool] - Adding Tool: "get_xrefs_to_field"
+[main] INFO FeatureRegistry[Tool] - Added Tool: "get_xrefs_to_field"
+[main] INFO FeatureRegistry[Tool] - Notifying listeners on feature update
+[main] INFO FeatureRegistry[Tool] - Adding Tool: "get_strings"
+[main] INFO FeatureRegistry[Tool] - Added Tool: "get_strings"
+[main] INFO FeatureRegistry[Tool] - Notifying listeners on feature update
+[main] INFO FeatureRegistry[Tool] - Adding Tool: "list_resource_files"
+[main] INFO FeatureRegistry[Tool] - Added Tool: "list_resource_files"
+[main] INFO FeatureRegistry[Tool] - Notifying listeners on feature update
+[main] INFO FeatureRegistry[Tool] - Adding Tool: "get_resource_file"
+[main] INFO FeatureRegistry[Tool] - Added Tool: "get_resource_file"
+[main] INFO FeatureRegistry[Tool] - Notifying listeners on feature update
+[main] INFO io.modelcontextprotocol.kotlin.sdk.shared.Protocol - Starting transport
+[main] INFO io.modelcontextprotocol.kotlin.sdk.server.ServerSessionRegistry - Adding session: 4eb2479a-0651-46ae-a28b-7cc7c67649c7
+[main] INFO io.modelcontextprotocol.kotlin.sdk.server.FeatureNotificationService - Subscribing session for notifications sessionId: 4eb2479a-0651-46ae-a28b-7cc7c67649c7
+[main] INFO io.modelcontextprotocol.kotlin.sdk.server.SessionNotificationJob - Starting notification job from timestamp 1793256098008 for sessionId: 4eb2479a-0651-46ae-a28b-7cc7c67649c7 
+[main] INFO io.modelcontextprotocol.kotlin.sdk.server.FeatureNotificationService - Subscribed session for notifications sessionId: 4eb2479a-0651-46ae-a28b-7cc7c67649c7
+[DefaultDispatcher-worker-4] INFO FeatureRegistry[Tool] - Getting Tool: "status"
+[DefaultDispatcher-worker-4] INFO FeatureRegistry[Tool] - Got Tool: "status"
+[12:11:39] status: {"state":"LOADED","apk_path":"/data/data/com.termux/files/home/rea/swipewipe/base.apk","class_count":53,"raw_class_count":63031,"resource_count":1,"load_duration_ms":149652,"loaded_at_epoch_ms":1793256096011,"decompile_timeout_ms":90000,"threads":2,"code_cache_size":64,"resources":"none","include_packages":["com.afternoonproducts.swipewipe","com.mwm.swipewipe"]}
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Getting Tool: "get_app_info"
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Got Tool: "get_app_info"
+[DefaultDispatcher-worker-4] INFO FeatureRegistry[Tool] - Getting Tool: "get_android_manifest"
+[DefaultDispatcher-worker-4] INFO FeatureRegistry[Tool] - Got Tool: "get_android_manifest"
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-1] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:27:0x009e, code lost:
+
+    if (r0 == r1) goto L42;
+ in method: com.afternoonproducts.swipewipe.swipeable_card.SwipeableCardState.d(ct0, androidx.compose.animation.core.TweenSpec, rb0):java.lang.Object, file: classes3.dex
+[DefaultDispatcher-worker-1] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:33:0x00ca, code lost:
+
+    if (r0 == r1) goto L42;
+ in method: com.afternoonproducts.swipewipe.swipeable_card.SwipeableCardState.d(ct0, androidx.compose.animation.core.TweenSpec, rb0):java.lang.Object, file: classes3.dex
+[DefaultDispatcher-worker-1] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:37:0x00ef, code lost:
+
+    if (r0 == r1) goto L42;
+ in method: com.afternoonproducts.swipewipe.swipeable_card.SwipeableCardState.d(ct0, androidx.compose.animation.core.TweenSpec, rb0):java.lang.Object, file: classes3.dex
+[DefaultDispatcher-worker-1] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:41:0x0115, code lost:
+
+    if (r0 == r1) goto L42;
+ in method: com.afternoonproducts.swipewipe.swipeable_card.SwipeableCardState.d(ct0, androidx.compose.animation.core.TweenSpec, rb0):java.lang.Object, file: classes3.dex
+[DefaultDispatcher-worker-1] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:23:0x0069, code lost:
+
+    if (r7 == r1) goto L24;
+ in method: com.afternoonproducts.swipewipe.push_local.SimilarImagesReminderWorker.doWork(qb0):java.lang.Object, file: classes11.dex
+[DefaultDispatcher-worker-1] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:42:0x00f3, code lost:
+
+    if (r14 == r1) goto L43;
+ in method: com.afternoonproducts.swipewipe.photo_compress_batch.PhotoCompressBatchWorker.doWork(qb0):java.lang.Object, file: classes7.dex
+[DefaultDispatcher-worker-1] ERROR jadx.core.utils.ErrorsCounter - JadxOverflowException in pass: RegionMakerVisitor in method: com.afternoonproducts.swipewipe.one_drive_data_source.OneDriveDataSourceManagerImpl.deleteItemsBatch(java.util.List<java.lang.String>, qb0<? super java.util.Map<java.lang.String, java.lang.Boolean>>):java.lang.Object, file: classes8.dex, details: Regions stack size limit reached
+[DefaultDispatcher-worker-1] WARN jadx.core.utils.ErrorsCounter - Can't wrap try/catch for region: R(10:16|153|17|18|163|74|75|(4:78|(2:80|177)(2:81|(2:117|(2:119|180)(2:120|176))(5:85|(5:161|91|92|95|(1:87))(1:87)|98|(1:100)(1:101)|(2:103|(5:108|(1:110)(1:111)|(1:113)(1:114)|115|178)(3:107|116|179))(3:107|116|179)))|121|76)|175|122) in method: com.afternoonproducts.swipewipe.one_drive_data_source.OneDriveDataSourceManagerImpl.getMediaUrlsBatch(java.util.List<java.lang.String>, qb0<? super java.util.Map<java.lang.String, n10>>):java.lang.Object, file: classes8.dex
+[DefaultDispatcher-worker-1] WARN jadx.core.utils.ErrorsCounter - Can't wrap try/catch for region: R(23:38|(3:41|(1:43)(3:172|44|45)|39)|171|46|(3:49|(1:51)(3:174|52|53)|47)|173|54|159|55|56|167|57|165|58|59|151|60|61|157|62|63|(8:66|169|67|68|155|69|70|(1:73))|124) in method: com.afternoonproducts.swipewipe.one_drive_data_source.OneDriveDataSourceManagerImpl.getMediaUrlsBatch(java.util.List<java.lang.String>, qb0<? super java.util.Map<java.lang.String, n10>>):java.lang.Object, file: classes8.dex
+[DefaultDispatcher-worker-1] WARN jadx.core.utils.ErrorsCounter - Can't wrap try/catch for region: R(23:38|(3:41|(1:43)(3:172|44|45)|39)|171|46|(3:49|(1:51)(3:174|52|53)|47)|173|54|159|55|56|167|57|165|58|59|151|60|61|157|62|63|(8:66|169|67|68|155|69|70|(1:73))|124) in method: com.afternoonproducts.swipewipe.one_drive_data_source.OneDriveDataSourceManagerImpl.getMediaUrlsBatch(java.util.List<java.lang.String>, qb0<? super java.util.Map<java.lang.String, n10>>):java.lang.Object, file: classes8.dex
+[DefaultDispatcher-worker-1] WARN jadx.core.utils.ErrorsCounter - Can't wrap try/catch for region: R(23:38|(3:41|(1:43)(3:172|44|45)|39)|171|46|(3:49|(1:51)(3:174|52|53)|47)|173|54|159|55|56|167|57|165|58|59|151|60|61|157|62|63|(8:66|169|67|68|155|69|70|(1:73))|124) in method: com.afternoonproducts.swipewipe.one_drive_data_source.OneDriveDataSourceManagerImpl.getMediaUrlsBatch(java.util.List<java.lang.String>, qb0<? super java.util.Map<java.lang.String, n10>>):java.lang.Object, file: classes8.dex
+[DefaultDispatcher-worker-1] WARN jadx.core.utils.ErrorsCounter - Can't wrap try/catch for region: R(23:38|(3:41|(1:43)(3:172|44|45)|39)|171|46|(3:49|(1:51)(3:174|52|53)|47)|173|54|159|55|56|167|57|165|58|59|151|60|61|157|62|63|(8:66|169|67|68|155|69|70|(1:73))|124) in method: com.afternoonproducts.swipewipe.one_drive_data_source.OneDriveDataSourceManagerImpl.getMediaUrlsBatch(java.util.List<java.lang.String>, qb0<? super java.util.Map<java.lang.String, n10>>):java.lang.Object, file: classes8.dex
+[DefaultDispatcher-worker-1] WARN jadx.core.utils.ErrorsCounter - Can't wrap try/catch for region: R(23:38|(3:41|(1:43)(3:172|44|45)|39)|171|46|(3:49|(1:51)(3:174|52|53)|47)|173|54|159|55|56|167|57|165|58|59|151|60|61|157|62|63|(8:66|169|67|68|155|69|70|(1:73))|124) in method: com.afternoonproducts.swipewipe.one_drive_data_source.OneDriveDataSourceManagerImpl.getMediaUrlsBatch(java.util.List<java.lang.String>, qb0<? super java.util.Map<java.lang.String, n10>>):java.lang.Object, file: classes8.dex
+[DefaultDispatcher-worker-1] WARN jadx.core.utils.ErrorsCounter - Can't wrap try/catch for region: R(8:66|169|67|68|155|69|70|(1:73)) in method: com.afternoonproducts.swipewipe.one_drive_data_source.OneDriveDataSourceManagerImpl.getMediaUrlsBatch(java.util.List<java.lang.String>, qb0<? super java.util.Map<java.lang.String, n10>>):java.lang.Object, file: classes8.dex
+[DefaultDispatcher-worker-1] WARN jadx.core.utils.ErrorsCounter - Can't wrap try/catch for region: R(8:66|169|67|68|155|69|70|(1:73)) in method: com.afternoonproducts.swipewipe.one_drive_data_source.OneDriveDataSourceManagerImpl.getMediaUrlsBatch(java.util.List<java.lang.String>, qb0<? super java.util.Map<java.lang.String, n10>>):java.lang.Object, file: classes8.dex
+[DefaultDispatcher-worker-1] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:75:0x02cc, code lost:
+
+    if (r13.invoke(r3) == r4) goto L87;
+ in method: com.afternoonproducts.swipewipe.one_drive_data_source.OneDriveDataSourceManagerImpl.performDeltaSync(kotlin.jvm.functions.Function1<? super qb0<? super kotlin.Unit>, ? extends java.lang.Object>, qb0<? super java.util.List<g40>>):java.lang.Object, file: classes8.dex
+[DefaultDispatcher-worker-1] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:86:0x0306, code lost:
+
+    if (purgeRemovedItems(r2, r3) == r4) goto L87;
+ in method: com.afternoonproducts.swipewipe.one_drive_data_source.OneDriveDataSourceManagerImpl.performDeltaSync(kotlin.jvm.functions.Function1<? super qb0<? super kotlin.Unit>, ? extends java.lang.Object>, qb0<? super java.util.List<g40>>):java.lang.Object, file: classes8.dex
+[DefaultDispatcher-worker-1] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:58:0x023f, code lost:
+
+    if (r12.invoke(r3) == r4) goto L87;
+ in method: com.afternoonproducts.swipewipe.one_drive_data_source.OneDriveDataSourceManagerImpl.performDeltaSync(kotlin.jvm.functions.Function1<? super qb0<? super kotlin.Unit>, ? extends java.lang.Object>, qb0<? super java.util.List<g40>>):java.lang.Object, file: classes8.dex
+[DefaultDispatcher-worker-1] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:123:0x030e, code lost:
+
+    if (purgeRemovedItems(r9, r2) == r3) goto L124;
+ in method: com.afternoonproducts.swipewipe.one_drive_data_source.OneDriveDataSourceManagerImpl.getMediaUrlsBatch(java.util.List<java.lang.String>, qb0<? super java.util.Map<java.lang.String, n10>>):java.lang.Object, file: classes8.dex
+[DefaultDispatcher-worker-1] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:126:0x0317, code lost:
+
+    r0 = e;
+ in method: com.afternoonproducts.swipewipe.one_drive_data_source.OneDriveDataSourceManagerImpl.getMediaUrlsBatch(java.util.List<java.lang.String>, qb0<? super java.util.Map<java.lang.String, n10>>):java.lang.Object, file: classes8.dex
+[DefaultDispatcher-worker-1] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:127:0x0318, code lost:
+
+    r15 = r12;
+    r18 = null;
+    r14 = r11;
+    r11 = r4;
+ in method: com.afternoonproducts.swipewipe.one_drive_data_source.OneDriveDataSourceManagerImpl.getMediaUrlsBatch(java.util.List<java.lang.String>, qb0<? super java.util.Map<java.lang.String, n10>>):java.lang.Object, file: classes8.dex
+[DefaultDispatcher-worker-1] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:131:0x032d, code lost:
+
+    r0 = e;
+ in method: com.afternoonproducts.swipewipe.one_drive_data_source.OneDriveDataSourceManagerImpl.getMediaUrlsBatch(java.util.List<java.lang.String>, qb0<? super java.util.Map<java.lang.String, n10>>):java.lang.Object, file: classes8.dex
+[DefaultDispatcher-worker-1] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:132:0x032e, code lost:
+
+    r18 = null;
+ in method: com.afternoonproducts.swipewipe.one_drive_data_source.OneDriveDataSourceManagerImpl.getMediaUrlsBatch(java.util.List<java.lang.String>, qb0<? super java.util.Map<java.lang.String, n10>>):java.lang.Object, file: classes8.dex
+[DefaultDispatcher-worker-1] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:130:0x0329, code lost:
+
+    r13 = r14;
+    r14 = r15;
+    r15 = r6;
+ in method: com.afternoonproducts.swipewipe.one_drive_data_source.OneDriveDataSourceManagerImpl.getMediaUrlsBatch(java.util.List<java.lang.String>, qb0<? super java.util.Map<java.lang.String, n10>>):java.lang.Object, file: classes8.dex
+[DefaultDispatcher-worker-1] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:128:0x0322, code lost:
+
+    r0 = e;
+ in method: com.afternoonproducts.swipewipe.one_drive_data_source.OneDriveDataSourceManagerImpl.getMediaUrlsBatch(java.util.List<java.lang.String>, qb0<? super java.util.Map<java.lang.String, n10>>):java.lang.Object, file: classes8.dex
+[DefaultDispatcher-worker-1] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:129:0x0323, code lost:
+
+    r18 = null;
+ in method: com.afternoonproducts.swipewipe.one_drive_data_source.OneDriveDataSourceManagerImpl.getMediaUrlsBatch(java.util.List<java.lang.String>, qb0<? super java.util.Map<java.lang.String, n10>>):java.lang.Object, file: classes8.dex
+[DefaultDispatcher-worker-1] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:137:0x033c, code lost:
+
+    r0 = e;
+ in method: com.afternoonproducts.swipewipe.one_drive_data_source.OneDriveDataSourceManagerImpl.getMediaUrlsBatch(java.util.List<java.lang.String>, qb0<? super java.util.Map<java.lang.String, n10>>):java.lang.Object, file: classes8.dex
+[DefaultDispatcher-worker-1] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:136:0x0339, code lost:
+
+    r18 = null;
+ in method: com.afternoonproducts.swipewipe.one_drive_data_source.OneDriveDataSourceManagerImpl.getMediaUrlsBatch(java.util.List<java.lang.String>, qb0<? super java.util.Map<java.lang.String, n10>>):java.lang.Object, file: classes8.dex
+[DefaultDispatcher-worker-1] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:139:0x0340, code lost:
+
+    r0 = e;
+ in method: com.afternoonproducts.swipewipe.one_drive_data_source.OneDriveDataSourceManagerImpl.getMediaUrlsBatch(java.util.List<java.lang.String>, qb0<? super java.util.Map<java.lang.String, n10>>):java.lang.Object, file: classes8.dex
+[DefaultDispatcher-worker-1] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:133:0x0335, code lost:
+
+    r0 = e;
+ in method: com.afternoonproducts.swipewipe.one_drive_data_source.OneDriveDataSourceManagerImpl.getMediaUrlsBatch(java.util.List<java.lang.String>, qb0<? super java.util.Map<java.lang.String, n10>>):java.lang.Object, file: classes8.dex
+[DefaultDispatcher-worker-1] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:141:0x0345, code lost:
+
+    r0 = e;
+ in method: com.afternoonproducts.swipewipe.one_drive_data_source.OneDriveDataSourceManagerImpl.getMediaUrlsBatch(java.util.List<java.lang.String>, qb0<? super java.util.Map<java.lang.String, n10>>):java.lang.Object, file: classes8.dex
+[DefaultDispatcher-worker-1] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:142:0x0346, code lost:
+
+    r18 = r18;
+ in method: com.afternoonproducts.swipewipe.one_drive_data_source.OneDriveDataSourceManagerImpl.getMediaUrlsBatch(java.util.List<java.lang.String>, qb0<? super java.util.Map<java.lang.String, n10>>):java.lang.Object, file: classes8.dex
+[DefaultDispatcher-worker-1] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:144:0x034c, code lost:
+
+    r0 = e;
+ in method: com.afternoonproducts.swipewipe.one_drive_data_source.OneDriveDataSourceManagerImpl.getMediaUrlsBatch(java.util.List<java.lang.String>, qb0<? super java.util.Map<java.lang.String, n10>>):java.lang.Object, file: classes8.dex
+[DefaultDispatcher-worker-1] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:35:0x008e, code lost:
+
+    if (r9 == r1) goto L36;
+ in method: com.afternoonproducts.swipewipe.one_drive_data_source.OneDriveDataSourceManagerImpl.synchronizeMedia(r44, kotlin.jvm.functions.Function1<? super qb0<? super kotlin.Unit>, ? extends java.lang.Object>, qb0<? super java.util.List<g40>>):java.lang.Object, file: classes8.dex
+[DefaultDispatcher-worker-1] WARN jadx.core.dex.trycatch.ExceptionHandler - No support yet for finding bottom block of try body with multipe inner trys
+[DefaultDispatcher-worker-1] WARN jadx.core.dex.trycatch.ExceptionHandler - No support yet for finding bottom block of try body with multipe inner trys
+[DefaultDispatcher-worker-1] WARN jadx.core.dex.trycatch.ExceptionHandler - No support yet for finding bottom block of try body with multipe inner trys
+[DefaultDispatcher-worker-1] WARN jadx.core.dex.trycatch.ExceptionHandler - No support yet for finding bottom block of try body with multipe inner trys
+[DefaultDispatcher-worker-1] WARN jadx.core.dex.trycatch.ExceptionHandler - No support yet for finding bottom block of try body with multipe inner trys
+[DefaultDispatcher-worker-1] WARN jadx.core.dex.trycatch.ExceptionHandler - No support yet for finding bottom block of try body with multipe inner trys
+[DefaultDispatcher-worker-1] WARN jadx.core.dex.trycatch.ExceptionHandler - No support yet for finding bottom block of try body with multipe inner trys
+[DefaultDispatcher-worker-1] WARN jadx.core.dex.trycatch.ExceptionHandler - No support yet for finding bottom block of try body with multipe inner trys
+[DefaultDispatcher-worker-1] ERROR jadx.core.utils.ErrorsCounter - JadxOverflowException in pass: RegionMakerVisitor in method: zd0.a(androidx.compose.ui.input.pointer.AwaitPointerEventScope, kotlin.jvm.functions.Function1, yo):java.lang.Object, file: classes3.dex, details: Regions stack size limit reached
+[DefaultDispatcher-worker-1] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:18:0x0066, code lost:
+
+    if (androidx.room.TransactorKt.a(r6, r10, r9) == r0) goto L19;
+ in method: androidx.room.RoomDatabase.performClear.1.1.1.invokeSuspend(java.lang.Object):java.lang.Object, file: classes2.dex
+[DefaultDispatcher-worker-1] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:19:0x0068, code lost:
+
+    return r0;
+ in method: androidx.room.RoomDatabase.performClear.1.1.1.invokeSuspend(java.lang.Object):java.lang.Object, file: classes2.dex
+[DefaultDispatcher-worker-1] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:13:0x0041, code lost:
+
+    if (androidx.room.TransactorKt.a(r1, "PRAGMA defer_foreign_keys = TRUE", r9) == r0) goto L19;
+ in method: androidx.room.RoomDatabase.performClear.1.1.1.invokeSuspend(java.lang.Object):java.lang.Object, file: classes2.dex
+[DefaultDispatcher-worker-1] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:33:0x00b1, code lost:
+
+    if (androidx.room.TransactorKt.a(r1, "VACUUM", r7) == r0) goto L34;
+ in method: androidx.room.RoomDatabase.performClear.1.1.invokeSuspend(java.lang.Object):java.lang.Object, file: classes7.dex
+[DefaultDispatcher-worker-1] WARN jadx.core.dex.visitors.regions.LoopRegionVisitor - Generic type differs: 'java.util.Map$Entry<kotlin.reflect.KClass<? extends androidx.room.migration.AutoMigrationSpec>, ? extends androidx.room.migration.AutoMigrationSpec>' and 'java.util.Map$Entry' in androidx.room.RoomDatabase.createAutoMigrations(java.util.Map<kotlin.reflect.KClass<? extends androidx.room.migration.AutoMigrationSpec>, ? extends androidx.room.migration.AutoMigrationSpec>):java.util.List<androidx.room.migration.Migration>
+[DefaultDispatcher-worker-1] WARN jadx.core.dex.visitors.regions.LoopRegionVisitor - Generic type differs: 'java.util.Map$Entry<java.lang.Class<?>, java.util.List<java.lang.Class<?>>>' and 'java.util.Map$Entry' in androidx.room.RoomDatabase.getRequiredTypeConverterClasses():java.util.Map<kotlin.reflect.KClass<?>, java.util.List<kotlin.reflect.KClass<?>>>
+[jhmcp-decompile] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:21:0x005a, code lost:
+
+    if (r6.emit(r8, r0) == r1) goto L22;
+ in method: androidx.room.coroutines.FlowUtil$createFlow$$inlined$map$1.2.emit(java.lang.Object, qb0):java.lang.Object, file: classes9.dex
+[jhmcp-decompile] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:14:0x0047, code lost:
+
+    if (kotlinx.coroutines.flow.FlowKt.emitAll(r0, (kotlinx.coroutines.flow.Flow) r8, r7) == r2) goto L15;
+ in method: kotlinx.coroutines.flow.FlowKt__MergeKt.flatMapLatest.1.invokeSuspend(java.lang.Object):java.lang.Object, file: classes6.dex
+[jhmcp-decompile] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:14:0x0045, code lost:
+
+    if (r0.emit(r8, r7) == r2) goto L15;
+ in method: kotlinx.coroutines.flow.FlowKt__MergeKt.mapLatest.1.invokeSuspend(java.lang.Object):java.lang.Object, file: classes6.dex
+[jhmcp] source com.afternoonproducts.swipewipe.cloud_provider_sync.CloudProviderSyncCoroutineWorker took 2461ms
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-4] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-4] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[jhmcp-decompile] WARN jadx.core.dex.trycatch.ExceptionHandler - No support yet for finding bottom block of try body with multipe inner trys
+[jhmcp-decompile] WARN jadx.core.dex.trycatch.ExceptionHandler - No support yet for finding bottom block of try body with multipe inner trys
+[jhmcp-decompile] WARN jadx.core.dex.trycatch.ExceptionHandler - No support yet for finding bottom block of try body with multipe inner trys
+[jhmcp-decompile] WARN jadx.core.dex.trycatch.ExceptionHandler - No support yet for finding bottom block of try body with multipe inner trys
+[jhmcp-decompile] ERROR jadx.core.utils.ErrorsCounter - JadxOverflowException in pass: RegionMakerVisitor in method: io.ktor.utils.io.ByteReadChannelOperationsKt.readByteArray(io.ktor.utils.io.ByteReadChannel, int, qb0<? super byte[]>):java.lang.Object, file: classes5.dex, details: Regions stack size limit reached
+[jhmcp-decompile] ERROR jadx.core.utils.ErrorsCounter - JadxOverflowException in pass: RegionMakerVisitor in method: io.ktor.utils.io.ByteReadChannelOperationsKt.readFully(io.ktor.utils.io.ByteReadChannel, byte[], int, int, qb0<? super kotlin.Unit>):java.lang.Object, file: classes5.dex, details: Regions stack size limit reached
+[jhmcp-decompile] ERROR jadx.core.utils.ErrorsCounter - JadxOverflowException in pass: RegionMakerVisitor in method: io.ktor.utils.io.ByteReadChannelOperationsKt.readPacket(io.ktor.utils.io.ByteReadChannel, int, qb0<? super gs3>):java.lang.Object, file: classes5.dex, details: Regions stack size limit reached
+[jhmcp-decompile] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:34:0x00a2, code lost:
+
+    if (r0 == r2) goto L52;
+ in method: io.ktor.utils.io.ByteReadChannelOperationsKt.copyAndClose(io.ktor.utils.io.ByteReadChannel, io.ktor.utils.io.ByteWriteChannel, qb0<? super java.lang.Long>):java.lang.Object, file: classes5.dex
+[jhmcp-decompile] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:34:0x00a0, code lost:
+
+    if (io.ktor.utils.io.ByteReadChannel.DefaultImpls.awaitContent$default(r1, 0, r13, r7, null) == r2) goto L54;
+ in method: io.ktor.utils.io.ByteReadChannelOperationsKt.copyTo(io.ktor.utils.io.ByteReadChannel, io.ktor.utils.io.ByteWriteChannel, long, qb0<? super java.lang.Long>):java.lang.Object, file: classes5.dex
+[jhmcp-decompile] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:40:0x00d5, code lost:
+
+    if (r0 == r2) goto L54;
+ in method: io.ktor.utils.io.ByteReadChannelOperationsKt.copyTo(io.ktor.utils.io.ByteReadChannel, io.ktor.utils.io.ByteWriteChannel, long, qb0<? super java.lang.Long>):java.lang.Object, file: classes5.dex
+[jhmcp-decompile] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:34:0x00a6, code lost:
+
+    if (io.ktor.utils.io.ByteReadChannel.DefaultImpls.awaitContent$default(r11, 0, r1, 1, null) == r2) goto L49;
+ in method: io.ktor.utils.io.ByteReadChannelOperationsKt.copyTo(io.ktor.utils.io.ByteReadChannel, io.ktor.utils.io.ByteWriteChannel, qb0<? super java.lang.Long>):java.lang.Object, file: classes5.dex
+[jhmcp-decompile] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:67:0x01a7, code lost:
+
+    if (io.ktor.utils.io.ByteReadChannel.DefaultImpls.awaitContent$default(r6, 0, r2, 1, null) == r3) goto L68;
+ in method: io.ktor.utils.io.ByteReadChannelOperationsKt.readUTF8LineTo-RRvyBJ8(io.ktor.utils.io.ByteReadChannel, java.lang.Appendable, int, int, qb0<? super java.lang.Boolean>):java.lang.Object, file: classes5.dex
+[jhmcp-decompile] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:27:0x00aa, code lost:
+
+    if (io.ktor.utils.io.ByteReadChannel.DefaultImpls.awaitContent$default(r0, 0, r2, 1, null) == r3) goto L68;
+ in method: io.ktor.utils.io.ByteReadChannelOperationsKt.readUTF8LineTo-RRvyBJ8(io.ktor.utils.io.ByteReadChannel, java.lang.Appendable, int, int, qb0<? super java.lang.Boolean>):java.lang.Object, file: classes5.dex
+[jhmcp-decompile] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:22:0x0065, code lost:
+
+    if (discard(r6, r7, r0) == r1) goto L23;
+ in method: io.ktor.utils.io.ByteReadChannelOperationsKt.skipIfFound(io.ktor.utils.io.ByteReadChannel, cw, qb0<? super java.lang.Boolean>):java.lang.Object, file: classes5.dex
+[jhmcp-decompile] ERROR jadx.core.utils.ErrorsCounter - JadxOverflowException in pass: RegionMakerVisitor in method: io.ktor.util.ByteChannelsKt.split.1.invokeSuspend(java.lang.Object):java.lang.Object, file: classes7.dex, details: Regions stack size limit reached
+[jhmcp-decompile] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:67:0x0151, code lost:
+
+    if (r9.flushAndClose(r8) == r0) goto L77;
+ in method: io.ktor.util.ByteChannelsKt.copyToBoth.1.invokeSuspend(java.lang.Object):java.lang.Object, file: classes7.dex
+[jhmcp-decompile] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:59:0x0124, code lost:
+
+    if (r9.flushAndClose(r8) == r0) goto L77;
+ in method: io.ktor.util.ByteChannelsKt.copyToBoth.1.invokeSuspend(java.lang.Object):java.lang.Object, file: classes7.dex
+[jhmcp-decompile] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:24:0x0054, code lost:
+
+    if (r6.flush(r0) == r1) goto L25;
+ in method: io.ktor.websocket.WebSocketSessionKt.close(io.ktor.websocket.WebSocketSession, io.ktor.websocket.CloseReason, qb0<? super kotlin.Unit>):java.lang.Object, file: classes6.dex
+[jhmcp-decompile] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:56:0x00e5, code lost:
+
+    if (r2.cleanup(r0, r14) == r1) goto L63;
+ in method: io.ktor.client.plugins.websocket.BuildersKt.webSocketSession.2.invokeSuspend(java.lang.Object):java.lang.Object, file: classes7.dex
+[jhmcp-decompile] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:62:0x00fd, code lost:
+
+    if (r2.cleanup(r15, r14) == r1) goto L63;
+ in method: io.ktor.client.plugins.websocket.BuildersKt.webSocketSession.2.invokeSuspend(java.lang.Object):java.lang.Object, file: classes7.dex
+[jhmcp-decompile] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:62:0x0132, code lost:
+
+    if (r0.cleanup(r10, r1) == r2) goto L79;
+ in method: io.ktor.client.plugins.websocket.BuildersKt.webSocket(io.ktor.client.HttpClient, kotlin.jvm.functions.Function1<? super io.ktor.client.request.HttpRequestBuilder, kotlin.Unit>, kotlin.jvm.functions.Function2<? super io.ktor.client.plugins.websocket.DefaultClientWebSocketSession, ? super qb0<? super kotlin.Unit>, ? extends java.lang.Object>, qb0<? super kotlin.Unit>):java.lang.Object, file: classes7.dex
+[jhmcp-decompile] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:78:0x016f, code lost:
+
+    if (r0.cleanup(r10, r1) == r2) goto L79;
+ in method: io.ktor.client.plugins.websocket.BuildersKt.webSocket(io.ktor.client.HttpClient, kotlin.jvm.functions.Function1<? super io.ktor.client.request.HttpRequestBuilder, kotlin.Unit>, kotlin.jvm.functions.Function2<? super io.ktor.client.plugins.websocket.DefaultClientWebSocketSession, ? super qb0<? super kotlin.Unit>, ? extends java.lang.Object>, qb0<? super kotlin.Unit>):java.lang.Object, file: classes7.dex
+[jhmcp-decompile] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:34:0x00d4, code lost:
+
+    if (r12 == r2) goto L35;
+ in method: ss2.b(boolean, rb0):java.lang.Object, file: classes11.dex
+[jhmcp-decompile] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:28:0x0067, code lost:
+
+    if (r6 == r1) goto L29;
+ in method: ss2.e(rb0):java.lang.Object, file: classes11.dex
+[jhmcp-decompile] WARN jadx.core.dex.visitors.regions.LoopRegionVisitor - Generic type differs: 'java.util.Map$Entry<java.lang.String, java.util.List<java.lang.String>>' and 'java.util.Map$Entry' in io.ktor.client.engine.android.AndroidClientEngine.execute$lambda$5(kotlin.coroutines.CoroutineContext, io.ktor.client.request.HttpRequestData, io.ktor.http.content.OutgoingContent, io.ktor.util.date.GMTDate, java.net.HttpURLConnection):io.ktor.client.request.HttpResponseData
+[jhmcp] source com.afternoonproducts.swipewipe.one_drive_data_source.OneDriveDataSourceManagerImpl took 7032ms
+[DefaultDispatcher-worker-4] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-4] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-4] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-4] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-4] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-4] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-4] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-4] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-4] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-4] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-4] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-4] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-4] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-4] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-4] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-4] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-4] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-4] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-4] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-4] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-4] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-4] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[jhmcp-decompile] ERROR jadx.core.utils.ErrorsCounter - JadxOverflowException in pass: RegionMakerVisitor in method: ar1.a(ar1, rb0):java.lang.Object, file: classes10.dex, details: Regions count limit reached at block B:101:0x0430
+[jhmcp-decompile] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:30:0x0083, code lost:
+
+    if (c(r5, r0) == r1) goto L31;
+ in method: ar1.f(rb0):java.lang.Object, file: classes10.dex
+[jhmcp] source com.afternoonproducts.swipewipe.image_grouping.ImageGroupingWorker took 13714ms
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-4] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-4] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-4] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-4] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-4] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-4] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[jhmcp-decompile] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:23:0x0069, code lost:
+
+    if (r7 == r1) goto L24;
+ in method: com.afternoonproducts.swipewipe.push_local.SimilarImagesReminderWorker.doWork(qb0):java.lang.Object, file: classes11.dex
+[jhmcp-decompile] WARN jadx.core.dex.trycatch.ExceptionHandler - No support yet for finding bottom block of try body with multipe inner trys
+[jhmcp-decompile] WARN jadx.core.dex.trycatch.ExceptionHandler - No support yet for finding bottom block of try body with multipe inner trys
+[jhmcp-decompile] WARN jadx.core.dex.trycatch.ExceptionHandler - No support yet for finding bottom block of try body with multipe inner trys
+[jhmcp-decompile] WARN jadx.core.dex.trycatch.ExceptionHandler - No support yet for finding bottom block of try body with multipe inner trys
+[jhmcp-decompile] WARN jadx.core.dex.trycatch.ExceptionHandler - No support yet for finding bottom block of try body with multipe inner trys
+[jhmcp-decompile] WARN jadx.core.dex.trycatch.ExceptionHandler - No support yet for finding bottom block of try body with multipe inner trys
+[jhmcp-decompile] WARN jadx.core.dex.trycatch.ExceptionHandler - No support yet for finding bottom block of try body with multipe inner trys
+[jhmcp-decompile] WARN jadx.core.dex.trycatch.ExceptionHandler - No support yet for finding bottom block of try body with multipe inner trys
+[jhmcp-decompile] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:29:0x00ef, code lost:
+
+    if (r0.join(r3) == r4) goto L30;
+ in method: com.unity3d.ads.adplayer.AndroidWebViewContainer.evaluateJavascript(com.unity3d.ads.adplayer.HandlerType, org.json.JSONArray, qb0<? super kotlin.Unit>):java.lang.Object, file: classes5.dex
+[jhmcp-decompile] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:24:0x00a4, code lost:
+
+    if (r2.lock(null, r3) == r4) goto L30;
+ in method: com.unity3d.ads.adplayer.AndroidWebViewContainer.evaluateJavascript(com.unity3d.ads.adplayer.HandlerType, org.json.JSONArray, qb0<? super kotlin.Unit>):java.lang.Object, file: classes5.dex
+[jhmcp-decompile] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:28:0x008d, code lost:
+
+    if (r8.destroy(r0) == r1) goto L29;
+ in method: com.unity3d.ads.adplayer.AndroidWebViewContainer.loadUrl(java.lang.String, qb0<? super kotlin.Unit>):java.lang.Object, file: classes5.dex
+[jhmcp-decompile] ERROR jadx.core.utils.ErrorsCounter - JadxOverflowException in pass: RegionMakerVisitor in method: wv2.l(java.lang.String, yv2, iw2, rb0):java.lang.Object, file: classes11.dex, details: Regions stack size limit reached
+[jhmcp-decompile] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:29:0x00a4, code lost:
+
+    if (r10 == r1) goto L35;
+ in method: wv2.b(wv2, java.lang.String, yv2, rb0):java.lang.Object, file: classes11.dex
+[jhmcp-decompile] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:24:0x0070, code lost:
+
+    if (r14 == r1) goto L39;
+ in method: wv2.c(wv2, xv2, rb0):java.lang.Object, file: classes11.dex
+[jhmcp-decompile] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:34:0x0071, code lost:
+
+    if (kotlinx.coroutines.BuildersKt.withContext(r2, r5, r0) == r1) goto L35;
+ in method: wv2.e(rb0):java.lang.Object, file: classes11.dex
+[jhmcp-decompile] WARN jadx.core.utils.ErrorsCounter - Code restructure failed: missing block: B:34:0x0074, code lost:
+
+    if (kotlinx.coroutines.BuildersKt.withContext(r7, r2, r0) == r1) goto L35;
+ in method: wv2.f(rb0):java.lang.Object, file: classes11.dex
+[jhmcp] source com.afternoonproducts.swipewipe.application.SwipeApp took 16924ms
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-4] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-4] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-3] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Getting Tool: "get_class_source"
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Got Tool: "get_class_source"
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Getting Tool: "get_xrefs_to_class"
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Got Tool: "get_xrefs_to_class"
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Getting Tool: "get_xrefs_to_class"
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Got Tool: "get_xrefs_to_class"
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Getting Tool: "get_xrefs_to_method"
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Got Tool: "get_xrefs_to_method"
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Getting Tool: "search_classes_by_keyword"
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Got Tool: "search_classes_by_keyword"
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Getting Tool: "search_classes_by_keyword"
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Got Tool: "search_classes_by_keyword"
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Getting Tool: "search_classes_by_keyword"
+[DefaultDispatcher-worker-1] INFO FeatureRegistry[Tool] - Got Tool: "search_classes_by_keyword"
+[DefaultDispatcher-worker-1] INFO io.modelcontextprotocol.kotlin.sdk.server.FeatureNotificationService - Unsubscribing from list changed notifications for sessionId: 4eb2479a-0651-46ae-a28b-7cc7c67649c7
+[DefaultDispatcher-worker-1] INFO io.modelcontextprotocol.kotlin.sdk.server.FeatureNotificationService - Unsubscribed from list changed notifications for sessionId: 4eb2479a-0651-46ae-a28b-7cc7c67649c7
+[DefaultDispatcher-worker-1] INFO io.modelcontextprotocol.kotlin.sdk.server.ServerSessionRegistry - Removing session: 4eb2479a-0651-46ae-a28b-7cc7c67649c7

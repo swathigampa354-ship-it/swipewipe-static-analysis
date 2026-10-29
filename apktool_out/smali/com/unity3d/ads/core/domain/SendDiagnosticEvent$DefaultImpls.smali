@@ -1,0 +1,135 @@
+.class public final Lcom/unity3d/ads/core/domain/SendDiagnosticEvent$DefaultImpls;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/unity3d/ads/core/domain/SendDiagnosticEvent;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "DefaultImpls"
+.end annotation
+
+.annotation runtime Lkotlin/Metadata;
+    k = 0x3
+    mv = {
+        0x1,
+        0x8,
+        0x0
+    }
+    xi = 0x30
+.end annotation
+
+
+# direct methods
+.method public static synthetic invoke$default(Lcom/unity3d/ads/core/domain/SendDiagnosticEvent;Lgatewayprotocol/v1/DiagnosticEventRequestOuterClass$DiagnosticEventType;Ljava/lang/Double;Ljava/util/Map;Ljava/util/Map;Lcom/unity3d/ads/core/data/model/AdObject;Ljava/lang/Integer;ILjava/lang/Object;)V
+    .locals 1
+
+    if-nez p8, :cond_5
+
+    and-int/lit8 p8, p7, 0x2
+
+    const/4 v0, 0x0
+
+    if-eqz p8, :cond_0
+
+    move-object p2, v0
+
+    :cond_0
+    and-int/lit8 p8, p7, 0x4
+
+    if-eqz p8, :cond_1
+
+    move-object p3, v0
+
+    :cond_1
+    and-int/lit8 p8, p7, 0x8
+
+    if-eqz p8, :cond_2
+
+    move-object p4, v0
+
+    :cond_2
+    and-int/lit8 p8, p7, 0x10
+
+    if-eqz p8, :cond_3
+
+    move-object p5, v0
+
+    :cond_3
+    and-int/lit8 p7, p7, 0x20
+
+    if-eqz p7, :cond_4
+
+    move-object p6, v0
+
+    .line 38
+    :cond_4
+    invoke-interface/range {p0 .. p6}, Lcom/unity3d/ads/core/domain/SendDiagnosticEvent;->invoke(Lgatewayprotocol/v1/DiagnosticEventRequestOuterClass$DiagnosticEventType;Ljava/lang/Double;Ljava/util/Map;Ljava/util/Map;Lcom/unity3d/ads/core/data/model/AdObject;Ljava/lang/Integer;)V
+
+    return-void
+
+    :cond_5
+    const-string p0, "Super calls with default arguments not supported in this target, function: invoke"
+
+    invoke-static {p0}, Lfe;->l(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public static synthetic invoke$default(Lcom/unity3d/ads/core/domain/SendDiagnosticEvent;Ljava/lang/String;Ljava/lang/Double;Ljava/util/Map;Ljava/util/Map;Lcom/unity3d/ads/core/data/model/AdObject;Ljava/lang/Integer;ILjava/lang/Object;)V
+    .locals 1
+
+    if-nez p8, :cond_5
+
+    and-int/lit8 p8, p7, 0x2
+
+    const/4 v0, 0x0
+
+    if-eqz p8, :cond_0
+
+    move-object p2, v0
+
+    :cond_0
+    and-int/lit8 p8, p7, 0x4
+
+    if-eqz p8, :cond_1
+
+    move-object p3, v0
+
+    :cond_1
+    and-int/lit8 p8, p7, 0x8
+
+    if-eqz p8, :cond_2
+
+    move-object p4, v0
+
+    :cond_2
+    and-int/lit8 p8, p7, 0x10
+
+    if-eqz p8, :cond_3
+
+    move-object p5, v0
+
+    :cond_3
+    and-int/lit8 p7, p7, 0x20
+
+    if-eqz p7, :cond_4
+
+    move-object p6, v0
+
+    :cond_4
+    invoke-interface/range {p0 .. p6}, Lcom/unity3d/ads/core/domain/SendDiagnosticEvent;->invoke(Ljava/lang/String;Ljava/lang/Double;Ljava/util/Map;Ljava/util/Map;Lcom/unity3d/ads/core/data/model/AdObject;Ljava/lang/Integer;)V
+
+    return-void
+
+    :cond_5
+    const-string p0, "Super calls with default arguments not supported in this target, function: invoke"
+
+    invoke-static {p0}, Lfe;->l(Ljava/lang/String;)V
+
+    return-void
+.end method

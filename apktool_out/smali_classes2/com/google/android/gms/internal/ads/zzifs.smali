@@ -1,0 +1,116 @@
+.class public final Lcom/google/android/gms/internal/ads/zzifs;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# instance fields
+.field private final zza:Lcom/google/android/gms/internal/ads/zzifr;
+
+
+# direct methods
+.method private constructor <init>(Lcom/google/android/gms/internal/ads/zzihq;Ljava/lang/Object;Lcom/google/android/gms/internal/ads/zzihq;Ljava/lang/Object;)V
+    .locals 1
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    new-instance p2, Lcom/google/android/gms/internal/ads/zzifr;
+
+    const-string v0, ""
+
+    invoke-direct {p2, p1, v0, p3, p4}, Lcom/google/android/gms/internal/ads/zzifr;-><init>(Lcom/google/android/gms/internal/ads/zzihq;Ljava/lang/Object;Lcom/google/android/gms/internal/ads/zzihq;Ljava/lang/Object;)V
+
+    iput-object p2, p0, Lcom/google/android/gms/internal/ads/zzifs;->zza:Lcom/google/android/gms/internal/ads/zzifr;
+
+    return-void
+.end method
+
+.method public static zza(Lcom/google/android/gms/internal/ads/zzihq;Ljava/lang/Object;Lcom/google/android/gms/internal/ads/zzihq;Ljava/lang/Object;)Lcom/google/android/gms/internal/ads/zzifs;
+    .locals 1
+
+    new-instance p1, Lcom/google/android/gms/internal/ads/zzifs;
+
+    const-string v0, ""
+
+    invoke-direct {p1, p0, v0, p2, p3}, Lcom/google/android/gms/internal/ads/zzifs;-><init>(Lcom/google/android/gms/internal/ads/zzihq;Ljava/lang/Object;Lcom/google/android/gms/internal/ads/zzihq;Ljava/lang/Object;)V
+
+    return-object p1
+.end method
+
+.method public static zzb(Lcom/google/android/gms/internal/ads/zzidu;Lcom/google/android/gms/internal/ads/zzifr;Ljava/lang/Object;Ljava/lang/Object;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    iget-object v0, p1, Lcom/google/android/gms/internal/ads/zzifr;->zza:Lcom/google/android/gms/internal/ads/zzihq;
+
+    const/4 v1, 0x1
+
+    invoke-static {p0, v0, v1, p2}, Lcom/google/android/gms/internal/ads/zziee;->zzf(Lcom/google/android/gms/internal/ads/zzidu;Lcom/google/android/gms/internal/ads/zzihq;ILjava/lang/Object;)V
+
+    iget-object p1, p1, Lcom/google/android/gms/internal/ads/zzifr;->zzc:Lcom/google/android/gms/internal/ads/zzihq;
+
+    const/4 p2, 0x2
+
+    invoke-static {p0, p1, p2, p3}, Lcom/google/android/gms/internal/ads/zziee;->zzf(Lcom/google/android/gms/internal/ads/zzidu;Lcom/google/android/gms/internal/ads/zzihq;ILjava/lang/Object;)V
+
+    return-void
+.end method
+
+.method public static zzc(Lcom/google/android/gms/internal/ads/zzifr;Ljava/lang/Object;Ljava/lang/Object;)I
+    .locals 2
+
+    iget-object v0, p0, Lcom/google/android/gms/internal/ads/zzifr;->zza:Lcom/google/android/gms/internal/ads/zzihq;
+
+    iget-object p0, p0, Lcom/google/android/gms/internal/ads/zzifr;->zzc:Lcom/google/android/gms/internal/ads/zzihq;
+
+    const/4 v1, 0x1
+
+    invoke-static {v0, v1, p1}, Lcom/google/android/gms/internal/ads/zziee;->zzh(Lcom/google/android/gms/internal/ads/zzihq;ILjava/lang/Object;)I
+
+    move-result p1
+
+    const/4 v0, 0x2
+
+    invoke-static {p0, v0, p2}, Lcom/google/android/gms/internal/ads/zziee;->zzh(Lcom/google/android/gms/internal/ads/zzihq;ILjava/lang/Object;)I
+
+    move-result p0
+
+    add-int/2addr p1, p0
+
+    return p1
+.end method
+
+
+# virtual methods
+.method public final zzd(ILjava/lang/Object;Ljava/lang/Object;)I
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/gms/internal/ads/zzifs;->zza:Lcom/google/android/gms/internal/ads/zzifr;
+
+    shl-int/lit8 p1, p1, 0x3
+
+    invoke-static {p1}, Lcom/google/android/gms/internal/ads/zzidu;->zzF(I)I
+
+    move-result p1
+
+    invoke-static {p0, p2, p3}, Lcom/google/android/gms/internal/ads/zzifs;->zzc(Lcom/google/android/gms/internal/ads/zzifr;Ljava/lang/Object;Ljava/lang/Object;)I
+
+    move-result p0
+
+    invoke-static {p0, p0, p1}, Lze5;->q(III)I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public final zze()Lcom/google/android/gms/internal/ads/zzifr;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/gms/internal/ads/zzifs;->zza:Lcom/google/android/gms/internal/ads/zzifr;
+
+    return-object p0
+.end method

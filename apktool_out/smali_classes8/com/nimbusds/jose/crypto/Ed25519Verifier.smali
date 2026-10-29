@@ -1,0 +1,236 @@
+.class public Lcom/nimbusds/jose/crypto/Ed25519Verifier;
+.super Lcom/nimbusds/jose/crypto/impl/EdDSAProvider;
+.source "SourceFile"
+
+# interfaces
+.implements Lcom/nimbusds/jose/JWSVerifier;
+.implements Lcom/nimbusds/jose/CriticalHeaderParamsAware;
+
+
+# annotations
+.annotation runtime Lcom/nimbusds/jose/shaded/jcip/ThreadSafe;
+.end annotation
+
+
+# instance fields
+.field private final critPolicy:Lcom/nimbusds/jose/crypto/impl/CriticalHeaderParamsDeferral;
+
+.field private final publicKey:Lcom/nimbusds/jose/jwk/OctetKeyPair;
+
+.field private final tinkVerifier:Lcom/google/crypto/tink/subtle/Ed25519Verify;
+
+
+# direct methods
+.method public constructor <init>(Lcom/nimbusds/jose/jwk/OctetKeyPair;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/nimbusds/jose/JOSEException;
+        }
+    .end annotation
+
+    const/4 v0, 0x0
+
+    .line 58
+    invoke-direct {p0, p1, v0}, Lcom/nimbusds/jose/crypto/Ed25519Verifier;-><init>(Lcom/nimbusds/jose/jwk/OctetKeyPair;Ljava/util/Set;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/nimbusds/jose/jwk/OctetKeyPair;Ljava/util/Set;)V
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/nimbusds/jose/jwk/OctetKeyPair;",
+            "Ljava/util/Set<",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/nimbusds/jose/JOSEException;
+        }
+    .end annotation
+
+    invoke-direct {p0}, Lcom/nimbusds/jose/crypto/impl/EdDSAProvider;-><init>()V
+
+    new-instance v0, Lcom/nimbusds/jose/crypto/impl/CriticalHeaderParamsDeferral;
+
+    invoke-direct {v0}, Lcom/nimbusds/jose/crypto/impl/CriticalHeaderParamsDeferral;-><init>()V
+
+    iput-object v0, p0, Lcom/nimbusds/jose/crypto/Ed25519Verifier;->critPolicy:Lcom/nimbusds/jose/crypto/impl/CriticalHeaderParamsDeferral;
+
+    sget-object v1, Lcom/nimbusds/jose/jwk/Curve;->Ed25519:Lcom/nimbusds/jose/jwk/Curve;
+
+    invoke-virtual {p1}, Lcom/nimbusds/jose/jwk/OctetKeyPair;->getCurve()Lcom/nimbusds/jose/jwk/Curve;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Lcom/nimbusds/jose/jwk/Curve;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    const/4 v2, 0x0
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {p1}, Lcom/nimbusds/jose/jwk/OctetKeyPair;->isPrivate()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    iput-object p1, p0, Lcom/nimbusds/jose/crypto/Ed25519Verifier;->publicKey:Lcom/nimbusds/jose/jwk/OctetKeyPair;
+
+    new-instance v1, Lcom/google/crypto/tink/subtle/Ed25519Verify;
+
+    invoke-virtual {p1}, Lcom/nimbusds/jose/jwk/OctetKeyPair;->getDecodedX()[B
+
+    move-result-object p1
+
+    invoke-direct {v1, p1}, Lcom/google/crypto/tink/subtle/Ed25519Verify;-><init>([B)V
+
+    iput-object v1, p0, Lcom/nimbusds/jose/crypto/Ed25519Verifier;->tinkVerifier:Lcom/google/crypto/tink/subtle/Ed25519Verify;
+
+    invoke-virtual {v0, p2}, Lcom/nimbusds/jose/crypto/impl/CriticalHeaderParamsDeferral;->setDeferredCriticalHeaderParams(Ljava/util/Set;)V
+
+    return-void
+
+    :cond_0
+    const-string p0, "Ed25519Verifier requires a public key, use OctetKeyPair.toPublicJWK()"
+
+    invoke-static {p0}, Lyi1;->p(Ljava/lang/String;)V
+
+    throw v2
+
+    :cond_1
+    const-string p0, "Ed25519Verifier only supports OctetKeyPairs with crv=Ed25519"
+
+    invoke-static {p0}, Lyi1;->p(Ljava/lang/String;)V
+
+    throw v2
+.end method
+
+
+# virtual methods
+.method public getDeferredCriticalHeaderParams()Ljava/util/Set;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Set<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    iget-object p0, p0, Lcom/nimbusds/jose/crypto/Ed25519Verifier;->critPolicy:Lcom/nimbusds/jose/crypto/impl/CriticalHeaderParamsDeferral;
+
+    invoke-virtual {p0}, Lcom/nimbusds/jose/crypto/impl/CriticalHeaderParamsDeferral;->getProcessedCriticalHeaderParams()Ljava/util/Set;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public getProcessedCriticalHeaderParams()Ljava/util/Set;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Set<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    iget-object p0, p0, Lcom/nimbusds/jose/crypto/Ed25519Verifier;->critPolicy:Lcom/nimbusds/jose/crypto/impl/CriticalHeaderParamsDeferral;
+
+    invoke-virtual {p0}, Lcom/nimbusds/jose/crypto/impl/CriticalHeaderParamsDeferral;->getProcessedCriticalHeaderParams()Ljava/util/Set;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public getPublicKey()Lcom/nimbusds/jose/jwk/OctetKeyPair;
+    .locals 0
+
+    iget-object p0, p0, Lcom/nimbusds/jose/crypto/Ed25519Verifier;->publicKey:Lcom/nimbusds/jose/jwk/OctetKeyPair;
+
+    return-object p0
+.end method
+
+.method public verify(Lcom/nimbusds/jose/JWSHeader;[BLcom/nimbusds/jose/util/Base64URL;)Z
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/nimbusds/jose/JOSEException;
+        }
+    .end annotation
+
+    invoke-virtual {p1}, Lcom/nimbusds/jose/JWSHeader;->getAlgorithm()Lcom/nimbusds/jose/JWSAlgorithm;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/nimbusds/jose/JWSAlgorithm;->Ed25519:Lcom/nimbusds/jose/JWSAlgorithm;
+
+    invoke-virtual {v1, v0}, Lcom/nimbusds/jose/Algorithm;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    const/4 v2, 0x0
+
+    if-nez v1, :cond_1
+
+    sget-object v1, Lcom/nimbusds/jose/JWSAlgorithm;->EdDSA:Lcom/nimbusds/jose/JWSAlgorithm;
+
+    invoke-virtual {v1, v0}, Lcom/nimbusds/jose/Algorithm;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const-string p0, "Ed25519Verifier requires alg=Ed25519 or alg=EdDSA in JWSHeader"
+
+    invoke-static {p0}, Lyi1;->p(Ljava/lang/String;)V
+
+    return v2
+
+    :cond_1
+    :goto_0
+    iget-object v0, p0, Lcom/nimbusds/jose/crypto/Ed25519Verifier;->critPolicy:Lcom/nimbusds/jose/crypto/impl/CriticalHeaderParamsDeferral;
+
+    invoke-virtual {v0, p1}, Lcom/nimbusds/jose/crypto/impl/CriticalHeaderParamsDeferral;->headerPasses(Lcom/nimbusds/jose/Header;)Z
+
+    move-result p1
+
+    if-nez p1, :cond_2
+
+    return v2
+
+    :cond_2
+    invoke-virtual {p3}, Lcom/nimbusds/jose/util/Base64;->decode()[B
+
+    move-result-object p1
+
+    :try_start_0
+    iget-object p0, p0, Lcom/nimbusds/jose/crypto/Ed25519Verifier;->tinkVerifier:Lcom/google/crypto/tink/subtle/Ed25519Verify;
+
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/subtle/Ed25519Verify;->verify([B[B)V
+    :try_end_0
+    .catch Ljava/security/GeneralSecurityException; {:try_start_0 .. :try_end_0} :catch_0
+
+    const/4 p0, 0x1
+
+    return p0
+
+    :catch_0
+    return v2
+.end method

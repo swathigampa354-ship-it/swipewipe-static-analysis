@@ -1,0 +1,160 @@
+.class public final Lio/ktor/client/plugins/sse/ClientSSESessionWithDeserialization;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Lio/ktor/client/plugins/sse/SSESessionWithDeserialization;
+
+
+# annotations
+.annotation runtime Lkotlin/Metadata;
+    d1 = {
+        "\u00008\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0007\n\u0002\u0018\u0002\n\u0002\u0008\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\u0010\u0000\n\u0002\u0008\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0004\u0018\u00002\u00020\u0001B\u0017\u0012\u0006\u0010\u0003\u001a\u00020\u0002\u0012\u0006\u0010\u0004\u001a\u00020\u0001\u00a2\u0006\u0004\u0008\u0005\u0010\u0006R\u0017\u0010\u0003\u001a\u00020\u00028\u0006\u00a2\u0006\u000c\n\u0004\u0008\u0003\u0010\u0007\u001a\u0004\u0008\u0008\u0010\tR\u0014\u0010\r\u001a\u00020\n8\u0016X\u0096\u0005\u00a2\u0006\u0006\u001a\u0004\u0008\u000b\u0010\u000cR(\u0010\u0014\u001a\u0016\u0012\u0004\u0012\u00020\u000f\u0012\u0004\u0012\u00020\u0010\u0012\u0006\u0012\u0004\u0018\u00010\u00110\u000e8\u0016X\u0096\u0005\u00a2\u0006\u0006\u001a\u0004\u0008\u0012\u0010\u0013R \u0010\u0019\u001a\u000e\u0012\n\u0012\u0008\u0012\u0004\u0012\u00020\u00100\u00160\u00158\u0016X\u0096\u0005\u00a2\u0006\u0006\u001a\u0004\u0008\u0017\u0010\u0018\u00a8\u0006\u001a"
+    }
+    d2 = {
+        "Lio/ktor/client/plugins/sse/ClientSSESessionWithDeserialization;",
+        "Lio/ktor/client/plugins/sse/SSESessionWithDeserialization;",
+        "Lio/ktor/client/call/HttpClientCall;",
+        "call",
+        "delegate",
+        "<init>",
+        "(Lio/ktor/client/call/HttpClientCall;Lio/ktor/client/plugins/sse/SSESessionWithDeserialization;)V",
+        "Lio/ktor/client/call/HttpClientCall;",
+        "getCall",
+        "()Lio/ktor/client/call/HttpClientCall;",
+        "Lkotlin/coroutines/CoroutineContext;",
+        "getCoroutineContext",
+        "()Lkotlin/coroutines/CoroutineContext;",
+        "coroutineContext",
+        "Lkotlin/Function2;",
+        "Lio/ktor/util/reflect/TypeInfo;",
+        "",
+        "",
+        "getDeserializer",
+        "()Lkotlin/jvm/functions/Function2;",
+        "deserializer",
+        "Lkotlinx/coroutines/flow/Flow;",
+        "Lio/ktor/sse/TypedServerSentEvent;",
+        "getIncoming",
+        "()Lkotlinx/coroutines/flow/Flow;",
+        "incoming",
+        "ktor-client-core"
+    }
+    k = 0x1
+    mv = {
+        0x2,
+        0x1,
+        0x0
+    }
+    xi = 0x30
+.end annotation
+
+
+# instance fields
+.field private final synthetic $$delegate_0:Lio/ktor/client/plugins/sse/SSESessionWithDeserialization;
+
+.field private final call:Lio/ktor/client/call/HttpClientCall;
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+.end field
+
+
+# direct methods
+.method public constructor <init>(Lio/ktor/client/call/HttpClientCall;Lio/ktor/client/plugins/sse/SSESessionWithDeserialization;)V
+    .locals 0
+    .param p1    # Lio/ktor/client/call/HttpClientCall;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+    .param p2    # Lio/ktor/client/plugins/sse/SSESessionWithDeserialization;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p2, p0, Lio/ktor/client/plugins/sse/ClientSSESessionWithDeserialization;->$$delegate_0:Lio/ktor/client/plugins/sse/SSESessionWithDeserialization;
+
+    iput-object p1, p0, Lio/ktor/client/plugins/sse/ClientSSESessionWithDeserialization;->call:Lio/ktor/client/call/HttpClientCall;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final getCall()Lio/ktor/client/call/HttpClientCall;
+    .locals 0
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+
+    iget-object p0, p0, Lio/ktor/client/plugins/sse/ClientSSESessionWithDeserialization;->call:Lio/ktor/client/call/HttpClientCall;
+
+    return-object p0
+.end method
+
+.method public getCoroutineContext()Lkotlin/coroutines/CoroutineContext;
+    .locals 0
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+
+    iget-object p0, p0, Lio/ktor/client/plugins/sse/ClientSSESessionWithDeserialization;->$$delegate_0:Lio/ktor/client/plugins/sse/SSESessionWithDeserialization;
+
+    invoke-interface {p0}, Lkotlinx/coroutines/CoroutineScope;->getCoroutineContext()Lkotlin/coroutines/CoroutineContext;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public getDeserializer()Lkotlin/jvm/functions/Function2;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lkotlin/jvm/functions/Function2<",
+            "Lio/ktor/util/reflect/TypeInfo;",
+            "Ljava/lang/String;",
+            "Ljava/lang/Object;",
+            ">;"
+        }
+    .end annotation
+
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+
+    iget-object p0, p0, Lio/ktor/client/plugins/sse/ClientSSESessionWithDeserialization;->$$delegate_0:Lio/ktor/client/plugins/sse/SSESessionWithDeserialization;
+
+    invoke-interface {p0}, Lio/ktor/client/plugins/sse/SSESessionWithDeserialization;->getDeserializer()Lkotlin/jvm/functions/Function2;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public getIncoming()Lkotlinx/coroutines/flow/Flow;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lkotlinx/coroutines/flow/Flow<",
+            "Lio/ktor/sse/TypedServerSentEvent<",
+            "Ljava/lang/String;",
+            ">;>;"
+        }
+    .end annotation
+
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+
+    iget-object p0, p0, Lio/ktor/client/plugins/sse/ClientSSESessionWithDeserialization;->$$delegate_0:Lio/ktor/client/plugins/sse/SSESessionWithDeserialization;
+
+    invoke-interface {p0}, Lio/ktor/client/plugins/sse/SSESessionWithDeserialization;->getIncoming()Lkotlinx/coroutines/flow/Flow;
+
+    move-result-object p0
+
+    return-object p0
+.end method

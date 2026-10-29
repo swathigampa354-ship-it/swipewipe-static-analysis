@@ -1,0 +1,217 @@
+.class public Lcom/unity3d/services/store/gpbl/StoreBilling;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# instance fields
+.field private final _billingClientBridge:Lcom/unity3d/services/store/gpbl/bridges/billingclient/IBillingClient;
+
+
+# direct methods
+.method public constructor <init>(Landroid/content/Context;Lcom/unity3d/services/store/gpbl/listeners/PurchaseUpdatedResponseListener;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/ClassNotFoundException;,
+            Ljava/lang/NoSuchMethodException;,
+            Ljava/lang/reflect/InvocationTargetException;,
+            Ljava/lang/IllegalAccessException;
+        }
+    .end annotation
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    invoke-static {p1}, Lcom/unity3d/services/store/gpbl/bridges/billingclient/BillingClientBuilderFactory;->getBillingClientBuilder(Landroid/content/Context;)Lcom/unity3d/services/store/gpbl/bridges/billingclient/IBillingClientBuilderBridge;
+
+    move-result-object p1
+
+    new-instance v0, Lcom/unity3d/services/store/gpbl/proxies/PurchaseUpdatedListenerProxy;
+
+    invoke-direct {v0, p2}, Lcom/unity3d/services/store/gpbl/proxies/PurchaseUpdatedListenerProxy;-><init>(Lcom/unity3d/services/store/gpbl/listeners/PurchaseUpdatedResponseListener;)V
+
+    invoke-interface {p1, v0}, Lcom/unity3d/services/store/gpbl/bridges/billingclient/IBillingClientBuilderBridge;->setListener(Lcom/unity3d/services/store/gpbl/proxies/PurchaseUpdatedListenerProxy;)Lcom/unity3d/services/store/gpbl/bridges/billingclient/IBillingClientBuilderBridge;
+
+    move-result-object p1
+
+    invoke-interface {p1}, Lcom/unity3d/services/store/gpbl/bridges/billingclient/IBillingClientBuilderBridge;->enablePendingPurchases()Lcom/unity3d/services/store/gpbl/bridges/billingclient/IBillingClientBuilderBridge;
+
+    move-result-object p1
+
+    invoke-interface {p1}, Lcom/unity3d/services/store/gpbl/bridges/billingclient/IBillingClientBuilderBridge;->build()Lcom/unity3d/services/store/gpbl/bridges/billingclient/IBillingClient;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/unity3d/services/store/gpbl/StoreBilling;->_billingClientBridge:Lcom/unity3d/services/store/gpbl/bridges/billingclient/IBillingClient;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public getPurchaseHistory(Ljava/lang/String;ILcom/unity3d/services/store/gpbl/listeners/PurchaseHistoryResponseListener;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/ClassNotFoundException;
+        }
+    .end annotation
+
+    iget-object p0, p0, Lcom/unity3d/services/store/gpbl/StoreBilling;->_billingClientBridge:Lcom/unity3d/services/store/gpbl/bridges/billingclient/IBillingClient;
+
+    new-instance v0, Lcom/unity3d/services/store/gpbl/proxies/PurchaseHistoryResponseListenerProxy;
+
+    invoke-direct {v0, p3, p2}, Lcom/unity3d/services/store/gpbl/proxies/PurchaseHistoryResponseListenerProxy;-><init>(Lcom/unity3d/services/store/gpbl/listeners/PurchaseHistoryResponseListener;I)V
+
+    invoke-interface {p0, p1, v0}, Lcom/unity3d/services/store/gpbl/bridges/billingclient/IBillingClient;->queryPurchaseHistoryAsync(Ljava/lang/String;Lcom/unity3d/services/store/gpbl/proxies/PurchaseHistoryResponseListenerProxy;)V
+
+    return-void
+.end method
+
+.method public getPurchases(Ljava/lang/String;Lcom/unity3d/services/store/gpbl/listeners/PurchasesResponseListener;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/ClassNotFoundException;
+        }
+    .end annotation
+
+    iget-object p0, p0, Lcom/unity3d/services/store/gpbl/StoreBilling;->_billingClientBridge:Lcom/unity3d/services/store/gpbl/bridges/billingclient/IBillingClient;
+
+    new-instance v0, Lcom/unity3d/services/store/gpbl/proxies/PurchasesResponseListenerProxy;
+
+    invoke-direct {v0, p2}, Lcom/unity3d/services/store/gpbl/proxies/PurchasesResponseListenerProxy;-><init>(Lcom/unity3d/services/store/gpbl/listeners/PurchasesResponseListener;)V
+
+    invoke-interface {p0, p1, v0}, Lcom/unity3d/services/store/gpbl/bridges/billingclient/IBillingClient;->queryPurchasesAsync(Ljava/lang/String;Lcom/unity3d/services/store/gpbl/proxies/PurchasesResponseListenerProxy;)V
+
+    return-void
+.end method
+
+.method public getSkuDetails(Ljava/lang/String;Ljava/util/List;Lcom/unity3d/services/store/gpbl/listeners/SkuDetailsResponseListener;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "Ljava/util/List<",
+            "Ljava/lang/String;",
+            ">;",
+            "Lcom/unity3d/services/store/gpbl/listeners/SkuDetailsResponseListener;",
+            ")V"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/ClassNotFoundException;,
+            Ljava/lang/NoSuchMethodException;,
+            Ljava/lang/IllegalAccessException;,
+            Ljava/lang/reflect/InvocationTargetException;
+        }
+    .end annotation
+
+    invoke-static {}, Lcom/unity3d/services/store/gpbl/bridges/SkuDetailsParamsBridge;->newBuilder()Lcom/unity3d/services/store/gpbl/bridges/SkuDetailsParamsBridge$BuilderBridge;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p2}, Lcom/unity3d/services/store/gpbl/bridges/SkuDetailsParamsBridge$BuilderBridge;->setSkuList(Ljava/util/List;)Lcom/unity3d/services/store/gpbl/bridges/SkuDetailsParamsBridge$BuilderBridge;
+
+    move-result-object p2
+
+    invoke-virtual {p2, p1}, Lcom/unity3d/services/store/gpbl/bridges/SkuDetailsParamsBridge$BuilderBridge;->setType(Ljava/lang/String;)Lcom/unity3d/services/store/gpbl/bridges/SkuDetailsParamsBridge$BuilderBridge;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Lcom/unity3d/services/store/gpbl/bridges/SkuDetailsParamsBridge$BuilderBridge;->build()Lcom/unity3d/services/store/gpbl/bridges/SkuDetailsParamsBridge;
+
+    move-result-object p1
+
+    iget-object p0, p0, Lcom/unity3d/services/store/gpbl/StoreBilling;->_billingClientBridge:Lcom/unity3d/services/store/gpbl/bridges/billingclient/IBillingClient;
+
+    new-instance p2, Lcom/unity3d/services/store/gpbl/proxies/SkuDetailsResponseListenerProxy;
+
+    invoke-direct {p2, p3}, Lcom/unity3d/services/store/gpbl/proxies/SkuDetailsResponseListenerProxy;-><init>(Lcom/unity3d/services/store/gpbl/listeners/SkuDetailsResponseListener;)V
+
+    invoke-interface {p0, p1, p2}, Lcom/unity3d/services/store/gpbl/bridges/billingclient/IBillingClient;->querySkuDetailsAsync(Lcom/unity3d/services/store/gpbl/bridges/SkuDetailsParamsBridge;Lcom/unity3d/services/store/gpbl/proxies/SkuDetailsResponseListenerProxy;)V
+
+    return-void
+.end method
+
+.method public initialize(Lcom/unity3d/services/store/gpbl/listeners/BillingClientStateListener;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/ClassNotFoundException;
+        }
+    .end annotation
+
+    iget-object p0, p0, Lcom/unity3d/services/store/gpbl/StoreBilling;->_billingClientBridge:Lcom/unity3d/services/store/gpbl/bridges/billingclient/IBillingClient;
+
+    new-instance v0, Lcom/unity3d/services/store/gpbl/proxies/BillingClientStateListenerProxy;
+
+    invoke-direct {v0, p1}, Lcom/unity3d/services/store/gpbl/proxies/BillingClientStateListenerProxy;-><init>(Lcom/unity3d/services/store/gpbl/listeners/BillingClientStateListener;)V
+
+    invoke-interface {p0, v0}, Lcom/unity3d/services/store/gpbl/bridges/billingclient/IBillingClient;->startConnection(Lcom/unity3d/services/store/gpbl/proxies/BillingClientStateListenerProxy;)V
+
+    return-void
+.end method
+
+.method public isFeatureSupported(Ljava/lang/String;)I
+    .locals 2
+
+    const-string v0, "inapp"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_0
+
+    iget-object p0, p0, Lcom/unity3d/services/store/gpbl/StoreBilling;->_billingClientBridge:Lcom/unity3d/services/store/gpbl/bridges/billingclient/IBillingClient;
+
+    invoke-interface {p0}, Lcom/unity3d/services/store/gpbl/bridges/billingclient/IBillingClient;->isReady()Z
+
+    move-result p0
+
+    goto :goto_0
+
+    :cond_0
+    const-string v0, "subs"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    const-string p1, "subscriptions"
+
+    :cond_1
+    iget-object p0, p0, Lcom/unity3d/services/store/gpbl/StoreBilling;->_billingClientBridge:Lcom/unity3d/services/store/gpbl/bridges/billingclient/IBillingClient;
+
+    invoke-interface {p0, p1}, Lcom/unity3d/services/store/gpbl/bridges/billingclient/IBillingClient;->isFeatureSupported(Ljava/lang/String;)Lcom/unity3d/services/store/gpbl/BillingResultResponseCode;
+
+    move-result-object p0
+
+    sget-object p1, Lcom/unity3d/services/store/gpbl/BillingResultResponseCode;->OK:Lcom/unity3d/services/store/gpbl/BillingResultResponseCode;
+
+    if-ne p0, p1, :cond_2
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    move p0, v1
+
+    :goto_0
+    if-eqz p0, :cond_3
+
+    return v1
+
+    :cond_3
+    const/4 p0, -0x1
+
+    return p0
+.end method

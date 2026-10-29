@@ -1,0 +1,3237 @@
+.class public final Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Ljava/io/Closeable;
+.implements Ljava/io/Flushable;
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Companion;,
+        Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Editor;,
+        Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;,
+        Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Snapshot;
+    }
+.end annotation
+
+.annotation runtime Lkotlin/Metadata;
+    d1 = {
+        "\u0000y\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0008\n\u0002\u0008\u0002\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0008\u0011\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\u0018\u0002\n\u0002\u0008\u000f\n\u0002\u0010\u0002\n\u0002\u0008\u0003\n\u0002\u0018\u0002\n\u0002\u0008\t\n\u0002\u0018\u0002\n\u0002\u0008\u0010\n\u0002\u0010)\n\u0002\u0008\u0007*\u0001\u0014\u0018\u0000 [2\u00020\u00012\u00020\u0002:\u0004[\\]^B7\u0008\u0000\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\u0006\u0010\u0005\u001a\u00020\u0006\u0012\u0006\u0010\u0007\u001a\u00020\u0008\u0012\u0006\u0010\t\u001a\u00020\u0008\u0012\u0006\u0010\n\u001a\u00020\u000b\u0012\u0006\u0010\u000c\u001a\u00020\r\u00a2\u0006\u0002\u0010\u000eJ\u0008\u00108\u001a\u000209H\u0002J\u0008\u0010:\u001a\u000209H\u0016J!\u0010;\u001a\u0002092\n\u0010<\u001a\u00060=R\u00020\u00002\u0006\u0010>\u001a\u00020\u0010H\u0000\u00a2\u0006\u0002\u0008?J\u0006\u0010@\u001a\u000209J \u0010A\u001a\u0008\u0018\u00010=R\u00020\u00002\u0006\u0010B\u001a\u00020(2\u0008\u0008\u0002\u0010C\u001a\u00020\u000bH\u0007J\u0006\u0010D\u001a\u000209J\u0008\u0010E\u001a\u000209H\u0016J\u0017\u0010F\u001a\u0008\u0018\u00010GR\u00020\u00002\u0006\u0010B\u001a\u00020(H\u0086\u0002J\u0006\u0010H\u001a\u000209J\u0006\u0010I\u001a\u00020\u0010J\u0008\u0010J\u001a\u00020\u0010H\u0002J\u0008\u0010K\u001a\u00020%H\u0002J\u0008\u0010L\u001a\u000209H\u0002J\u0008\u0010M\u001a\u000209H\u0002J\u0010\u0010N\u001a\u0002092\u0006\u0010O\u001a\u00020(H\u0002J\r\u0010P\u001a\u000209H\u0000\u00a2\u0006\u0002\u0008QJ\u000e\u0010R\u001a\u00020\u00102\u0006\u0010B\u001a\u00020(J\u0019\u0010S\u001a\u00020\u00102\n\u0010T\u001a\u00060)R\u00020\u0000H\u0000\u00a2\u0006\u0002\u0008UJ\u0008\u0010V\u001a\u00020\u0010H\u0002J\u0006\u00105\u001a\u00020\u000bJ\u0010\u0010W\u001a\u000c\u0012\u0008\u0012\u00060GR\u00020\u00000XJ\u0006\u0010Y\u001a\u000209J\u0010\u0010Z\u001a\u0002092\u0006\u0010B\u001a\u00020(H\u0002R\u000e\u0010\u0007\u001a\u00020\u0008X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0010X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u0012X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0010\u0010\u0013\u001a\u00020\u0014X\u0082\u0004\u00a2\u0006\u0004\n\u0002\u0010\u0015R\u001a\u0010\u0016\u001a\u00020\u0010X\u0080\u000e\u00a2\u0006\u000e\n\u0000\u001a\u0004\u0008\u0017\u0010\u0018\"\u0004\u0008\u0019\u0010\u001aR\u0011\u0010\u0005\u001a\u00020\u0006\u00a2\u0006\u0008\n\u0000\u001a\u0004\u0008\u001b\u0010\u001cR\u0014\u0010\u0003\u001a\u00020\u0004X\u0080\u0004\u00a2\u0006\u0008\n\u0000\u001a\u0004\u0008\u001d\u0010\u001eR\u000e\u0010\u001f\u001a\u00020\u0010X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010 \u001a\u00020\u0010X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010!\u001a\u00020\u0006X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\"\u001a\u00020\u0006X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010#\u001a\u00020\u0006X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0010\u0010$\u001a\u0004\u0018\u00010%X\u0082\u000e\u00a2\u0006\u0002\n\u0000R$\u0010&\u001a\u0012\u0012\u0004\u0012\u00020(\u0012\u0008\u0012\u00060)R\u00020\u00000\'X\u0080\u0004\u00a2\u0006\u0008\n\u0000\u001a\u0004\u0008*\u0010+R&\u0010\n\u001a\u00020\u000b2\u0006\u0010,\u001a\u00020\u000b8F@FX\u0086\u000e\u00a2\u0006\u000e\n\u0000\u001a\u0004\u0008-\u0010.\"\u0004\u0008/\u00100R\u000e\u00101\u001a\u00020\u0010X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u00102\u001a\u00020\u0010X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u00103\u001a\u00020\u000bX\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u00104\u001a\u00020\u0008X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u00105\u001a\u00020\u000bX\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u0014\u0010\t\u001a\u00020\u0008X\u0080\u0004\u00a2\u0006\u0008\n\u0000\u001a\u0004\u00086\u00107\u00a8\u0006_"
+    }
+    d2 = {
+        "Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;",
+        "Ljava/io/Closeable;",
+        "Ljava/io/Flushable;",
+        "fileSystem",
+        "Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;",
+        "directory",
+        "Ljava/io/File;",
+        "appVersion",
+        "",
+        "valueCount",
+        "maxSize",
+        "",
+        "taskRunner",
+        "Lcom/applovin/shadow/okhttp3/internal/concurrent/TaskRunner;",
+        "(Lokhttp3/internal/io/FileSystem;Ljava/io/File;IIJLokhttp3/internal/concurrent/TaskRunner;)V",
+        "civilizedFileSystem",
+        "",
+        "cleanupQueue",
+        "Lcom/applovin/shadow/okhttp3/internal/concurrent/TaskQueue;",
+        "cleanupTask",
+        "com/applovin/shadow/okhttp3/internal/cache/DiskLruCache$cleanupTask$1",
+        "Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$cleanupTask$1;",
+        "closed",
+        "getClosed$okhttp",
+        "()Z",
+        "setClosed$okhttp",
+        "(Z)V",
+        "getDirectory",
+        "()Ljava/io/File;",
+        "getFileSystem$okhttp",
+        "()Lokhttp3/internal/io/FileSystem;",
+        "hasJournalErrors",
+        "initialized",
+        "journalFile",
+        "journalFileBackup",
+        "journalFileTmp",
+        "journalWriter",
+        "Lcom/applovin/shadow/okio/BufferedSink;",
+        "lruEntries",
+        "Ljava/util/LinkedHashMap;",
+        "",
+        "Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;",
+        "getLruEntries$okhttp",
+        "()Ljava/util/LinkedHashMap;",
+        "value",
+        "getMaxSize",
+        "()J",
+        "setMaxSize",
+        "(J)V",
+        "mostRecentRebuildFailed",
+        "mostRecentTrimFailed",
+        "nextSequenceNumber",
+        "redundantOpCount",
+        "size",
+        "getValueCount$okhttp",
+        "()I",
+        "checkNotClosed",
+        "",
+        "close",
+        "completeEdit",
+        "editor",
+        "Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Editor;",
+        "success",
+        "completeEdit$okhttp",
+        "delete",
+        "edit",
+        "key",
+        "expectedSequenceNumber",
+        "evictAll",
+        "flush",
+        "get",
+        "Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Snapshot;",
+        "initialize",
+        "isClosed",
+        "journalRebuildRequired",
+        "newJournalWriter",
+        "processJournal",
+        "readJournal",
+        "readJournalLine",
+        "line",
+        "rebuildJournal",
+        "rebuildJournal$okhttp",
+        "remove",
+        "removeEntry",
+        "entry",
+        "removeEntry$okhttp",
+        "removeOldestEntry",
+        "snapshots",
+        "",
+        "trimToSize",
+        "validateKey",
+        "Companion",
+        "Editor",
+        "Entry",
+        "Snapshot",
+        "okhttp"
+    }
+    k = 0x1
+    mv = {
+        0x1,
+        0x8,
+        0x0
+    }
+    xi = 0x30
+.end annotation
+
+
+# static fields
+.field public static final ANY_SEQUENCE_NUMBER:J
+
+.field public static final CLEAN:Ljava/lang/String;
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+.end field
+
+.field public static final Companion:Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Companion;
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+.end field
+
+.field public static final DIRTY:Ljava/lang/String;
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+.end field
+
+.field public static final JOURNAL_FILE:Ljava/lang/String;
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+.end field
+
+.field public static final JOURNAL_FILE_BACKUP:Ljava/lang/String;
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+.end field
+
+.field public static final JOURNAL_FILE_TEMP:Ljava/lang/String;
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+.end field
+
+.field public static final LEGAL_KEY_PATTERN:Lkotlin/text/Regex;
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+.end field
+
+.field public static final MAGIC:Ljava/lang/String;
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+.end field
+
+.field public static final READ:Ljava/lang/String;
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+.end field
+
+.field public static final REMOVE:Ljava/lang/String;
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+.end field
+
+.field public static final VERSION_1:Ljava/lang/String;
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+.end field
+
+
+# instance fields
+.field private final appVersion:I
+
+.field private civilizedFileSystem:Z
+
+.field private final cleanupQueue:Lcom/applovin/shadow/okhttp3/internal/concurrent/TaskQueue;
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+.end field
+
+.field private final cleanupTask:Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$cleanupTask$1;
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+.end field
+
+.field private closed:Z
+
+.field private final directory:Ljava/io/File;
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+.end field
+
+.field private final fileSystem:Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+.end field
+
+.field private hasJournalErrors:Z
+
+.field private initialized:Z
+
+.field private final journalFile:Ljava/io/File;
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+.end field
+
+.field private final journalFileBackup:Ljava/io/File;
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+.end field
+
+.field private final journalFileTmp:Ljava/io/File;
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+.end field
+
+.field private journalWriter:Lcom/applovin/shadow/okio/BufferedSink;
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
+.end field
+
+.field private final lruEntries:Ljava/util/LinkedHashMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/LinkedHashMap<",
+            "Ljava/lang/String;",
+            "Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;",
+            ">;"
+        }
+    .end annotation
+
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+.end field
+
+.field private maxSize:J
+
+.field private mostRecentRebuildFailed:Z
+
+.field private mostRecentTrimFailed:Z
+
+.field private nextSequenceNumber:J
+
+.field private redundantOpCount:I
+
+.field private size:J
+
+.field private final valueCount:I
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 2
+
+    new-instance v0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Companion;
+
+    const/4 v1, 0x0
+
+    invoke-direct {v0, v1}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Companion;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+
+    sput-object v0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->Companion:Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Companion;
+
+    const-string v0, "journal"
+
+    sput-object v0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->JOURNAL_FILE:Ljava/lang/String;
+
+    const-string v0, "journal.tmp"
+
+    sput-object v0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->JOURNAL_FILE_TEMP:Ljava/lang/String;
+
+    const-string v0, "journal.bkp"
+
+    sput-object v0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->JOURNAL_FILE_BACKUP:Ljava/lang/String;
+
+    const-string v0, "libcore.io.DiskLruCache"
+
+    sput-object v0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->MAGIC:Ljava/lang/String;
+
+    const-string v0, "1"
+
+    sput-object v0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->VERSION_1:Ljava/lang/String;
+
+    const-wide/16 v0, -0x1
+
+    sput-wide v0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->ANY_SEQUENCE_NUMBER:J
+
+    new-instance v0, Lkotlin/text/Regex;
+
+    const-string v1, "[a-z0-9_-]{1,120}"
+
+    invoke-direct {v0, v1}, Lkotlin/text/Regex;-><init>(Ljava/lang/String;)V
+
+    sput-object v0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->LEGAL_KEY_PATTERN:Lkotlin/text/Regex;
+
+    const-string v0, "CLEAN"
+
+    sput-object v0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->CLEAN:Ljava/lang/String;
+
+    const-string v0, "DIRTY"
+
+    sput-object v0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->DIRTY:Ljava/lang/String;
+
+    const-string v0, "REMOVE"
+
+    sput-object v0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->REMOVE:Ljava/lang/String;
+
+    const-string v0, "READ"
+
+    sput-object v0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->READ:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;Ljava/io/File;IIJLcom/applovin/shadow/okhttp3/internal/concurrent/TaskRunner;)V
+    .locals 2
+    .param p1    # Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+    .param p2    # Ljava/io/File;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+    .param p7    # Lcom/applovin/shadow/okhttp3/internal/concurrent/TaskRunner;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-virtual {p7}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->fileSystem:Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;
+
+    iput-object p2, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->directory:Ljava/io/File;
+
+    iput p3, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->appVersion:I
+
+    iput p4, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->valueCount:I
+
+    iput-wide p5, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->maxSize:J
+
+    new-instance p1, Ljava/util/LinkedHashMap;
+
+    const/high16 p3, 0x3f400000    # 0.75f
+
+    const/4 v0, 0x1
+
+    const/4 v1, 0x0
+
+    invoke-direct {p1, v1, p3, v0}, Ljava/util/LinkedHashMap;-><init>(IFZ)V
+
+    iput-object p1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->lruEntries:Ljava/util/LinkedHashMap;
+
+    invoke-virtual {p7}, Lcom/applovin/shadow/okhttp3/internal/concurrent/TaskRunner;->newQueue()Lcom/applovin/shadow/okhttp3/internal/concurrent/TaskQueue;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->cleanupQueue:Lcom/applovin/shadow/okhttp3/internal/concurrent/TaskQueue;
+
+    new-instance p1, Ljava/lang/StringBuilder;
+
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+
+    sget-object p3, Lcom/applovin/shadow/okhttp3/internal/Util;->okHttpName:Ljava/lang/String;
+
+    const-string p7, " Cache"
+
+    invoke-static {p3, p7, p1}, Lh92;->p(Ljava/lang/String;Ljava/lang/String;Ljava/lang/StringBuilder;)Ljava/lang/String;
+
+    move-result-object p1
+
+    new-instance p3, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$cleanupTask$1;
+
+    invoke-direct {p3, p0, p1}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$cleanupTask$1;-><init>(Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;Ljava/lang/String;)V
+
+    iput-object p3, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->cleanupTask:Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$cleanupTask$1;
+
+    const-wide/16 v0, 0x0
+
+    cmp-long p1, p5, v0
+
+    if-lez p1, :cond_1
+
+    if-lez p4, :cond_0
+
+    new-instance p1, Ljava/io/File;
+
+    sget-object p3, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->JOURNAL_FILE:Ljava/lang/String;
+
+    invoke-direct {p1, p2, p3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    iput-object p1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->journalFile:Ljava/io/File;
+
+    new-instance p1, Ljava/io/File;
+
+    sget-object p3, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->JOURNAL_FILE_TEMP:Ljava/lang/String;
+
+    invoke-direct {p1, p2, p3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    iput-object p1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->journalFileTmp:Ljava/io/File;
+
+    new-instance p1, Ljava/io/File;
+
+    sget-object p3, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->JOURNAL_FILE_BACKUP:Ljava/lang/String;
+
+    invoke-direct {p1, p2, p3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    iput-object p1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->journalFileBackup:Ljava/io/File;
+
+    return-void
+
+    :cond_0
+    const-string p0, "valueCount <= 0"
+
+    invoke-static {p0}, Le65;->o(Ljava/lang/String;)V
+
+    const/4 p0, 0x0
+
+    throw p0
+
+    :cond_1
+    const-string p0, "maxSize <= 0"
+
+    invoke-static {p0}, Le65;->o(Ljava/lang/String;)V
+
+    const/4 p0, 0x0
+
+    throw p0
+.end method
+
+.method public static final synthetic access$getCivilizedFileSystem$p(Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->civilizedFileSystem:Z
+
+    return p0
+.end method
+
+.method public static final synthetic access$getInitialized$p(Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->initialized:Z
+
+    return p0
+.end method
+
+.method public static final synthetic access$journalRebuildRequired(Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;)Z
+    .locals 0
+
+    invoke-direct {p0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->journalRebuildRequired()Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static final synthetic access$setHasJournalErrors$p(Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->hasJournalErrors:Z
+
+    return-void
+.end method
+
+.method public static final synthetic access$setJournalWriter$p(Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;Lcom/applovin/shadow/okio/BufferedSink;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->journalWriter:Lcom/applovin/shadow/okio/BufferedSink;
+
+    return-void
+.end method
+
+.method public static final synthetic access$setMostRecentRebuildFailed$p(Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->mostRecentRebuildFailed:Z
+
+    return-void
+.end method
+
+.method public static final synthetic access$setMostRecentTrimFailed$p(Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->mostRecentTrimFailed:Z
+
+    return-void
+.end method
+
+.method public static final synthetic access$setRedundantOpCount$p(Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;I)V
+    .locals 0
+
+    iput p1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->redundantOpCount:I
+
+    return-void
+.end method
+
+.method private final declared-synchronized checkNotClosed()V
+    .locals 2
+
+    monitor-enter p0
+
+    :try_start_0
+    iget-boolean v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->closed:Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-nez v0, :cond_0
+
+    monitor-exit p0
+
+    return-void
+
+    :cond_0
+    :try_start_1
+    const-string v0, "cache is closed"
+
+    new-instance v1, Ljava/lang/IllegalStateException;
+
+    invoke-direct {v1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw v0
+.end method
+
+.method public static synthetic edit$default(Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;Ljava/lang/String;JILjava/lang/Object;)Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Editor;
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    and-int/lit8 p4, p4, 0x2
+
+    if-eqz p4, :cond_0
+
+    sget-wide p2, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->ANY_SEQUENCE_NUMBER:J
+
+    :cond_0
+    invoke-virtual {p0, p1, p2, p3}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->edit(Ljava/lang/String;J)Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Editor;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private final journalRebuildRequired()Z
+    .locals 2
+
+    iget v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->redundantOpCount:I
+
+    const/16 v1, 0x7d0
+
+    if-lt v0, v1, :cond_0
+
+    iget-object p0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->lruEntries:Ljava/util/LinkedHashMap;
+
+    invoke-virtual {p0}, Ljava/util/AbstractMap;->size()I
+
+    move-result p0
+
+    if-lt v0, p0, :cond_0
+
+    const/4 p0, 0x1
+
+    return p0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
+.method private final newJournalWriter()Lcom/applovin/shadow/okio/BufferedSink;
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/FileNotFoundException;
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->fileSystem:Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;
+
+    iget-object v1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->journalFile:Ljava/io/File;
+
+    invoke-interface {v0, v1}, Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;->appendingSink(Ljava/io/File;)Lcom/applovin/shadow/okio/Sink;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/applovin/shadow/okhttp3/internal/cache/FaultHidingSink;
+
+    new-instance v2, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$newJournalWriter$faultHidingSink$1;
+
+    invoke-direct {v2, p0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$newJournalWriter$faultHidingSink$1;-><init>(Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;)V
+
+    invoke-direct {v1, v0, v2}, Lcom/applovin/shadow/okhttp3/internal/cache/FaultHidingSink;-><init>(Lcom/applovin/shadow/okio/Sink;Lkotlin/jvm/functions/Function1;)V
+
+    invoke-static {v1}, Lcom/applovin/shadow/okio/Okio;->buffer(Lcom/applovin/shadow/okio/Sink;)Lcom/applovin/shadow/okio/BufferedSink;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private final processJournal()V
+    .locals 9
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->fileSystem:Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;
+
+    iget-object v1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->journalFileTmp:Ljava/io/File;
+
+    invoke-interface {v0, v1}, Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;->delete(Ljava/io/File;)V
+
+    iget-object v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->lruEntries:Ljava/util/LinkedHashMap;
+
+    invoke-virtual {v0}, Ljava/util/LinkedHashMap;->values()Ljava/util/Collection;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :cond_0
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    check-cast v1, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;
+
+    invoke-virtual {v1}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->getCurrentEditor$okhttp()Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Editor;
+
+    move-result-object v2
+
+    const/4 v3, 0x0
+
+    if-nez v2, :cond_1
+
+    iget v2, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->valueCount:I
+
+    :goto_1
+    if-ge v3, v2, :cond_0
+
+    iget-wide v4, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->size:J
+
+    invoke-virtual {v1}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->getLengths$okhttp()[J
+
+    move-result-object v6
+
+    aget-wide v7, v6, v3
+
+    add-long/2addr v4, v7
+
+    iput-wide v4, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->size:J
+
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_1
+
+    :cond_1
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v2}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->setCurrentEditor$okhttp(Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Editor;)V
+
+    iget v2, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->valueCount:I
+
+    :goto_2
+    if-ge v3, v2, :cond_2
+
+    iget-object v4, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->fileSystem:Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;
+
+    invoke-virtual {v1}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->getCleanFiles$okhttp()Ljava/util/List;
+
+    move-result-object v5
+
+    invoke-interface {v5, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Ljava/io/File;
+
+    invoke-interface {v4, v5}, Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;->delete(Ljava/io/File;)V
+
+    iget-object v4, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->fileSystem:Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;
+
+    invoke-virtual {v1}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->getDirtyFiles$okhttp()Ljava/util/List;
+
+    move-result-object v5
+
+    invoke-interface {v5, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Ljava/io/File;
+
+    invoke-interface {v4, v5}, Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;->delete(Ljava/io/File;)V
+
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_2
+
+    :cond_2
+    invoke-interface {v0}, Ljava/util/Iterator;->remove()V
+
+    goto :goto_0
+
+    :cond_3
+    return-void
+.end method
+
+.method private final readJournal()V
+    .locals 9
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    const-string v0, ", "
+
+    const-string v1, "unexpected journal header: ["
+
+    iget-object v2, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->fileSystem:Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;
+
+    iget-object v3, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->journalFile:Ljava/io/File;
+
+    invoke-interface {v2, v3}, Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;->source(Ljava/io/File;)Lcom/applovin/shadow/okio/Source;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/applovin/shadow/okio/Okio;->buffer(Lcom/applovin/shadow/okio/Source;)Lcom/applovin/shadow/okio/BufferedSource;
+
+    move-result-object v2
+
+    :try_start_0
+    invoke-interface {v2}, Lcom/applovin/shadow/okio/BufferedSource;->readUtf8LineStrict()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-interface {v2}, Lcom/applovin/shadow/okio/BufferedSource;->readUtf8LineStrict()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-interface {v2}, Lcom/applovin/shadow/okio/BufferedSource;->readUtf8LineStrict()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-interface {v2}, Lcom/applovin/shadow/okio/BufferedSource;->readUtf8LineStrict()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-interface {v2}, Lcom/applovin/shadow/okio/BufferedSource;->readUtf8LineStrict()Ljava/lang/String;
+
+    move-result-object v7
+
+    sget-object v8, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->MAGIC:Ljava/lang/String;
+
+    invoke-static {v8, v3}, Lkotlin/jvm/internal/Intrinsics;->b(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_1
+
+    sget-object v8, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->VERSION_1:Ljava/lang/String;
+
+    invoke-static {v8, v4}, Lkotlin/jvm/internal/Intrinsics;->b(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_1
+
+    iget v8, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->appVersion:I
+
+    invoke-static {v8}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v8, v5}, Lkotlin/jvm/internal/Intrinsics;->b(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    iget v5, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->valueCount:I
+
+    invoke-static {v5}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5, v6}, Lkotlin/jvm/internal/Intrinsics;->b(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    invoke-interface {v7}, Ljava/lang/CharSequence;->length()I
+
+    move-result v5
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-gtz v5, :cond_1
+
+    const/4 v0, 0x0
+
+    :goto_0
+    :try_start_1
+    invoke-interface {v2}, Lcom/applovin/shadow/okio/BufferedSource;->readUtf8LineStrict()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {p0, v1}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->readJournalLine(Ljava/lang/String;)V
+    :try_end_1
+    .catch Ljava/io/EOFException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception p0
+
+    goto :goto_2
+
+    :catch_0
+    :try_start_2
+    iget-object v1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->lruEntries:Ljava/util/LinkedHashMap;
+
+    invoke-virtual {v1}, Ljava/util/AbstractMap;->size()I
+
+    move-result v1
+
+    sub-int/2addr v0, v1
+
+    iput v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->redundantOpCount:I
+
+    invoke-interface {v2}, Lcom/applovin/shadow/okio/BufferedSource;->exhausted()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->rebuildJournal$okhttp()V
+
+    goto :goto_1
+
+    :cond_0
+    invoke-direct {p0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->newJournalWriter()Lcom/applovin/shadow/okio/BufferedSink;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->journalWriter:Lcom/applovin/shadow/okio/BufferedSink;
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    :goto_1
+    const/4 p0, 0x0
+
+    invoke-static {v2, p0}, Lxg0;->h(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+
+    return-void
+
+    :cond_1
+    :try_start_3
+    new-instance p0, Ljava/io/IOException;
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const/16 v0, 0x5d
+
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    :goto_2
+    :try_start_4
+    throw p0
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+
+    :catchall_1
+    move-exception v0
+
+    invoke-static {v2, p0}, Lxg0;->h(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+
+    throw v0
+.end method
+
+.method private final readJournalLine(Ljava/lang/String;)V
+    .locals 9
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    const/4 v0, 0x6
+
+    const/16 v1, 0x20
+
+    const/4 v2, 0x0
+
+    invoke-static {p1, v1, v2, v0}, Lkotlin/text/StringsKt;->R(Ljava/lang/CharSequence;CII)I
+
+    move-result v0
+
+    const-string v3, "unexpected journal line: "
+
+    const/4 v4, -0x1
+
+    if-eq v0, v4, :cond_6
+
+    add-int/lit8 v5, v0, 0x1
+
+    const/4 v6, 0x4
+
+    invoke-static {p1, v1, v5, v6}, Lkotlin/text/StringsKt;->R(Ljava/lang/CharSequence;CII)I
+
+    move-result v6
+
+    if-ne v6, v4, :cond_0
+
+    invoke-virtual {p1, v5}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    sget-object v7, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->REMOVE:Ljava/lang/String;
+
+    invoke-virtual {v7}, Ljava/lang/String;->length()I
+
+    move-result v8
+
+    if-ne v0, v8, :cond_1
+
+    invoke-static {p1, v7, v2}, Lkotlin/text/c;->w(Ljava/lang/String;Ljava/lang/String;Z)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_1
+
+    iget-object p0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->lruEntries:Ljava/util/LinkedHashMap;
+
+    invoke-virtual {p0, v5}, Ljava/util/AbstractMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    return-void
+
+    :cond_0
+    invoke-virtual {p1, v5, v6}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v5
+
+    :cond_1
+    iget-object v7, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->lruEntries:Ljava/util/LinkedHashMap;
+
+    invoke-virtual {v7, v5}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v7
+
+    check-cast v7, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;
+
+    if-nez v7, :cond_2
+
+    new-instance v7, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;
+
+    invoke-direct {v7, p0, v5}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;-><init>(Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;Ljava/lang/String;)V
+
+    iget-object v8, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->lruEntries:Ljava/util/LinkedHashMap;
+
+    invoke-interface {v8, v5, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    :cond_2
+    if-eq v6, v4, :cond_3
+
+    sget-object v5, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->CLEAN:Ljava/lang/String;
+
+    invoke-virtual {v5}, Ljava/lang/String;->length()I
+
+    move-result v8
+
+    if-ne v0, v8, :cond_3
+
+    invoke-static {p1, v5, v2}, Lkotlin/text/c;->w(Ljava/lang/String;Ljava/lang/String;Z)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_3
+
+    const/4 p0, 0x1
+
+    add-int/2addr v6, p0
+
+    invoke-virtual {p1, v6}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object p1
+
+    new-array v0, p0, [C
+
+    aput-char v1, v0, v2
+
+    invoke-static {p1, v0}, Lkotlin/text/StringsKt;->d0(Ljava/lang/CharSequence;[C)Ljava/util/List;
+
+    move-result-object p1
+
+    invoke-virtual {v7, p0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->setReadable$okhttp(Z)V
+
+    const/4 p0, 0x0
+
+    invoke-virtual {v7, p0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->setCurrentEditor$okhttp(Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Editor;)V
+
+    invoke-virtual {v7, p1}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->setLengths$okhttp(Ljava/util/List;)V
+
+    return-void
+
+    :cond_3
+    if-ne v6, v4, :cond_4
+
+    sget-object v1, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->DIRTY:Ljava/lang/String;
+
+    invoke-virtual {v1}, Ljava/lang/String;->length()I
+
+    move-result v5
+
+    if-ne v0, v5, :cond_4
+
+    invoke-static {p1, v1, v2}, Lkotlin/text/c;->w(Ljava/lang/String;Ljava/lang/String;Z)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    new-instance p1, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Editor;
+
+    invoke-direct {p1, p0, v7}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Editor;-><init>(Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;)V
+
+    invoke-virtual {v7, p1}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->setCurrentEditor$okhttp(Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Editor;)V
+
+    return-void
+
+    :cond_4
+    if-ne v6, v4, :cond_5
+
+    sget-object p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->READ:Ljava/lang/String;
+
+    invoke-virtual {p0}, Ljava/lang/String;->length()I
+
+    move-result v1
+
+    if-ne v0, v1, :cond_5
+
+    invoke-static {p1, p0, v2}, Lkotlin/text/c;->w(Ljava/lang/String;Ljava/lang/String;Z)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_5
+
+    return-void
+
+    :cond_5
+    invoke-virtual {v3, p1}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {p0}, Lyi1;->h(Ljava/lang/String;)V
+
+    return-void
+
+    :cond_6
+    invoke-virtual {v3, p1}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {p0}, Lyi1;->h(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method private final removeOldestEntry()Z
+    .locals 3
+
+    iget-object v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->lruEntries:Ljava/util/LinkedHashMap;
+
+    invoke-virtual {v0}, Ljava/util/LinkedHashMap;->values()Ljava/util/Collection;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :cond_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;
+
+    invoke-virtual {v1}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->getZombie$okhttp()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    invoke-virtual {p0, v1}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->removeEntry$okhttp(Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;)Z
+
+    const/4 p0, 0x1
+
+    return p0
+
+    :cond_1
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
+.method private final validateKey(Ljava/lang/String;)V
+    .locals 1
+
+    sget-object p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->LEGAL_KEY_PATTERN:Lkotlin/text/Regex;
+
+    invoke-virtual {p0, p1}, Lkotlin/text/Regex;->f(Ljava/lang/CharSequence;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    return-void
+
+    :cond_0
+    const-string p0, "keys must match regex [a-z0-9_-]{1,120}: \""
+
+    const/16 v0, 0x22
+
+    invoke-static {v0, p0, p1}, Li23;->j(CLjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {p0}, Lln2;->e(Ljava/lang/Object;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public declared-synchronized close()V
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    monitor-enter p0
+
+    :try_start_0
+    iget-boolean v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->initialized:Z
+
+    const/4 v1, 0x1
+
+    if-eqz v0, :cond_3
+
+    iget-boolean v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->closed:Z
+
+    if-eqz v0, :cond_0
+
+    goto :goto_2
+
+    :cond_0
+    iget-object v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->lruEntries:Ljava/util/LinkedHashMap;
+
+    invoke-virtual {v0}, Ljava/util/LinkedHashMap;->values()Ljava/util/Collection;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    const/4 v2, 0x0
+
+    new-array v3, v2, [Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;
+
+    invoke-interface {v0, v3}, Ljava/util/Collection;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, [Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;
+
+    array-length v3, v0
+
+    :goto_0
+    if-ge v2, v3, :cond_2
+
+    aget-object v4, v0, v2
+
+    invoke-virtual {v4}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->getCurrentEditor$okhttp()Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Editor;
+
+    move-result-object v5
+
+    if-eqz v5, :cond_1
+
+    invoke-virtual {v4}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->getCurrentEditor$okhttp()Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Editor;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_1
+
+    invoke-virtual {v4}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Editor;->detach$okhttp()V
+
+    goto :goto_1
+
+    :catchall_0
+    move-exception v0
+
+    goto :goto_3
+
+    :cond_1
+    :goto_1
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    invoke-virtual {p0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->trimToSize()V
+
+    iget-object v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->journalWriter:Lcom/applovin/shadow/okio/BufferedSink;
+
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-interface {v0}, Lcom/applovin/shadow/okio/Sink;->close()V
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->journalWriter:Lcom/applovin/shadow/okio/BufferedSink;
+
+    iput-boolean v1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->closed:Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
+
+    return-void
+
+    :cond_3
+    :goto_2
+    :try_start_1
+    iput-boolean v1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->closed:Z
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    monitor-exit p0
+
+    return-void
+
+    :goto_3
+    :try_start_2
+    monitor-exit p0
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    throw v0
+.end method
+
+.method public final declared-synchronized completeEdit$okhttp(Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Editor;Z)V
+    .locals 8
+    .param p1    # Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Editor;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    monitor-enter p0
+
+    :try_start_0
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-virtual {p1}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Editor;->getEntry$okhttp()Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->getCurrentEditor$okhttp()Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Editor;
+
+    move-result-object v1
+
+    invoke-static {v1, p1}, Lkotlin/jvm/internal/Intrinsics;->b(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_c
+
+    const/4 v1, 0x0
+
+    if-eqz p2, :cond_2
+
+    invoke-virtual {v0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->getReadable$okhttp()Z
+
+    move-result v2
+
+    if-nez v2, :cond_2
+
+    iget v2, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->valueCount:I
+
+    move v3, v1
+
+    :goto_0
+    if-ge v3, v2, :cond_2
+
+    invoke-virtual {p1}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Editor;->getWritten$okhttp()[Z
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    aget-boolean v4, v4, v3
+
+    if-eqz v4, :cond_1
+
+    iget-object v4, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->fileSystem:Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;
+
+    invoke-virtual {v0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->getDirtyFiles$okhttp()Ljava/util/List;
+
+    move-result-object v5
+
+    invoke-interface {v5, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Ljava/io/File;
+
+    invoke-interface {v4, v5}, Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;->exists(Ljava/io/File;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_0
+
+    invoke-virtual {p1}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Editor;->abort()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    move-object p1, v0
+
+    goto/16 :goto_5
+
+    :cond_0
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    :try_start_1
+    invoke-virtual {p1}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Editor;->abort()V
+
+    new-instance p1, Ljava/lang/IllegalStateException;
+
+    new-instance p2, Ljava/lang/StringBuilder;
+
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v0, "Newly created entry didn\'t create value for index "
+
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+
+    :cond_2
+    iget p1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->valueCount:I
+
+    :goto_1
+    if-ge v1, p1, :cond_5
+
+    invoke-virtual {v0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->getDirtyFiles$okhttp()Ljava/util/List;
+
+    move-result-object v2
+
+    invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/io/File;
+
+    if-eqz p2, :cond_3
+
+    invoke-virtual {v0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->getZombie$okhttp()Z
+
+    move-result v3
+
+    if-nez v3, :cond_3
+
+    iget-object v3, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->fileSystem:Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;
+
+    invoke-interface {v3, v2}, Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;->exists(Ljava/io/File;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_4
+
+    invoke-virtual {v0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->getCleanFiles$okhttp()Ljava/util/List;
+
+    move-result-object v3
+
+    invoke-interface {v3, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/io/File;
+
+    iget-object v4, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->fileSystem:Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;
+
+    invoke-interface {v4, v2, v3}, Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;->rename(Ljava/io/File;Ljava/io/File;)V
+
+    invoke-virtual {v0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->getLengths$okhttp()[J
+
+    move-result-object v2
+
+    aget-wide v4, v2, v1
+
+    iget-object v2, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->fileSystem:Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;
+
+    invoke-interface {v2, v3}, Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;->size(Ljava/io/File;)J
+
+    move-result-wide v2
+
+    invoke-virtual {v0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->getLengths$okhttp()[J
+
+    move-result-object v6
+
+    aput-wide v2, v6, v1
+
+    iget-wide v6, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->size:J
+
+    sub-long/2addr v6, v4
+
+    add-long/2addr v6, v2
+
+    iput-wide v6, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->size:J
+
+    goto :goto_2
+
+    :cond_3
+    iget-object v3, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->fileSystem:Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;
+
+    invoke-interface {v3, v2}, Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;->delete(Ljava/io/File;)V
+
+    :cond_4
+    :goto_2
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_1
+
+    :cond_5
+    const/4 p1, 0x0
+
+    invoke-virtual {v0, p1}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->setCurrentEditor$okhttp(Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Editor;)V
+
+    invoke-virtual {v0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->getZombie$okhttp()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_6
+
+    invoke-virtual {p0, v0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->removeEntry$okhttp(Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;)Z
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    monitor-exit p0
+
+    return-void
+
+    :cond_6
+    :try_start_2
+    iget p1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->redundantOpCount:I
+
+    const/4 v1, 0x1
+
+    add-int/2addr p1, v1
+
+    iput p1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->redundantOpCount:I
+
+    iget-object p1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->journalWriter:Lcom/applovin/shadow/okio/BufferedSink;
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-virtual {v0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->getReadable$okhttp()Z
+
+    move-result v2
+
+    const/16 v3, 0xa
+
+    const/16 v4, 0x20
+
+    if-nez v2, :cond_8
+
+    if-eqz p2, :cond_7
+
+    goto :goto_3
+
+    :cond_7
+    iget-object p2, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->lruEntries:Ljava/util/LinkedHashMap;
+
+    invoke-virtual {v0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->getKey$okhttp()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p2, v1}, Ljava/util/AbstractMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object p2, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->REMOVE:Ljava/lang/String;
+
+    invoke-interface {p1, p2}, Lcom/applovin/shadow/okio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lcom/applovin/shadow/okio/BufferedSink;
+
+    move-result-object p2
+
+    invoke-interface {p2, v4}, Lcom/applovin/shadow/okio/BufferedSink;->writeByte(I)Lcom/applovin/shadow/okio/BufferedSink;
+
+    invoke-virtual {v0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->getKey$okhttp()Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-interface {p1, p2}, Lcom/applovin/shadow/okio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lcom/applovin/shadow/okio/BufferedSink;
+
+    invoke-interface {p1, v3}, Lcom/applovin/shadow/okio/BufferedSink;->writeByte(I)Lcom/applovin/shadow/okio/BufferedSink;
+
+    goto :goto_4
+
+    :cond_8
+    :goto_3
+    invoke-virtual {v0, v1}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->setReadable$okhttp(Z)V
+
+    sget-object v1, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->CLEAN:Ljava/lang/String;
+
+    invoke-interface {p1, v1}, Lcom/applovin/shadow/okio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lcom/applovin/shadow/okio/BufferedSink;
+
+    move-result-object v1
+
+    invoke-interface {v1, v4}, Lcom/applovin/shadow/okio/BufferedSink;->writeByte(I)Lcom/applovin/shadow/okio/BufferedSink;
+
+    invoke-virtual {v0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->getKey$okhttp()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-interface {p1, v1}, Lcom/applovin/shadow/okio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lcom/applovin/shadow/okio/BufferedSink;
+
+    invoke-virtual {v0, p1}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->writeLengths$okhttp(Lcom/applovin/shadow/okio/BufferedSink;)V
+
+    invoke-interface {p1, v3}, Lcom/applovin/shadow/okio/BufferedSink;->writeByte(I)Lcom/applovin/shadow/okio/BufferedSink;
+
+    if-eqz p2, :cond_9
+
+    iget-wide v1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->nextSequenceNumber:J
+
+    const-wide/16 v3, 0x1
+
+    add-long/2addr v3, v1
+
+    iput-wide v3, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->nextSequenceNumber:J
+
+    invoke-virtual {v0, v1, v2}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->setSequenceNumber$okhttp(J)V
+
+    :cond_9
+    :goto_4
+    invoke-interface {p1}, Lcom/applovin/shadow/okio/BufferedSink;->flush()V
+
+    iget-wide p1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->size:J
+
+    iget-wide v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->maxSize:J
+
+    cmp-long p1, p1, v0
+
+    if-gtz p1, :cond_a
+
+    invoke-direct {p0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->journalRebuildRequired()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_b
+
+    :cond_a
+    iget-object v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->cleanupQueue:Lcom/applovin/shadow/okhttp3/internal/concurrent/TaskQueue;
+
+    iget-object v1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->cleanupTask:Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$cleanupTask$1;
+
+    const/4 v4, 0x2
+
+    const/4 v5, 0x0
+
+    const-wide/16 v2, 0x0
+
+    invoke-static/range {v0 .. v5}, Lcom/applovin/shadow/okhttp3/internal/concurrent/TaskQueue;->schedule$default(Lcom/applovin/shadow/okhttp3/internal/concurrent/TaskQueue;Lcom/applovin/shadow/okhttp3/internal/concurrent/Task;JILjava/lang/Object;)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    :cond_b
+    monitor-exit p0
+
+    return-void
+
+    :cond_c
+    :try_start_3
+    const-string p1, "Check failed."
+
+    new-instance p2, Ljava/lang/IllegalStateException;
+
+    invoke-direct {p2, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw p2
+
+    :goto_5
+    monitor-exit p0
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    throw p1
+.end method
+
+.method public final delete()V
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    invoke-virtual {p0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->close()V
+
+    iget-object v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->fileSystem:Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;
+
+    iget-object p0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->directory:Ljava/io/File;
+
+    invoke-interface {v0, p0}, Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;->deleteContents(Ljava/io/File;)V
+
+    return-void
+.end method
+
+.method public final edit(Ljava/lang/String;)Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Editor;
+    .locals 6
+    .param p1    # Ljava/lang/String;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
+
+    .line 147
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    const/4 v4, 0x2
+
+    const/4 v5, 0x0
+
+    const-wide/16 v2, 0x0
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    invoke-static/range {v0 .. v5}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->edit$default(Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;Ljava/lang/String;JILjava/lang/Object;)Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Editor;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public final declared-synchronized edit(Ljava/lang/String;J)Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Editor;
+    .locals 9
+    .param p1    # Ljava/lang/String;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
+
+    monitor-enter p0
+
+    :try_start_0
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-virtual {p0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->initialize()V
+
+    invoke-direct {p0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->checkNotClosed()V
+
+    invoke-direct {p0, p1}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->validateKey(Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->lruEntries:Ljava/util/LinkedHashMap;
+
+    invoke-virtual {v0, p1}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;
+
+    sget-wide v1, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->ANY_SEQUENCE_NUMBER:J
+
+    cmp-long v1, p2, v1
+
+    const/4 v2, 0x0
+
+    if-eqz v1, :cond_1
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->getSequenceNumber$okhttp()J
+
+    move-result-wide v3
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    cmp-long p2, v3, p2
+
+    if-eqz p2, :cond_1
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v0
+
+    move-object p1, v0
+
+    goto :goto_3
+
+    :cond_0
+    :goto_0
+    monitor-exit p0
+
+    return-object v2
+
+    :cond_1
+    if-eqz v0, :cond_2
+
+    :try_start_1
+    invoke-virtual {v0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->getCurrentEditor$okhttp()Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Editor;
+
+    move-result-object p2
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_1
+
+    :cond_2
+    move-object p2, v2
+
+    :goto_1
+    if-eqz p2, :cond_3
+
+    monitor-exit p0
+
+    return-object v2
+
+    :cond_3
+    if-eqz v0, :cond_4
+
+    :try_start_2
+    invoke-virtual {v0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->getLockingSourceCount$okhttp()I
+
+    move-result p2
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    if-eqz p2, :cond_4
+
+    monitor-exit p0
+
+    return-object v2
+
+    :cond_4
+    :try_start_3
+    iget-boolean p2, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->mostRecentTrimFailed:Z
+
+    if-nez p2, :cond_8
+
+    iget-boolean p2, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->mostRecentRebuildFailed:Z
+
+    if-eqz p2, :cond_5
+
+    goto :goto_2
+
+    :cond_5
+    iget-object p2, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->journalWriter:Lcom/applovin/shadow/okio/BufferedSink;
+
+    invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    sget-object p3, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->DIRTY:Ljava/lang/String;
+
+    invoke-interface {p2, p3}, Lcom/applovin/shadow/okio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lcom/applovin/shadow/okio/BufferedSink;
+
+    move-result-object p3
+
+    const/16 v1, 0x20
+
+    invoke-interface {p3, v1}, Lcom/applovin/shadow/okio/BufferedSink;->writeByte(I)Lcom/applovin/shadow/okio/BufferedSink;
+
+    move-result-object p3
+
+    invoke-interface {p3, p1}, Lcom/applovin/shadow/okio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lcom/applovin/shadow/okio/BufferedSink;
+
+    move-result-object p3
+
+    const/16 v1, 0xa
+
+    invoke-interface {p3, v1}, Lcom/applovin/shadow/okio/BufferedSink;->writeByte(I)Lcom/applovin/shadow/okio/BufferedSink;
+
+    invoke-interface {p2}, Lcom/applovin/shadow/okio/BufferedSink;->flush()V
+
+    iget-boolean p2, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->hasJournalErrors:Z
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    if-eqz p2, :cond_6
+
+    monitor-exit p0
+
+    return-object v2
+
+    :cond_6
+    if-nez v0, :cond_7
+
+    :try_start_4
+    new-instance v0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;
+
+    invoke-direct {v0, p0, p1}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;-><init>(Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;Ljava/lang/String;)V
+
+    iget-object p2, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->lruEntries:Ljava/util/LinkedHashMap;
+
+    invoke-interface {p2, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    :cond_7
+    new-instance p1, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Editor;
+
+    invoke-direct {p1, p0, v0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Editor;-><init>(Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;)V
+
+    invoke-virtual {v0, p1}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->setCurrentEditor$okhttp(Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Editor;)V
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+
+    monitor-exit p0
+
+    return-object p1
+
+    :cond_8
+    :goto_2
+    :try_start_5
+    iget-object v3, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->cleanupQueue:Lcom/applovin/shadow/okhttp3/internal/concurrent/TaskQueue;
+
+    iget-object v4, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->cleanupTask:Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$cleanupTask$1;
+
+    const/4 v7, 0x2
+
+    const/4 v8, 0x0
+
+    const-wide/16 v5, 0x0
+
+    invoke-static/range {v3 .. v8}, Lcom/applovin/shadow/okhttp3/internal/concurrent/TaskQueue;->schedule$default(Lcom/applovin/shadow/okhttp3/internal/concurrent/TaskQueue;Lcom/applovin/shadow/okhttp3/internal/concurrent/Task;JILjava/lang/Object;)V
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+
+    monitor-exit p0
+
+    return-object v2
+
+    :goto_3
+    :try_start_6
+    monitor-exit p0
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
+
+    throw p1
+.end method
+
+.method public final declared-synchronized evictAll()V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    monitor-enter p0
+
+    :try_start_0
+    invoke-virtual {p0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->initialize()V
+
+    iget-object v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->lruEntries:Ljava/util/LinkedHashMap;
+
+    invoke-virtual {v0}, Ljava/util/LinkedHashMap;->values()Ljava/util/Collection;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    const/4 v1, 0x0
+
+    new-array v2, v1, [Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;
+
+    invoke-interface {v0, v2}, Ljava/util/Collection;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, [Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;
+
+    array-length v2, v0
+
+    move v3, v1
+
+    :goto_0
+    if-ge v3, v2, :cond_0
+
+    aget-object v4, v0, v3
+
+    invoke-virtual {v4}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-virtual {p0, v4}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->removeEntry$okhttp(Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;)Z
+
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v0
+
+    goto :goto_1
+
+    :cond_0
+    iput-boolean v1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->mostRecentTrimFailed:Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
+
+    return-void
+
+    :goto_1
+    :try_start_1
+    monitor-exit p0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw v0
+.end method
+
+.method public declared-synchronized flush()V
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    monitor-enter p0
+
+    :try_start_0
+    iget-boolean v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->initialized:Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-nez v0, :cond_0
+
+    monitor-exit p0
+
+    return-void
+
+    :cond_0
+    :try_start_1
+    invoke-direct {p0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->checkNotClosed()V
+
+    invoke-virtual {p0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->trimToSize()V
+
+    iget-object v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->journalWriter:Lcom/applovin/shadow/okio/BufferedSink;
+
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-interface {v0}, Lcom/applovin/shadow/okio/BufferedSink;->flush()V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    monitor-exit p0
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    :try_start_2
+    monitor-exit p0
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    throw v0
+.end method
+
+.method public final declared-synchronized get(Ljava/lang/String;)Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Snapshot;
+    .locals 7
+    .param p1    # Ljava/lang/String;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
+
+    monitor-enter p0
+
+    :try_start_0
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-virtual {p0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->initialize()V
+
+    invoke-direct {p0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->checkNotClosed()V
+
+    invoke-direct {p0, p1}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->validateKey(Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->lruEntries:Ljava/util/LinkedHashMap;
+
+    invoke-virtual {v0, p1}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    const/4 v1, 0x0
+
+    if-nez v0, :cond_0
+
+    monitor-exit p0
+
+    return-object v1
+
+    :cond_0
+    :try_start_1
+    invoke-virtual {v0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->snapshot$okhttp()Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Snapshot;
+
+    move-result-object v0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    if-nez v0, :cond_1
+
+    monitor-exit p0
+
+    return-object v1
+
+    :cond_1
+    :try_start_2
+    iget v1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->redundantOpCount:I
+
+    add-int/lit8 v1, v1, 0x1
+
+    iput v1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->redundantOpCount:I
+
+    iget-object v1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->journalWriter:Lcom/applovin/shadow/okio/BufferedSink;
+
+    invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    sget-object v2, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->READ:Ljava/lang/String;
+
+    invoke-interface {v1, v2}, Lcom/applovin/shadow/okio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lcom/applovin/shadow/okio/BufferedSink;
+
+    move-result-object v1
+
+    const/16 v2, 0x20
+
+    invoke-interface {v1, v2}, Lcom/applovin/shadow/okio/BufferedSink;->writeByte(I)Lcom/applovin/shadow/okio/BufferedSink;
+
+    move-result-object v1
+
+    invoke-interface {v1, p1}, Lcom/applovin/shadow/okio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lcom/applovin/shadow/okio/BufferedSink;
+
+    move-result-object p1
+
+    const/16 v1, 0xa
+
+    invoke-interface {p1, v1}, Lcom/applovin/shadow/okio/BufferedSink;->writeByte(I)Lcom/applovin/shadow/okio/BufferedSink;
+
+    invoke-direct {p0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->journalRebuildRequired()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_2
+
+    iget-object v1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->cleanupQueue:Lcom/applovin/shadow/okhttp3/internal/concurrent/TaskQueue;
+
+    iget-object v2, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->cleanupTask:Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$cleanupTask$1;
+
+    const/4 v5, 0x2
+
+    const/4 v6, 0x0
+
+    const-wide/16 v3, 0x0
+
+    invoke-static/range {v1 .. v6}, Lcom/applovin/shadow/okhttp3/internal/concurrent/TaskQueue;->schedule$default(Lcom/applovin/shadow/okhttp3/internal/concurrent/TaskQueue;Lcom/applovin/shadow/okhttp3/internal/concurrent/Task;JILjava/lang/Object;)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v0
+
+    move-object p1, v0
+
+    goto :goto_1
+
+    :cond_2
+    :goto_0
+    monitor-exit p0
+
+    return-object v0
+
+    :goto_1
+    :try_start_3
+    monitor-exit p0
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    throw p1
+.end method
+
+.method public final getClosed$okhttp()Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->closed:Z
+
+    return p0
+.end method
+
+.method public final getDirectory()Ljava/io/File;
+    .locals 0
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+
+    iget-object p0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->directory:Ljava/io/File;
+
+    return-object p0
+.end method
+
+.method public final getFileSystem$okhttp()Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;
+    .locals 0
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+
+    iget-object p0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->fileSystem:Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;
+
+    return-object p0
+.end method
+
+.method public final getLruEntries$okhttp()Ljava/util/LinkedHashMap;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/LinkedHashMap<",
+            "Ljava/lang/String;",
+            "Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;",
+            ">;"
+        }
+    .end annotation
+
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+
+    iget-object p0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->lruEntries:Ljava/util/LinkedHashMap;
+
+    return-object p0
+.end method
+
+.method public final declared-synchronized getMaxSize()J
+    .locals 2
+
+    monitor-enter p0
+
+    :try_start_0
+    iget-wide v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->maxSize:J
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
+
+    return-wide v0
+
+    :catchall_0
+    move-exception v0
+
+    :try_start_1
+    monitor-exit p0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw v0
+.end method
+
+.method public final getValueCount$okhttp()I
+    .locals 0
+
+    iget p0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->valueCount:I
+
+    return p0
+.end method
+
+.method public final declared-synchronized initialize()V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    const-string v0, "DiskLruCache "
+
+    const-string v1, "Thread "
+
+    monitor-enter p0
+
+    :try_start_0
+    sget-boolean v2, Lcom/applovin/shadow/okhttp3/internal/Util;->assertionsEnabled:Z
+
+    if-eqz v2, :cond_1
+
+    invoke-static {p0}, Ljava/lang/Thread;->holdsLock(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    new-instance v0, Ljava/lang/AssertionError;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/Thread;->getName()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, " MUST hold lock on "
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
+
+    throw v0
+
+    :catchall_0
+    move-exception v0
+
+    goto/16 :goto_3
+
+    :cond_1
+    :goto_0
+    iget-boolean v1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->initialized:Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-eqz v1, :cond_2
+
+    monitor-exit p0
+
+    return-void
+
+    :cond_2
+    :try_start_1
+    iget-object v1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->fileSystem:Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;
+
+    iget-object v2, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->journalFileBackup:Ljava/io/File;
+
+    invoke-interface {v1, v2}, Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;->exists(Ljava/io/File;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    iget-object v1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->fileSystem:Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;
+
+    iget-object v2, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->journalFile:Ljava/io/File;
+
+    invoke-interface {v1, v2}, Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;->exists(Ljava/io/File;)Z
+
+    move-result v1
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    iget-object v2, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->fileSystem:Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;
+
+    if-eqz v1, :cond_3
+
+    :try_start_2
+    iget-object v1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->journalFileBackup:Ljava/io/File;
+
+    invoke-interface {v2, v1}, Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;->delete(Ljava/io/File;)V
+
+    goto :goto_1
+
+    :cond_3
+    iget-object v1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->journalFileBackup:Ljava/io/File;
+
+    iget-object v3, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->journalFile:Ljava/io/File;
+
+    invoke-interface {v2, v1, v3}, Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;->rename(Ljava/io/File;Ljava/io/File;)V
+
+    :cond_4
+    :goto_1
+    iget-object v1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->fileSystem:Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;
+
+    iget-object v2, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->journalFileBackup:Ljava/io/File;
+
+    invoke-static {v1, v2}, Lcom/applovin/shadow/okhttp3/internal/Util;->isCivilized(Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;Ljava/io/File;)Z
+
+    move-result v1
+
+    iput-boolean v1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->civilizedFileSystem:Z
+
+    iget-object v1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->fileSystem:Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;
+
+    iget-object v2, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->journalFile:Ljava/io/File;
+
+    invoke-interface {v1, v2}, Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;->exists(Ljava/io/File;)Z
+
+    move-result v1
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    const/4 v2, 0x1
+
+    if-eqz v1, :cond_5
+
+    :try_start_3
+    invoke-direct {p0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->readJournal()V
+
+    invoke-direct {p0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->processJournal()V
+
+    iput-boolean v2, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->initialized:Z
+    :try_end_3
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    monitor-exit p0
+
+    return-void
+
+    :catch_0
+    move-exception v1
+
+    :try_start_4
+    sget-object v3, Lcom/applovin/shadow/okhttp3/internal/platform/Platform;->Companion:Lcom/applovin/shadow/okhttp3/internal/platform/Platform$Companion;
+
+    invoke-virtual {v3}, Lcom/applovin/shadow/okhttp3/internal/platform/Platform$Companion;->get()Lcom/applovin/shadow/okhttp3/internal/platform/Platform;
+
+    move-result-object v3
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->directory:Ljava/io/File;
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v0, " is corrupt: "
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v0, ", removing"
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const/4 v4, 0x5
+
+    invoke-virtual {v3, v0, v4, v1}, Lcom/applovin/shadow/okhttp3/internal/platform/Platform;->log(Ljava/lang/String;ILjava/lang/Throwable;)V
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+
+    const/4 v0, 0x0
+
+    :try_start_5
+    invoke-virtual {p0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->delete()V
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_1
+
+    :try_start_6
+    iput-boolean v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->closed:Z
+
+    goto :goto_2
+
+    :catchall_1
+    move-exception v1
+
+    iput-boolean v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->closed:Z
+
+    throw v1
+
+    :cond_5
+    :goto_2
+    invoke-virtual {p0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->rebuildJournal$okhttp()V
+
+    iput-boolean v2, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->initialized:Z
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
+
+    monitor-exit p0
+
+    return-void
+
+    :goto_3
+    :try_start_7
+    monitor-exit p0
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_0
+
+    throw v0
+.end method
+
+.method public final declared-synchronized isClosed()Z
+    .locals 1
+
+    monitor-enter p0
+
+    :try_start_0
+    iget-boolean v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->closed:Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
+
+    return v0
+
+    :catchall_0
+    move-exception v0
+
+    :try_start_1
+    monitor-exit p0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw v0
+.end method
+
+.method public final declared-synchronized rebuildJournal$okhttp()V
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    monitor-enter p0
+
+    :try_start_0
+    iget-object v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->journalWriter:Lcom/applovin/shadow/okio/BufferedSink;
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v0}, Lcom/applovin/shadow/okio/Sink;->close()V
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v0
+
+    goto/16 :goto_3
+
+    :cond_0
+    :goto_0
+    iget-object v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->fileSystem:Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;
+
+    iget-object v1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->journalFileTmp:Ljava/io/File;
+
+    invoke-interface {v0, v1}, Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;->sink(Ljava/io/File;)Lcom/applovin/shadow/okio/Sink;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/applovin/shadow/okio/Okio;->buffer(Lcom/applovin/shadow/okio/Sink;)Lcom/applovin/shadow/okio/BufferedSink;
+
+    move-result-object v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :try_start_1
+    sget-object v1, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->MAGIC:Ljava/lang/String;
+
+    invoke-interface {v0, v1}, Lcom/applovin/shadow/okio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lcom/applovin/shadow/okio/BufferedSink;
+
+    move-result-object v1
+
+    const/16 v2, 0xa
+
+    invoke-interface {v1, v2}, Lcom/applovin/shadow/okio/BufferedSink;->writeByte(I)Lcom/applovin/shadow/okio/BufferedSink;
+
+    sget-object v1, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->VERSION_1:Ljava/lang/String;
+
+    invoke-interface {v0, v1}, Lcom/applovin/shadow/okio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lcom/applovin/shadow/okio/BufferedSink;
+
+    move-result-object v1
+
+    invoke-interface {v1, v2}, Lcom/applovin/shadow/okio/BufferedSink;->writeByte(I)Lcom/applovin/shadow/okio/BufferedSink;
+
+    iget v1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->appVersion:I
+
+    int-to-long v3, v1
+
+    invoke-interface {v0, v3, v4}, Lcom/applovin/shadow/okio/BufferedSink;->writeDecimalLong(J)Lcom/applovin/shadow/okio/BufferedSink;
+
+    move-result-object v1
+
+    invoke-interface {v1, v2}, Lcom/applovin/shadow/okio/BufferedSink;->writeByte(I)Lcom/applovin/shadow/okio/BufferedSink;
+
+    iget v1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->valueCount:I
+
+    int-to-long v3, v1
+
+    invoke-interface {v0, v3, v4}, Lcom/applovin/shadow/okio/BufferedSink;->writeDecimalLong(J)Lcom/applovin/shadow/okio/BufferedSink;
+
+    move-result-object v1
+
+    invoke-interface {v1, v2}, Lcom/applovin/shadow/okio/BufferedSink;->writeByte(I)Lcom/applovin/shadow/okio/BufferedSink;
+
+    invoke-interface {v0, v2}, Lcom/applovin/shadow/okio/BufferedSink;->writeByte(I)Lcom/applovin/shadow/okio/BufferedSink;
+
+    iget-object v1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->lruEntries:Ljava/util/LinkedHashMap;
+
+    invoke-virtual {v1}, Ljava/util/LinkedHashMap;->values()Ljava/util/Collection;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :goto_1
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;
+
+    invoke-virtual {v3}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->getCurrentEditor$okhttp()Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Editor;
+
+    move-result-object v4
+
+    const/16 v5, 0x20
+
+    if-eqz v4, :cond_1
+
+    sget-object v4, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->DIRTY:Ljava/lang/String;
+
+    invoke-interface {v0, v4}, Lcom/applovin/shadow/okio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lcom/applovin/shadow/okio/BufferedSink;
+
+    move-result-object v4
+
+    invoke-interface {v4, v5}, Lcom/applovin/shadow/okio/BufferedSink;->writeByte(I)Lcom/applovin/shadow/okio/BufferedSink;
+
+    invoke-virtual {v3}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->getKey$okhttp()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-interface {v0, v3}, Lcom/applovin/shadow/okio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lcom/applovin/shadow/okio/BufferedSink;
+
+    invoke-interface {v0, v2}, Lcom/applovin/shadow/okio/BufferedSink;->writeByte(I)Lcom/applovin/shadow/okio/BufferedSink;
+
+    goto :goto_1
+
+    :catchall_1
+    move-exception v1
+
+    goto :goto_2
+
+    :cond_1
+    sget-object v4, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->CLEAN:Ljava/lang/String;
+
+    invoke-interface {v0, v4}, Lcom/applovin/shadow/okio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lcom/applovin/shadow/okio/BufferedSink;
+
+    move-result-object v4
+
+    invoke-interface {v4, v5}, Lcom/applovin/shadow/okio/BufferedSink;->writeByte(I)Lcom/applovin/shadow/okio/BufferedSink;
+
+    invoke-virtual {v3}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->getKey$okhttp()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-interface {v0, v4}, Lcom/applovin/shadow/okio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lcom/applovin/shadow/okio/BufferedSink;
+
+    invoke-virtual {v3, v0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->writeLengths$okhttp(Lcom/applovin/shadow/okio/BufferedSink;)V
+
+    invoke-interface {v0, v2}, Lcom/applovin/shadow/okio/BufferedSink;->writeByte(I)Lcom/applovin/shadow/okio/BufferedSink;
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+
+    goto :goto_1
+
+    :cond_2
+    const/4 v1, 0x0
+
+    :try_start_2
+    invoke-static {v0, v1}, Lxg0;->h(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+
+    iget-object v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->fileSystem:Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;
+
+    iget-object v1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->journalFile:Ljava/io/File;
+
+    invoke-interface {v0, v1}, Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;->exists(Ljava/io/File;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    iget-object v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->fileSystem:Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;
+
+    iget-object v1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->journalFile:Ljava/io/File;
+
+    iget-object v2, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->journalFileBackup:Ljava/io/File;
+
+    invoke-interface {v0, v1, v2}, Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;->rename(Ljava/io/File;Ljava/io/File;)V
+
+    :cond_3
+    iget-object v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->fileSystem:Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;
+
+    iget-object v1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->journalFileTmp:Ljava/io/File;
+
+    iget-object v2, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->journalFile:Ljava/io/File;
+
+    invoke-interface {v0, v1, v2}, Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;->rename(Ljava/io/File;Ljava/io/File;)V
+
+    iget-object v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->fileSystem:Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;
+
+    iget-object v1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->journalFileBackup:Ljava/io/File;
+
+    invoke-interface {v0, v1}, Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;->delete(Ljava/io/File;)V
+
+    invoke-direct {p0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->newJournalWriter()Lcom/applovin/shadow/okio/BufferedSink;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->journalWriter:Lcom/applovin/shadow/okio/BufferedSink;
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->hasJournalErrors:Z
+
+    iput-boolean v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->mostRecentRebuildFailed:Z
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    monitor-exit p0
+
+    return-void
+
+    :goto_2
+    :try_start_3
+    throw v1
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_2
+
+    :catchall_2
+    move-exception v2
+
+    :try_start_4
+    invoke-static {v0, v1}, Lxg0;->h(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+
+    throw v2
+
+    :goto_3
+    monitor-exit p0
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+
+    throw v0
+.end method
+
+.method public final declared-synchronized remove(Ljava/lang/String;)Z
+    .locals 5
+    .param p1    # Ljava/lang/String;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    monitor-enter p0
+
+    :try_start_0
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-virtual {p0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->initialize()V
+
+    invoke-direct {p0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->checkNotClosed()V
+
+    invoke-direct {p0, p1}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->validateKey(Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->lruEntries:Ljava/util/LinkedHashMap;
+
+    invoke-virtual {v0, p1}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    const/4 v0, 0x0
+
+    if-nez p1, :cond_0
+
+    monitor-exit p0
+
+    return v0
+
+    :cond_0
+    :try_start_1
+    invoke-virtual {p0, p1}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->removeEntry$okhttp(Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_1
+
+    iget-wide v1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->size:J
+
+    iget-wide v3, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->maxSize:J
+
+    cmp-long v1, v1, v3
+
+    if-gtz v1, :cond_1
+
+    iput-boolean v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->mostRecentTrimFailed:Z
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception p1
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    monitor-exit p0
+
+    return p1
+
+    :goto_1
+    :try_start_2
+    monitor-exit p0
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    throw p1
+.end method
+
+.method public final removeEntry$okhttp(Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;)Z
+    .locals 10
+    .param p1    # Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    iget-boolean v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->civilizedFileSystem:Z
+
+    const/16 v1, 0xa
+
+    const/16 v2, 0x20
+
+    const/4 v3, 0x1
+
+    if-nez v0, :cond_2
+
+    invoke-virtual {p1}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->getLockingSourceCount$okhttp()I
+
+    move-result v0
+
+    if-lez v0, :cond_0
+
+    iget-object v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->journalWriter:Lcom/applovin/shadow/okio/BufferedSink;
+
+    if-eqz v0, :cond_0
+
+    sget-object v4, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->DIRTY:Ljava/lang/String;
+
+    invoke-interface {v0, v4}, Lcom/applovin/shadow/okio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lcom/applovin/shadow/okio/BufferedSink;
+
+    invoke-interface {v0, v2}, Lcom/applovin/shadow/okio/BufferedSink;->writeByte(I)Lcom/applovin/shadow/okio/BufferedSink;
+
+    invoke-virtual {p1}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->getKey$okhttp()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-interface {v0, v4}, Lcom/applovin/shadow/okio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lcom/applovin/shadow/okio/BufferedSink;
+
+    invoke-interface {v0, v1}, Lcom/applovin/shadow/okio/BufferedSink;->writeByte(I)Lcom/applovin/shadow/okio/BufferedSink;
+
+    invoke-interface {v0}, Lcom/applovin/shadow/okio/BufferedSink;->flush()V
+
+    :cond_0
+    invoke-virtual {p1}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->getLockingSourceCount$okhttp()I
+
+    move-result v0
+
+    if-gtz v0, :cond_1
+
+    invoke-virtual {p1}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->getCurrentEditor$okhttp()Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Editor;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_2
+
+    :cond_1
+    invoke-virtual {p1, v3}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->setZombie$okhttp(Z)V
+
+    return v3
+
+    :cond_2
+    invoke-virtual {p1}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->getCurrentEditor$okhttp()Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Editor;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_3
+
+    invoke-virtual {v0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Editor;->detach$okhttp()V
+
+    :cond_3
+    iget v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->valueCount:I
+
+    const/4 v4, 0x0
+
+    :goto_0
+    if-ge v4, v0, :cond_4
+
+    iget-object v5, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->fileSystem:Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;
+
+    invoke-virtual {p1}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->getCleanFiles$okhttp()Ljava/util/List;
+
+    move-result-object v6
+
+    invoke-interface {v6, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Ljava/io/File;
+
+    invoke-interface {v5, v6}, Lcom/applovin/shadow/okhttp3/internal/io/FileSystem;->delete(Ljava/io/File;)V
+
+    iget-wide v5, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->size:J
+
+    invoke-virtual {p1}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->getLengths$okhttp()[J
+
+    move-result-object v7
+
+    aget-wide v8, v7, v4
+
+    sub-long/2addr v5, v8
+
+    iput-wide v5, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->size:J
+
+    invoke-virtual {p1}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->getLengths$okhttp()[J
+
+    move-result-object v5
+
+    const-wide/16 v6, 0x0
+
+    aput-wide v6, v5, v4
+
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_0
+
+    :cond_4
+    iget v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->redundantOpCount:I
+
+    add-int/2addr v0, v3
+
+    iput v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->redundantOpCount:I
+
+    iget-object v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->journalWriter:Lcom/applovin/shadow/okio/BufferedSink;
+
+    if-eqz v0, :cond_5
+
+    sget-object v4, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->REMOVE:Ljava/lang/String;
+
+    invoke-interface {v0, v4}, Lcom/applovin/shadow/okio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lcom/applovin/shadow/okio/BufferedSink;
+
+    invoke-interface {v0, v2}, Lcom/applovin/shadow/okio/BufferedSink;->writeByte(I)Lcom/applovin/shadow/okio/BufferedSink;
+
+    invoke-virtual {p1}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->getKey$okhttp()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-interface {v0, v2}, Lcom/applovin/shadow/okio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lcom/applovin/shadow/okio/BufferedSink;
+
+    invoke-interface {v0, v1}, Lcom/applovin/shadow/okio/BufferedSink;->writeByte(I)Lcom/applovin/shadow/okio/BufferedSink;
+
+    :cond_5
+    iget-object v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->lruEntries:Ljava/util/LinkedHashMap;
+
+    invoke-virtual {p1}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Entry;->getKey$okhttp()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {v0, p1}, Ljava/util/AbstractMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    invoke-direct {p0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->journalRebuildRequired()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_6
+
+    iget-object v4, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->cleanupQueue:Lcom/applovin/shadow/okhttp3/internal/concurrent/TaskQueue;
+
+    iget-object v5, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->cleanupTask:Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$cleanupTask$1;
+
+    const/4 v8, 0x2
+
+    const/4 v9, 0x0
+
+    const-wide/16 v6, 0x0
+
+    invoke-static/range {v4 .. v9}, Lcom/applovin/shadow/okhttp3/internal/concurrent/TaskQueue;->schedule$default(Lcom/applovin/shadow/okhttp3/internal/concurrent/TaskQueue;Lcom/applovin/shadow/okhttp3/internal/concurrent/Task;JILjava/lang/Object;)V
+
+    :cond_6
+    return v3
+.end method
+
+.method public final setClosed$okhttp(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->closed:Z
+
+    return-void
+.end method
+
+.method public final declared-synchronized setMaxSize(J)V
+    .locals 6
+
+    monitor-enter p0
+
+    :try_start_0
+    iput-wide p1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->maxSize:J
+
+    iget-boolean p1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->initialized:Z
+
+    if-eqz p1, :cond_0
+
+    iget-object v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->cleanupQueue:Lcom/applovin/shadow/okhttp3/internal/concurrent/TaskQueue;
+
+    iget-object v1, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->cleanupTask:Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$cleanupTask$1;
+
+    const/4 v4, 0x2
+
+    const/4 v5, 0x0
+
+    const-wide/16 v2, 0x0
+
+    invoke-static/range {v0 .. v5}, Lcom/applovin/shadow/okhttp3/internal/concurrent/TaskQueue;->schedule$default(Lcom/applovin/shadow/okhttp3/internal/concurrent/TaskQueue;Lcom/applovin/shadow/okhttp3/internal/concurrent/Task;JILjava/lang/Object;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v0
+
+    move-object p1, v0
+
+    goto :goto_1
+
+    :cond_0
+    :goto_0
+    monitor-exit p0
+
+    return-void
+
+    :goto_1
+    :try_start_1
+    monitor-exit p0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw p1
+.end method
+
+.method public final declared-synchronized size()J
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    monitor-enter p0
+
+    :try_start_0
+    invoke-virtual {p0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->initialize()V
+
+    iget-wide v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->size:J
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
+
+    return-wide v0
+
+    :catchall_0
+    move-exception v0
+
+    :try_start_1
+    monitor-exit p0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw v0
+.end method
+
+.method public final declared-synchronized snapshots()Ljava/util/Iterator;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Iterator<",
+            "Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$Snapshot;",
+            ">;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+
+    monitor-enter p0
+
+    :try_start_0
+    invoke-virtual {p0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->initialize()V
+
+    new-instance v0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$snapshots$1;
+
+    invoke-direct {v0, p0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache$snapshots$1;-><init>(Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
+
+    return-object v0
+
+    :catchall_0
+    move-exception v0
+
+    :try_start_1
+    monitor-exit p0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw v0
+.end method
+
+.method public final trimToSize()V
+    .locals 4
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    :cond_0
+    iget-wide v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->size:J
+
+    iget-wide v2, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->maxSize:J
+
+    cmp-long v0, v0, v2
+
+    if-lez v0, :cond_1
+
+    invoke-direct {p0}, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->removeOldestEntry()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_1
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/applovin/shadow/okhttp3/internal/cache/DiskLruCache;->mostRecentTrimFailed:Z
+
+    return-void
+.end method

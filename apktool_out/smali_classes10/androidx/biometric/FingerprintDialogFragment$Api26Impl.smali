@@ -1,0 +1,27 @@
+.class Landroidx/biometric/FingerprintDialogFragment$Api26Impl;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# annotations
+.annotation build Landroidx/annotation/RequiresApi;
+.end annotation
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroidx/biometric/FingerprintDialogFragment;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = "Api26Impl"
+.end annotation
+
+
+# direct methods
+.method public static a()I
+    .locals 1
+
+    const v0, 0x7f040121
+
+    return v0
+.end method

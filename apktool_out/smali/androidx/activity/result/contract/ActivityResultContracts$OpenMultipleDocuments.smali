@@ -1,0 +1,134 @@
+.class public Landroidx/activity/result/contract/ActivityResultContracts$OpenMultipleDocuments;
+.super Landroidx/activity/result/contract/ActivityResultContract;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroidx/activity/result/contract/ActivityResultContracts;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = "OpenMultipleDocuments"
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Landroidx/activity/result/contract/ActivityResultContract<",
+        "[",
+        "Ljava/lang/String;",
+        "Ljava/util/List<",
+        "Landroid/net/Uri;",
+        ">;>;"
+    }
+.end annotation
+
+.annotation runtime Lkotlin/Metadata;
+    d1 = {
+        "\u0000\u001a\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0011\n\u0002\u0010\u000e\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\u0008\u0016\u0018\u00002\u001a\u0012\n\u0012\u0008\u0012\u0004\u0012\u00020\u00030\u0002\u0012\n\u0012\u0008\u0012\u0004\u0012\u00020\u00050\u00040\u0001\u00a8\u0006\u0006"
+    }
+    d2 = {
+        "Landroidx/activity/result/contract/ActivityResultContracts$OpenMultipleDocuments;",
+        "Landroidx/activity/result/contract/ActivityResultContract;",
+        "",
+        "",
+        "",
+        "Landroid/net/Uri;",
+        "activity"
+    }
+    k = 0x1
+    mv = {
+        0x2,
+        0x0,
+        0x0
+    }
+    xi = 0x30
+.end annotation
+
+
+# virtual methods
+.method public final createIntent(Landroid/content/Context;Ljava/lang/Object;)Landroid/content/Intent;
+    .locals 0
+
+    check-cast p2, [Ljava/lang/String;
+
+    invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    new-instance p0, Landroid/content/Intent;
+
+    const-string p1, "android.intent.action.OPEN_DOCUMENT"
+
+    invoke-direct {p0, p1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const-string p1, "android.intent.extra.MIME_TYPES"
+
+    invoke-virtual {p0, p1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;[Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object p0
+
+    const-string p1, "android.intent.extra.ALLOW_MULTIPLE"
+
+    const/4 p2, 0x1
+
+    invoke-virtual {p0, p1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+
+    move-result-object p0
+
+    const-string p1, "*/*"
+
+    invoke-virtual {p0, p1}, Landroid/content/Intent;->setType(Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    return-object p0
+.end method
+
+.method public final getSynchronousResult(Landroid/content/Context;Ljava/lang/Object;)Landroidx/activity/result/contract/ActivityResultContract$SynchronousResult;
+    .locals 0
+
+    check-cast p2, [Ljava/lang/String;
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    const/4 p0, 0x0
+
+    return-object p0
+.end method
+
+.method public final parseResult(ILandroid/content/Intent;)Ljava/lang/Object;
+    .locals 0
+
+    const/4 p0, -0x1
+
+    if-ne p1, p0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p2, 0x0
+
+    :goto_0
+    if-eqz p2, :cond_2
+
+    invoke-static {p2}, Landroidx/activity/result/contract/ActivityResultContracts$GetMultipleContents$Companion;->a(Landroid/content/Intent;)Ljava/util/List;
+
+    move-result-object p0
+
+    if-nez p0, :cond_1
+
+    goto :goto_1
+
+    :cond_1
+    return-object p0
+
+    :cond_2
+    :goto_1
+    sget-object p0, Ltx0;->a:Ltx0;
+
+    return-object p0
+.end method

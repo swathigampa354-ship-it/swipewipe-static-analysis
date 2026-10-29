@@ -1,0 +1,50 @@
+
+Usage: jadx-headless-mcp [--transport stdio|http] [--apk <path>] [options]
+
+Headless JADX-based MCP server for Android APK static analysis.
+Speaks MCP over stdio (default) or Streamable HTTP (--transport http) for remote clients.
+
+Transport:
+  --transport <stdio|http>  MCP transport (default: stdio). 'http' serves the Streamable-HTTP
+                            transport so a remote MCP client (a different machine) can drive
+                            this server. NOTE: 'load_apk' paths are always resolved on THIS
+                            host — the APK must live on the machine running jadx.
+  --host <addr>             [http] bind address (default: 127.0.0.1; use 0.0.0.0 to accept
+                            connections from other machines)
+  --port <n>                [http] listen port (default: 8080)
+  --path <p>                [http] endpoint path (default: /mcp)
+  --allowed-host <h>        [http] extra Host header value accepted by the DNS-rebinding check
+                            (repeatable; loopback hosts are always allowed). Pass the hostname/IP
+                            remote clients use to reach this server.
+  --no-dns-rebinding-protection
+                            [http] disable Host/Origin validation (trusted networks / behind a
+                            reverse proxy only)
+
+Analysis:
+  --apk <path>              optional: APK / DEX / JAR to load eagerly at startup.
+                            If omitted, use the 'load_apk' tool to load on demand.
+  --max-source-bytes <n>    max bytes per source response (default 60000; per-call max_bytes overrides)
+                            NOTE: truncation runs AFTER jadx finishes materializing the class —
+                            it does NOT stop a hung decompile early. Use --decompile-timeout-ms for that.
+  --max-scan <n>            override default cap on classes scanned by search_classes_by_keyword
+                            'code' scope (0 = use built-in tiered defaults: 20000 with package,
+                            5000 without). Per-call max_scan still overrides this.
+  --decompile-timeout-ms <n> hard wall-clock budget per get_class_source / get_smali_of_class /
+                            get_method_by_name / code-search class (default 90000). Prevents one
+                            fat obfuscated class from blocking the MCP process for hours.
+  --threads <n>             jadx pre-decompile worker count. Default min(CPU, 4) to cap peak RAM.
+                            0 = use every core (legacy). load_apk can override per APK.
+  --include-packages <list> comma-separated package/FQN prefixes to KEEP (e.g. com.gcash,com.mynt).
+                            Repeatable. Applied after jadx load(); dropped ClassNodes are unloaded.
+  --exclude-packages <list> comma-separated package prefixes to DROP (e.g. androidx,kotlin).
+                            Repeatable. Combined with include: must match include AND not exclude.
+  --code-cache-size <n>     max decompiled top-level classes kept in RAM (default 64). Least-recent
+                            is JavaClass.unload()'d. 0 = unlimited (legacy). load_apk can override.
+  --resources <full|lite|none>
+                            full (default): expose every resource file.
+                            lite: tools only see Manifest + values/strings XML + resources.arsc.
+                            none: hide non-manifest resources (get_strings unavailable).
+                            NOTE: jadx 1.5.6 still parses resources.arsc during load() in all modes.
+  -h, --help                show this help
+
+RC=0

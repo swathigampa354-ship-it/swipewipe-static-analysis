@@ -1,0 +1,25 @@
+.class interface abstract Lio/bidmachine/u$d;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lio/bidmachine/u;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x609
+    name = "d"
+.end annotation
+
+
+# virtual methods
+.method public abstract a(Lio/bidmachine/u$b;)V
+.end method
+
+.method public abstract b(Lio/bidmachine/u$b;)V
+.end method
+
+.method public abstract c(Lio/bidmachine/u$b;)V
+.end method

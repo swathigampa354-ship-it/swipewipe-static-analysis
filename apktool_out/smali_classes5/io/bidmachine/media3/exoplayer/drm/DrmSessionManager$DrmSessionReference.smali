@@ -1,0 +1,53 @@
+.class public interface abstract Lio/bidmachine/media3/exoplayer/drm/DrmSessionManager$DrmSessionReference;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lio/bidmachine/media3/exoplayer/drm/DrmSessionManager;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x609
+    name = "DrmSessionReference"
+.end annotation
+
+
+# static fields
+.field public static final EMPTY:Lio/bidmachine/media3/exoplayer/drm/DrmSessionManager$DrmSessionReference;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 2
+
+    new-instance v0, Lrl0;
+
+    const/16 v1, 0x17
+
+    invoke-direct {v0, v1}, Lrl0;-><init>(I)V
+
+    sput-object v0, Lio/bidmachine/media3/exoplayer/drm/DrmSessionManager$DrmSessionReference;->EMPTY:Lio/bidmachine/media3/exoplayer/drm/DrmSessionManager$DrmSessionReference;
+
+    return-void
+.end method
+
+.method public static synthetic a()V
+    .locals 0
+
+    invoke-static {}, Lio/bidmachine/media3/exoplayer/drm/DrmSessionManager$DrmSessionReference;->lambda$static$0()V
+
+    return-void
+.end method
+
+.method private static synthetic lambda$static$0()V
+    .locals 0
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public abstract release()V
+.end method

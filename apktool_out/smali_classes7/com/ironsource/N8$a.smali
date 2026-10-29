@@ -1,0 +1,23 @@
+.class public interface abstract Lcom/ironsource/N8$a;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/ironsource/N8;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x609
+    name = "a"
+.end annotation
+
+
+# virtual methods
+.method public abstract a(Lcom/ironsource/gf;)V
+    .param p1    # Lcom/ironsource/gf;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+.end method

@@ -1,0 +1,297 @@
+.class public final Lio/bidmachine/media3/exoplayer/drm/DefaultDrmSessionManagerProvider;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Lio/bidmachine/media3/exoplayer/drm/DrmSessionManagerProvider;
+
+
+# annotations
+.annotation build Lio/bidmachine/media3/common/util/UnstableApi;
+.end annotation
+
+
+# instance fields
+.field private drmConfiguration:Lio/bidmachine/media3/common/MediaItem$DrmConfiguration;
+    .annotation build Landroidx/annotation/GuardedBy;
+    .end annotation
+.end field
+
+.field private drmHttpDataSourceFactory:Lio/bidmachine/media3/datasource/DataSource$Factory;
+    .annotation build Landroidx/annotation/Nullable;
+    .end annotation
+.end field
+
+.field private drmLoadErrorHandlingPolicy:Lio/bidmachine/media3/exoplayer/upstream/LoadErrorHandlingPolicy;
+    .annotation build Landroidx/annotation/Nullable;
+    .end annotation
+.end field
+
+.field private final lock:Ljava/lang/Object;
+
+.field private manager:Lio/bidmachine/media3/exoplayer/drm/DrmSessionManager;
+    .annotation build Landroidx/annotation/GuardedBy;
+    .end annotation
+.end field
+
+.field private userAgent:Ljava/lang/String;
+    .annotation build Landroidx/annotation/Nullable;
+    .end annotation
+.end field
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 1
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    new-instance v0, Ljava/lang/Object;
+
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+
+    iput-object v0, p0, Lio/bidmachine/media3/exoplayer/drm/DefaultDrmSessionManagerProvider;->lock:Ljava/lang/Object;
+
+    return-void
+.end method
+
+.method private createManager(Lio/bidmachine/media3/common/MediaItem$DrmConfiguration;)Lio/bidmachine/media3/exoplayer/drm/DrmSessionManager;
+    .locals 4
+
+    iget-object v0, p0, Lio/bidmachine/media3/exoplayer/drm/DefaultDrmSessionManagerProvider;->drmHttpDataSourceFactory:Lio/bidmachine/media3/datasource/DataSource$Factory;
+
+    if-eqz v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    new-instance v0, Lio/bidmachine/media3/datasource/DefaultHttpDataSource$Factory;
+
+    invoke-direct {v0}, Lio/bidmachine/media3/datasource/DefaultHttpDataSource$Factory;-><init>()V
+
+    iget-object v1, p0, Lio/bidmachine/media3/exoplayer/drm/DefaultDrmSessionManagerProvider;->userAgent:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lio/bidmachine/media3/datasource/DefaultHttpDataSource$Factory;->setUserAgent(Ljava/lang/String;)Lio/bidmachine/media3/datasource/DefaultHttpDataSource$Factory;
+
+    move-result-object v0
+
+    :goto_0
+    new-instance v1, Lio/bidmachine/media3/exoplayer/drm/HttpMediaDrmCallback;
+
+    iget-object v2, p1, Lio/bidmachine/media3/common/MediaItem$DrmConfiguration;->licenseUri:Landroid/net/Uri;
+
+    if-nez v2, :cond_1
+
+    const/4 v2, 0x0
+
+    goto :goto_1
+
+    :cond_1
+    invoke-virtual {v2}, Landroid/net/Uri;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    :goto_1
+    iget-boolean v3, p1, Lio/bidmachine/media3/common/MediaItem$DrmConfiguration;->forceDefaultLicenseUri:Z
+
+    invoke-direct {v1, v2, v3, v0}, Lio/bidmachine/media3/exoplayer/drm/HttpMediaDrmCallback;-><init>(Ljava/lang/String;ZLio/bidmachine/media3/datasource/DataSource$Factory;)V
+
+    iget-object v0, p1, Lio/bidmachine/media3/common/MediaItem$DrmConfiguration;->licenseRequestHeaders:Lts1;
+
+    invoke-virtual {v0}, Lts1;->h()Lgt1;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Les1;->l()Ldh4;
+
+    move-result-object v0
+
+    :goto_2
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/util/Map$Entry;
+
+    invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/lang/String;
+
+    invoke-interface {v2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
+
+    invoke-virtual {v1, v3, v2}, Lio/bidmachine/media3/exoplayer/drm/HttpMediaDrmCallback;->setKeyRequestProperty(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_2
+
+    :cond_2
+    new-instance v0, Lio/bidmachine/media3/exoplayer/drm/DefaultDrmSessionManager$Builder;
+
+    invoke-direct {v0}, Lio/bidmachine/media3/exoplayer/drm/DefaultDrmSessionManager$Builder;-><init>()V
+
+    iget-object v2, p1, Lio/bidmachine/media3/common/MediaItem$DrmConfiguration;->scheme:Ljava/util/UUID;
+
+    sget-object v3, Lio/bidmachine/media3/exoplayer/drm/FrameworkMediaDrm;->DEFAULT_PROVIDER:Lio/bidmachine/media3/exoplayer/drm/ExoMediaDrm$Provider;
+
+    invoke-virtual {v0, v2, v3}, Lio/bidmachine/media3/exoplayer/drm/DefaultDrmSessionManager$Builder;->setUuidAndExoMediaDrmProvider(Ljava/util/UUID;Lio/bidmachine/media3/exoplayer/drm/ExoMediaDrm$Provider;)Lio/bidmachine/media3/exoplayer/drm/DefaultDrmSessionManager$Builder;
+
+    move-result-object v0
+
+    iget-boolean v2, p1, Lio/bidmachine/media3/common/MediaItem$DrmConfiguration;->multiSession:Z
+
+    invoke-virtual {v0, v2}, Lio/bidmachine/media3/exoplayer/drm/DefaultDrmSessionManager$Builder;->setMultiSession(Z)Lio/bidmachine/media3/exoplayer/drm/DefaultDrmSessionManager$Builder;
+
+    move-result-object v0
+
+    iget-boolean v2, p1, Lio/bidmachine/media3/common/MediaItem$DrmConfiguration;->playClearContentWithoutKey:Z
+
+    invoke-virtual {v0, v2}, Lio/bidmachine/media3/exoplayer/drm/DefaultDrmSessionManager$Builder;->setPlayClearSamplesWithoutKeys(Z)Lio/bidmachine/media3/exoplayer/drm/DefaultDrmSessionManager$Builder;
+
+    move-result-object v0
+
+    iget-object v2, p1, Lio/bidmachine/media3/common/MediaItem$DrmConfiguration;->forcedSessionTrackTypes:Los1;
+
+    invoke-static {v2}, Lmh1;->z(Ljava/util/Collection;)[I
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Lio/bidmachine/media3/exoplayer/drm/DefaultDrmSessionManager$Builder;->setUseDrmSessionsForClearContent([I)Lio/bidmachine/media3/exoplayer/drm/DefaultDrmSessionManager$Builder;
+
+    move-result-object v0
+
+    iget-object p0, p0, Lio/bidmachine/media3/exoplayer/drm/DefaultDrmSessionManagerProvider;->drmLoadErrorHandlingPolicy:Lio/bidmachine/media3/exoplayer/upstream/LoadErrorHandlingPolicy;
+
+    if-eqz p0, :cond_3
+
+    invoke-virtual {v0, p0}, Lio/bidmachine/media3/exoplayer/drm/DefaultDrmSessionManager$Builder;->setLoadErrorHandlingPolicy(Lio/bidmachine/media3/exoplayer/upstream/LoadErrorHandlingPolicy;)Lio/bidmachine/media3/exoplayer/drm/DefaultDrmSessionManager$Builder;
+
+    :cond_3
+    invoke-virtual {v0, v1}, Lio/bidmachine/media3/exoplayer/drm/DefaultDrmSessionManager$Builder;->build(Lio/bidmachine/media3/exoplayer/drm/MediaDrmCallback;)Lio/bidmachine/media3/exoplayer/drm/DefaultDrmSessionManager;
+
+    move-result-object p0
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p1}, Lio/bidmachine/media3/common/MediaItem$DrmConfiguration;->getKeySetId()[B
+
+    move-result-object p1
+
+    invoke-virtual {p0, v0, p1}, Lio/bidmachine/media3/exoplayer/drm/DefaultDrmSessionManager;->setMode(I[B)V
+
+    return-object p0
+.end method
+
+
+# virtual methods
+.method public get(Lio/bidmachine/media3/common/MediaItem;)Lio/bidmachine/media3/exoplayer/drm/DrmSessionManager;
+    .locals 2
+
+    iget-object v0, p1, Lio/bidmachine/media3/common/MediaItem;->localConfiguration:Lio/bidmachine/media3/common/MediaItem$LocalConfiguration;
+
+    invoke-static {v0}, Lio/bidmachine/media3/common/util/Assertions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object p1, p1, Lio/bidmachine/media3/common/MediaItem;->localConfiguration:Lio/bidmachine/media3/common/MediaItem$LocalConfiguration;
+
+    iget-object p1, p1, Lio/bidmachine/media3/common/MediaItem$LocalConfiguration;->drmConfiguration:Lio/bidmachine/media3/common/MediaItem$DrmConfiguration;
+
+    if-nez p1, :cond_0
+
+    sget-object p0, Lio/bidmachine/media3/exoplayer/drm/DrmSessionManager;->DRM_UNSUPPORTED:Lio/bidmachine/media3/exoplayer/drm/DrmSessionManager;
+
+    return-object p0
+
+    :cond_0
+    iget-object v0, p0, Lio/bidmachine/media3/exoplayer/drm/DefaultDrmSessionManagerProvider;->lock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
+    iget-object v1, p0, Lio/bidmachine/media3/exoplayer/drm/DefaultDrmSessionManagerProvider;->drmConfiguration:Lio/bidmachine/media3/common/MediaItem$DrmConfiguration;
+
+    invoke-virtual {p1, v1}, Lio/bidmachine/media3/common/MediaItem$DrmConfiguration;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    iput-object p1, p0, Lio/bidmachine/media3/exoplayer/drm/DefaultDrmSessionManagerProvider;->drmConfiguration:Lio/bidmachine/media3/common/MediaItem$DrmConfiguration;
+
+    invoke-direct {p0, p1}, Lio/bidmachine/media3/exoplayer/drm/DefaultDrmSessionManagerProvider;->createManager(Lio/bidmachine/media3/common/MediaItem$DrmConfiguration;)Lio/bidmachine/media3/exoplayer/drm/DrmSessionManager;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lio/bidmachine/media3/exoplayer/drm/DefaultDrmSessionManagerProvider;->manager:Lio/bidmachine/media3/exoplayer/drm/DrmSessionManager;
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception p0
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    iget-object p0, p0, Lio/bidmachine/media3/exoplayer/drm/DefaultDrmSessionManagerProvider;->manager:Lio/bidmachine/media3/exoplayer/drm/DrmSessionManager;
+
+    invoke-static {p0}, Lio/bidmachine/media3/common/util/Assertions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Lio/bidmachine/media3/exoplayer/drm/DrmSessionManager;
+
+    monitor-exit v0
+
+    return-object p0
+
+    :goto_1
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
+.end method
+
+.method public setDrmHttpDataSourceFactory(Lio/bidmachine/media3/datasource/DataSource$Factory;)V
+    .locals 0
+    .param p1    # Lio/bidmachine/media3/datasource/DataSource$Factory;
+        .annotation build Landroidx/annotation/Nullable;
+        .end annotation
+    .end param
+
+    iput-object p1, p0, Lio/bidmachine/media3/exoplayer/drm/DefaultDrmSessionManagerProvider;->drmHttpDataSourceFactory:Lio/bidmachine/media3/datasource/DataSource$Factory;
+
+    return-void
+.end method
+
+.method public setDrmLoadErrorHandlingPolicy(Lio/bidmachine/media3/exoplayer/upstream/LoadErrorHandlingPolicy;)V
+    .locals 0
+
+    iput-object p1, p0, Lio/bidmachine/media3/exoplayer/drm/DefaultDrmSessionManagerProvider;->drmLoadErrorHandlingPolicy:Lio/bidmachine/media3/exoplayer/upstream/LoadErrorHandlingPolicy;
+
+    return-void
+.end method
+
+.method public setDrmUserAgent(Ljava/lang/String;)V
+    .locals 0
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroidx/annotation/Nullable;
+        .end annotation
+    .end param
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    iput-object p1, p0, Lio/bidmachine/media3/exoplayer/drm/DefaultDrmSessionManagerProvider;->userAgent:Ljava/lang/String;
+
+    return-void
+.end method

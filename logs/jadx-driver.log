@@ -1,0 +1,15 @@
+{"classes_total": 0, "decompiled_java": 0, "decompiled_smali": 0}
+Traceback (most recent call last):
+  File "/data/data/com.termux/files/home/rea/swipewipe/run_mcp.py", line 263, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/data/data/com.termux/files/home/rea/swipewipe/run_mcp.py", line 140, in main
+    init = m.request("initialize", {"protocolVersion": "2024-11-05", "capabilities": {},
+                                    "clientInfo": {"name": "swipewipe-resume", "version": "1"}},
+                    timeout=m.init_budget)
+  File "/data/data/com.termux/files/home/rea/swipewipe/run_mcp.py", line 41, in request
+    return self._await(rid, timeout)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/data/data/com.termux/files/home/rea/swipewipe/run_mcp.py", line 50, in _await
+    raise RuntimeError(f"server exited rc={self.p.returncode} awaiting id={rid}")
+RuntimeError: server exited rc=1 awaiting id=1

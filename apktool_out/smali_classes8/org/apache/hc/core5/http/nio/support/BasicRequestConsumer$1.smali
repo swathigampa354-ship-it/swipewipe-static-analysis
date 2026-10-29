@@ -1,0 +1,71 @@
+.class Lorg/apache/hc/core5/http/nio/support/BasicRequestConsumer$1;
+.super Lorg/apache/hc/core5/concurrent/CallbackContribution;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lorg/apache/hc/core5/http/nio/support/BasicRequestConsumer;->consumeRequest(Lorg/apache/hc/core5/http/HttpRequest;Lorg/apache/hc/core5/http/EntityDetails;Lorg/apache/hc/core5/http/protocol/HttpContext;Lorg/apache/hc/core5/concurrent/FutureCallback;)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = null
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Lorg/apache/hc/core5/concurrent/CallbackContribution<",
+        "TT;>;"
+    }
+.end annotation
+
+
+# instance fields
+.field final synthetic this$0:Lorg/apache/hc/core5/http/nio/support/BasicRequestConsumer;
+
+.field final synthetic val$request:Lorg/apache/hc/core5/http/HttpRequest;
+
+.field final synthetic val$resultCallback:Lorg/apache/hc/core5/concurrent/FutureCallback;
+
+
+# direct methods
+.method public constructor <init>(Lorg/apache/hc/core5/http/nio/support/BasicRequestConsumer;Lorg/apache/hc/core5/concurrent/FutureCallback;Lorg/apache/hc/core5/concurrent/FutureCallback;Lorg/apache/hc/core5/http/HttpRequest;)V
+    .locals 0
+
+    iput-object p1, p0, Lorg/apache/hc/core5/http/nio/support/BasicRequestConsumer$1;->this$0:Lorg/apache/hc/core5/http/nio/support/BasicRequestConsumer;
+
+    iput-object p3, p0, Lorg/apache/hc/core5/http/nio/support/BasicRequestConsumer$1;->val$resultCallback:Lorg/apache/hc/core5/concurrent/FutureCallback;
+
+    iput-object p4, p0, Lorg/apache/hc/core5/http/nio/support/BasicRequestConsumer$1;->val$request:Lorg/apache/hc/core5/http/HttpRequest;
+
+    invoke-direct {p0, p2}, Lorg/apache/hc/core5/concurrent/CallbackContribution;-><init>(Lorg/apache/hc/core5/concurrent/FutureCallback;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public completed(Ljava/lang/Object;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TT;)V"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lorg/apache/hc/core5/http/nio/support/BasicRequestConsumer$1;->val$resultCallback:Lorg/apache/hc/core5/concurrent/FutureCallback;
+
+    if-eqz v0, :cond_0
+
+    new-instance v1, Lorg/apache/hc/core5/http/Message;
+
+    iget-object p0, p0, Lorg/apache/hc/core5/http/nio/support/BasicRequestConsumer$1;->val$request:Lorg/apache/hc/core5/http/HttpRequest;
+
+    invoke-direct {v1, p0, p1}, Lorg/apache/hc/core5/http/Message;-><init>(Lorg/apache/hc/core5/http/MessageHeaders;Ljava/lang/Object;)V
+
+    invoke-interface {v0, v1}, Lorg/apache/hc/core5/concurrent/FutureCallback;->completed(Ljava/lang/Object;)V
+
+    :cond_0
+    return-void
+.end method

@@ -1,0 +1,58 @@
+.class final Lcom/ironsource/adqualitysdk/sdk/i/bk$1;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Lcom/ironsource/adqualitysdk/sdk/i/be$c;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/ironsource/adqualitysdk/sdk/i/bk;->ﾇ()Ljava/util/Map;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = null
+.end annotation
+
+
+# instance fields
+.field private synthetic ﻐ:Lcom/ironsource/adqualitysdk/sdk/i/bk;
+
+
+# direct methods
+.method public constructor <init>(Lcom/ironsource/adqualitysdk/sdk/i/bk;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/ironsource/adqualitysdk/sdk/i/bk$1;->ﻐ:Lcom/ironsource/adqualitysdk/sdk/i/bk;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final ﾇ(Ljava/util/List;Lcom/ironsource/adqualitysdk/sdk/i/ck;)Ljava/lang/Object;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List<",
+            "Ljava/lang/Object;",
+            ">;",
+            "Lcom/ironsource/adqualitysdk/sdk/i/ck;",
+            ")",
+            "Ljava/lang/Object;"
+        }
+    .end annotation
+
+    iget-object p0, p0, Lcom/ironsource/adqualitysdk/sdk/i/bk$1;->ﻐ:Lcom/ironsource/adqualitysdk/sdk/i/bk;
+
+    invoke-static {p0, p2}, Lcom/ironsource/adqualitysdk/sdk/i/bk;->ｋ(Lcom/ironsource/adqualitysdk/sdk/i/bk;Lcom/ironsource/adqualitysdk/sdk/i/ck;)V
+
+    const/4 p0, 0x0
+
+    return-object p0
+.end method

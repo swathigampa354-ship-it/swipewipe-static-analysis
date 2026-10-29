@@ -1,0 +1,18 @@
+.class public final synthetic Lx54;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Landroid/view/View$OnApplyWindowInsetsListener;
+
+
+# virtual methods
+.method public final onApplyWindowInsets(Landroid/view/View;Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
+    .locals 0
+
+    invoke-static {p1, p2}, Lcom/ironsource/mediationsdk/testSuite/TestSuiteActivity;->j(Landroid/view/View;Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
+
+    move-result-object p0
+
+    return-object p0
+.end method

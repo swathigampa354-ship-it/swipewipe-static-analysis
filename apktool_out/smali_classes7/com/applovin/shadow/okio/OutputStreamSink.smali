@@ -1,0 +1,232 @@
+.class final Lcom/applovin/shadow/okio/OutputStreamSink;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Lcom/applovin/shadow/okio/Sink;
+
+
+# annotations
+.annotation runtime Lkotlin/Metadata;
+    d1 = {
+        "\u00004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0010\u0002\n\u0002\u0008\u0002\n\u0002\u0010\u000e\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0000\u0008\u0002\u0018\u00002\u00020\u0001B\u0015\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u00a2\u0006\u0002\u0010\u0006J\u0008\u0010\u0007\u001a\u00020\u0008H\u0016J\u0008\u0010\t\u001a\u00020\u0008H\u0016J\u0008\u0010\u0004\u001a\u00020\u0005H\u0016J\u0008\u0010\n\u001a\u00020\u000bH\u0016J\u0018\u0010\u000c\u001a\u00020\u00082\u0006\u0010\r\u001a\u00020\u000e2\u0006\u0010\u000f\u001a\u00020\u0010H\u0016R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0004\u001a\u00020\u0005X\u0082\u0004\u00a2\u0006\u0002\n\u0000\u00a8\u0006\u0011"
+    }
+    d2 = {
+        "Lcom/applovin/shadow/okio/OutputStreamSink;",
+        "Lcom/applovin/shadow/okio/Sink;",
+        "out",
+        "Ljava/io/OutputStream;",
+        "timeout",
+        "Lcom/applovin/shadow/okio/Timeout;",
+        "(Ljava/io/OutputStream;Lokio/Timeout;)V",
+        "close",
+        "",
+        "flush",
+        "toString",
+        "",
+        "write",
+        "source",
+        "Lcom/applovin/shadow/okio/Buffer;",
+        "byteCount",
+        "",
+        "com.applovin.shadow.okio"
+    }
+    k = 0x1
+    mv = {
+        0x1,
+        0x9,
+        0x0
+    }
+    xi = 0x30
+.end annotation
+
+
+# instance fields
+.field private final out:Ljava/io/OutputStream;
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+.end field
+
+.field private final timeout:Lcom/applovin/shadow/okio/Timeout;
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+.end field
+
+
+# direct methods
+.method public constructor <init>(Ljava/io/OutputStream;Lcom/applovin/shadow/okio/Timeout;)V
+    .locals 0
+    .param p1    # Ljava/io/OutputStream;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+    .param p2    # Lcom/applovin/shadow/okio/Timeout;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/applovin/shadow/okio/OutputStreamSink;->out:Ljava/io/OutputStream;
+
+    iput-object p2, p0, Lcom/applovin/shadow/okio/OutputStreamSink;->timeout:Lcom/applovin/shadow/okio/Timeout;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public close()V
+    .locals 0
+
+    iget-object p0, p0, Lcom/applovin/shadow/okio/OutputStreamSink;->out:Ljava/io/OutputStream;
+
+    invoke-virtual {p0}, Ljava/io/OutputStream;->close()V
+
+    return-void
+.end method
+
+.method public flush()V
+    .locals 0
+
+    iget-object p0, p0, Lcom/applovin/shadow/okio/OutputStreamSink;->out:Ljava/io/OutputStream;
+
+    invoke-virtual {p0}, Ljava/io/OutputStream;->flush()V
+
+    return-void
+.end method
+
+.method public timeout()Lcom/applovin/shadow/okio/Timeout;
+    .locals 0
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+
+    iget-object p0, p0, Lcom/applovin/shadow/okio/OutputStreamSink;->timeout:Lcom/applovin/shadow/okio/Timeout;
+
+    return-object p0
+.end method
+
+.method public toString()Ljava/lang/String;
+    .locals 2
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v1, "sink("
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    iget-object p0, p0, Lcom/applovin/shadow/okio/OutputStreamSink;->out:Ljava/io/OutputStream;
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const/16 p0, 0x29
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public write(Lcom/applovin/shadow/okio/Buffer;J)V
+    .locals 6
+    .param p1    # Lcom/applovin/shadow/okio/Buffer;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-virtual {p1}, Lcom/applovin/shadow/okio/Buffer;->size()J
+
+    move-result-wide v0
+
+    const-wide/16 v2, 0x0
+
+    move-wide v4, p2
+
+    invoke-static/range {v0 .. v5}, Lcom/applovin/shadow/okio/-SegmentedByteString;->checkOffsetAndCount(JJJ)V
+
+    :cond_0
+    :goto_0
+    const-wide/16 v0, 0x0
+
+    cmp-long v0, p2, v0
+
+    if-lez v0, :cond_1
+
+    iget-object v0, p0, Lcom/applovin/shadow/okio/OutputStreamSink;->timeout:Lcom/applovin/shadow/okio/Timeout;
+
+    invoke-virtual {v0}, Lcom/applovin/shadow/okio/Timeout;->throwIfReached()V
+
+    iget-object v0, p1, Lcom/applovin/shadow/okio/Buffer;->head:Lcom/applovin/shadow/okio/Segment;
+
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    iget v1, v0, Lcom/applovin/shadow/okio/Segment;->limit:I
+
+    iget v2, v0, Lcom/applovin/shadow/okio/Segment;->pos:I
+
+    sub-int/2addr v1, v2
+
+    int-to-long v1, v1
+
+    invoke-static {p2, p3, v1, v2}, Ljava/lang/Math;->min(JJ)J
+
+    move-result-wide v1
+
+    long-to-int v1, v1
+
+    iget-object v2, p0, Lcom/applovin/shadow/okio/OutputStreamSink;->out:Ljava/io/OutputStream;
+
+    iget-object v3, v0, Lcom/applovin/shadow/okio/Segment;->data:[B
+
+    iget v4, v0, Lcom/applovin/shadow/okio/Segment;->pos:I
+
+    invoke-virtual {v2, v3, v4, v1}, Ljava/io/OutputStream;->write([BII)V
+
+    iget v2, v0, Lcom/applovin/shadow/okio/Segment;->pos:I
+
+    add-int/2addr v2, v1
+
+    iput v2, v0, Lcom/applovin/shadow/okio/Segment;->pos:I
+
+    int-to-long v1, v1
+
+    sub-long/2addr p2, v1
+
+    invoke-virtual {p1}, Lcom/applovin/shadow/okio/Buffer;->size()J
+
+    move-result-wide v3
+
+    sub-long/2addr v3, v1
+
+    invoke-virtual {p1, v3, v4}, Lcom/applovin/shadow/okio/Buffer;->setSize$okio(J)V
+
+    iget v1, v0, Lcom/applovin/shadow/okio/Segment;->pos:I
+
+    iget v2, v0, Lcom/applovin/shadow/okio/Segment;->limit:I
+
+    if-ne v1, v2, :cond_0
+
+    invoke-virtual {v0}, Lcom/applovin/shadow/okio/Segment;->pop()Lcom/applovin/shadow/okio/Segment;
+
+    move-result-object v1
+
+    iput-object v1, p1, Lcom/applovin/shadow/okio/Buffer;->head:Lcom/applovin/shadow/okio/Segment;
+
+    invoke-static {v0}, Lcom/applovin/shadow/okio/SegmentPool;->recycle(Lcom/applovin/shadow/okio/Segment;)V
+
+    goto :goto_0
+
+    :cond_1
+    return-void
+.end method

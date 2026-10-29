@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:layout_gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:layout_gravity="center_vertical" android:layout_width="@dimen/view_login_icon_size" android:layout_height="@dimen/view_login_icon_size" android:layout_marginTop="@dimen/view_login_icon_vertical_margin" android:layout_marginBottom="@dimen/view_login_icon_vertical_margin" android:src="@null" android:contentDescription="@string/ds_google_logo_content_description" android:layout_marginStart="@dimen/view_login_icon_horizontal_margin" android:layout_marginEnd="@dimen/view_login_icon_horizontal_margin" />
+        <TextView android:textStyle="bold" android:textColor="#505050" android:layout_gravity="center_vertical" android:id="@id/view_dynamic_screen_login_google_button_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ds_google_sign_in" android:layout_marginStart="2.0dp" android:layout_marginEnd="10.0dp" />
+    </LinearLayout>
+</merge>

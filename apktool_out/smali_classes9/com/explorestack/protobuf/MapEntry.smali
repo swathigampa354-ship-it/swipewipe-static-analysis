@@ -1,0 +1,789 @@
+.class public final Lcom/explorestack/protobuf/MapEntry;
+.super Lcom/explorestack/protobuf/AbstractMessage;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/explorestack/protobuf/MapEntry$Builder;,
+        Lcom/explorestack/protobuf/MapEntry$Metadata;
+    }
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<K:",
+        "Ljava/lang/Object;",
+        "V:",
+        "Ljava/lang/Object;",
+        ">",
+        "Lcom/explorestack/protobuf/AbstractMessage;"
+    }
+.end annotation
+
+
+# instance fields
+.field private volatile cachedSerializedSize:I
+
+.field private final key:Ljava/lang/Object;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "TK;"
+        }
+    .end annotation
+.end field
+
+.field private final metadata:Lcom/explorestack/protobuf/MapEntry$Metadata;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/explorestack/protobuf/MapEntry$Metadata<",
+            "TK;TV;>;"
+        }
+    .end annotation
+.end field
+
+.field private final value:Ljava/lang/Object;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "TV;"
+        }
+    .end annotation
+.end field
+
+
+# direct methods
+.method private constructor <init>(Lcom/explorestack/protobuf/Descriptors$Descriptor;Lcom/explorestack/protobuf/WireFormat$FieldType;Ljava/lang/Object;Lcom/explorestack/protobuf/WireFormat$FieldType;Ljava/lang/Object;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/explorestack/protobuf/Descriptors$Descriptor;",
+            "Lcom/explorestack/protobuf/WireFormat$FieldType;",
+            "TK;",
+            "Lcom/explorestack/protobuf/WireFormat$FieldType;",
+            "TV;)V"
+        }
+    .end annotation
+
+    .line 45
+    invoke-direct {p0}, Lcom/explorestack/protobuf/AbstractMessage;-><init>()V
+
+    const/4 v0, -0x1
+
+    .line 46
+    iput v0, p0, Lcom/explorestack/protobuf/MapEntry;->cachedSerializedSize:I
+
+    .line 47
+    iput-object p3, p0, Lcom/explorestack/protobuf/MapEntry;->key:Ljava/lang/Object;
+
+    .line 48
+    iput-object p5, p0, Lcom/explorestack/protobuf/MapEntry;->value:Ljava/lang/Object;
+
+    .line 49
+    new-instance p3, Lcom/explorestack/protobuf/MapEntry$Metadata;
+
+    invoke-direct {p3, p1, p0, p2, p4}, Lcom/explorestack/protobuf/MapEntry$Metadata;-><init>(Lcom/explorestack/protobuf/Descriptors$Descriptor;Lcom/explorestack/protobuf/MapEntry;Lcom/explorestack/protobuf/WireFormat$FieldType;Lcom/explorestack/protobuf/WireFormat$FieldType;)V
+
+    iput-object p3, p0, Lcom/explorestack/protobuf/MapEntry;->metadata:Lcom/explorestack/protobuf/MapEntry$Metadata;
+
+    return-void
+.end method
+
+.method private constructor <init>(Lcom/explorestack/protobuf/MapEntry$Metadata;Lcom/explorestack/protobuf/CodedInputStream;Lcom/explorestack/protobuf/ExtensionRegistryLite;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/explorestack/protobuf/MapEntry$Metadata<",
+            "TK;TV;>;",
+            "Lcom/explorestack/protobuf/CodedInputStream;",
+            "Lcom/explorestack/protobuf/ExtensionRegistryLite;",
+            ")V"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/explorestack/protobuf/InvalidProtocolBufferException;
+        }
+    .end annotation
+
+    invoke-direct {p0}, Lcom/explorestack/protobuf/AbstractMessage;-><init>()V
+
+    const/4 v0, -0x1
+
+    iput v0, p0, Lcom/explorestack/protobuf/MapEntry;->cachedSerializedSize:I
+
+    :try_start_0
+    iput-object p1, p0, Lcom/explorestack/protobuf/MapEntry;->metadata:Lcom/explorestack/protobuf/MapEntry$Metadata;
+
+    invoke-static {p2, p1, p3}, Lcom/explorestack/protobuf/MapEntryLite;->parseEntry(Lcom/explorestack/protobuf/CodedInputStream;Lcom/explorestack/protobuf/MapEntryLite$Metadata;Lcom/explorestack/protobuf/ExtensionRegistryLite;)Ljava/util/Map$Entry;
+
+    move-result-object p1
+
+    invoke-interface {p1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object p2
+
+    iput-object p2, p0, Lcom/explorestack/protobuf/MapEntry;->key:Ljava/lang/Object;
+
+    invoke-interface {p1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/explorestack/protobuf/MapEntry;->value:Ljava/lang/Object;
+    :try_end_0
+    .catch Lcom/explorestack/protobuf/InvalidProtocolBufferException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-void
+
+    :catch_0
+    move-exception p1
+
+    goto :goto_0
+
+    :catch_1
+    move-exception p1
+
+    goto :goto_1
+
+    :goto_0
+    new-instance p2, Lcom/explorestack/protobuf/InvalidProtocolBufferException;
+
+    invoke-direct {p2, p1}, Lcom/explorestack/protobuf/InvalidProtocolBufferException;-><init>(Ljava/io/IOException;)V
+
+    invoke-virtual {p2, p0}, Lcom/explorestack/protobuf/InvalidProtocolBufferException;->setUnfinishedMessage(Lcom/explorestack/protobuf/MessageLite;)Lcom/explorestack/protobuf/InvalidProtocolBufferException;
+
+    move-result-object p0
+
+    throw p0
+
+    :goto_1
+    invoke-virtual {p1, p0}, Lcom/explorestack/protobuf/InvalidProtocolBufferException;->setUnfinishedMessage(Lcom/explorestack/protobuf/MessageLite;)Lcom/explorestack/protobuf/InvalidProtocolBufferException;
+
+    move-result-object p0
+
+    throw p0
+.end method
+
+.method public synthetic constructor <init>(Lcom/explorestack/protobuf/MapEntry$Metadata;Lcom/explorestack/protobuf/CodedInputStream;Lcom/explorestack/protobuf/ExtensionRegistryLite;Lcom/explorestack/protobuf/MapEntry$1;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/explorestack/protobuf/InvalidProtocolBufferException;
+        }
+    .end annotation
+
+    .line 55
+    invoke-direct {p0, p1, p2, p3}, Lcom/explorestack/protobuf/MapEntry;-><init>(Lcom/explorestack/protobuf/MapEntry$Metadata;Lcom/explorestack/protobuf/CodedInputStream;Lcom/explorestack/protobuf/ExtensionRegistryLite;)V
+
+    return-void
+.end method
+
+.method private constructor <init>(Lcom/explorestack/protobuf/MapEntry$Metadata;Ljava/lang/Object;Ljava/lang/Object;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/explorestack/protobuf/MapEntry$Metadata;",
+            "TK;TV;)V"
+        }
+    .end annotation
+
+    .line 50
+    invoke-direct {p0}, Lcom/explorestack/protobuf/AbstractMessage;-><init>()V
+
+    const/4 v0, -0x1
+
+    .line 51
+    iput v0, p0, Lcom/explorestack/protobuf/MapEntry;->cachedSerializedSize:I
+
+    .line 52
+    iput-object p2, p0, Lcom/explorestack/protobuf/MapEntry;->key:Ljava/lang/Object;
+
+    .line 53
+    iput-object p3, p0, Lcom/explorestack/protobuf/MapEntry;->value:Ljava/lang/Object;
+
+    .line 54
+    iput-object p1, p0, Lcom/explorestack/protobuf/MapEntry;->metadata:Lcom/explorestack/protobuf/MapEntry$Metadata;
+
+    return-void
+.end method
+
+.method public synthetic constructor <init>(Lcom/explorestack/protobuf/MapEntry$Metadata;Ljava/lang/Object;Ljava/lang/Object;Lcom/explorestack/protobuf/MapEntry$1;)V
+    .locals 0
+
+    .line 44
+    invoke-direct {p0, p1, p2, p3}, Lcom/explorestack/protobuf/MapEntry;-><init>(Lcom/explorestack/protobuf/MapEntry$Metadata;Ljava/lang/Object;Ljava/lang/Object;)V
+
+    return-void
+.end method
+
+.method public static synthetic access$000(Lcom/explorestack/protobuf/MapEntry;)Ljava/lang/Object;
+    .locals 0
+
+    iget-object p0, p0, Lcom/explorestack/protobuf/MapEntry;->key:Ljava/lang/Object;
+
+    return-object p0
+.end method
+
+.method public static synthetic access$100(Lcom/explorestack/protobuf/MapEntry;)Ljava/lang/Object;
+    .locals 0
+
+    iget-object p0, p0, Lcom/explorestack/protobuf/MapEntry;->value:Ljava/lang/Object;
+
+    return-object p0
+.end method
+
+.method public static synthetic access$600(Lcom/explorestack/protobuf/MapEntry$Metadata;Ljava/lang/Object;)Z
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/explorestack/protobuf/MapEntry;->isInitialized(Lcom/explorestack/protobuf/MapEntry$Metadata;Ljava/lang/Object;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method private checkFieldDescriptor(Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;)V
+    .locals 2
+
+    invoke-virtual {p1}, Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;->getContainingType()Lcom/explorestack/protobuf/Descriptors$Descriptor;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/explorestack/protobuf/MapEntry;->metadata:Lcom/explorestack/protobuf/MapEntry$Metadata;
+
+    iget-object v1, v1, Lcom/explorestack/protobuf/MapEntry$Metadata;->descriptor:Lcom/explorestack/protobuf/Descriptors$Descriptor;
+
+    if-ne v0, v1, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-virtual {p1}, Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;->getFullName()Ljava/lang/String;
+
+    move-result-object p1
+
+    iget-object p0, p0, Lcom/explorestack/protobuf/MapEntry;->metadata:Lcom/explorestack/protobuf/MapEntry$Metadata;
+
+    iget-object p0, p0, Lcom/explorestack/protobuf/MapEntry$Metadata;->descriptor:Lcom/explorestack/protobuf/Descriptors$Descriptor;
+
+    invoke-virtual {p0}, Lcom/explorestack/protobuf/Descriptors$Descriptor;->getFullName()Ljava/lang/String;
+
+    move-result-object p0
+
+    const-string v0, "Wrong FieldDescriptor \""
+
+    const-string v1, "\" used in message \""
+
+    invoke-static {v0, p1, v1, p0}, Lh32;->i(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+
+    return-void
+.end method
+
+.method private static isInitialized(Lcom/explorestack/protobuf/MapEntry$Metadata;Ljava/lang/Object;)Z
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<V:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Lcom/explorestack/protobuf/MapEntry$Metadata;",
+            "TV;)Z"
+        }
+    .end annotation
+
+    iget-object p0, p0, Lcom/explorestack/protobuf/MapEntryLite$Metadata;->valueType:Lcom/explorestack/protobuf/WireFormat$FieldType;
+
+    invoke-virtual {p0}, Lcom/explorestack/protobuf/WireFormat$FieldType;->getJavaType()Lcom/explorestack/protobuf/WireFormat$JavaType;
+
+    move-result-object p0
+
+    sget-object v0, Lcom/explorestack/protobuf/WireFormat$JavaType;->MESSAGE:Lcom/explorestack/protobuf/WireFormat$JavaType;
+
+    if-ne p0, v0, :cond_0
+
+    check-cast p1, Lcom/explorestack/protobuf/MessageLite;
+
+    invoke-interface {p1}, Lcom/explorestack/protobuf/MessageLiteOrBuilder;->isInitialized()Z
+
+    move-result p0
+
+    return p0
+
+    :cond_0
+    const/4 p0, 0x1
+
+    return p0
+.end method
+
+.method public static newDefaultInstance(Lcom/explorestack/protobuf/Descriptors$Descriptor;Lcom/explorestack/protobuf/WireFormat$FieldType;Ljava/lang/Object;Lcom/explorestack/protobuf/WireFormat$FieldType;Ljava/lang/Object;)Lcom/explorestack/protobuf/MapEntry;
+    .locals 6
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<K:",
+            "Ljava/lang/Object;",
+            "V:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Lcom/explorestack/protobuf/Descriptors$Descriptor;",
+            "Lcom/explorestack/protobuf/WireFormat$FieldType;",
+            "TK;",
+            "Lcom/explorestack/protobuf/WireFormat$FieldType;",
+            "TV;)",
+            "Lcom/explorestack/protobuf/MapEntry<",
+            "TK;TV;>;"
+        }
+    .end annotation
+
+    new-instance v0, Lcom/explorestack/protobuf/MapEntry;
+
+    move-object v1, p0
+
+    move-object v2, p1
+
+    move-object v3, p2
+
+    move-object v4, p3
+
+    move-object v5, p4
+
+    invoke-direct/range {v0 .. v5}, Lcom/explorestack/protobuf/MapEntry;-><init>(Lcom/explorestack/protobuf/Descriptors$Descriptor;Lcom/explorestack/protobuf/WireFormat$FieldType;Ljava/lang/Object;Lcom/explorestack/protobuf/WireFormat$FieldType;Ljava/lang/Object;)V
+
+    return-object v0
+.end method
+
+
+# virtual methods
+.method public getAllFields()Ljava/util/Map;
+    .locals 4
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Map<",
+            "Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;",
+            "Ljava/lang/Object;",
+            ">;"
+        }
+    .end annotation
+
+    new-instance v0, Ljava/util/TreeMap;
+
+    invoke-direct {v0}, Ljava/util/TreeMap;-><init>()V
+
+    iget-object v1, p0, Lcom/explorestack/protobuf/MapEntry;->metadata:Lcom/explorestack/protobuf/MapEntry$Metadata;
+
+    iget-object v1, v1, Lcom/explorestack/protobuf/MapEntry$Metadata;->descriptor:Lcom/explorestack/protobuf/Descriptors$Descriptor;
+
+    invoke-virtual {v1}, Lcom/explorestack/protobuf/Descriptors$Descriptor;->getFields()Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :cond_0
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;
+
+    invoke-virtual {p0, v2}, Lcom/explorestack/protobuf/MapEntry;->hasField(Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    invoke-virtual {p0, v2}, Lcom/explorestack/protobuf/MapEntry;->getField(Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    invoke-virtual {v0, v2, v3}, Ljava/util/TreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto :goto_0
+
+    :cond_1
+    invoke-static {v0}, Ljava/util/Collections;->unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public getDefaultInstanceForType()Lcom/explorestack/protobuf/MapEntry;
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lcom/explorestack/protobuf/MapEntry<",
+            "TK;TV;>;"
+        }
+    .end annotation
+
+    new-instance v0, Lcom/explorestack/protobuf/MapEntry;
+
+    iget-object p0, p0, Lcom/explorestack/protobuf/MapEntry;->metadata:Lcom/explorestack/protobuf/MapEntry$Metadata;
+
+    iget-object v1, p0, Lcom/explorestack/protobuf/MapEntryLite$Metadata;->defaultKey:Ljava/lang/Object;
+
+    iget-object v2, p0, Lcom/explorestack/protobuf/MapEntryLite$Metadata;->defaultValue:Ljava/lang/Object;
+
+    invoke-direct {v0, p0, v1, v2}, Lcom/explorestack/protobuf/MapEntry;-><init>(Lcom/explorestack/protobuf/MapEntry$Metadata;Ljava/lang/Object;Ljava/lang/Object;)V
+
+    return-object v0
+.end method
+
+.method public bridge synthetic getDefaultInstanceForType()Lcom/explorestack/protobuf/Message;
+    .locals 0
+
+    .line 13
+    invoke-virtual {p0}, Lcom/explorestack/protobuf/MapEntry;->getDefaultInstanceForType()Lcom/explorestack/protobuf/MapEntry;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public bridge synthetic getDefaultInstanceForType()Lcom/explorestack/protobuf/MessageLite;
+    .locals 0
+
+    .line 12
+    invoke-virtual {p0}, Lcom/explorestack/protobuf/MapEntry;->getDefaultInstanceForType()Lcom/explorestack/protobuf/MapEntry;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public getDescriptorForType()Lcom/explorestack/protobuf/Descriptors$Descriptor;
+    .locals 0
+
+    iget-object p0, p0, Lcom/explorestack/protobuf/MapEntry;->metadata:Lcom/explorestack/protobuf/MapEntry$Metadata;
+
+    iget-object p0, p0, Lcom/explorestack/protobuf/MapEntry$Metadata;->descriptor:Lcom/explorestack/protobuf/Descriptors$Descriptor;
+
+    return-object p0
+.end method
+
+.method public getField(Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;)Ljava/lang/Object;
+    .locals 2
+
+    invoke-direct {p0, p1}, Lcom/explorestack/protobuf/MapEntry;->checkFieldDescriptor(Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;)V
+
+    invoke-virtual {p1}, Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;->getNumber()I
+
+    move-result v0
+
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_0
+
+    invoke-virtual {p0}, Lcom/explorestack/protobuf/MapEntry;->getKey()Ljava/lang/Object;
+
+    move-result-object p0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/explorestack/protobuf/MapEntry;->getValue()Ljava/lang/Object;
+
+    move-result-object p0
+
+    :goto_0
+    invoke-virtual {p1}, Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;->getType()Lcom/explorestack/protobuf/Descriptors$FieldDescriptor$Type;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/explorestack/protobuf/Descriptors$FieldDescriptor$Type;->ENUM:Lcom/explorestack/protobuf/Descriptors$FieldDescriptor$Type;
+
+    if-ne v0, v1, :cond_1
+
+    invoke-virtual {p1}, Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;->getEnumType()Lcom/explorestack/protobuf/Descriptors$EnumDescriptor;
+
+    move-result-object p1
+
+    check-cast p0, Ljava/lang/Integer;
+
+    invoke-virtual {p0}, Ljava/lang/Integer;->intValue()I
+
+    move-result p0
+
+    invoke-virtual {p1, p0}, Lcom/explorestack/protobuf/Descriptors$EnumDescriptor;->findValueByNumberCreatingIfUnknown(I)Lcom/explorestack/protobuf/Descriptors$EnumValueDescriptor;
+
+    move-result-object p0
+
+    :cond_1
+    return-object p0
+.end method
+
+.method public getKey()Ljava/lang/Object;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()TK;"
+        }
+    .end annotation
+
+    iget-object p0, p0, Lcom/explorestack/protobuf/MapEntry;->key:Ljava/lang/Object;
+
+    return-object p0
+.end method
+
+.method public final getMetadata()Lcom/explorestack/protobuf/MapEntry$Metadata;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lcom/explorestack/protobuf/MapEntry$Metadata<",
+            "TK;TV;>;"
+        }
+    .end annotation
+
+    iget-object p0, p0, Lcom/explorestack/protobuf/MapEntry;->metadata:Lcom/explorestack/protobuf/MapEntry$Metadata;
+
+    return-object p0
+.end method
+
+.method public getParserForType()Lcom/explorestack/protobuf/Parser;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lcom/explorestack/protobuf/Parser<",
+            "Lcom/explorestack/protobuf/MapEntry<",
+            "TK;TV;>;>;"
+        }
+    .end annotation
+
+    iget-object p0, p0, Lcom/explorestack/protobuf/MapEntry;->metadata:Lcom/explorestack/protobuf/MapEntry$Metadata;
+
+    iget-object p0, p0, Lcom/explorestack/protobuf/MapEntry$Metadata;->parser:Lcom/explorestack/protobuf/Parser;
+
+    return-object p0
+.end method
+
+.method public getRepeatedField(Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;I)Ljava/lang/Object;
+    .locals 0
+
+    new-instance p0, Ljava/lang/RuntimeException;
+
+    const-string p1, "There is no repeated field in a map entry message."
+
+    invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+.end method
+
+.method public getRepeatedFieldCount(Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;)I
+    .locals 0
+
+    new-instance p0, Ljava/lang/RuntimeException;
+
+    const-string p1, "There is no repeated field in a map entry message."
+
+    invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+.end method
+
+.method public getSerializedSize()I
+    .locals 3
+
+    iget v0, p0, Lcom/explorestack/protobuf/MapEntry;->cachedSerializedSize:I
+
+    const/4 v1, -0x1
+
+    if-eq v0, v1, :cond_0
+
+    iget p0, p0, Lcom/explorestack/protobuf/MapEntry;->cachedSerializedSize:I
+
+    return p0
+
+    :cond_0
+    iget-object v0, p0, Lcom/explorestack/protobuf/MapEntry;->metadata:Lcom/explorestack/protobuf/MapEntry$Metadata;
+
+    iget-object v1, p0, Lcom/explorestack/protobuf/MapEntry;->key:Ljava/lang/Object;
+
+    iget-object v2, p0, Lcom/explorestack/protobuf/MapEntry;->value:Ljava/lang/Object;
+
+    invoke-static {v0, v1, v2}, Lcom/explorestack/protobuf/MapEntryLite;->computeSerializedSize(Lcom/explorestack/protobuf/MapEntryLite$Metadata;Ljava/lang/Object;Ljava/lang/Object;)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/explorestack/protobuf/MapEntry;->cachedSerializedSize:I
+
+    return v0
+.end method
+
+.method public getUnknownFields()Lcom/explorestack/protobuf/UnknownFieldSet;
+    .locals 0
+
+    invoke-static {}, Lcom/explorestack/protobuf/UnknownFieldSet;->getDefaultInstance()Lcom/explorestack/protobuf/UnknownFieldSet;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public getValue()Ljava/lang/Object;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()TV;"
+        }
+    .end annotation
+
+    iget-object p0, p0, Lcom/explorestack/protobuf/MapEntry;->value:Ljava/lang/Object;
+
+    return-object p0
+.end method
+
+.method public hasField(Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;)Z
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/explorestack/protobuf/MapEntry;->checkFieldDescriptor(Lcom/explorestack/protobuf/Descriptors$FieldDescriptor;)V
+
+    const/4 p0, 0x1
+
+    return p0
+.end method
+
+.method public isInitialized()Z
+    .locals 1
+
+    .line 19
+    iget-object v0, p0, Lcom/explorestack/protobuf/MapEntry;->metadata:Lcom/explorestack/protobuf/MapEntry$Metadata;
+
+    iget-object p0, p0, Lcom/explorestack/protobuf/MapEntry;->value:Ljava/lang/Object;
+
+    invoke-static {v0, p0}, Lcom/explorestack/protobuf/MapEntry;->isInitialized(Lcom/explorestack/protobuf/MapEntry$Metadata;Ljava/lang/Object;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public newBuilderForType()Lcom/explorestack/protobuf/MapEntry$Builder;
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lcom/explorestack/protobuf/MapEntry$Builder<",
+            "TK;TV;>;"
+        }
+    .end annotation
+
+    new-instance v0, Lcom/explorestack/protobuf/MapEntry$Builder;
+
+    iget-object p0, p0, Lcom/explorestack/protobuf/MapEntry;->metadata:Lcom/explorestack/protobuf/MapEntry$Metadata;
+
+    const/4 v1, 0x0
+
+    invoke-direct {v0, p0, v1}, Lcom/explorestack/protobuf/MapEntry$Builder;-><init>(Lcom/explorestack/protobuf/MapEntry$Metadata;Lcom/explorestack/protobuf/MapEntry$1;)V
+
+    return-object v0
+.end method
+
+.method public bridge synthetic newBuilderForType()Lcom/explorestack/protobuf/Message$Builder;
+    .locals 0
+
+    .line 10
+    invoke-virtual {p0}, Lcom/explorestack/protobuf/MapEntry;->newBuilderForType()Lcom/explorestack/protobuf/MapEntry$Builder;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public bridge synthetic newBuilderForType()Lcom/explorestack/protobuf/MessageLite$Builder;
+    .locals 0
+
+    .line 9
+    invoke-virtual {p0}, Lcom/explorestack/protobuf/MapEntry;->newBuilderForType()Lcom/explorestack/protobuf/MapEntry$Builder;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public toBuilder()Lcom/explorestack/protobuf/MapEntry$Builder;
+    .locals 7
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lcom/explorestack/protobuf/MapEntry$Builder<",
+            "TK;TV;>;"
+        }
+    .end annotation
+
+    new-instance v0, Lcom/explorestack/protobuf/MapEntry$Builder;
+
+    iget-object v1, p0, Lcom/explorestack/protobuf/MapEntry;->metadata:Lcom/explorestack/protobuf/MapEntry$Metadata;
+
+    iget-object v2, p0, Lcom/explorestack/protobuf/MapEntry;->key:Ljava/lang/Object;
+
+    iget-object v3, p0, Lcom/explorestack/protobuf/MapEntry;->value:Ljava/lang/Object;
+
+    const/4 v5, 0x1
+
+    const/4 v6, 0x0
+
+    const/4 v4, 0x1
+
+    invoke-direct/range {v0 .. v6}, Lcom/explorestack/protobuf/MapEntry$Builder;-><init>(Lcom/explorestack/protobuf/MapEntry$Metadata;Ljava/lang/Object;Ljava/lang/Object;ZZLcom/explorestack/protobuf/MapEntry$1;)V
+
+    return-object v0
+.end method
+
+.method public bridge synthetic toBuilder()Lcom/explorestack/protobuf/Message$Builder;
+    .locals 0
+
+    .line 16
+    invoke-virtual {p0}, Lcom/explorestack/protobuf/MapEntry;->toBuilder()Lcom/explorestack/protobuf/MapEntry$Builder;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public bridge synthetic toBuilder()Lcom/explorestack/protobuf/MessageLite$Builder;
+    .locals 0
+
+    .line 15
+    invoke-virtual {p0}, Lcom/explorestack/protobuf/MapEntry;->toBuilder()Lcom/explorestack/protobuf/MapEntry$Builder;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public writeTo(Lcom/explorestack/protobuf/CodedOutputStream;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/explorestack/protobuf/MapEntry;->metadata:Lcom/explorestack/protobuf/MapEntry$Metadata;
+
+    iget-object v1, p0, Lcom/explorestack/protobuf/MapEntry;->key:Ljava/lang/Object;
+
+    iget-object p0, p0, Lcom/explorestack/protobuf/MapEntry;->value:Ljava/lang/Object;
+
+    invoke-static {p1, v0, v1, p0}, Lcom/explorestack/protobuf/MapEntryLite;->writeTo(Lcom/explorestack/protobuf/CodedOutputStream;Lcom/explorestack/protobuf/MapEntryLite$Metadata;Ljava/lang/Object;Ljava/lang/Object;)V
+
+    return-void
+.end method

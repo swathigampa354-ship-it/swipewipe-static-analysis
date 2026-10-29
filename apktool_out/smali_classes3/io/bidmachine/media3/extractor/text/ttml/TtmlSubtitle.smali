@@ -1,0 +1,204 @@
+.class final Lio/bidmachine/media3/extractor/text/ttml/TtmlSubtitle;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Lio/bidmachine/media3/extractor/text/Subtitle;
+
+
+# instance fields
+.field private final eventTimesUs:[J
+
+.field private final globalStyles:Ljava/util/Map;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Map<",
+            "Ljava/lang/String;",
+            "Lio/bidmachine/media3/extractor/text/ttml/TtmlStyle;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final imageMap:Ljava/util/Map;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Map<",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final regionMap:Ljava/util/Map;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Map<",
+            "Ljava/lang/String;",
+            "Lio/bidmachine/media3/extractor/text/ttml/TtmlRegion;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final root:Lio/bidmachine/media3/extractor/text/ttml/TtmlNode;
+
+
+# direct methods
+.method public constructor <init>(Lio/bidmachine/media3/extractor/text/ttml/TtmlNode;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lio/bidmachine/media3/extractor/text/ttml/TtmlNode;",
+            "Ljava/util/Map<",
+            "Ljava/lang/String;",
+            "Lio/bidmachine/media3/extractor/text/ttml/TtmlStyle;",
+            ">;",
+            "Ljava/util/Map<",
+            "Ljava/lang/String;",
+            "Lio/bidmachine/media3/extractor/text/ttml/TtmlRegion;",
+            ">;",
+            "Ljava/util/Map<",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lio/bidmachine/media3/extractor/text/ttml/TtmlSubtitle;->root:Lio/bidmachine/media3/extractor/text/ttml/TtmlNode;
+
+    iput-object p3, p0, Lio/bidmachine/media3/extractor/text/ttml/TtmlSubtitle;->regionMap:Ljava/util/Map;
+
+    iput-object p4, p0, Lio/bidmachine/media3/extractor/text/ttml/TtmlSubtitle;->imageMap:Ljava/util/Map;
+
+    if-eqz p2, :cond_0
+
+    invoke-static {p2}, Ljava/util/Collections;->unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;
+
+    move-result-object p2
+
+    goto :goto_0
+
+    :cond_0
+    sget-object p2, Ljava/util/Collections;->EMPTY_MAP:Ljava/util/Map;
+
+    :goto_0
+    iput-object p2, p0, Lio/bidmachine/media3/extractor/text/ttml/TtmlSubtitle;->globalStyles:Ljava/util/Map;
+
+    invoke-virtual {p1}, Lio/bidmachine/media3/extractor/text/ttml/TtmlNode;->getEventTimesUs()[J
+
+    move-result-object p1
+
+    iput-object p1, p0, Lio/bidmachine/media3/extractor/text/ttml/TtmlSubtitle;->eventTimesUs:[J
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public getCues(J)Ljava/util/List;
+    .locals 6
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(J)",
+            "Ljava/util/List<",
+            "Lio/bidmachine/media3/common/text/Cue;",
+            ">;"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lio/bidmachine/media3/extractor/text/ttml/TtmlSubtitle;->root:Lio/bidmachine/media3/extractor/text/ttml/TtmlNode;
+
+    iget-object v3, p0, Lio/bidmachine/media3/extractor/text/ttml/TtmlSubtitle;->globalStyles:Ljava/util/Map;
+
+    iget-object v4, p0, Lio/bidmachine/media3/extractor/text/ttml/TtmlSubtitle;->regionMap:Ljava/util/Map;
+
+    iget-object v5, p0, Lio/bidmachine/media3/extractor/text/ttml/TtmlSubtitle;->imageMap:Ljava/util/Map;
+
+    move-wide v1, p1
+
+    invoke-virtual/range {v0 .. v5}, Lio/bidmachine/media3/extractor/text/ttml/TtmlNode;->getCues(JLjava/util/Map;Ljava/util/Map;Ljava/util/Map;)Ljava/util/List;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public getEventTime(I)J
+    .locals 2
+
+    iget-object p0, p0, Lio/bidmachine/media3/extractor/text/ttml/TtmlSubtitle;->eventTimesUs:[J
+
+    aget-wide v0, p0, p1
+
+    return-wide v0
+.end method
+
+.method public getEventTimeCount()I
+    .locals 0
+
+    iget-object p0, p0, Lio/bidmachine/media3/extractor/text/ttml/TtmlSubtitle;->eventTimesUs:[J
+
+    array-length p0, p0
+
+    return p0
+.end method
+
+.method public getGlobalStyles()Ljava/util/Map;
+    .locals 0
+    .annotation build Landroidx/annotation/VisibleForTesting;
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Map<",
+            "Ljava/lang/String;",
+            "Lio/bidmachine/media3/extractor/text/ttml/TtmlStyle;",
+            ">;"
+        }
+    .end annotation
+
+    iget-object p0, p0, Lio/bidmachine/media3/extractor/text/ttml/TtmlSubtitle;->globalStyles:Ljava/util/Map;
+
+    return-object p0
+.end method
+
+.method public getNextEventTimeIndex(J)I
+    .locals 2
+
+    iget-object v0, p0, Lio/bidmachine/media3/extractor/text/ttml/TtmlSubtitle;->eventTimesUs:[J
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, p1, p2, v1, v1}, Lio/bidmachine/media3/common/util/Util;->binarySearchCeil([JJZZ)I
+
+    move-result p1
+
+    iget-object p0, p0, Lio/bidmachine/media3/extractor/text/ttml/TtmlSubtitle;->eventTimesUs:[J
+
+    array-length p0, p0
+
+    if-ge p1, p0, :cond_0
+
+    return p1
+
+    :cond_0
+    const/4 p0, -0x1
+
+    return p0
+.end method
+
+.method public getRoot()Lio/bidmachine/media3/extractor/text/ttml/TtmlNode;
+    .locals 0
+    .annotation build Landroidx/annotation/VisibleForTesting;
+    .end annotation
+
+    iget-object p0, p0, Lio/bidmachine/media3/extractor/text/ttml/TtmlSubtitle;->root:Lio/bidmachine/media3/extractor/text/ttml/TtmlNode;
+
+    return-object p0
+.end method

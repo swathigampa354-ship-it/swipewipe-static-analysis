@@ -1,0 +1,140 @@
+.class public final Lqq0;
+.super Lc04;
+.source "SourceFile"
+
+# interfaces
+.implements Lkotlin/jvm/functions/Function2;
+
+
+# instance fields
+.field final synthetic $ms:J
+
+.field label:I
+
+.field final synthetic this$0:Lsq0;
+
+
+# direct methods
+.method public constructor <init>(Lsq0;JLqb0;)V
+    .locals 0
+
+    iput-object p1, p0, Lqq0;->this$0:Lsq0;
+
+    iput-wide p2, p0, Lqq0;->$ms:J
+
+    const/4 p1, 0x2
+
+    invoke-direct {p0, p1, p4}, Lc04;-><init>(ILqb0;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final create(Ljava/lang/Object;Lqb0;)Lqb0;
+    .locals 3
+
+    new-instance p1, Lqq0;
+
+    iget-object v0, p0, Lqq0;->this$0:Lsq0;
+
+    iget-wide v1, p0, Lqq0;->$ms:J
+
+    invoke-direct {p1, v0, v1, v2, p2}, Lqq0;-><init>(Lsq0;JLqb0;)V
+
+    return-object p1
+.end method
+
+.method public final invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 0
+
+    check-cast p1, Lkotlinx/coroutines/CoroutineScope;
+
+    check-cast p2, Lqb0;
+
+    invoke-virtual {p0, p1, p2}, Lqq0;->create(Ljava/lang/Object;Lqb0;)Lqb0;
+
+    move-result-object p0
+
+    check-cast p0, Lqq0;
+
+    sget-object p1, Lkotlin/Unit;->a:Lkotlin/Unit;
+
+    invoke-virtual {p0, p1}, Lqq0;->invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 6
+
+    sget-object v0, Ljc0;->a:Ljc0;
+
+    iget v1, p0, Lqq0;->label:I
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x1
+
+    if-eqz v1, :cond_1
+
+    if-ne v1, v3, :cond_0
+
+    invoke-static {p1}, Lmh1;->y(Ljava/lang/Object;)V
+
+    goto :goto_1
+
+    :cond_0
+    const-string p0, "call to \'resume\' before \'invoke\' with coroutine"
+
+    invoke-static {p0}, Lls4;->g(Ljava/lang/String;)V
+
+    return-object v2
+
+    :cond_1
+    invoke-static {p1}, Lmh1;->y(Ljava/lang/Object;)V
+
+    iget-object p1, p0, Lqq0;->this$0:Lsq0;
+
+    iget-object p1, p1, Lsq0;->b:Lja1;
+
+    iget-wide v4, p0, Lqq0;->$ms:J
+
+    new-instance v1, Ljava/lang/Long;
+
+    invoke-direct {v1, v4, v5}, Ljava/lang/Long;-><init>(J)V
+
+    iput v3, p0, Lqq0;->label:I
+
+    check-cast p1, Lxa1;
+
+    iget-object v3, p1, Lxa1;->a:Landroidx/datastore/core/DataStore;
+
+    new-instance v4, Lqa1;
+
+    invoke-direct {v4, v1, p1, v2}, Lqa1;-><init>(Ljava/lang/Long;Lxa1;Lqb0;)V
+
+    invoke-static {v3, v4, p0}, Landroidx/datastore/preferences/core/PreferencesKt;->a(Landroidx/datastore/core/DataStore;Lkotlin/jvm/functions/Function2;Lqb0;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    if-ne p0, v0, :cond_2
+
+    goto :goto_0
+
+    :cond_2
+    sget-object p0, Lkotlin/Unit;->a:Lkotlin/Unit;
+
+    :goto_0
+    if-ne p0, v0, :cond_3
+
+    return-object v0
+
+    :cond_3
+    :goto_1
+    sget-object p0, Lkotlin/Unit;->a:Lkotlin/Unit;
+
+    return-object p0
+.end method

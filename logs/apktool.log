@@ -1,0 +1,116 @@
+I: Using Apktool 3.0.3-dirty on base.apk with 8 threads
+I: Baksmaling classes.dex...
+I: Baksmaling classes10.dex...
+I: Baksmaling classes11.dex...
+I: Baksmaling classes12.dex...
+I: Baksmaling classes2.dex...
+I: Baksmaling classes3.dex...
+I: Loading resource table...
+I: Baksmaling classes4.dex...
+I: Baksmaling classes5.dex...
+I: Decoding value resources...
+I: Loading resource table from file: /data/data/com.termux/files/home/.local/share/apktool/framework/1.apk
+I: Baksmaling classes6.dex...
+I: Baksmaling classes7.dex...
+I: Decoding file resources...
+I: Baksmaling classes8.dex...
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f08033d, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080344, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080340, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080171, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080172, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080172, type=ref}
+I: Baksmaling classes9.dex...
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080103, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080349, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080341, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f08018a, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080192, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f08017e, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080180, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f0800e3, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f0800e6, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f0800e5, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f0800e4, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080041, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080040, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080085, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080085, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080084, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080047, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080046, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080068, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080068, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080061, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080067, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080067, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080061, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f08027e, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080278, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f08027e, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080279, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080068, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080068, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080061, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080067, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080067, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080061, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080064, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080062, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080063, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080062, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f08007f, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080049, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080048, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080085, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080078, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080084, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080078, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080074, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080073, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080073, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080070, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080070, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080072, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080071, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080086, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080086, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080087, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080087, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f0802c7, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f0802bf, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f0802be, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f0802c1, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f0802c0, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f0800d8, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f0800d9, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080171, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f0800f4, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080172, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f0800f0, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080172, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080171, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f0800eb, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080172, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f0800f9, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080172, type=ref}
+I: Generating values XMLs...
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080060, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080060, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f08006b, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080060, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080060, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f08006b, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f08006c, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f08003b, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f08007d, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080053, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080279, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f08027b, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f080278, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f08027a, type=ref}
+W: Unresolved resource reference: ResReference{pkg=ResPackage{id=0x7f, name=com.afternoonproducts.swipewipe}, id=0x7f08018b, type=ref}
+I: Decoding AndroidManifest.xml with resources...
+I: Copying original files...
+I: Copying assets...
+I: Copying unknown files...

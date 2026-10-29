@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="mwm_adskit_consent_content_height">206.0dp</dimen>
+    <dimen name="mwm_adskit_consent_content_margin_top">32.0dp</dimen>
+    <dimen name="mwm_adskit_consent_content_title_margin_top">40.0dp</dimen>
+    <dimen name="mwm_adskit_consent_content_width">280.0dp</dimen>
+    <dimen name="mwm_adskit_consent_icon_size">64.0dp</dimen>
+</resources>

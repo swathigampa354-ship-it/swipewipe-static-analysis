@@ -1,0 +1,51 @@
+.class Lcom/mbridge/msdk/mbsignalcommon/windvane/WindVaneWebView$a;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Ljava/lang/Runnable;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/mbridge/msdk/mbsignalcommon/windvane/WindVaneWebView;->release()V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = null
+.end annotation
+
+
+# instance fields
+.field final synthetic a:Lcom/mbridge/msdk/mbsignalcommon/windvane/WindVaneWebView;
+
+
+# direct methods
+.method public constructor <init>(Lcom/mbridge/msdk/mbsignalcommon/windvane/WindVaneWebView;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/mbridge/msdk/mbsignalcommon/windvane/WindVaneWebView$a;->a:Lcom/mbridge/msdk/mbsignalcommon/windvane/WindVaneWebView;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public run()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/mbridge/msdk/mbsignalcommon/windvane/WindVaneWebView$a;->a:Lcom/mbridge/msdk/mbsignalcommon/windvane/WindVaneWebView;
+
+    const/4 v1, 0x1
+
+    invoke-static {v0, v1}, Lcom/mbridge/msdk/mbsignalcommon/windvane/WindVaneWebView;->a(Lcom/mbridge/msdk/mbsignalcommon/windvane/WindVaneWebView;Z)Z
+
+    iget-object p0, p0, Lcom/mbridge/msdk/mbsignalcommon/windvane/WindVaneWebView$a;->a:Lcom/mbridge/msdk/mbsignalcommon/windvane/WindVaneWebView;
+
+    invoke-virtual {p0}, Landroid/webkit/WebView;->destroy()V
+
+    return-void
+.end method

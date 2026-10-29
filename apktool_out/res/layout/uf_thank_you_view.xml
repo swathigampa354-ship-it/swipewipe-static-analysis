@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:padding="30.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center_horizontal" android:layout_width="40.0dp" android:layout_height="40.0dp" android:layout_marginBottom="10.0dp" android:src="@null" />
+    <TextView android:textSize="17.0sp" android:textColor="@color/uf_dark_on_background_color" android:layout_gravity="center_horizontal" android:id="@id/uf_popup_view_thank_you_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="5.0dp" android:text="@string/user_feedback__pop_up__success" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/uf_dark_on_background_color" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/uf_popup_view_thank_you_text" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="300.0dp" android:text="@string/user_feedback__pop_up__thank_you__text_review" />
+</LinearLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="match_parent" android:layout_height="match_parent" android:animateLayoutChanges="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:paddingBottom="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:animateLayoutChanges="true" android:paddingStart="20.0dp" android:paddingEnd="20.0dp">
+        <TextView android:textStyle="bold" android:textColor="@color/uf_dark_on_background_color" android:gravity="center" android:layout_gravity="center" android:id="@id/uf_popup_view_dislike_survey_title" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:layout_marginBottom="20.0dp" android:text="@string/user_feedback__pop_up__reason_list__title" />
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical" android:id="@id/dislike_survey_view_dislike_content" android:layout_width="match_parent" android:layout_height="wrap_content" />
+            <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                <com.mwm.sdk.userfeedback.internal.user_feedback_corner_view.UserFeedbackCornerView android:layout_width="match_parent" android:layout_height="match_parent" app:uf_cornerViewAll="@dimen/uf_card_corner_radius" app:uf_cornerViewType="type_surface" />
+                <EditText android:textSize="14.0sp" android:textColor="@color/uf_dark_on_background_color" android:textColorHint="@color/uf_dark_on_background_color" android:gravity="top" android:id="@id/dislike_survey_layout_optional_feedback" android:background="@android:color/transparent" android:padding="10.0dp" android:layout_width="match_parent" android:layout_height="150.0dp" android:hint="@string/user_feedback__pop_up__reason_list__free_text__placeholder" android:maxLength="180" android:inputType="text" android:imeOptions="actionDone" />
+            </FrameLayout>
+            <TextView android:textSize="11.0sp" android:textColor="@color/uf_dark_on_background_color" android:layout_gravity="end" android:id="@id/uf_popup_view_dislike_survey_footer" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:text="@string/user_feedback__pop_up__reason_list__free_text__max_characters" />
+        </LinearLayout>
+    </LinearLayout>
+</merge>

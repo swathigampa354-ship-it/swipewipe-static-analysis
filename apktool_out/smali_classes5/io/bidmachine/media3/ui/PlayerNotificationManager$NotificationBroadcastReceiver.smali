@@ -1,0 +1,281 @@
+.class Lio/bidmachine/media3/ui/PlayerNotificationManager$NotificationBroadcastReceiver;
+.super Landroid/content/BroadcastReceiver;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lio/bidmachine/media3/ui/PlayerNotificationManager;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = "NotificationBroadcastReceiver"
+.end annotation
+
+
+# instance fields
+.field final synthetic this$0:Lio/bidmachine/media3/ui/PlayerNotificationManager;
+
+
+# direct methods
+.method private constructor <init>(Lio/bidmachine/media3/ui/PlayerNotificationManager;)V
+    .locals 0
+
+    iput-object p1, p0, Lio/bidmachine/media3/ui/PlayerNotificationManager$NotificationBroadcastReceiver;->this$0:Lio/bidmachine/media3/ui/PlayerNotificationManager;
+
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+
+    return-void
+.end method
+
+.method public synthetic constructor <init>(Lio/bidmachine/media3/ui/PlayerNotificationManager;Lio/bidmachine/media3/ui/PlayerNotificationManager$1;)V
+    .locals 0
+
+    .line 6
+    invoke-direct {p0, p1}, Lio/bidmachine/media3/ui/PlayerNotificationManager$NotificationBroadcastReceiver;-><init>(Lio/bidmachine/media3/ui/PlayerNotificationManager;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 2
+
+    iget-object p1, p0, Lio/bidmachine/media3/ui/PlayerNotificationManager$NotificationBroadcastReceiver;->this$0:Lio/bidmachine/media3/ui/PlayerNotificationManager;
+
+    invoke-static {p1}, Lio/bidmachine/media3/ui/PlayerNotificationManager;->access$500(Lio/bidmachine/media3/ui/PlayerNotificationManager;)Lio/bidmachine/media3/common/Player;
+
+    move-result-object p1
+
+    if-eqz p1, :cond_a
+
+    iget-object v0, p0, Lio/bidmachine/media3/ui/PlayerNotificationManager$NotificationBroadcastReceiver;->this$0:Lio/bidmachine/media3/ui/PlayerNotificationManager;
+
+    invoke-static {v0}, Lio/bidmachine/media3/ui/PlayerNotificationManager;->access$600(Lio/bidmachine/media3/ui/PlayerNotificationManager;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_a
+
+    iget-object v0, p0, Lio/bidmachine/media3/ui/PlayerNotificationManager$NotificationBroadcastReceiver;->this$0:Lio/bidmachine/media3/ui/PlayerNotificationManager;
+
+    invoke-static {v0}, Lio/bidmachine/media3/ui/PlayerNotificationManager;->access$700(Lio/bidmachine/media3/ui/PlayerNotificationManager;)I
+
+    move-result v0
+
+    const-string v1, "INSTANCE_ID"
+
+    invoke-virtual {p2, v1, v0}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v0
+
+    iget-object v1, p0, Lio/bidmachine/media3/ui/PlayerNotificationManager$NotificationBroadcastReceiver;->this$0:Lio/bidmachine/media3/ui/PlayerNotificationManager;
+
+    invoke-static {v1}, Lio/bidmachine/media3/ui/PlayerNotificationManager;->access$700(Lio/bidmachine/media3/ui/PlayerNotificationManager;)I
+
+    move-result v1
+
+    if-eq v0, v1, :cond_0
+
+    goto/16 :goto_0
+
+    :cond_0
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "io.bidmachine.media3.ui.notification.play"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-static {p1}, Lio/bidmachine/media3/common/util/Util;->handlePlayButtonAction(Lio/bidmachine/media3/common/Player;)Z
+
+    return-void
+
+    :cond_1
+    const-string v1, "io.bidmachine.media3.ui.notification.pause"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    invoke-static {p1}, Lio/bidmachine/media3/common/util/Util;->handlePauseButtonAction(Lio/bidmachine/media3/common/Player;)Z
+
+    return-void
+
+    :cond_2
+    const-string v1, "io.bidmachine.media3.ui.notification.prev"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    const/4 p0, 0x7
+
+    invoke-interface {p1, p0}, Lio/bidmachine/media3/common/Player;->isCommandAvailable(I)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_a
+
+    invoke-interface {p1}, Lio/bidmachine/media3/common/Player;->seekToPrevious()V
+
+    return-void
+
+    :cond_3
+    const-string v1, "io.bidmachine.media3.ui.notification.rewind"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    const/16 p0, 0xb
+
+    invoke-interface {p1, p0}, Lio/bidmachine/media3/common/Player;->isCommandAvailable(I)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_a
+
+    invoke-interface {p1}, Lio/bidmachine/media3/common/Player;->seekBack()V
+
+    return-void
+
+    :cond_4
+    const-string v1, "io.bidmachine.media3.ui.notification.ffwd"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_5
+
+    const/16 p0, 0xc
+
+    invoke-interface {p1, p0}, Lio/bidmachine/media3/common/Player;->isCommandAvailable(I)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_a
+
+    invoke-interface {p1}, Lio/bidmachine/media3/common/Player;->seekForward()V
+
+    return-void
+
+    :cond_5
+    const-string v1, "io.bidmachine.media3.ui.notification.next"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_6
+
+    const/16 p0, 0x9
+
+    invoke-interface {p1, p0}, Lio/bidmachine/media3/common/Player;->isCommandAvailable(I)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_a
+
+    invoke-interface {p1}, Lio/bidmachine/media3/common/Player;->seekToNext()V
+
+    return-void
+
+    :cond_6
+    const-string v1, "io.bidmachine.media3.ui.notification.stop"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_8
+
+    const/4 p0, 0x3
+
+    invoke-interface {p1, p0}, Lio/bidmachine/media3/common/Player;->isCommandAvailable(I)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_7
+
+    invoke-interface {p1}, Lio/bidmachine/media3/common/Player;->stop()V
+
+    :cond_7
+    const/16 p0, 0x14
+
+    invoke-interface {p1, p0}, Lio/bidmachine/media3/common/Player;->isCommandAvailable(I)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_a
+
+    invoke-interface {p1}, Lio/bidmachine/media3/common/Player;->clearMediaItems()V
+
+    return-void
+
+    :cond_8
+    const-string v1, "io.bidmachine.media3.ui.notification.dismiss"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_9
+
+    iget-object p0, p0, Lio/bidmachine/media3/ui/PlayerNotificationManager$NotificationBroadcastReceiver;->this$0:Lio/bidmachine/media3/ui/PlayerNotificationManager;
+
+    const/4 p1, 0x1
+
+    invoke-static {p0, p1}, Lio/bidmachine/media3/ui/PlayerNotificationManager;->access$800(Lio/bidmachine/media3/ui/PlayerNotificationManager;Z)V
+
+    return-void
+
+    :cond_9
+    if-eqz v0, :cond_a
+
+    iget-object v1, p0, Lio/bidmachine/media3/ui/PlayerNotificationManager$NotificationBroadcastReceiver;->this$0:Lio/bidmachine/media3/ui/PlayerNotificationManager;
+
+    invoke-static {v1}, Lio/bidmachine/media3/ui/PlayerNotificationManager;->access$900(Lio/bidmachine/media3/ui/PlayerNotificationManager;)Lio/bidmachine/media3/ui/PlayerNotificationManager$CustomActionReceiver;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_a
+
+    iget-object v1, p0, Lio/bidmachine/media3/ui/PlayerNotificationManager$NotificationBroadcastReceiver;->this$0:Lio/bidmachine/media3/ui/PlayerNotificationManager;
+
+    invoke-static {v1}, Lio/bidmachine/media3/ui/PlayerNotificationManager;->access$1000(Lio/bidmachine/media3/ui/PlayerNotificationManager;)Ljava/util/Map;
+
+    move-result-object v1
+
+    invoke-interface {v1, v0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_a
+
+    iget-object p0, p0, Lio/bidmachine/media3/ui/PlayerNotificationManager$NotificationBroadcastReceiver;->this$0:Lio/bidmachine/media3/ui/PlayerNotificationManager;
+
+    invoke-static {p0}, Lio/bidmachine/media3/ui/PlayerNotificationManager;->access$900(Lio/bidmachine/media3/ui/PlayerNotificationManager;)Lio/bidmachine/media3/ui/PlayerNotificationManager$CustomActionReceiver;
+
+    move-result-object p0
+
+    invoke-interface {p0, p1, v0, p2}, Lio/bidmachine/media3/ui/PlayerNotificationManager$CustomActionReceiver;->onCustomAction(Lio/bidmachine/media3/common/Player;Ljava/lang/String;Landroid/content/Intent;)V
+
+    :cond_a
+    :goto_0
+    return-void
+.end method

@@ -1,0 +1,835 @@
+.class public Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Lcom/mbridge/msdk/out/strategy/IBidVideoAdStrategy;
+
+
+# static fields
+.field private static final TAG:Ljava/lang/String; = "TraditionalBidStrategy"
+
+
+# instance fields
+.field private cancelText:Ljava/lang/String;
+
+.field private confirmContent:Ljava/lang/String;
+
+.field private confirmText:Ljava/lang/String;
+
+.field private confirmTitle:Ljava/lang/String;
+
+.field private controller:Lcom/mbridge/msdk/reward/controller/a;
+
+.field private isConfigAlertDialogTextController:Z
+
+.field private isRewardPlusOpen:Z
+
+.field private isSetListenerController:Z
+
+.field private isSilent:I
+
+.field private listener:Lcom/mbridge/msdk/video/bt/module/orglistener/g;
+
+.field private placementId:Ljava/lang/String;
+
+.field private unitId:Ljava/lang/String;
+
+
+# direct methods
+.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
+    .locals 1
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->listener:Lcom/mbridge/msdk/video/bt/module/orglistener/g;
+
+    const/4 v0, 0x2
+
+    iput v0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->isSilent:I
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->isRewardPlusOpen:Z
+
+    iput-boolean v0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->isSetListenerController:Z
+
+    iput-boolean v0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->isConfigAlertDialogTextController:Z
+
+    invoke-direct {p0, p1, p2}, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->initData(Ljava/lang/String;Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method private checkAndCreateController()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->controller:Lcom/mbridge/msdk/reward/controller/a;
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->placementId:Ljava/lang/String;
+
+    iget-object v1, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->unitId:Ljava/lang/String;
+
+    invoke-direct {p0, v0, v1}, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->initMBBidRewardVideoHandler(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_0
+    invoke-direct {p0}, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->configController()V
+
+    return-void
+.end method
+
+.method private configController()V
+    .locals 6
+
+    iget-object v0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->controller:Lcom/mbridge/msdk/reward/controller/a;
+
+    if-nez v0, :cond_0
+
+    goto :goto_1
+
+    :cond_0
+    iget-boolean v0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->isSetListenerController:Z
+
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_2
+
+    invoke-static {}, Lcom/mbridge/msdk/util/b;->a()Z
+
+    move-result v0
+
+    iget-object v2, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->controller:Lcom/mbridge/msdk/reward/controller/a;
+
+    if-eqz v0, :cond_1
+
+    new-instance v0, Lcom/mbridge/msdk/video/bt/module/orglistener/a;
+
+    iget-object v3, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->listener:Lcom/mbridge/msdk/video/bt/module/orglistener/g;
+
+    iget-object v4, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->unitId:Ljava/lang/String;
+
+    const/4 v5, 0x1
+
+    invoke-direct {v0, v3, v4, v5}, Lcom/mbridge/msdk/video/bt/module/orglistener/a;-><init>(Lcom/mbridge/msdk/video/bt/module/orglistener/g;Ljava/lang/String;Z)V
+
+    invoke-virtual {v2, v0}, Lcom/mbridge/msdk/reward/controller/a;->a(Lcom/mbridge/msdk/videocommon/listener/InterVideoOutListener;)V
+
+    goto :goto_0
+
+    :cond_1
+    new-instance v0, Lcom/mbridge/msdk/video/bt/module/orglistener/a;
+
+    iget-object v3, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->listener:Lcom/mbridge/msdk/video/bt/module/orglistener/g;
+
+    invoke-direct {v0, v3}, Lcom/mbridge/msdk/video/bt/module/orglistener/a;-><init>(Lcom/mbridge/msdk/video/bt/module/orglistener/g;)V
+
+    invoke-virtual {v2, v0}, Lcom/mbridge/msdk/reward/controller/a;->a(Lcom/mbridge/msdk/videocommon/listener/InterVideoOutListener;)V
+
+    :goto_0
+    iput-boolean v1, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->isSetListenerController:Z
+
+    :cond_2
+    iget-object v0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->controller:Lcom/mbridge/msdk/reward/controller/a;
+
+    iget-boolean v2, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->isRewardPlusOpen:Z
+
+    invoke-virtual {v0, v2}, Lcom/mbridge/msdk/reward/controller/a;->f(Z)V
+
+    iget-boolean v0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->isConfigAlertDialogTextController:Z
+
+    if-eqz v0, :cond_3
+
+    iget-object v0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->controller:Lcom/mbridge/msdk/reward/controller/a;
+
+    iget-object v2, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->confirmTitle:Ljava/lang/String;
+
+    iget-object v3, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->confirmContent:Ljava/lang/String;
+
+    iget-object v4, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->confirmText:Ljava/lang/String;
+
+    iget-object v5, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->cancelText:Ljava/lang/String;
+
+    invoke-virtual {v0, v2, v3, v4, v5}, Lcom/mbridge/msdk/reward/controller/a;->a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    iput-boolean v1, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->isConfigAlertDialogTextController:Z
+
+    :cond_3
+    :goto_1
+    return-void
+.end method
+
+.method private initData(Ljava/lang/String;Ljava/lang/String;)V
+    .locals 2
+
+    invoke-static {p2}, Lcom/mbridge/msdk/foundation/tools/v0;->e(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    invoke-static {p2, v0}, Lcom/mbridge/msdk/foundation/tools/v0;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_0
+    iput-object p1, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->placementId:Ljava/lang/String;
+
+    iput-object p2, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->unitId:Ljava/lang/String;
+
+    invoke-direct {p0}, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->checkAndCreateController()V
+
+    return-void
+.end method
+
+.method private initMBBidRewardVideoHandler(Ljava/lang/String;Ljava/lang/String;)V
+    .locals 2
+
+    :try_start_0
+    iget-object v0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->controller:Lcom/mbridge/msdk/reward/controller/a;
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Lcom/mbridge/msdk/reward/controller/a;
+
+    invoke-direct {v0}, Lcom/mbridge/msdk/reward/controller/a;-><init>()V
+
+    iput-object v0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->controller:Lcom/mbridge/msdk/reward/controller/a;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/mbridge/msdk/reward/controller/a;->d(Z)V
+
+    iget-object v0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->controller:Lcom/mbridge/msdk/reward/controller/a;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/mbridge/msdk/reward/controller/a;->e(Z)V
+
+    iget-object p0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->controller:Lcom/mbridge/msdk/reward/controller/a;
+
+    invoke-virtual {p0, p1, p2}, Lcom/mbridge/msdk/reward/controller/a;->c(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_0
+    return-void
+
+    :catchall_0
+    move-exception p0
+
+    invoke-virtual {p0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string p2, "TraditionalBidStrategy"
+
+    invoke-static {p2, p1, p0}, Lcom/mbridge/msdk/foundation/tools/q0;->b(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public clearBitmapCache()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public clearVideoCache()V
+    .locals 0
+
+    :try_start_0
+    iget-object p0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->controller:Lcom/mbridge/msdk/reward/controller/a;
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0}, Lcom/mbridge/msdk/reward/controller/a;->e()V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_0
+    return-void
+
+    :catch_0
+    move-exception p0
+
+    invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+
+    return-void
+.end method
+
+.method public getCreativeIdWithUnitId()Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->controller:Lcom/mbridge/msdk/reward/controller/a;
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0}, Lcom/mbridge/msdk/reward/controller/a;->j()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_0
+    const-string p0, ""
+
+    return-object p0
+.end method
+
+.method public getRequestId()Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->controller:Lcom/mbridge/msdk/reward/controller/a;
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0}, Lcom/mbridge/msdk/reward/controller/a;->m()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_0
+    const-string p0, ""
+
+    return-object p0
+.end method
+
+.method public isBidReady()Z
+    .locals 1
+
+    invoke-direct {p0}, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->checkAndCreateController()V
+
+    iget-object p0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->controller:Lcom/mbridge/msdk/reward/controller/a;
+
+    if-eqz p0, :cond_0
+
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, v0}, Lcom/mbridge/msdk/reward/controller/a;->c(Z)Z
+
+    move-result p0
+
+    return p0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
+.method public loadFormSelfFilling()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public loadFromBid(Ljava/lang/String;)V
+    .locals 7
+
+    invoke-direct {p0}, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->checkAndCreateController()V
+
+    iget-object v0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->controller:Lcom/mbridge/msdk/reward/controller/a;
+
+    if-eqz v0, :cond_0
+
+    invoke-static {}, Lcom/mbridge/msdk/foundation/same/report/metrics/d;->b()Lcom/mbridge/msdk/foundation/same/report/metrics/d;
+
+    move-result-object v1
+
+    iget-object v4, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->unitId:Ljava/lang/String;
+
+    const/4 v5, 0x1
+
+    const/4 v6, 0x2
+
+    const/4 v2, 0x1
+
+    const/16 v3, 0x5e
+
+    invoke-virtual/range {v1 .. v6}, Lcom/mbridge/msdk/foundation/same/report/metrics/d;->a(IILjava/lang/String;ZI)Lcom/mbridge/msdk/foundation/same/report/metrics/e;
+
+    move-result-object v0
+
+    iget-object p0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->controller:Lcom/mbridge/msdk/reward/controller/a;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {p0, v1, p1, v0}, Lcom/mbridge/msdk/reward/controller/a;->a(ZLjava/lang/String;Lcom/mbridge/msdk/foundation/same/report/metrics/e;)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public playVideoMute(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->isSilent:I
+
+    iget-object p0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->controller:Lcom/mbridge/msdk/reward/controller/a;
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0, p1}, Lcom/mbridge/msdk/reward/controller/a;->a(I)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public setAlertDialogText(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 1
+
+    iput-object p1, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->confirmTitle:Ljava/lang/String;
+
+    iput-object p2, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->confirmContent:Ljava/lang/String;
+
+    iput-object p3, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->confirmText:Ljava/lang/String;
+
+    iput-object p4, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->cancelText:Ljava/lang/String;
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->isConfigAlertDialogTextController:Z
+
+    iget-object p0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->unitId:Ljava/lang/String;
+
+    invoke-static {p0, p1, p2, p3, p4}, Lcom/mbridge/msdk/newreward/function/common/MBridgeGlobalCommon;->setAlertDialogText(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public setExtraInfo(Lorg/json/JSONObject;)V
+    .locals 1
+
+    invoke-static {}, Lcom/mbridge/msdk/foundation/controller/c;->n()Lcom/mbridge/msdk/foundation/controller/c;
+
+    move-result-object v0
+
+    iget-object p0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->unitId:Ljava/lang/String;
+
+    invoke-virtual {v0, p0, p1}, Lcom/mbridge/msdk/foundation/controller/a;->a(Ljava/lang/String;Lorg/json/JSONObject;)V
+
+    return-void
+.end method
+
+.method public setIVRewardEnable(ID)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public setIVRewardEnable(II)V
+    .locals 0
+
+    .line 1
+    return-void
+.end method
+
+.method public setInterstitialVideoListener(Lcom/mbridge/msdk/newinterstitial/out/NewInterstitialListener;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public setRewardPlus(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->isRewardPlusOpen:Z
+
+    iget-object p0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->controller:Lcom/mbridge/msdk/reward/controller/a;
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0, p1}, Lcom/mbridge/msdk/reward/controller/a;->f(Z)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public setRewardVideoListener(Lcom/mbridge/msdk/video/bt/module/orglistener/g;)V
+    .locals 4
+
+    iput-object p1, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->listener:Lcom/mbridge/msdk/video/bt/module/orglistener/g;
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->isSetListenerController:Z
+
+    iget-object v1, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->controller:Lcom/mbridge/msdk/reward/controller/a;
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {v1}, Lcom/mbridge/msdk/reward/controller/a;->u()Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    invoke-static {}, Lcom/mbridge/msdk/util/b;->a()Z
+
+    move-result v1
+
+    iget-object v2, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->controller:Lcom/mbridge/msdk/reward/controller/a;
+
+    if-eqz v1, :cond_0
+
+    new-instance v1, Lcom/mbridge/msdk/video/bt/module/orglistener/a;
+
+    iget-object v3, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->unitId:Ljava/lang/String;
+
+    invoke-direct {v1, p1, v3, v0}, Lcom/mbridge/msdk/video/bt/module/orglistener/a;-><init>(Lcom/mbridge/msdk/video/bt/module/orglistener/g;Ljava/lang/String;Z)V
+
+    invoke-virtual {v2, v1}, Lcom/mbridge/msdk/reward/controller/a;->a(Lcom/mbridge/msdk/videocommon/listener/InterVideoOutListener;)V
+
+    goto :goto_0
+
+    :cond_0
+    new-instance v0, Lcom/mbridge/msdk/video/bt/module/orglistener/a;
+
+    invoke-direct {v0, p1}, Lcom/mbridge/msdk/video/bt/module/orglistener/a;-><init>(Lcom/mbridge/msdk/video/bt/module/orglistener/g;)V
+
+    invoke-virtual {v2, v0}, Lcom/mbridge/msdk/reward/controller/a;->a(Lcom/mbridge/msdk/videocommon/listener/InterVideoOutListener;)V
+
+    :goto_0
+    const/4 p1, 0x0
+
+    iput-boolean p1, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->isSetListenerController:Z
+
+    :cond_1
+    return-void
+.end method
+
+.method public showFromBid()V
+    .locals 7
+
+    .line 46
+    invoke-direct {p0}, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->checkAndCreateController()V
+
+    .line 47
+    iget-object v0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->controller:Lcom/mbridge/msdk/reward/controller/a;
+
+    if-eqz v0, :cond_0
+
+    .line 48
+    invoke-static {}, Lcom/mbridge/msdk/foundation/same/report/metrics/d;->b()Lcom/mbridge/msdk/foundation/same/report/metrics/d;
+
+    move-result-object v1
+
+    iget-object v4, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->unitId:Ljava/lang/String;
+
+    const/4 v5, 0x0
+
+    const/4 v6, -0x1
+
+    const/4 v2, 0x1
+
+    const/16 v3, 0x5e
+
+    invoke-virtual/range {v1 .. v6}, Lcom/mbridge/msdk/foundation/same/report/metrics/d;->a(IILjava/lang/String;ZI)Lcom/mbridge/msdk/foundation/same/report/metrics/e;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    .line 49
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string v2, "activity_overload"
+
+    invoke-virtual {v0, v2, v1}, Lcom/mbridge/msdk/foundation/same/report/metrics/e;->a(Ljava/lang/String;Ljava/lang/Object;)V
+
+    .line 50
+    iget-object p0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->controller:Lcom/mbridge/msdk/reward/controller/a;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p0, v1, v1, v1, v0}, Lcom/mbridge/msdk/reward/controller/a;->a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/mbridge/msdk/foundation/same/report/metrics/e;)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public showFromBid(Landroid/app/Activity;)V
+    .locals 7
+
+    invoke-direct {p0}, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->checkAndCreateController()V
+
+    iget-object v0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->controller:Lcom/mbridge/msdk/reward/controller/a;
+
+    if-eqz v0, :cond_0
+
+    invoke-static {}, Lcom/mbridge/msdk/foundation/same/report/metrics/d;->b()Lcom/mbridge/msdk/foundation/same/report/metrics/d;
+
+    move-result-object v1
+
+    iget-object v4, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->unitId:Ljava/lang/String;
+
+    const/4 v5, 0x0
+
+    const/4 v6, -0x1
+
+    const/4 v2, 0x1
+
+    const/16 v3, 0x5e
+
+    invoke-virtual/range {v1 .. v6}, Lcom/mbridge/msdk/foundation/same/report/metrics/d;->a(IILjava/lang/String;ZI)Lcom/mbridge/msdk/foundation/same/report/metrics/e;
+
+    move-result-object v0
+
+    const/4 v1, 0x1
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string v2, "activity_overload"
+
+    invoke-virtual {v0, v2, v1}, Lcom/mbridge/msdk/foundation/same/report/metrics/e;->a(Ljava/lang/String;Ljava/lang/Object;)V
+
+    invoke-static {}, Lcom/mbridge/msdk/foundation/controller/c;->n()Lcom/mbridge/msdk/foundation/controller/c;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Lcom/mbridge/msdk/foundation/controller/a;->a(Landroid/content/Context;)V
+
+    iget-object p0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->controller:Lcom/mbridge/msdk/reward/controller/a;
+
+    const/4 p1, 0x0
+
+    invoke-virtual {p0, p1, p1, p1, v0}, Lcom/mbridge/msdk/reward/controller/a;->a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/mbridge/msdk/foundation/same/report/metrics/e;)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public showFromBid(Landroid/app/Activity;Ljava/lang/String;)V
+    .locals 7
+
+    .line 61
+    invoke-direct {p0}, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->checkAndCreateController()V
+
+    .line 62
+    iget-object v0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->controller:Lcom/mbridge/msdk/reward/controller/a;
+
+    if-eqz v0, :cond_0
+
+    .line 63
+    invoke-static {}, Lcom/mbridge/msdk/foundation/same/report/metrics/d;->b()Lcom/mbridge/msdk/foundation/same/report/metrics/d;
+
+    move-result-object v1
+
+    iget-object v4, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->unitId:Ljava/lang/String;
+
+    const/4 v5, 0x0
+
+    const/4 v6, -0x1
+
+    const/4 v2, 0x1
+
+    const/16 v3, 0x5e
+
+    invoke-virtual/range {v1 .. v6}, Lcom/mbridge/msdk/foundation/same/report/metrics/d;->a(IILjava/lang/String;ZI)Lcom/mbridge/msdk/foundation/same/report/metrics/e;
+
+    move-result-object v0
+
+    const/4 v1, 0x1
+
+    .line 64
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string v2, "activity_overload"
+
+    invoke-virtual {v0, v2, v1}, Lcom/mbridge/msdk/foundation/same/report/metrics/e;->a(Ljava/lang/String;Ljava/lang/Object;)V
+
+    .line 65
+    invoke-static {}, Lcom/mbridge/msdk/foundation/controller/c;->n()Lcom/mbridge/msdk/foundation/controller/c;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Lcom/mbridge/msdk/foundation/controller/a;->a(Landroid/content/Context;)V
+
+    .line 66
+    iget-object p0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->controller:Lcom/mbridge/msdk/reward/controller/a;
+
+    const/4 p1, 0x0
+
+    invoke-virtual {p0, p1, p2, p1, v0}, Lcom/mbridge/msdk/reward/controller/a;->a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/mbridge/msdk/foundation/same/report/metrics/e;)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public showFromBid(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 7
+
+    .line 67
+    invoke-direct {p0}, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->checkAndCreateController()V
+
+    .line 68
+    iget-object v0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->controller:Lcom/mbridge/msdk/reward/controller/a;
+
+    if-eqz v0, :cond_0
+
+    .line 69
+    invoke-static {}, Lcom/mbridge/msdk/foundation/same/report/metrics/d;->b()Lcom/mbridge/msdk/foundation/same/report/metrics/d;
+
+    move-result-object v1
+
+    iget-object v4, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->unitId:Ljava/lang/String;
+
+    const/4 v5, 0x0
+
+    const/4 v6, -0x1
+
+    const/4 v2, 0x1
+
+    const/16 v3, 0x5e
+
+    invoke-virtual/range {v1 .. v6}, Lcom/mbridge/msdk/foundation/same/report/metrics/d;->a(IILjava/lang/String;ZI)Lcom/mbridge/msdk/foundation/same/report/metrics/e;
+
+    move-result-object v0
+
+    const/4 v1, 0x1
+
+    .line 70
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string v2, "activity_overload"
+
+    invoke-virtual {v0, v2, v1}, Lcom/mbridge/msdk/foundation/same/report/metrics/e;->a(Ljava/lang/String;Ljava/lang/Object;)V
+
+    .line 71
+    invoke-static {}, Lcom/mbridge/msdk/foundation/controller/c;->n()Lcom/mbridge/msdk/foundation/controller/c;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Lcom/mbridge/msdk/foundation/controller/a;->a(Landroid/content/Context;)V
+
+    .line 72
+    iget-object p0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->controller:Lcom/mbridge/msdk/reward/controller/a;
+
+    const/4 p1, 0x0
+
+    invoke-virtual {p0, p1, p2, p3, v0}, Lcom/mbridge/msdk/reward/controller/a;->a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/mbridge/msdk/foundation/same/report/metrics/e;)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public showFromBid(Ljava/lang/String;)V
+    .locals 7
+
+    .line 51
+    invoke-direct {p0}, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->checkAndCreateController()V
+
+    .line 52
+    iget-object v0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->controller:Lcom/mbridge/msdk/reward/controller/a;
+
+    if-eqz v0, :cond_0
+
+    .line 53
+    invoke-static {}, Lcom/mbridge/msdk/foundation/same/report/metrics/d;->b()Lcom/mbridge/msdk/foundation/same/report/metrics/d;
+
+    move-result-object v1
+
+    iget-object v4, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->unitId:Ljava/lang/String;
+
+    const/4 v5, 0x0
+
+    const/4 v6, -0x1
+
+    const/4 v2, 0x1
+
+    const/16 v3, 0x5e
+
+    invoke-virtual/range {v1 .. v6}, Lcom/mbridge/msdk/foundation/same/report/metrics/d;->a(IILjava/lang/String;ZI)Lcom/mbridge/msdk/foundation/same/report/metrics/e;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    .line 54
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string v2, "activity_overload"
+
+    invoke-virtual {v0, v2, v1}, Lcom/mbridge/msdk/foundation/same/report/metrics/e;->a(Ljava/lang/String;Ljava/lang/Object;)V
+
+    .line 55
+    iget-object p0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->controller:Lcom/mbridge/msdk/reward/controller/a;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p0, v1, p1, v1, v0}, Lcom/mbridge/msdk/reward/controller/a;->a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/mbridge/msdk/foundation/same/report/metrics/e;)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public showFromBid(Ljava/lang/String;Ljava/lang/String;)V
+    .locals 7
+
+    .line 56
+    invoke-direct {p0}, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->checkAndCreateController()V
+
+    .line 57
+    iget-object v0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->controller:Lcom/mbridge/msdk/reward/controller/a;
+
+    if-eqz v0, :cond_0
+
+    .line 58
+    invoke-static {}, Lcom/mbridge/msdk/foundation/same/report/metrics/d;->b()Lcom/mbridge/msdk/foundation/same/report/metrics/d;
+
+    move-result-object v1
+
+    iget-object v4, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->unitId:Ljava/lang/String;
+
+    const/4 v5, 0x0
+
+    const/4 v6, -0x1
+
+    const/4 v2, 0x1
+
+    const/16 v3, 0x5e
+
+    invoke-virtual/range {v1 .. v6}, Lcom/mbridge/msdk/foundation/same/report/metrics/d;->a(IILjava/lang/String;ZI)Lcom/mbridge/msdk/foundation/same/report/metrics/e;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    .line 59
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string v2, "activity_overload"
+
+    invoke-virtual {v0, v2, v1}, Lcom/mbridge/msdk/foundation/same/report/metrics/e;->a(Ljava/lang/String;Ljava/lang/Object;)V
+
+    .line 60
+    iget-object p0, p0, Lcom/mbridge/msdk/out/strategy/legacy/reward/BidRewardVideoStrategy;->controller:Lcom/mbridge/msdk/reward/controller/a;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p0, v1, p1, p2, v0}, Lcom/mbridge/msdk/reward/controller/a;->a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/mbridge/msdk/foundation/same/report/metrics/e;)V
+
+    :cond_0
+    return-void
+.end method

@@ -1,0 +1,46 @@
+{
+  "apk_sha256": "cfe3d01eed1351737b0894ea2cba85bea8888dd8038b5cfe71cbc4fc36380e22",
+  "classes_total": 52,
+  "decompiled_java": 48,
+  "decompiled_smali": 4,
+  "errors": [],
+  "jar_sha256": "6e5eacf500b64292bfb73c49797c1958f6ee44646e43e868039ae7feb573ff75",
+  "load": "already loaded at server start via --apk (skipped re-index)",
+  "server": {
+    "name": "jadx-headless-mcp",
+    "version": "0.7.1"
+  },
+  "unfinished": [],
+  "xref_calls": [
+    {
+      "call": "get_xrefs_to_class:{\"class_name\": \"com.afternoonproducts.swipewipe.one_drive_data_source.OneDriveDataSourceManagerImpl\"}",
+      "chars": 3798,
+      "file": "get_xrefs_to_class_292828.json"
+    },
+    {
+      "call": "get_xrefs_to_class:{\"class_name\": \"com.afternoonproducts.swipewipe.data.AppDatabase_Impl\"}",
+      "chars": 236,
+      "file": "get_xrefs_to_class_650412.json"
+    },
+    {
+      "call": "get_xrefs_to_method:{\"class_name\": \"com.afternoonproducts.swipewipe.one_drive_data_source.OneDriveDataSourceManagerImpl\", \"method_name\": \"deleteItemsBatch\"}",
+      "chars": 571,
+      "file": "get_xrefs_to_method_440246.json"
+    },
+    {
+      "call": "search_classes_by_keyword:{\"keyword\": \"http://\"}",
+      "chars": 118,
+      "file": "search_classes_by_keyword_741326.json"
+    },
+    {
+      "call": "search_classes_by_keyword:{\"keyword\": \"Retrofit\"}",
+      "chars": 119,
+      "file": "search_classes_by_keyword_170433.json"
+    },
+    {
+      "call": "search_classes_by_keyword:{\"keyword\": \"allowBackup\"}",
+      "chars": 122,
+      "file": "search_classes_by_keyword_832914.json"
+    }
+  ]
+}

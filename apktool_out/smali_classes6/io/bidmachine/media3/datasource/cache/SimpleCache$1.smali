@@ -1,0 +1,74 @@
+.class Lio/bidmachine/media3/datasource/cache/SimpleCache$1;
+.super Ljava/lang/Thread;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lio/bidmachine/media3/datasource/cache/SimpleCache;-><init>(Ljava/io/File;Lio/bidmachine/media3/datasource/cache/CacheEvictor;Lio/bidmachine/media3/datasource/cache/CachedContentIndex;Lio/bidmachine/media3/datasource/cache/CacheFileMetadataIndex;)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = null
+.end annotation
+
+
+# instance fields
+.field final synthetic this$0:Lio/bidmachine/media3/datasource/cache/SimpleCache;
+
+.field final synthetic val$conditionVariable:Landroid/os/ConditionVariable;
+
+
+# direct methods
+.method public constructor <init>(Lio/bidmachine/media3/datasource/cache/SimpleCache;Ljava/lang/String;Landroid/os/ConditionVariable;)V
+    .locals 0
+
+    iput-object p1, p0, Lio/bidmachine/media3/datasource/cache/SimpleCache$1;->this$0:Lio/bidmachine/media3/datasource/cache/SimpleCache;
+
+    iput-object p3, p0, Lio/bidmachine/media3/datasource/cache/SimpleCache$1;->val$conditionVariable:Landroid/os/ConditionVariable;
+
+    invoke-direct {p0, p2}, Ljava/lang/Thread;-><init>(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public run()V
+    .locals 2
+
+    iget-object v0, p0, Lio/bidmachine/media3/datasource/cache/SimpleCache$1;->this$0:Lio/bidmachine/media3/datasource/cache/SimpleCache;
+
+    monitor-enter v0
+
+    :try_start_0
+    iget-object v1, p0, Lio/bidmachine/media3/datasource/cache/SimpleCache$1;->val$conditionVariable:Landroid/os/ConditionVariable;
+
+    invoke-virtual {v1}, Landroid/os/ConditionVariable;->open()V
+
+    iget-object v1, p0, Lio/bidmachine/media3/datasource/cache/SimpleCache$1;->this$0:Lio/bidmachine/media3/datasource/cache/SimpleCache;
+
+    invoke-static {v1}, Lio/bidmachine/media3/datasource/cache/SimpleCache;->access$000(Lio/bidmachine/media3/datasource/cache/SimpleCache;)V
+
+    iget-object p0, p0, Lio/bidmachine/media3/datasource/cache/SimpleCache$1;->this$0:Lio/bidmachine/media3/datasource/cache/SimpleCache;
+
+    invoke-static {p0}, Lio/bidmachine/media3/datasource/cache/SimpleCache;->access$100(Lio/bidmachine/media3/datasource/cache/SimpleCache;)Lio/bidmachine/media3/datasource/cache/CacheEvictor;
+
+    move-result-object p0
+
+    invoke-interface {p0}, Lio/bidmachine/media3/datasource/cache/CacheEvictor;->onCacheInitialized()V
+
+    monitor-exit v0
+
+    return-void
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
+.end method

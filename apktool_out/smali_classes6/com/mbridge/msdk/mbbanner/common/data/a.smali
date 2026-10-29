@@ -1,0 +1,121 @@
+.class public Lcom/mbridge/msdk/mbbanner/common/data/a;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# instance fields
+.field private a:Ljava/lang/String;
+
+.field private b:I
+
+.field private c:Ljava/lang/String;
+
+.field private d:Ljava/lang/String;
+
+.field private e:Ljava/lang/String;
+
+.field private f:Z
+
+
+# direct methods
+.method public constructor <init>(Ljava/lang/String;I)V
+    .locals 1
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/mbridge/msdk/mbbanner/common/data/a;->f:Z
+
+    iput-object p1, p0, Lcom/mbridge/msdk/mbbanner/common/data/a;->a:Ljava/lang/String;
+
+    iput p2, p0, Lcom/mbridge/msdk/mbbanner/common/data/a;->b:I
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public a()Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/mbridge/msdk/mbbanner/common/data/a;->c:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method public a(Ljava/lang/String;)V
+    .locals 0
+
+    .line 3
+    iput-object p1, p0, Lcom/mbridge/msdk/mbbanner/common/data/a;->c:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method public a(Z)V
+    .locals 0
+
+    .line 4
+    iput-boolean p1, p0, Lcom/mbridge/msdk/mbbanner/common/data/a;->f:Z
+
+    return-void
+.end method
+
+.method public b()Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/mbridge/msdk/mbbanner/common/data/a;->e:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method public b(Ljava/lang/String;)V
+    .locals 0
+
+    .line 3
+    iput-object p1, p0, Lcom/mbridge/msdk/mbbanner/common/data/a;->e:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method public c()Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/mbridge/msdk/mbbanner/common/data/a;->d:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method public c(Ljava/lang/String;)V
+    .locals 0
+
+    .line 3
+    iput-object p1, p0, Lcom/mbridge/msdk/mbbanner/common/data/a;->d:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method public d()I
+    .locals 0
+
+    iget p0, p0, Lcom/mbridge/msdk/mbbanner/common/data/a;->b:I
+
+    return p0
+.end method
+
+.method public e()Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/mbridge/msdk/mbbanner/common/data/a;->a:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method public f()Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/mbridge/msdk/mbbanner/common/data/a;->f:Z
+
+    return p0
+.end method

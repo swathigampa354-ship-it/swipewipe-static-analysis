@@ -1,0 +1,37 @@
+.class public interface abstract Lcom/moloco/sdk/BidToken$BidTokenResponseV3OrBuilder;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Lcom/google/protobuf/MessageLiteOrBuilder;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/moloco/sdk/BidToken;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x609
+    name = "BidTokenResponseV3OrBuilder"
+.end annotation
+
+
+# virtual methods
+.method public abstract getBidToken()Ljava/lang/String;
+.end method
+
+.method public abstract getBidTokenBytes()Lcom/google/protobuf/ByteString;
+.end method
+
+.method public abstract getClientTokenConfigs()Lcom/moloco/sdk/BidToken$BidTokenResponseV3$ClientTokenConfigs;
+.end method
+
+.method public abstract getPk()Ljava/lang/String;
+.end method
+
+.method public abstract getPkBytes()Lcom/google/protobuf/ByteString;
+.end method
+
+.method public abstract hasClientTokenConfigs()Z
+.end method

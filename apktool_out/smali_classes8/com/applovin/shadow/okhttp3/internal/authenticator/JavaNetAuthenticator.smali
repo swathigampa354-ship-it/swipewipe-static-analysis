@@ -1,0 +1,423 @@
+.class public final Lcom/applovin/shadow/okhttp3/internal/authenticator/JavaNetAuthenticator;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Lcom/applovin/shadow/okhttp3/Authenticator;
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/applovin/shadow/okhttp3/internal/authenticator/JavaNetAuthenticator$WhenMappings;
+    }
+.end annotation
+
+.annotation runtime Lkotlin/Metadata;
+    d1 = {
+        "\u00006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\u0018\u00002\u00020\u0001B\u000f\u0012\u0008\u0008\u0002\u0010\u0002\u001a\u00020\u0003\u00a2\u0006\u0002\u0010\u0004J\u001c\u0010\u0005\u001a\u0004\u0018\u00010\u00062\u0008\u0010\u0007\u001a\u0004\u0018\u00010\u00082\u0006\u0010\t\u001a\u00020\nH\u0016J\u001c\u0010\u000b\u001a\u00020\u000c*\u00020\r2\u0006\u0010\u000e\u001a\u00020\u000f2\u0006\u0010\u0010\u001a\u00020\u0003H\u0002R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004\u00a2\u0006\u0002\n\u0000\u00a8\u0006\u0011"
+    }
+    d2 = {
+        "Lcom/applovin/shadow/okhttp3/internal/authenticator/JavaNetAuthenticator;",
+        "Lcom/applovin/shadow/okhttp3/Authenticator;",
+        "defaultDns",
+        "Lcom/applovin/shadow/okhttp3/Dns;",
+        "(Lokhttp3/Dns;)V",
+        "authenticate",
+        "Lcom/applovin/shadow/okhttp3/Request;",
+        "route",
+        "Lcom/applovin/shadow/okhttp3/Route;",
+        "response",
+        "Lcom/applovin/shadow/okhttp3/Response;",
+        "connectToInetAddress",
+        "Ljava/net/InetAddress;",
+        "Ljava/net/Proxy;",
+        "url",
+        "Lcom/applovin/shadow/okhttp3/HttpUrl;",
+        "dns",
+        "okhttp"
+    }
+    k = 0x1
+    mv = {
+        0x1,
+        0x8,
+        0x0
+    }
+    xi = 0x30
+.end annotation
+
+
+# instance fields
+.field private final defaultDns:Lcom/applovin/shadow/okhttp3/Dns;
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+.end field
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 2
+
+    .line 11
+    const/4 v0, 0x0
+
+    const/4 v1, 0x1
+
+    invoke-direct {p0, v0, v1, v0}, Lcom/applovin/shadow/okhttp3/internal/authenticator/JavaNetAuthenticator;-><init>(Lcom/applovin/shadow/okhttp3/Dns;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/applovin/shadow/okhttp3/Dns;)V
+    .locals 0
+    .param p1    # Lcom/applovin/shadow/okhttp3/Dns;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    .line 10
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/applovin/shadow/okhttp3/internal/authenticator/JavaNetAuthenticator;->defaultDns:Lcom/applovin/shadow/okhttp3/Dns;
+
+    return-void
+.end method
+
+.method public synthetic constructor <init>(Lcom/applovin/shadow/okhttp3/Dns;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+    .locals 0
+
+    and-int/lit8 p2, p2, 0x1
+
+    if-eqz p2, :cond_0
+
+    sget-object p1, Lcom/applovin/shadow/okhttp3/Dns;->SYSTEM:Lcom/applovin/shadow/okhttp3/Dns;
+
+    :cond_0
+    invoke-direct {p0, p1}, Lcom/applovin/shadow/okhttp3/internal/authenticator/JavaNetAuthenticator;-><init>(Lcom/applovin/shadow/okhttp3/Dns;)V
+
+    return-void
+.end method
+
+.method private final connectToInetAddress(Ljava/net/Proxy;Lcom/applovin/shadow/okhttp3/HttpUrl;Lcom/applovin/shadow/okhttp3/Dns;)Ljava/net/InetAddress;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    invoke-virtual {p1}, Ljava/net/Proxy;->type()Ljava/net/Proxy$Type;
+
+    move-result-object p0
+
+    if-nez p0, :cond_0
+
+    const/4 p0, -0x1
+
+    goto :goto_0
+
+    :cond_0
+    sget-object v0, Lcom/applovin/shadow/okhttp3/internal/authenticator/JavaNetAuthenticator$WhenMappings;->$EnumSwitchMapping$0:[I
+
+    invoke-virtual {p0}, Ljava/lang/Enum;->ordinal()I
+
+    move-result p0
+
+    aget p0, v0, p0
+
+    :goto_0
+    const/4 v0, 0x1
+
+    if-ne p0, v0, :cond_1
+
+    invoke-virtual {p2}, Lcom/applovin/shadow/okhttp3/HttpUrl;->host()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-interface {p3, p0}, Lcom/applovin/shadow/okhttp3/Dns;->lookup(Ljava/lang/String;)Ljava/util/List;
+
+    move-result-object p0
+
+    invoke-static {p0}, Lkotlin/collections/CollectionsKt;->O(Ljava/util/List;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Ljava/net/InetAddress;
+
+    return-object p0
+
+    :cond_1
+    invoke-virtual {p1}, Ljava/net/Proxy;->address()Ljava/net/SocketAddress;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    check-cast p0, Ljava/net/InetSocketAddress;
+
+    invoke-virtual {p0}, Ljava/net/InetSocketAddress;->getAddress()Ljava/net/InetAddress;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    return-object p0
+.end method
+
+
+# virtual methods
+.method public authenticate(Lcom/applovin/shadow/okhttp3/Route;Lcom/applovin/shadow/okhttp3/Response;)Lcom/applovin/shadow/okhttp3/Request;
+    .locals 17
+    .param p1    # Lcom/applovin/shadow/okhttp3/Route;
+        .annotation build Lorg/jetbrains/annotations/Nullable;
+        .end annotation
+    .end param
+    .param p2    # Lcom/applovin/shadow/okhttp3/Response;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
+
+    move-object/from16 v0, p0
+
+    invoke-virtual/range {p2 .. p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-virtual/range {p2 .. p2}, Lcom/applovin/shadow/okhttp3/Response;->challenges()Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-virtual/range {p2 .. p2}, Lcom/applovin/shadow/okhttp3/Response;->request()Lcom/applovin/shadow/okhttp3/Request;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/applovin/shadow/okhttp3/Request;->url()Lcom/applovin/shadow/okhttp3/HttpUrl;
+
+    move-result-object v3
+
+    invoke-virtual/range {p2 .. p2}, Lcom/applovin/shadow/okhttp3/Response;->code()I
+
+    move-result v4
+
+    const/16 v5, 0x197
+
+    if-ne v4, v5, :cond_0
+
+    const/4 v4, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v4, 0x0
+
+    :goto_0
+    if-eqz p1, :cond_1
+
+    invoke-virtual/range {p1 .. p1}, Lcom/applovin/shadow/okhttp3/Route;->proxy()Ljava/net/Proxy;
+
+    move-result-object v5
+
+    if-nez v5, :cond_2
+
+    :cond_1
+    sget-object v5, Ljava/net/Proxy;->NO_PROXY:Ljava/net/Proxy;
+
+    :cond_2
+    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :cond_3
+    :goto_1
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_9
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Lcom/applovin/shadow/okhttp3/Challenge;
+
+    const-string v7, "Basic"
+
+    invoke-virtual {v6}, Lcom/applovin/shadow/okhttp3/Challenge;->scheme()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v7
+
+    if-nez v7, :cond_4
+
+    goto :goto_1
+
+    :cond_4
+    if-eqz p1, :cond_5
+
+    invoke-virtual/range {p1 .. p1}, Lcom/applovin/shadow/okhttp3/Route;->address()Lcom/applovin/shadow/okhttp3/Address;
+
+    move-result-object v7
+
+    if-eqz v7, :cond_5
+
+    invoke-virtual {v7}, Lcom/applovin/shadow/okhttp3/Address;->dns()Lcom/applovin/shadow/okhttp3/Dns;
+
+    move-result-object v7
+
+    if-nez v7, :cond_6
+
+    :cond_5
+    iget-object v7, v0, Lcom/applovin/shadow/okhttp3/internal/authenticator/JavaNetAuthenticator;->defaultDns:Lcom/applovin/shadow/okhttp3/Dns;
+
+    :cond_6
+    if-eqz v4, :cond_7
+
+    invoke-virtual {v5}, Ljava/net/Proxy;->address()Ljava/net/SocketAddress;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    check-cast v8, Ljava/net/InetSocketAddress;
+
+    invoke-virtual {v8}, Ljava/net/InetSocketAddress;->getHostName()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-direct {v0, v5, v3, v7}, Lcom/applovin/shadow/okhttp3/internal/authenticator/JavaNetAuthenticator;->connectToInetAddress(Ljava/net/Proxy;Lcom/applovin/shadow/okhttp3/HttpUrl;Lcom/applovin/shadow/okhttp3/Dns;)Ljava/net/InetAddress;
+
+    move-result-object v10
+
+    invoke-virtual {v8}, Ljava/net/InetSocketAddress;->getPort()I
+
+    move-result v11
+
+    invoke-virtual {v3}, Lcom/applovin/shadow/okhttp3/HttpUrl;->scheme()Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-virtual {v6}, Lcom/applovin/shadow/okhttp3/Challenge;->realm()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-virtual {v6}, Lcom/applovin/shadow/okhttp3/Challenge;->scheme()Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-virtual {v3}, Lcom/applovin/shadow/okhttp3/HttpUrl;->url()Ljava/net/URL;
+
+    move-result-object v15
+
+    sget-object v16, Ljava/net/Authenticator$RequestorType;->PROXY:Ljava/net/Authenticator$RequestorType;
+
+    invoke-static/range {v9 .. v16}, Ljava/net/Authenticator;->requestPasswordAuthentication(Ljava/lang/String;Ljava/net/InetAddress;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/net/URL;Ljava/net/Authenticator$RequestorType;)Ljava/net/PasswordAuthentication;
+
+    move-result-object v7
+
+    goto :goto_2
+
+    :cond_7
+    invoke-virtual {v3}, Lcom/applovin/shadow/okhttp3/HttpUrl;->host()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v5}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-direct {v0, v5, v3, v7}, Lcom/applovin/shadow/okhttp3/internal/authenticator/JavaNetAuthenticator;->connectToInetAddress(Ljava/net/Proxy;Lcom/applovin/shadow/okhttp3/HttpUrl;Lcom/applovin/shadow/okhttp3/Dns;)Ljava/net/InetAddress;
+
+    move-result-object v9
+
+    invoke-virtual {v3}, Lcom/applovin/shadow/okhttp3/HttpUrl;->port()I
+
+    move-result v10
+
+    invoke-virtual {v3}, Lcom/applovin/shadow/okhttp3/HttpUrl;->scheme()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v6}, Lcom/applovin/shadow/okhttp3/Challenge;->realm()Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-virtual {v6}, Lcom/applovin/shadow/okhttp3/Challenge;->scheme()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-virtual {v3}, Lcom/applovin/shadow/okhttp3/HttpUrl;->url()Ljava/net/URL;
+
+    move-result-object v14
+
+    sget-object v15, Ljava/net/Authenticator$RequestorType;->SERVER:Ljava/net/Authenticator$RequestorType;
+
+    invoke-static/range {v8 .. v15}, Ljava/net/Authenticator;->requestPasswordAuthentication(Ljava/lang/String;Ljava/net/InetAddress;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/net/URL;Ljava/net/Authenticator$RequestorType;)Ljava/net/PasswordAuthentication;
+
+    move-result-object v7
+
+    :goto_2
+    if-eqz v7, :cond_3
+
+    if-eqz v4, :cond_8
+
+    const-string v0, "Proxy-Authorization"
+
+    goto :goto_3
+
+    :cond_8
+    const-string v0, "Authorization"
+
+    :goto_3
+    invoke-virtual {v7}, Ljava/net/PasswordAuthentication;->getUserName()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-virtual {v7}, Ljava/net/PasswordAuthentication;->getPassword()[C
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    new-instance v4, Ljava/lang/String;
+
+    invoke-direct {v4, v3}, Ljava/lang/String;-><init>([C)V
+
+    invoke-virtual {v6}, Lcom/applovin/shadow/okhttp3/Challenge;->charset()Ljava/nio/charset/Charset;
+
+    move-result-object v3
+
+    invoke-static {v1, v4, v3}, Lcom/applovin/shadow/okhttp3/Credentials;->basic(Ljava/lang/String;Ljava/lang/String;Ljava/nio/charset/Charset;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v2}, Lcom/applovin/shadow/okhttp3/Request;->newBuilder()Lcom/applovin/shadow/okhttp3/Request$Builder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0, v1}, Lcom/applovin/shadow/okhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lcom/applovin/shadow/okhttp3/Request$Builder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/applovin/shadow/okhttp3/Request$Builder;->build()Lcom/applovin/shadow/okhttp3/Request;
+
+    move-result-object v0
+
+    return-object v0
+
+    :cond_9
+    const/4 v0, 0x0
+
+    return-object v0
+.end method

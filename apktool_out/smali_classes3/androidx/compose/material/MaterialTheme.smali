@@ -1,0 +1,70 @@
+.class public final Landroidx/compose/material/MaterialTheme;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# annotations
+.annotation build Landroidx/compose/runtime/internal/StabilityInferred;
+.end annotation
+
+.annotation runtime Lkotlin/Metadata;
+    d1 = {
+        "\u0000\n\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\u0008\u00c7\u0002\u0018\u00002\u00020\u0001\u00a8\u0006\u0002"
+    }
+    d2 = {
+        "Landroidx/compose/material/MaterialTheme;",
+        "",
+        "material"
+    }
+    k = 0x1
+    mv = {
+        0x2,
+        0x0,
+        0x0
+    }
+    xi = 0x30
+.end annotation
+
+
+# direct methods
+.method public static a(Landroidx/compose/runtime/Composer;)Landroidx/compose/material/Colors;
+    .locals 1
+
+    sget-object v0, Landroidx/compose/material/ColorsKt;->a:Landroidx/compose/runtime/StaticProvidableCompositionLocal;
+
+    invoke-interface {p0, v0}, Landroidx/compose/runtime/Composer;->y(Landroidx/compose/runtime/CompositionLocal;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Landroidx/compose/material/Colors;
+
+    return-object p0
+.end method
+
+.method public static b(Landroidx/compose/runtime/Composer;)Landroidx/compose/material/Shapes;
+    .locals 1
+
+    sget-object v0, Landroidx/compose/material/ShapesKt;->a:Landroidx/compose/runtime/StaticProvidableCompositionLocal;
+
+    invoke-interface {p0, v0}, Landroidx/compose/runtime/Composer;->y(Landroidx/compose/runtime/CompositionLocal;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Landroidx/compose/material/Shapes;
+
+    return-object p0
+.end method
+
+.method public static c(Landroidx/compose/runtime/Composer;)Landroidx/compose/material/Typography;
+    .locals 1
+
+    sget-object v0, Landroidx/compose/material/TypographyKt;->b:Landroidx/compose/runtime/StaticProvidableCompositionLocal;
+
+    invoke-interface {p0, v0}, Landroidx/compose/runtime/Composer;->y(Landroidx/compose/runtime/CompositionLocal;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Landroidx/compose/material/Typography;
+
+    return-object p0
+.end method

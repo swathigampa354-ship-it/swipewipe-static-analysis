@@ -1,0 +1,622 @@
+.class public final Landroidx/media3/common/text/Cue$Builder;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# annotations
+.annotation build Landroidx/media3/common/util/UnstableApi;
+.end annotation
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroidx/media3/common/text/Cue;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "Builder"
+.end annotation
+
+
+# instance fields
+.field private bitmap:Landroid/graphics/Bitmap;
+    .annotation build Landroidx/annotation/Nullable;
+    .end annotation
+.end field
+
+.field private bitmapHeight:F
+
+.field private line:F
+
+.field private lineAnchor:I
+
+.field private lineType:I
+
+.field private multiRowAlignment:Landroid/text/Layout$Alignment;
+    .annotation build Landroidx/annotation/Nullable;
+    .end annotation
+.end field
+
+.field private position:F
+
+.field private positionAnchor:I
+
+.field private shearDegrees:F
+
+.field private size:F
+
+.field private text:Ljava/lang/CharSequence;
+    .annotation build Landroidx/annotation/Nullable;
+    .end annotation
+.end field
+
+.field private textAlignment:Landroid/text/Layout$Alignment;
+    .annotation build Landroidx/annotation/Nullable;
+    .end annotation
+.end field
+
+.field private textSize:F
+
+.field private textSizeType:I
+
+.field private verticalType:I
+
+.field private windowColor:I
+    .annotation build Landroidx/annotation/ColorInt;
+    .end annotation
+.end field
+
+.field private windowColorSet:Z
+
+.field private zIndex:I
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 2
+
+    .line 76
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/4 v0, 0x0
+
+    .line 77
+    iput-object v0, p0, Landroidx/media3/common/text/Cue$Builder;->text:Ljava/lang/CharSequence;
+
+    .line 78
+    iput-object v0, p0, Landroidx/media3/common/text/Cue$Builder;->bitmap:Landroid/graphics/Bitmap;
+
+    .line 79
+    iput-object v0, p0, Landroidx/media3/common/text/Cue$Builder;->textAlignment:Landroid/text/Layout$Alignment;
+
+    .line 80
+    iput-object v0, p0, Landroidx/media3/common/text/Cue$Builder;->multiRowAlignment:Landroid/text/Layout$Alignment;
+
+    const v0, -0x800001
+
+    .line 81
+    iput v0, p0, Landroidx/media3/common/text/Cue$Builder;->line:F
+
+    const/high16 v1, -0x80000000
+
+    .line 82
+    iput v1, p0, Landroidx/media3/common/text/Cue$Builder;->lineType:I
+
+    .line 83
+    iput v1, p0, Landroidx/media3/common/text/Cue$Builder;->lineAnchor:I
+
+    .line 84
+    iput v0, p0, Landroidx/media3/common/text/Cue$Builder;->position:F
+
+    .line 85
+    iput v1, p0, Landroidx/media3/common/text/Cue$Builder;->positionAnchor:I
+
+    .line 86
+    iput v1, p0, Landroidx/media3/common/text/Cue$Builder;->textSizeType:I
+
+    .line 87
+    iput v0, p0, Landroidx/media3/common/text/Cue$Builder;->textSize:F
+
+    .line 88
+    iput v0, p0, Landroidx/media3/common/text/Cue$Builder;->size:F
+
+    .line 89
+    iput v0, p0, Landroidx/media3/common/text/Cue$Builder;->bitmapHeight:F
+
+    const/4 v0, 0x0
+
+    .line 90
+    iput-boolean v0, p0, Landroidx/media3/common/text/Cue$Builder;->windowColorSet:Z
+
+    const/high16 v0, -0x1000000
+
+    .line 91
+    iput v0, p0, Landroidx/media3/common/text/Cue$Builder;->windowColor:I
+
+    .line 92
+    iput v1, p0, Landroidx/media3/common/text/Cue$Builder;->verticalType:I
+
+    return-void
+.end method
+
+.method private constructor <init>(Landroidx/media3/common/text/Cue;)V
+    .locals 1
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iget-object v0, p1, Landroidx/media3/common/text/Cue;->text:Ljava/lang/CharSequence;
+
+    iput-object v0, p0, Landroidx/media3/common/text/Cue$Builder;->text:Ljava/lang/CharSequence;
+
+    iget-object v0, p1, Landroidx/media3/common/text/Cue;->bitmap:Landroid/graphics/Bitmap;
+
+    iput-object v0, p0, Landroidx/media3/common/text/Cue$Builder;->bitmap:Landroid/graphics/Bitmap;
+
+    iget-object v0, p1, Landroidx/media3/common/text/Cue;->textAlignment:Landroid/text/Layout$Alignment;
+
+    iput-object v0, p0, Landroidx/media3/common/text/Cue$Builder;->textAlignment:Landroid/text/Layout$Alignment;
+
+    iget-object v0, p1, Landroidx/media3/common/text/Cue;->multiRowAlignment:Landroid/text/Layout$Alignment;
+
+    iput-object v0, p0, Landroidx/media3/common/text/Cue$Builder;->multiRowAlignment:Landroid/text/Layout$Alignment;
+
+    iget v0, p1, Landroidx/media3/common/text/Cue;->line:F
+
+    iput v0, p0, Landroidx/media3/common/text/Cue$Builder;->line:F
+
+    iget v0, p1, Landroidx/media3/common/text/Cue;->lineType:I
+
+    iput v0, p0, Landroidx/media3/common/text/Cue$Builder;->lineType:I
+
+    iget v0, p1, Landroidx/media3/common/text/Cue;->lineAnchor:I
+
+    iput v0, p0, Landroidx/media3/common/text/Cue$Builder;->lineAnchor:I
+
+    iget v0, p1, Landroidx/media3/common/text/Cue;->position:F
+
+    iput v0, p0, Landroidx/media3/common/text/Cue$Builder;->position:F
+
+    iget v0, p1, Landroidx/media3/common/text/Cue;->positionAnchor:I
+
+    iput v0, p0, Landroidx/media3/common/text/Cue$Builder;->positionAnchor:I
+
+    iget v0, p1, Landroidx/media3/common/text/Cue;->textSizeType:I
+
+    iput v0, p0, Landroidx/media3/common/text/Cue$Builder;->textSizeType:I
+
+    iget v0, p1, Landroidx/media3/common/text/Cue;->textSize:F
+
+    iput v0, p0, Landroidx/media3/common/text/Cue$Builder;->textSize:F
+
+    iget v0, p1, Landroidx/media3/common/text/Cue;->size:F
+
+    iput v0, p0, Landroidx/media3/common/text/Cue$Builder;->size:F
+
+    iget v0, p1, Landroidx/media3/common/text/Cue;->bitmapHeight:F
+
+    iput v0, p0, Landroidx/media3/common/text/Cue$Builder;->bitmapHeight:F
+
+    iget-boolean v0, p1, Landroidx/media3/common/text/Cue;->windowColorSet:Z
+
+    iput-boolean v0, p0, Landroidx/media3/common/text/Cue$Builder;->windowColorSet:Z
+
+    iget v0, p1, Landroidx/media3/common/text/Cue;->windowColor:I
+
+    iput v0, p0, Landroidx/media3/common/text/Cue$Builder;->windowColor:I
+
+    iget v0, p1, Landroidx/media3/common/text/Cue;->verticalType:I
+
+    iput v0, p0, Landroidx/media3/common/text/Cue$Builder;->verticalType:I
+
+    iget v0, p1, Landroidx/media3/common/text/Cue;->shearDegrees:F
+
+    iput v0, p0, Landroidx/media3/common/text/Cue$Builder;->shearDegrees:F
+
+    iget p1, p1, Landroidx/media3/common/text/Cue;->zIndex:I
+
+    iput p1, p0, Landroidx/media3/common/text/Cue$Builder;->zIndex:I
+
+    return-void
+.end method
+
+.method public synthetic constructor <init>(Landroidx/media3/common/text/Cue;Landroidx/media3/common/text/Cue$1;)V
+    .locals 0
+
+    .line 93
+    invoke-direct {p0, p1}, Landroidx/media3/common/text/Cue$Builder;-><init>(Landroidx/media3/common/text/Cue;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public build()Landroidx/media3/common/text/Cue;
+    .locals 21
+
+    move-object/from16 v0, p0
+
+    new-instance v1, Landroidx/media3/common/text/Cue;
+
+    move-object v2, v1
+
+    iget-object v1, v0, Landroidx/media3/common/text/Cue$Builder;->text:Ljava/lang/CharSequence;
+
+    move-object v3, v2
+
+    iget-object v2, v0, Landroidx/media3/common/text/Cue$Builder;->textAlignment:Landroid/text/Layout$Alignment;
+
+    move-object v4, v3
+
+    iget-object v3, v0, Landroidx/media3/common/text/Cue$Builder;->multiRowAlignment:Landroid/text/Layout$Alignment;
+
+    move-object v5, v4
+
+    iget-object v4, v0, Landroidx/media3/common/text/Cue$Builder;->bitmap:Landroid/graphics/Bitmap;
+
+    move-object v6, v5
+
+    iget v5, v0, Landroidx/media3/common/text/Cue$Builder;->line:F
+
+    move-object v7, v6
+
+    iget v6, v0, Landroidx/media3/common/text/Cue$Builder;->lineType:I
+
+    move-object v8, v7
+
+    iget v7, v0, Landroidx/media3/common/text/Cue$Builder;->lineAnchor:I
+
+    move-object v9, v8
+
+    iget v8, v0, Landroidx/media3/common/text/Cue$Builder;->position:F
+
+    move-object v10, v9
+
+    iget v9, v0, Landroidx/media3/common/text/Cue$Builder;->positionAnchor:I
+
+    move-object v11, v10
+
+    iget v10, v0, Landroidx/media3/common/text/Cue$Builder;->textSizeType:I
+
+    move-object v12, v11
+
+    iget v11, v0, Landroidx/media3/common/text/Cue$Builder;->textSize:F
+
+    move-object v13, v12
+
+    iget v12, v0, Landroidx/media3/common/text/Cue$Builder;->size:F
+
+    move-object v14, v13
+
+    iget v13, v0, Landroidx/media3/common/text/Cue$Builder;->bitmapHeight:F
+
+    move-object v15, v14
+
+    iget-boolean v14, v0, Landroidx/media3/common/text/Cue$Builder;->windowColorSet:Z
+
+    move-object/from16 v16, v15
+
+    iget v15, v0, Landroidx/media3/common/text/Cue$Builder;->windowColor:I
+
+    move-object/from16 v17, v1
+
+    iget v1, v0, Landroidx/media3/common/text/Cue$Builder;->verticalType:I
+
+    move/from16 v18, v1
+
+    iget v1, v0, Landroidx/media3/common/text/Cue$Builder;->shearDegrees:F
+
+    iget v0, v0, Landroidx/media3/common/text/Cue$Builder;->zIndex:I
+
+    const/16 v19, 0x0
+
+    move/from16 v20, v18
+
+    move/from16 v18, v0
+
+    move-object/from16 v0, v16
+
+    move/from16 v16, v20
+
+    move-object/from16 v20, v17
+
+    move/from16 v17, v1
+
+    move-object/from16 v1, v20
+
+    invoke-direct/range {v0 .. v19}, Landroidx/media3/common/text/Cue;-><init>(Ljava/lang/CharSequence;Landroid/text/Layout$Alignment;Landroid/text/Layout$Alignment;Landroid/graphics/Bitmap;FIIFIIFFFZIIFILandroidx/media3/common/text/Cue$1;)V
+
+    return-object v0
+.end method
+
+.method public clearWindowColor()Landroidx/media3/common/text/Cue$Builder;
+    .locals 1
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Landroidx/media3/common/text/Cue$Builder;->windowColorSet:Z
+
+    return-object p0
+.end method
+
+.method public getBitmap()Landroid/graphics/Bitmap;
+    .locals 0
+    .annotation build Landroidx/annotation/Nullable;
+    .end annotation
+
+    iget-object p0, p0, Landroidx/media3/common/text/Cue$Builder;->bitmap:Landroid/graphics/Bitmap;
+
+    return-object p0
+.end method
+
+.method public getBitmapHeight()F
+    .locals 0
+
+    iget p0, p0, Landroidx/media3/common/text/Cue$Builder;->bitmapHeight:F
+
+    return p0
+.end method
+
+.method public getLine()F
+    .locals 0
+
+    iget p0, p0, Landroidx/media3/common/text/Cue$Builder;->line:F
+
+    return p0
+.end method
+
+.method public getLineAnchor()I
+    .locals 0
+
+    iget p0, p0, Landroidx/media3/common/text/Cue$Builder;->lineAnchor:I
+
+    return p0
+.end method
+
+.method public getLineType()I
+    .locals 0
+
+    iget p0, p0, Landroidx/media3/common/text/Cue$Builder;->lineType:I
+
+    return p0
+.end method
+
+.method public getPosition()F
+    .locals 0
+
+    iget p0, p0, Landroidx/media3/common/text/Cue$Builder;->position:F
+
+    return p0
+.end method
+
+.method public getPositionAnchor()I
+    .locals 0
+
+    iget p0, p0, Landroidx/media3/common/text/Cue$Builder;->positionAnchor:I
+
+    return p0
+.end method
+
+.method public getSize()F
+    .locals 0
+
+    iget p0, p0, Landroidx/media3/common/text/Cue$Builder;->size:F
+
+    return p0
+.end method
+
+.method public getText()Ljava/lang/CharSequence;
+    .locals 0
+    .annotation build Landroidx/annotation/Nullable;
+    .end annotation
+
+    iget-object p0, p0, Landroidx/media3/common/text/Cue$Builder;->text:Ljava/lang/CharSequence;
+
+    return-object p0
+.end method
+
+.method public getTextAlignment()Landroid/text/Layout$Alignment;
+    .locals 0
+    .annotation build Landroidx/annotation/Nullable;
+    .end annotation
+
+    iget-object p0, p0, Landroidx/media3/common/text/Cue$Builder;->textAlignment:Landroid/text/Layout$Alignment;
+
+    return-object p0
+.end method
+
+.method public getTextSize()F
+    .locals 0
+
+    iget p0, p0, Landroidx/media3/common/text/Cue$Builder;->textSize:F
+
+    return p0
+.end method
+
+.method public getTextSizeType()I
+    .locals 0
+
+    iget p0, p0, Landroidx/media3/common/text/Cue$Builder;->textSizeType:I
+
+    return p0
+.end method
+
+.method public getVerticalType()I
+    .locals 0
+
+    iget p0, p0, Landroidx/media3/common/text/Cue$Builder;->verticalType:I
+
+    return p0
+.end method
+
+.method public getWindowColor()I
+    .locals 0
+    .annotation build Landroidx/annotation/ColorInt;
+    .end annotation
+
+    iget p0, p0, Landroidx/media3/common/text/Cue$Builder;->windowColor:I
+
+    return p0
+.end method
+
+.method public getZIndex()I
+    .locals 0
+
+    iget p0, p0, Landroidx/media3/common/text/Cue$Builder;->zIndex:I
+
+    return p0
+.end method
+
+.method public isWindowColorSet()Z
+    .locals 0
+
+    iget-boolean p0, p0, Landroidx/media3/common/text/Cue$Builder;->windowColorSet:Z
+
+    return p0
+.end method
+
+.method public setBitmap(Landroid/graphics/Bitmap;)Landroidx/media3/common/text/Cue$Builder;
+    .locals 0
+
+    iput-object p1, p0, Landroidx/media3/common/text/Cue$Builder;->bitmap:Landroid/graphics/Bitmap;
+
+    const/4 p1, 0x0
+
+    iput-object p1, p0, Landroidx/media3/common/text/Cue$Builder;->text:Ljava/lang/CharSequence;
+
+    return-object p0
+.end method
+
+.method public setBitmapHeight(F)Landroidx/media3/common/text/Cue$Builder;
+    .locals 0
+
+    iput p1, p0, Landroidx/media3/common/text/Cue$Builder;->bitmapHeight:F
+
+    return-object p0
+.end method
+
+.method public setLine(FI)Landroidx/media3/common/text/Cue$Builder;
+    .locals 0
+
+    iput p1, p0, Landroidx/media3/common/text/Cue$Builder;->line:F
+
+    iput p2, p0, Landroidx/media3/common/text/Cue$Builder;->lineType:I
+
+    return-object p0
+.end method
+
+.method public setLineAnchor(I)Landroidx/media3/common/text/Cue$Builder;
+    .locals 0
+
+    iput p1, p0, Landroidx/media3/common/text/Cue$Builder;->lineAnchor:I
+
+    return-object p0
+.end method
+
+.method public setMultiRowAlignment(Landroid/text/Layout$Alignment;)Landroidx/media3/common/text/Cue$Builder;
+    .locals 0
+    .param p1    # Landroid/text/Layout$Alignment;
+        .annotation build Landroidx/annotation/Nullable;
+        .end annotation
+    .end param
+
+    iput-object p1, p0, Landroidx/media3/common/text/Cue$Builder;->multiRowAlignment:Landroid/text/Layout$Alignment;
+
+    return-object p0
+.end method
+
+.method public setPosition(F)Landroidx/media3/common/text/Cue$Builder;
+    .locals 0
+
+    iput p1, p0, Landroidx/media3/common/text/Cue$Builder;->position:F
+
+    return-object p0
+.end method
+
+.method public setPositionAnchor(I)Landroidx/media3/common/text/Cue$Builder;
+    .locals 0
+
+    iput p1, p0, Landroidx/media3/common/text/Cue$Builder;->positionAnchor:I
+
+    return-object p0
+.end method
+
+.method public setShearDegrees(F)Landroidx/media3/common/text/Cue$Builder;
+    .locals 0
+
+    iput p1, p0, Landroidx/media3/common/text/Cue$Builder;->shearDegrees:F
+
+    return-object p0
+.end method
+
+.method public setSize(F)Landroidx/media3/common/text/Cue$Builder;
+    .locals 0
+
+    iput p1, p0, Landroidx/media3/common/text/Cue$Builder;->size:F
+
+    return-object p0
+.end method
+
+.method public setText(Ljava/lang/CharSequence;)Landroidx/media3/common/text/Cue$Builder;
+    .locals 0
+
+    iput-object p1, p0, Landroidx/media3/common/text/Cue$Builder;->text:Ljava/lang/CharSequence;
+
+    const/4 p1, 0x0
+
+    iput-object p1, p0, Landroidx/media3/common/text/Cue$Builder;->bitmap:Landroid/graphics/Bitmap;
+
+    return-object p0
+.end method
+
+.method public setTextAlignment(Landroid/text/Layout$Alignment;)Landroidx/media3/common/text/Cue$Builder;
+    .locals 0
+    .param p1    # Landroid/text/Layout$Alignment;
+        .annotation build Landroidx/annotation/Nullable;
+        .end annotation
+    .end param
+
+    iput-object p1, p0, Landroidx/media3/common/text/Cue$Builder;->textAlignment:Landroid/text/Layout$Alignment;
+
+    return-object p0
+.end method
+
+.method public setTextSize(FI)Landroidx/media3/common/text/Cue$Builder;
+    .locals 0
+
+    iput p1, p0, Landroidx/media3/common/text/Cue$Builder;->textSize:F
+
+    iput p2, p0, Landroidx/media3/common/text/Cue$Builder;->textSizeType:I
+
+    return-object p0
+.end method
+
+.method public setVerticalType(I)Landroidx/media3/common/text/Cue$Builder;
+    .locals 0
+
+    iput p1, p0, Landroidx/media3/common/text/Cue$Builder;->verticalType:I
+
+    return-object p0
+.end method
+
+.method public setWindowColor(I)Landroidx/media3/common/text/Cue$Builder;
+    .locals 0
+    .param p1    # I
+        .annotation build Landroidx/annotation/ColorInt;
+        .end annotation
+    .end param
+
+    iput p1, p0, Landroidx/media3/common/text/Cue$Builder;->windowColor:I
+
+    const/4 p1, 0x1
+
+    iput-boolean p1, p0, Landroidx/media3/common/text/Cue$Builder;->windowColorSet:Z
+
+    return-object p0
+.end method
+
+.method public setZIndex(I)Landroidx/media3/common/text/Cue$Builder;
+    .locals 0
+
+    iput p1, p0, Landroidx/media3/common/text/Cue$Builder;->zIndex:I
+
+    return-object p0
+.end method

@@ -1,0 +1,131 @@
+.class public final Landroidx/compose/foundation/text/contextmenu/ProcessText_androidKt;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# annotations
+.annotation runtime Lkotlin/Metadata;
+    d1 = {
+        "\u0000\u0002\n\u0000\u00a8\u0006\u0000"
+    }
+    d2 = {
+        "foundation"
+    }
+    k = 0x2
+    mv = {
+        0x2,
+        0x0,
+        0x0
+    }
+    xi = 0x30
+.end annotation
+
+
+# direct methods
+.method public static final a(Landroidx/compose/foundation/text/contextmenu/builder/TextContextMenuBuilderScope;Landroid/content/Context;ZLjava/lang/CharSequence;J)V
+    .locals 14
+
+    invoke-static/range {p4 .. p5}, Landroidx/compose/ui/text/TextRange;->d(J)Z
+
+    move-result v0
+
+    if-nez v0, :cond_3
+
+    invoke-interface/range {p3 .. p3}, Ljava/lang/CharSequence;->length()I
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    goto :goto_1
+
+    :cond_0
+    invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v0
+
+    sget-object v1, Landroidx/compose/foundation/text/contextmenu/ProcessTextApi23Impl;->a:Lun2;
+
+    invoke-virtual {v1, p1}, Lun2;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/util/List;
+
+    invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    goto :goto_1
+
+    :cond_1
+    invoke-virtual {p0}, Landroidx/compose/foundation/text/contextmenu/builder/TextContextMenuBuilderScope;->a()V
+
+    move-object v2, v1
+
+    check-cast v2, Ljava/util/Collection;
+
+    invoke-interface {v2}, Ljava/util/Collection;->size()I
+
+    move-result v2
+
+    const/4 v3, 0x0
+
+    move v4, v3
+
+    :goto_0
+    if-ge v4, v2, :cond_2
+
+    invoke-interface {v1, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    move-object v8, v5
+
+    check-cast v8, Landroid/content/pm/ResolveInfo;
+
+    new-instance v5, Landroidx/compose/foundation/text/contextmenu/data/ProcessTextKey;
+
+    invoke-direct {v5, v4}, Landroidx/compose/foundation/text/contextmenu/data/ProcessTextKey;-><init>(I)V
+
+    invoke-virtual {v8, v0}, Landroid/content/pm/ResolveInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object v13
+
+    new-instance v6, Lc13;
+
+    move-object v7, p1
+
+    move/from16 v9, p2
+
+    move-object/from16 v10, p3
+
+    move-wide/from16 v11, p4
+
+    invoke-direct/range {v6 .. v12}, Lc13;-><init>(Landroid/content/Context;Landroid/content/pm/ResolveInfo;ZLjava/lang/CharSequence;J)V
+
+    new-instance v7, Landroidx/compose/foundation/text/contextmenu/data/TextContextMenuItem;
+
+    invoke-direct {v7, v5, v13, v3, v6}, Landroidx/compose/foundation/text/contextmenu/data/TextContextMenuItem;-><init>(Ljava/lang/Object;Ljava/lang/String;ILkotlin/jvm/functions/Function1;)V
+
+    iget-object v5, p0, Landroidx/compose/foundation/text/contextmenu/builder/TextContextMenuBuilderScope;->a:Landroidx/collection/MutableObjectList;
+
+    invoke-virtual {v5, v7}, Landroidx/collection/MutableObjectList;->g(Ljava/lang/Object;)V
+
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    invoke-virtual {p0}, Landroidx/compose/foundation/text/contextmenu/builder/TextContextMenuBuilderScope;->a()V
+
+    :cond_3
+    :goto_1
+    return-void
+.end method

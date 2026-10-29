@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:background="#f7ccaf" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.mwm.android.sdk.dynamic_screen.view.DynamicScreenMetadataView android:id="@id/ds_metadata_id" android:layout_width="0.0dp" android:layout_height="0.0dp">
+        <com.mwm.android.sdk.dynamic_screen.view_action.DynamicScreenCloseActionView android:id="@id/dynamic_screen__onboarding_2026_03__background_generated_id_dlfcsxctolil" android:layout_width="0.0dp" android:layout_height="0.0dp" app:ds_target="@id/ds_back_button_id" />
+    </com.mwm.android.sdk.dynamic_screen.view.DynamicScreenMetadataView>
+</FrameLayout>

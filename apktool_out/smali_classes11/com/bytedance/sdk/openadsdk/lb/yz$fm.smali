@@ -1,0 +1,25 @@
+.class public interface abstract Lcom/bytedance/sdk/openadsdk/lb/yz$fm;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/bytedance/sdk/openadsdk/lb/yz;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x609
+    name = "fm"
+.end annotation
+
+
+# virtual methods
+.method public abstract fm()V
+.end method
+
+.method public abstract fm(ILcom/bytedance/sdk/openadsdk/FilterWord;)V
+.end method
+
+.method public abstract ro()V
+.end method

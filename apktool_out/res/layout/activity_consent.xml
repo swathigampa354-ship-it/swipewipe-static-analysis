@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:background="@color/mwm_adskit_consent_bg" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:background="@drawable/mwm_adskit_consent_content_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/mwm_adskit_consent_content_margin_top">
+            <TextView android:textSize="@dimen/mwm_adskit_consent_title" android:textStyle="bold" android:textColor="@color/mwm_adskit_consent_content_text" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/mwm_adskit_consent_content_title_margin_top" android:layout_marginBottom="8.0dp" android:text="@string/mwm_adskit_consent_title" />
+            <ScrollView android:layout_width="@dimen/mwm_adskit_consent_content_width" android:layout_height="@dimen/mwm_adskit_consent_content_height" android:overScrollMode="never">
+                <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/mwm_adskit_consent_content_horizontal_margin" android:layout_marginRight="@dimen/mwm_adskit_consent_content_horizontal_margin" android:elevation="4.0dp">
+                    <TextView android:textColor="@color/mwm_adskit_consent_content_text" android:id="@id/mwm_adskit_consent_description" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                    <TextView android:textColor="@color/mwm_adskit_consent_decline_btn_text" android:id="@id/mwm_adskit_consent_decline" android:background="?android:selectableItemBackground" android:padding="8.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:text="@string/mwm_adskit_consent_decline" />
+                    <TextView android:textSize="@dimen/mwm_adskit_consent_decline_description" android:textColor="@color/mwm_adskit_consent_content_text" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:layout_marginBottom="8.0dp" android:text="@string/mwm_adskit_consent_decline_description" />
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+        <ImageView android:layout_gravity="center_horizontal" android:background="@color/mwm_adskit_consent_top_image_bg" android:layout_width="@dimen/mwm_adskit_consent_icon_size" android:layout_height="@dimen/mwm_adskit_consent_icon_size" android:src="@drawable/mwm_adskit_consent_top_image_src" android:scaleType="centerInside" />
+    </FrameLayout>
+    <Button android:textColor="@color/mwm_adskit_consent_validate_btn_text" android:id="@id/mwm_adskit_consent_validate" android:background="@drawable/mwm_adskit_consent_validate_btn_bg" android:layout_width="@dimen/mwm_adskit_consent_validate_btn_width" android:layout_height="@dimen/mwm_adskit_consent_validate_btn_height" android:layout_marginTop="@dimen/mwm_adskit_consent_validate_btn_margin_top" android:text="@string/mwm_adskit_consent_validate" />
+</LinearLayout>

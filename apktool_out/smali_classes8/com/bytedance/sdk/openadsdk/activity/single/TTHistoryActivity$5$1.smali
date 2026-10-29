@@ -1,0 +1,47 @@
+.class Lcom/bytedance/sdk/openadsdk/activity/single/TTHistoryActivity$5$1;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Ljava/lang/Runnable;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/bytedance/sdk/openadsdk/activity/single/TTHistoryActivity$5;->fm(Ljava/util/List;)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = null
+.end annotation
+
+
+# instance fields
+.field final synthetic fm:Lcom/bytedance/sdk/openadsdk/activity/single/TTHistoryActivity$5;
+
+
+# direct methods
+.method public constructor <init>(Lcom/bytedance/sdk/openadsdk/activity/single/TTHistoryActivity$5;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/activity/single/TTHistoryActivity$5$1;->fm:Lcom/bytedance/sdk/openadsdk/activity/single/TTHistoryActivity$5;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public run()V
+    .locals 0
+
+    iget-object p0, p0, Lcom/bytedance/sdk/openadsdk/activity/single/TTHistoryActivity$5$1;->fm:Lcom/bytedance/sdk/openadsdk/activity/single/TTHistoryActivity$5;
+
+    iget-object p0, p0, Lcom/bytedance/sdk/openadsdk/activity/single/TTHistoryActivity$5;->fm:Lcom/bytedance/sdk/openadsdk/activity/single/TTHistoryActivity;
+
+    invoke-static {p0}, Lcom/bytedance/sdk/openadsdk/activity/single/TTHistoryActivity;->lb(Lcom/bytedance/sdk/openadsdk/activity/single/TTHistoryActivity;)V
+
+    return-void
+.end method

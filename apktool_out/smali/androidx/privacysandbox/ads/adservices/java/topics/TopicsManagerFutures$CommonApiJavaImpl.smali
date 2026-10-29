@@ -1,0 +1,115 @@
+.class final Landroidx/privacysandbox/ads/adservices/java/topics/TopicsManagerFutures$CommonApiJavaImpl;
+.super Landroidx/privacysandbox/ads/adservices/java/topics/TopicsManagerFutures;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroidx/privacysandbox/ads/adservices/java/topics/TopicsManagerFutures;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "CommonApiJavaImpl"
+.end annotation
+
+.annotation runtime Lkotlin/Metadata;
+    d1 = {
+        "\u0000\u001a\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0003\u0008\u0002\u0018\u00002\u00020\u0001J\u001d\u0010\u0006\u001a\u0008\u0012\u0004\u0012\u00020\u00050\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0017\u00a2\u0006\u0004\u0008\u0006\u0010\u0007\u00a8\u0006\u0008"
+    }
+    d2 = {
+        "Landroidx/privacysandbox/ads/adservices/java/topics/TopicsManagerFutures$CommonApiJavaImpl;",
+        "Landroidx/privacysandbox/ads/adservices/java/topics/TopicsManagerFutures;",
+        "Landroidx/privacysandbox/ads/adservices/topics/GetTopicsRequest;",
+        "request",
+        "Lcom/google/common/util/concurrent/ListenableFuture;",
+        "Landroidx/privacysandbox/ads/adservices/topics/GetTopicsResponse;",
+        "b",
+        "(Landroidx/privacysandbox/ads/adservices/topics/GetTopicsRequest;)Lcom/google/common/util/concurrent/ListenableFuture;",
+        "ads-adservices-java_release"
+    }
+    k = 0x1
+    mv = {
+        0x1,
+        0x8,
+        0x0
+    }
+    xi = 0x30
+.end annotation
+
+
+# instance fields
+.field public final a:Landroidx/privacysandbox/ads/adservices/topics/TopicsManager;
+
+
+# direct methods
+.method public constructor <init>(Landroidx/privacysandbox/ads/adservices/topics/TopicsManager;)V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Landroidx/privacysandbox/ads/adservices/java/topics/TopicsManagerFutures$CommonApiJavaImpl;->a:Landroidx/privacysandbox/ads/adservices/topics/TopicsManager;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public b(Landroidx/privacysandbox/ads/adservices/topics/GetTopicsRequest;)Lcom/google/common/util/concurrent/ListenableFuture;
+    .locals 7
+    .param p1    # Landroidx/privacysandbox/ads/adservices/topics/GetTopicsRequest;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+    .annotation build Landroidx/annotation/DoNotInline;
+    .end annotation
+
+    .annotation build Landroidx/annotation/RequiresPermission;
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroidx/privacysandbox/ads/adservices/topics/GetTopicsRequest;",
+            ")",
+            "Lcom/google/common/util/concurrent/ListenableFuture;"
+        }
+    .end annotation
+
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-static {}, Lkotlinx/coroutines/Dispatchers;->getMain()Lkotlinx/coroutines/MainCoroutineDispatcher;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lkotlinx/coroutines/CoroutineScopeKt;->CoroutineScope(Lkotlin/coroutines/CoroutineContext;)Lkotlinx/coroutines/CoroutineScope;
+
+    move-result-object v1
+
+    new-instance v4, Landroidx/privacysandbox/ads/adservices/java/topics/TopicsManagerFutures$CommonApiJavaImpl$getTopicsAsync$1;
+
+    const/4 v0, 0x0
+
+    invoke-direct {v4, p0, p1, v0}, Landroidx/privacysandbox/ads/adservices/java/topics/TopicsManagerFutures$CommonApiJavaImpl$getTopicsAsync$1;-><init>(Landroidx/privacysandbox/ads/adservices/java/topics/TopicsManagerFutures$CommonApiJavaImpl;Landroidx/privacysandbox/ads/adservices/topics/GetTopicsRequest;Lqb0;)V
+
+    const/4 v5, 0x3
+
+    const/4 v6, 0x0
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x0
+
+    invoke-static/range {v1 .. v6}, Lkotlinx/coroutines/BuildersKt;->async$default(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/Deferred;
+
+    move-result-object p0
+
+    invoke-static {p0}, Landroidx/privacysandbox/ads/adservices/java/internal/CoroutineAdapterKt;->a(Lkotlinx/coroutines/Deferred;)Lcom/google/common/util/concurrent/ListenableFuture;
+
+    move-result-object p0
+
+    return-object p0
+.end method

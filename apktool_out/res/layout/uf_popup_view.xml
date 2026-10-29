@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" android:animateLayoutChanges="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.mwm.sdk.userfeedback.internal.user_feedback_corner_view.UserFeedbackCornerView android:layout_gravity="center" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:animateLayoutChanges="true" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHeight_max="350.0dp" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:uf_cornerViewAll="@dimen/uf_card_corner_radius" app:uf_cornerViewType="type_background">
+        <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:animateLayoutChanges="true">
+            <ScrollView android:layout_width="wrap_content" android:layout_height="wrap_content" android:animateLayoutChanges="true">
+                <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <LinearLayout android:orientation="vertical" android:id="@id/content" android:layout_width="match_parent" android:layout_height="wrap_content" android:animateLayoutChanges="true" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent">
+                        <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:animateLayoutChanges="true">
+                            <com.mwm.sdk.userfeedback.internal.experience.ExperienceView android:layout_gravity="center_horizontal" android:id="@id/uf_popup_view_experience" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="match_parent" />
+                            <com.mwm.sdk.userfeedback.internal.dislike_survey_view.DislikeSurveyView android:layout_gravity="center_horizontal" android:id="@id/uf_popup_view_dislike_survey" android:visibility="gone" android:layout_width="350.0dp" android:layout_height="match_parent" android:paddingStart="10.0dp" android:paddingEnd="10.0dp" />
+                            <include android:id="@id/uf_popup_view_thank_you" android:visibility="gone" layout="@layout/uf_thank_you_view" />
+                        </FrameLayout>
+                    </LinearLayout>
+                    <FrameLayout android:id="@id/uf_popup_view_submit" android:layout_width="0.0dp" android:layout_height="45.0dp" android:layout_marginBottom="10.0dp" android:layout_marginStart="20.0dp" android:layout_marginEnd="20.0dp" android:elevation="0.0dp" app:layout_constraintBottom_toTopOf="@id/uf_popup_view_secondary_action" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/content">
+                        <com.mwm.sdk.userfeedback.internal.user_feedback_corner_view.UserFeedbackCornerView android:layout_width="match_parent" android:layout_height="match_parent" android:foreground="@drawable/uf_custom_ripple" app:uf_cornerViewAll="@dimen/uf_card_corner_radius" app:uf_cornerViewType="type_primary_gradient">
+                            <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="#ffffff" android:layout_gravity="center" android:id="@id/uf_popup_view_submit_action" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/user_feedback__pop_up__cta__submit" />
+                        </com.mwm.sdk.userfeedback.internal.user_feedback_corner_view.UserFeedbackCornerView>
+                    </FrameLayout>
+                    <TextView android:textSize="11.0sp" android:textColor="@color/uf_dark_on_background_color" android:gravity="center" android:id="@id/uf_popup_view_secondary_action" android:tag="later" android:background="@drawable/uf_custom_ripple" android:padding="10.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="10.0dp" android:text="@string/user_feedback__pop_up__cta__later" android:alpha="0.4" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/uf_popup_view_submit" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </ScrollView>
+        </FrameLayout>
+    </com.mwm.sdk.userfeedback.internal.user_feedback_corner_view.UserFeedbackCornerView>
+</androidx.constraintlayout.widget.ConstraintLayout>

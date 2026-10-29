@@ -1,0 +1,435 @@
+.class public final Lio/bidmachine/media3/common/Timeline$RemotableTimeline;
+.super Lio/bidmachine/media3/common/Timeline;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lio/bidmachine/media3/common/Timeline;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "RemotableTimeline"
+.end annotation
+
+.annotation build Lio/bidmachine/media3/common/util/UnstableApi;
+.end annotation
+
+
+# instance fields
+.field private final periods:Los1;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Los1;"
+        }
+    .end annotation
+.end field
+
+.field private final shuffledWindowIndices:[I
+
+.field private final windowIndicesInShuffled:[I
+
+.field private final windows:Los1;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Los1;"
+        }
+    .end annotation
+.end field
+
+
+# direct methods
+.method public constructor <init>(Los1;Los1;[I)V
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Los1;",
+            "Los1;",
+            "[I)V"
+        }
+    .end annotation
+
+    invoke-direct {p0}, Lio/bidmachine/media3/common/Timeline;-><init>()V
+
+    invoke-virtual {p1}, Ljava/util/AbstractCollection;->size()I
+
+    move-result v0
+
+    array-length v1, p3
+
+    const/4 v2, 0x0
+
+    if-ne v0, v1, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    move v0, v2
+
+    :goto_0
+    invoke-static {v0}, Lio/bidmachine/media3/common/util/Assertions;->checkArgument(Z)V
+
+    iput-object p1, p0, Lio/bidmachine/media3/common/Timeline$RemotableTimeline;->windows:Los1;
+
+    iput-object p2, p0, Lio/bidmachine/media3/common/Timeline$RemotableTimeline;->periods:Los1;
+
+    iput-object p3, p0, Lio/bidmachine/media3/common/Timeline$RemotableTimeline;->shuffledWindowIndices:[I
+
+    array-length p1, p3
+
+    new-array p1, p1, [I
+
+    iput-object p1, p0, Lio/bidmachine/media3/common/Timeline$RemotableTimeline;->windowIndicesInShuffled:[I
+
+    :goto_1
+    array-length p1, p3
+
+    if-ge v2, p1, :cond_1
+
+    iget-object p1, p0, Lio/bidmachine/media3/common/Timeline$RemotableTimeline;->windowIndicesInShuffled:[I
+
+    aget p2, p3, v2
+
+    aput v2, p1, p2
+
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_1
+
+    :cond_1
+    return-void
+.end method
+
+
+# virtual methods
+.method public getFirstWindowIndex(Z)I
+    .locals 1
+
+    invoke-virtual {p0}, Lio/bidmachine/media3/common/Timeline;->isEmpty()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 p0, -0x1
+
+    return p0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    if-eqz p1, :cond_1
+
+    iget-object p0, p0, Lio/bidmachine/media3/common/Timeline$RemotableTimeline;->shuffledWindowIndices:[I
+
+    aget p0, p0, v0
+
+    return p0
+
+    :cond_1
+    return v0
+.end method
+
+.method public getIndexOfPeriod(Ljava/lang/Object;)I
+    .locals 0
+
+    new-instance p0, Ljava/lang/UnsupportedOperationException;
+
+    invoke-direct {p0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+
+    throw p0
+.end method
+
+.method public getLastWindowIndex(Z)I
+    .locals 1
+
+    invoke-virtual {p0}, Lio/bidmachine/media3/common/Timeline;->isEmpty()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 p0, -0x1
+
+    return p0
+
+    :cond_0
+    if-eqz p1, :cond_1
+
+    iget-object p1, p0, Lio/bidmachine/media3/common/Timeline$RemotableTimeline;->shuffledWindowIndices:[I
+
+    invoke-virtual {p0}, Lio/bidmachine/media3/common/Timeline$RemotableTimeline;->getWindowCount()I
+
+    move-result p0
+
+    add-int/lit8 p0, p0, -0x1
+
+    aget p0, p1, p0
+
+    return p0
+
+    :cond_1
+    invoke-virtual {p0}, Lio/bidmachine/media3/common/Timeline$RemotableTimeline;->getWindowCount()I
+
+    move-result p0
+
+    add-int/lit8 p0, p0, -0x1
+
+    return p0
+.end method
+
+.method public getNextWindowIndex(IIZ)I
+    .locals 2
+
+    const/4 v0, 0x1
+
+    if-ne p2, v0, :cond_0
+
+    return p1
+
+    :cond_0
+    invoke-virtual {p0, p3}, Lio/bidmachine/media3/common/Timeline$RemotableTimeline;->getLastWindowIndex(Z)I
+
+    move-result v1
+
+    if-ne p1, v1, :cond_2
+
+    const/4 p1, 0x2
+
+    if-ne p2, p1, :cond_1
+
+    invoke-virtual {p0, p3}, Lio/bidmachine/media3/common/Timeline$RemotableTimeline;->getFirstWindowIndex(Z)I
+
+    move-result p0
+
+    return p0
+
+    :cond_1
+    const/4 p0, -0x1
+
+    return p0
+
+    :cond_2
+    if-eqz p3, :cond_3
+
+    iget-object p2, p0, Lio/bidmachine/media3/common/Timeline$RemotableTimeline;->shuffledWindowIndices:[I
+
+    iget-object p0, p0, Lio/bidmachine/media3/common/Timeline$RemotableTimeline;->windowIndicesInShuffled:[I
+
+    aget p0, p0, p1
+
+    add-int/2addr p0, v0
+
+    aget p0, p2, p0
+
+    return p0
+
+    :cond_3
+    add-int/2addr p1, v0
+
+    return p1
+.end method
+
+.method public getPeriod(ILio/bidmachine/media3/common/Timeline$Period;Z)Lio/bidmachine/media3/common/Timeline$Period;
+    .locals 10
+
+    iget-object p0, p0, Lio/bidmachine/media3/common/Timeline$RemotableTimeline;->periods:Los1;
+
+    invoke-interface {p0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Lio/bidmachine/media3/common/Timeline$Period;
+
+    iget-object v1, p0, Lio/bidmachine/media3/common/Timeline$Period;->id:Ljava/lang/Object;
+
+    iget-object v2, p0, Lio/bidmachine/media3/common/Timeline$Period;->uid:Ljava/lang/Object;
+
+    iget v3, p0, Lio/bidmachine/media3/common/Timeline$Period;->windowIndex:I
+
+    iget-wide v4, p0, Lio/bidmachine/media3/common/Timeline$Period;->durationUs:J
+
+    iget-wide v6, p0, Lio/bidmachine/media3/common/Timeline$Period;->positionInWindowUs:J
+
+    iget-object v8, p0, Lio/bidmachine/media3/common/Timeline$Period;->adPlaybackState:Lio/bidmachine/media3/common/AdPlaybackState;
+
+    iget-boolean v9, p0, Lio/bidmachine/media3/common/Timeline$Period;->isPlaceholder:Z
+
+    move-object v0, p2
+
+    invoke-virtual/range {v0 .. v9}, Lio/bidmachine/media3/common/Timeline$Period;->set(Ljava/lang/Object;Ljava/lang/Object;IJJLio/bidmachine/media3/common/AdPlaybackState;Z)Lio/bidmachine/media3/common/Timeline$Period;
+
+    return-object v0
+.end method
+
+.method public getPeriodCount()I
+    .locals 0
+
+    iget-object p0, p0, Lio/bidmachine/media3/common/Timeline$RemotableTimeline;->periods:Los1;
+
+    invoke-virtual {p0}, Ljava/util/AbstractCollection;->size()I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public getPreviousWindowIndex(IIZ)I
+    .locals 2
+
+    const/4 v0, 0x1
+
+    if-ne p2, v0, :cond_0
+
+    return p1
+
+    :cond_0
+    invoke-virtual {p0, p3}, Lio/bidmachine/media3/common/Timeline$RemotableTimeline;->getFirstWindowIndex(Z)I
+
+    move-result v1
+
+    if-ne p1, v1, :cond_2
+
+    const/4 p1, 0x2
+
+    if-ne p2, p1, :cond_1
+
+    invoke-virtual {p0, p3}, Lio/bidmachine/media3/common/Timeline$RemotableTimeline;->getLastWindowIndex(Z)I
+
+    move-result p0
+
+    return p0
+
+    :cond_1
+    const/4 p0, -0x1
+
+    return p0
+
+    :cond_2
+    if-eqz p3, :cond_3
+
+    iget-object p2, p0, Lio/bidmachine/media3/common/Timeline$RemotableTimeline;->shuffledWindowIndices:[I
+
+    iget-object p0, p0, Lio/bidmachine/media3/common/Timeline$RemotableTimeline;->windowIndicesInShuffled:[I
+
+    aget p0, p0, p1
+
+    sub-int/2addr p0, v0
+
+    aget p0, p2, p0
+
+    return p0
+
+    :cond_3
+    sub-int/2addr p1, v0
+
+    return p1
+.end method
+
+.method public getUidOfPeriod(I)Ljava/lang/Object;
+    .locals 0
+
+    new-instance p0, Ljava/lang/UnsupportedOperationException;
+
+    invoke-direct {p0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+
+    throw p0
+.end method
+
+.method public getWindow(ILio/bidmachine/media3/common/Timeline$Window;J)Lio/bidmachine/media3/common/Timeline$Window;
+    .locals 24
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lio/bidmachine/media3/common/Timeline$RemotableTimeline;->windows:Los1;
+
+    move/from16 v1, p1
+
+    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lio/bidmachine/media3/common/Timeline$Window;
+
+    iget-object v1, v0, Lio/bidmachine/media3/common/Timeline$Window;->uid:Ljava/lang/Object;
+
+    iget-object v2, v0, Lio/bidmachine/media3/common/Timeline$Window;->mediaItem:Lio/bidmachine/media3/common/MediaItem;
+
+    iget-object v3, v0, Lio/bidmachine/media3/common/Timeline$Window;->manifest:Ljava/lang/Object;
+
+    iget-wide v4, v0, Lio/bidmachine/media3/common/Timeline$Window;->presentationStartTimeMs:J
+
+    iget-wide v6, v0, Lio/bidmachine/media3/common/Timeline$Window;->windowStartTimeMs:J
+
+    iget-wide v8, v0, Lio/bidmachine/media3/common/Timeline$Window;->elapsedRealtimeEpochOffsetMs:J
+
+    iget-boolean v10, v0, Lio/bidmachine/media3/common/Timeline$Window;->isSeekable:Z
+
+    iget-boolean v11, v0, Lio/bidmachine/media3/common/Timeline$Window;->isDynamic:Z
+
+    iget-object v12, v0, Lio/bidmachine/media3/common/Timeline$Window;->liveConfiguration:Lio/bidmachine/media3/common/MediaItem$LiveConfiguration;
+
+    iget-wide v13, v0, Lio/bidmachine/media3/common/Timeline$Window;->defaultPositionUs:J
+
+    move-object v15, v1
+
+    move-object/from16 v16, v2
+
+    iget-wide v1, v0, Lio/bidmachine/media3/common/Timeline$Window;->durationUs:J
+
+    move-wide/from16 v17, v1
+
+    iget v1, v0, Lio/bidmachine/media3/common/Timeline$Window;->firstPeriodIndex:I
+
+    iget v2, v0, Lio/bidmachine/media3/common/Timeline$Window;->lastPeriodIndex:I
+
+    move/from16 v19, v1
+
+    move/from16 v20, v2
+
+    iget-wide v1, v0, Lio/bidmachine/media3/common/Timeline$Window;->positionInFirstPeriodUs:J
+
+    move-object/from16 v21, v0
+
+    move-object/from16 v0, p2
+
+    move-wide/from16 v22, v1
+
+    move-object v1, v15
+
+    move-object/from16 v2, v16
+
+    move-wide/from16 v15, v17
+
+    move/from16 v17, v19
+
+    move/from16 v18, v20
+
+    move-wide/from16 v19, v22
+
+    invoke-virtual/range {v0 .. v20}, Lio/bidmachine/media3/common/Timeline$Window;->set(Ljava/lang/Object;Lio/bidmachine/media3/common/MediaItem;Ljava/lang/Object;JJJZZLio/bidmachine/media3/common/MediaItem$LiveConfiguration;JJIIJ)Lio/bidmachine/media3/common/Timeline$Window;
+
+    move-object/from16 v1, v21
+
+    iget-boolean v1, v1, Lio/bidmachine/media3/common/Timeline$Window;->isPlaceholder:Z
+
+    iput-boolean v1, v0, Lio/bidmachine/media3/common/Timeline$Window;->isPlaceholder:Z
+
+    return-object v0
+.end method
+
+.method public getWindowCount()I
+    .locals 0
+
+    iget-object p0, p0, Lio/bidmachine/media3/common/Timeline$RemotableTimeline;->windows:Los1;
+
+    invoke-virtual {p0}, Ljava/util/AbstractCollection;->size()I
+
+    move-result p0
+
+    return p0
+.end method

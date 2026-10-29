@@ -1,0 +1,1232 @@
+.class public Lcom/microsoft/identity/common/java/util/StringUtil;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# static fields
+.field private static final RFC3339_DATE_FORMAT:Ljava/lang/String; = "yyyy-MM-dd\'T\'HH:mm:ss\'Z\'"
+
+.field private static TAG:Ljava/lang/String; = "StringUtil"
+
+.field private static final TOKEN_HASH_ALGORITHM:Ljava/lang/String; = "SHA256"
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+.method public static RFC3339DateToString(Ljava/util/Date;)Ljava/lang/String;
+    .locals 3
+    .param p0    # Ljava/util/Date;
+        .annotation build Llombok/NonNull;
+        .end annotation
+    .end param
+    .annotation build Llombok/NonNull;
+    .end annotation
+
+    if-eqz p0, :cond_0
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    sget-object v1, Lcom/microsoft/identity/common/java/util/StringUtil;->TAG:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, "RFC3339DateToString"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "RFC3339DateToString is called."
+
+    invoke-static {v0, v1}, Lcom/microsoft/identity/common/java/logging/Logger;->verbose(Ljava/lang/String;Ljava/lang/String;)V
+
+    new-instance v0, Ljava/text/SimpleDateFormat;
+
+    const-string v1, "yyyy-MM-dd\'T\'HH:mm:ss\'Z\'"
+
+    sget-object v2, Ljava/util/Locale;->US:Ljava/util/Locale;
+
+    invoke-direct {v0, v1, v2}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;Ljava/util/Locale;)V
+
+    const-string v1, "UTC"
+
+    invoke-static {v1}, Ljava/util/TimeZone;->getTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/text/DateFormat;->setTimeZone(Ljava/util/TimeZone;)V
+
+    invoke-virtual {v0, p0}, Ljava/text/DateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_0
+    const-string p0, "date is marked non-null but is null"
+
+    invoke-static {p0}, Lwj4;->s(Ljava/lang/String;)V
+
+    const/4 p0, 0x0
+
+    return-object p0
+.end method
+
+.method public static RFC3339StringToDate(Ljava/lang/String;)Ljava/util/Date;
+    .locals 3
+    .param p0    # Ljava/lang/String;
+        .annotation build Llombok/NonNull;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/text/ParseException;
+        }
+    .end annotation
+
+    .annotation build Llombok/NonNull;
+    .end annotation
+
+    if-eqz p0, :cond_0
+
+    new-instance v0, Ljava/text/SimpleDateFormat;
+
+    const-string v1, "yyyy-MM-dd\'T\'HH:mm:ss\'Z\'"
+
+    sget-object v2, Ljava/util/Locale;->US:Ljava/util/Locale;
+
+    invoke-direct {v0, v1, v2}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;Ljava/util/Locale;)V
+
+    const-string v1, "UTC"
+
+    invoke-static {v1}, Ljava/util/TimeZone;->getTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/text/DateFormat;->setTimeZone(Ljava/util/TimeZone;)V
+
+    invoke-virtual {v0, p0}, Ljava/text/DateFormat;->parse(Ljava/lang/String;)Ljava/util/Date;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_0
+    const-string p0, "dateStr is marked non-null but is null"
+
+    invoke-static {p0}, Lwj4;->s(Ljava/lang/String;)V
+
+    const/4 p0, 0x0
+
+    return-object p0
+.end method
+
+.method public static containsSubString(Ljava/lang/String;Ljava/lang/String;)Z
+    .locals 1
+
+    invoke-static {p0}, Lcom/microsoft/identity/common/java/util/StringUtil;->isNullOrEmpty(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 p0, 0x0
+
+    return p0
+
+    :cond_0
+    invoke-virtual {p0, p1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static createHash(Ljava/lang/String;)Ljava/lang/String;
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/security/NoSuchAlgorithmException;
+        }
+    .end annotation
+
+    invoke-static {p0}, Lcom/microsoft/identity/common/java/util/StringUtil;->isNullOrEmpty(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const-string v0, "SHA256"
+
+    invoke-static {v0}, Ljava/security/MessageDigest;->getInstance(Ljava/lang/String;)Ljava/security/MessageDigest;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/microsoft/identity/common/java/AuthenticationConstants;->ENCODING_UTF8:Ljava/nio/charset/Charset;
+
+    invoke-virtual {p0, v1}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
+
+    move-result-object p0
+
+    new-instance v2, Ljava/lang/String;
+
+    invoke-virtual {v0, p0}, Ljava/security/MessageDigest;->digest([B)[B
+
+    move-result-object p0
+
+    sget-object v0, Lcom/microsoft/identity/common/java/base64/Base64Flags;->NO_WRAP:Lcom/microsoft/identity/common/java/base64/Base64Flags;
+
+    filled-new-array {v0}, [Lcom/microsoft/identity/common/java/base64/Base64Flags;
+
+    move-result-object v0
+
+    invoke-static {p0, v0}, Lcom/microsoft/identity/common/java/base64/Base64Util;->encode([B[Lcom/microsoft/identity/common/java/base64/Base64Flags;)[B
+
+    move-result-object p0
+
+    invoke-direct {v2, p0, v1}, Ljava/lang/String;-><init>([BLjava/nio/charset/Charset;)V
+
+    return-object v2
+
+    :cond_0
+    return-object p0
+.end method
+
+.method public static equalsIgnoreCase(Ljava/lang/String;Ljava/lang/String;)Z
+    .locals 1
+    .param p0    # Ljava/lang/String;
+        .annotation build Ledu/umd/cs/findbugs/annotations/Nullable;
+        .end annotation
+    .end param
+    .param p1    # Ljava/lang/String;
+        .annotation build Ledu/umd/cs/findbugs/annotations/Nullable;
+        .end annotation
+    .end param
+
+    invoke-static {p0, p1}, Lcom/microsoft/identity/common/java/util/ported/ObjectUtils;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0, p1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    return p0
+
+    :cond_1
+    :goto_0
+    const/4 p0, 0x1
+
+    return p0
+.end method
+
+.method public static equalsIgnoreCaseTrim(Ljava/lang/String;Ljava/lang/String;)Z
+    .locals 0
+    .param p0    # Ljava/lang/String;
+        .annotation build Ledu/umd/cs/findbugs/annotations/Nullable;
+        .end annotation
+    .end param
+    .param p1    # Ljava/lang/String;
+        .annotation build Ledu/umd/cs/findbugs/annotations/Nullable;
+        .end annotation
+    .end param
+    .annotation build Ledu/umd/cs/findbugs/annotations/SuppressFBWarnings;
+        justification = "This is an intentional reference comparison"
+        value = {
+            "ES_COMPARING_PARAMETER_STRING_WITH_EQ"
+        }
+    .end annotation
+
+    if-eq p0, p1, :cond_1
+
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p1}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-static {p0, p1}, Lcom/microsoft/identity/common/java/util/StringUtil;->equalsIgnoreCase(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    return p0
+
+    :cond_1
+    :goto_0
+    const/4 p0, 0x1
+
+    return p0
+.end method
+
+.method public static equalsIgnoreCaseTrimBoth(Ljava/lang/String;Ljava/lang/String;)Z
+    .locals 0
+    .param p0    # Ljava/lang/String;
+        .annotation build Ledu/umd/cs/findbugs/annotations/Nullable;
+        .end annotation
+    .end param
+    .param p1    # Ljava/lang/String;
+        .annotation build Ledu/umd/cs/findbugs/annotations/Nullable;
+        .end annotation
+    .end param
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object p0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    invoke-static {p0, p1}, Lcom/microsoft/identity/common/java/util/StringUtil;->equalsIgnoreCaseTrim(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static fromByteArray([B)Ljava/lang/String;
+    .locals 2
+
+    new-instance v0, Ljava/lang/String;
+
+    sget-object v1, Lcom/microsoft/identity/common/java/AuthenticationConstants;->ENCODING_UTF8:Ljava/nio/charset/Charset;
+
+    invoke-direct {v0, p0, v1}, Ljava/lang/String;-><init>([BLjava/nio/charset/Charset;)V
+
+    return-object v0
+.end method
+
+.method public static getStackTraceAsString(Ljava/lang/Throwable;)Ljava/lang/String;
+    .locals 2
+    .param p0    # Ljava/lang/Throwable;
+        .annotation build Llombok/NonNull;
+        .end annotation
+    .end param
+
+    if-eqz p0, :cond_0
+
+    new-instance v0, Ljava/io/StringWriter;
+
+    invoke-direct {v0}, Ljava/io/StringWriter;-><init>()V
+
+    new-instance v1, Ljava/io/PrintWriter;
+
+    invoke-direct {v1, v0}, Ljava/io/PrintWriter;-><init>(Ljava/io/Writer;)V
+
+    invoke-virtual {p0, v1}, Ljava/lang/Throwable;->printStackTrace(Ljava/io/PrintWriter;)V
+
+    invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_0
+    const-string p0, "throwable is marked non-null but is null"
+
+    invoke-static {p0}, Lwj4;->s(Ljava/lang/String;)V
+
+    const/4 p0, 0x0
+
+    return-object p0
+.end method
+
+.method public static getStacktraceAsStringFromElementArray([Ljava/lang/StackTraceElement;)Ljava/lang/String;
+    .locals 3
+    .param p0    # [Ljava/lang/StackTraceElement;
+        .annotation build Llombok/NonNull;
+        .end annotation
+    .end param
+    .annotation build Llombok/NonNull;
+    .end annotation
+
+    if-eqz p0, :cond_1
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const/4 v1, 0x0
+
+    aget-object v1, p0, v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const/4 v1, 0x1
+
+    :goto_0
+    array-length v2, p0
+
+    if-ge v1, v2, :cond_0
+
+    const-string v2, "\n"
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    aget-object v2, p0, v1
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_1
+    const-string p0, "elements is marked non-null but is null"
+
+    invoke-static {p0}, Lwj4;->s(Ljava/lang/String;)V
+
+    const/4 p0, 0x0
+
+    return-object p0
+.end method
+
+.method public static getStringTokens(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ")",
+            "Ljava/util/List<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    new-instance v0, Ljava/util/StringTokenizer;
+
+    invoke-direct {v0, p0, p1}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    new-instance p0, Ljava/util/ArrayList;
+
+    invoke-direct {p0}, Ljava/util/ArrayList;-><init>()V
+
+    :cond_0
+    :goto_0
+    invoke-virtual {v0}, Ljava/util/StringTokenizer;->hasMoreTokens()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_1
+
+    invoke-virtual {v0}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-static {p1}, Lcom/microsoft/identity/common/java/util/StringUtil;->isNullOrEmpty(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    invoke-virtual {p0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto :goto_0
+
+    :cond_1
+    return-object p0
+.end method
+
+.method public static getTenantInfo(Ljava/lang/String;)Ljava/util/Map$Entry;
+    .locals 6
+    .param p0    # Ljava/lang/String;
+        .annotation build Llombok/NonNull;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            ")",
+            "Ljava/util/Map$Entry<",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    const/4 v0, 0x0
+
+    if-eqz p0, :cond_1
+
+    const-string v1, "\\."
+
+    invoke-virtual {p0, v1}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v1
+
+    const/4 v2, 0x2
+
+    array-length v3, v1
+
+    if-ne v2, v3, :cond_0
+
+    const/4 v2, 0x0
+
+    aget-object v3, v1, v2
+
+    invoke-static {v3}, Lcom/microsoft/identity/common/java/util/StringUtil;->isNullOrEmpty(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    const/4 v3, 0x1
+
+    aget-object v4, v1, v3
+
+    invoke-static {v4}, Lcom/microsoft/identity/common/java/util/StringUtil;->isNullOrEmpty(Ljava/lang/String;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_0
+
+    aget-object v0, v1, v2
+
+    aget-object p0, v1, v3
+
+    goto :goto_0
+
+    :cond_0
+    sget-object v2, Lcom/microsoft/identity/common/java/util/StringUtil;->TAG:Ljava/lang/String;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    const-string v4, "We had a home account id that could not be split correctly, We expected it to split into 2 parts but instead we had "
+
+    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    array-length v4, v1
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v4, " when splitting the string on dot (\'.\')"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Lcom/microsoft/identity/common/java/logging/Logger;->warn(Ljava/lang/String;Ljava/lang/String;)V
+
+    sget-object v2, Lcom/microsoft/identity/common/java/util/StringUtil;->TAG:Ljava/lang/String;
+
+    const-string v3, "We had a home account id that could not be split correctly, Its value was: \'"
+
+    const-string v5, "\', and we expected it to split into 2 parts but instead we had "
+
+    invoke-static {v3, p0, v5}, Ljh0;->p(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    array-length v1, v1
+
+    invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {v2, p0}, Lcom/microsoft/identity/common/java/logging/Logger;->warnPII(Ljava/lang/String;Ljava/lang/String;)V
+
+    move-object p0, v0
+
+    :goto_0
+    new-instance v1, Ljava/util/AbstractMap$SimpleEntry;
+
+    invoke-direct {v1, v0, p0}, Ljava/util/AbstractMap$SimpleEntry;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    return-object v1
+
+    :cond_1
+    const-string p0, "homeAccountId is marked non-null but is null"
+
+    invoke-static {p0}, Lwj4;->s(Ljava/lang/String;)V
+
+    return-object v0
+.end method
+
+.method public static getUIdFromHomeAccountId(Ljava/lang/String;)Ljava/lang/String;
+    .locals 4
+    .param p0    # Ljava/lang/String;
+        .annotation build Ledu/umd/cs/findbugs/annotations/Nullable;
+        .end annotation
+    .end param
+    .annotation build Ledu/umd/cs/findbugs/annotations/Nullable;
+    .end annotation
+
+    invoke-static {p0}, Lcom/microsoft/identity/common/java/util/StringUtil;->isNullOrEmpty(Ljava/lang/String;)Z
+
+    move-result v0
+
+    const-string v1, ":getUIdFromHomeAccountId"
+
+    if-nez v0, :cond_1
+
+    const-string v0, "."
+
+    invoke-static {v0}, Ljava/util/regex/Pattern;->quote(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object p0
+
+    array-length v0, p0
+
+    const/4 v2, 0x2
+
+    const/4 v3, 0x0
+
+    if-ne v0, v2, :cond_0
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    sget-object v2, Lcom/microsoft/identity/common/java/util/StringUtil;->TAG:Ljava/lang/String;
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "Home account id is tenanted, returning uid "
+
+    invoke-static {v0, v1}, Lcom/microsoft/identity/common/java/logging/Logger;->info(Ljava/lang/String;Ljava/lang/String;)V
+
+    aget-object p0, p0, v3
+
+    return-object p0
+
+    :cond_0
+    array-length v0, p0
+
+    const/4 v2, 0x1
+
+    if-ne v0, v2, :cond_1
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    sget-object v2, Lcom/microsoft/identity/common/java/util/StringUtil;->TAG:Ljava/lang/String;
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "Home account id not tenanted, it\'s the uid added by v1 broker "
+
+    invoke-static {v0, v1}, Lcom/microsoft/identity/common/java/logging/Logger;->info(Ljava/lang/String;Ljava/lang/String;)V
+
+    aget-object p0, p0, v3
+
+    return-object p0
+
+    :cond_1
+    new-instance p0, Ljava/lang/StringBuilder;
+
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+
+    sget-object v0, Lcom/microsoft/identity/common/java/util/StringUtil;->TAG:Ljava/lang/String;
+
+    const-string v2, "Home Account id doesn\'t have uid or tenant id information, returning null "
+
+    invoke-static {p0, v0, v1, v2}, Lpo;->A(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    const/4 p0, 0x0
+
+    return-object p0
+.end method
+
+.method public static hasPrefixInHeader(Ljava/lang/String;Ljava/lang/String;)Z
+    .locals 2
+
+    invoke-virtual {p0, p1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Ljava/lang/String;->length()I
+
+    move-result v0
+
+    invoke-virtual {p1}, Ljava/lang/String;->length()I
+
+    move-result v1
+
+    add-int/lit8 v1, v1, 0x2
+
+    if-le v0, v1, :cond_0
+
+    invoke-virtual {p1}, Ljava/lang/String;->length()I
+
+    move-result p1
+
+    invoke-virtual {p0, p1}, Ljava/lang/String;->charAt(I)C
+
+    move-result p0
+
+    invoke-static {p0}, Ljava/lang/Character;->isWhitespace(C)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    const/4 p0, 0x1
+
+    return p0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
+.method public static isNullOrEmpty(Ljava/lang/String;)Z
+    .locals 0
+    .param p0    # Ljava/lang/String;
+        .annotation build Ledu/umd/cs/findbugs/annotations/Nullable;
+        .end annotation
+    .end param
+
+    if-eqz p0, :cond_1
+
+    invoke-virtual {p0}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/String;->isEmpty()Z
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    return p0
+
+    :cond_1
+    :goto_0
+    const/4 p0, 0x1
+
+    return p0
+.end method
+
+.method public static isUuid(Ljava/lang/String;)Z
+    .locals 1
+    .param p0    # Ljava/lang/String;
+        .annotation build Llombok/NonNull;
+        .end annotation
+    .end param
+
+    const/4 v0, 0x0
+
+    if-eqz p0, :cond_0
+
+    :try_start_0
+    invoke-static {p0}, Ljava/util/UUID;->fromString(Ljava/lang/String;)Ljava/util/UUID;
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+
+    const/4 p0, 0x1
+
+    return p0
+
+    :catch_0
+    return v0
+
+    :cond_0
+    const-string p0, "inputString is marked non-null but is null"
+
+    invoke-static {p0}, Lwj4;->s(Ljava/lang/String;)V
+
+    return v0
+.end method
+
+.method public static join(Ljava/lang/CharSequence;Ljava/lang/Iterable;)Ljava/lang/String;
+    .locals 2
+    .param p1    # Ljava/lang/Iterable;
+        .annotation build Llombok/NonNull;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T::",
+            "Ljava/lang/CharSequence;",
+            ">(",
+            "Ljava/lang/CharSequence;",
+            "Ljava/lang/Iterable<",
+            "TT;>;)",
+            "Ljava/lang/String;"
+        }
+    .end annotation
+
+    if-eqz p1, :cond_4
+
+    invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object p1
+
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const-string p0, ""
+
+    return-object p0
+
+    :cond_0
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/CharSequence;
+
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-nez v1, :cond_2
+
+    instance-of p0, v0, Ljava/lang/String;
+
+    if-eqz p0, :cond_1
+
+    check-cast v0, Ljava/lang/String;
+
+    return-object v0
+
+    :cond_1
+    invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_2
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
+
+    :goto_0
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
+
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/CharSequence;
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
+
+    goto :goto_0
+
+    :cond_3
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_4
+    const-string p0, "segments is marked non-null but is null"
+
+    invoke-static {p0}, Lwj4;->s(Ljava/lang/String;)V
+
+    const/4 p0, 0x0
+
+    return-object p0
+.end method
+
+.method public static overwriteWithNull([C)V
+    .locals 3
+
+    const/4 v0, 0x0
+
+    if-nez p0, :cond_0
+
+    move v1, v0
+
+    goto :goto_0
+
+    :cond_0
+    array-length v1, p0
+
+    :goto_0
+    move v2, v0
+
+    :goto_1
+    if-ge v2, v1, :cond_1
+
+    aput-char v0, p0, v2
+
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_1
+
+    :cond_1
+    return-void
+.end method
+
+.method public static removeQuoteInHeaderValue(Ljava/lang/String;)Ljava/lang/String;
+    .locals 2
+
+    invoke-static {p0}, Lcom/microsoft/identity/common/java/util/StringUtil;->isNullOrEmpty(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const-string v0, "\""
+
+    const-string v1, ""
+
+    invoke-virtual {p0, v0, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    return-object p0
+.end method
+
+.method public static sanitizeNull(Ljava/lang/String;)Ljava/lang/String;
+    .locals 0
+
+    if-nez p0, :cond_0
+
+    const-string p0, ""
+
+    :cond_0
+    return-object p0
+.end method
+
+.method public static sanitizeNullAndLowercaseAndTrim(Ljava/lang/String;)Ljava/lang/String;
+    .locals 1
+
+    if-nez p0, :cond_0
+
+    const-string p0, ""
+
+    return-object p0
+
+    :cond_0
+    sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static splitWithQuotes(Ljava/lang/String;C)Ljava/util/ArrayList;
+    .locals 6
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "C)",
+            "Ljava/util/ArrayList<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    const/4 v1, 0x0
+
+    move v2, v1
+
+    move v3, v2
+
+    :goto_0
+    invoke-virtual {p0}, Ljava/lang/String;->length()I
+
+    move-result v4
+
+    if-ge v1, v4, :cond_3
+
+    invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
+
+    move-result v4
+
+    if-ne v4, p1, :cond_1
+
+    if-nez v3, :cond_1
+
+    invoke-virtual {p0, v2, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/microsoft/identity/common/java/util/StringUtil;->isNullOrEmpty(Ljava/lang/String;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_0
+
+    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :cond_0
+    add-int/lit8 v2, v1, 0x1
+
+    goto :goto_1
+
+    :cond_1
+    invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
+
+    move-result v4
+
+    const/16 v5, 0x22
+
+    if-ne v4, v5, :cond_2
+
+    xor-int/lit8 v3, v3, 0x1
+
+    :cond_2
+    :goto_1
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_3
+    invoke-virtual {p0, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-static {p1}, Lcom/microsoft/identity/common/java/util/StringUtil;->isNullOrEmpty(Ljava/lang/String;)Z
+
+    move-result p1
+
+    if-nez p1, :cond_4
+
+    invoke-virtual {v0, p0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :cond_4
+    return-object v0
+.end method
+
+.method public static throwIfArgumentIsNullOrEmpty(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 2
+    .param p0    # Ljava/lang/String;
+        .annotation build Ledu/umd/cs/findbugs/annotations/Nullable;
+        .end annotation
+    .end param
+    .param p1    # Ljava/lang/String;
+        .annotation build Llombok/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Ljava/lang/String;
+        .annotation build Llombok/NonNull;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/NullPointerException;
+        }
+    .end annotation
+
+    if-eqz p1, :cond_2
+
+    if-eqz p2, :cond_1
+
+    invoke-static {p0}, Lcom/microsoft/identity/common/java/util/StringUtil;->isNullOrEmpty(Ljava/lang/String;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_0
+
+    return-void
+
+    :cond_0
+    const-string p0, " is null or empty."
+
+    invoke-virtual {p1, p0}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    invoke-static {p2, v0, v1}, Lcom/microsoft/identity/common/java/logging/Logger;->error(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    invoke-virtual {p1, p0}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {p0}, Lwj4;->s(Ljava/lang/String;)V
+
+    return-void
+
+    :cond_1
+    const-string p0, "methodTag is marked non-null but is null"
+
+    invoke-static {p0}, Lwj4;->s(Ljava/lang/String;)V
+
+    return-void
+
+    :cond_2
+    const-string p0, "argumentName is marked non-null but is null"
+
+    invoke-static {p0}, Lwj4;->s(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public static toByteArray(Ljava/lang/String;)[B
+    .locals 1
+    .param p0    # Ljava/lang/String;
+        .annotation build Llombok/NonNull;
+        .end annotation
+    .end param
+
+    if-eqz p0, :cond_0
+
+    sget-object v0, Lcom/microsoft/identity/common/java/AuthenticationConstants;->ENCODING_UTF8:Ljava/nio/charset/Charset;
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_0
+    const-string p0, "string is marked non-null but is null"
+
+    invoke-static {p0}, Lwj4;->s(Ljava/lang/String;)V
+
+    const/4 p0, 0x0
+
+    return-object p0
+.end method
+
+.method public static urlFormDecode(Ljava/lang/String;)Ljava/lang/String;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/UnsupportedEncodingException;
+        }
+    .end annotation
+
+    invoke-static {p0}, Lcom/microsoft/identity/common/java/util/StringUtil;->isNullOrEmpty(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string p0, ""
+
+    return-object p0
+
+    :cond_0
+    const-string v0, "UTF-8"
+
+    invoke-static {p0, v0}, Ljava/net/URLDecoder;->decode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static urlFormEncode(Ljava/lang/String;)Ljava/lang/String;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/UnsupportedEncodingException;
+        }
+    .end annotation
+
+    const-string v0, "UTF-8"
+
+    invoke-static {p0, v0}, Ljava/net/URLEncoder;->encode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method

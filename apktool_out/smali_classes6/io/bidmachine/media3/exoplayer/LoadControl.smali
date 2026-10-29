@@ -1,0 +1,329 @@
+.class public interface abstract Lio/bidmachine/media3/exoplayer/LoadControl;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lio/bidmachine/media3/exoplayer/LoadControl$Parameters;
+    }
+.end annotation
+
+.annotation build Lio/bidmachine/media3/common/util/UnstableApi;
+.end annotation
+
+
+# static fields
+.field public static final EMPTY_MEDIA_PERIOD_ID:Lio/bidmachine/media3/exoplayer/source/MediaSource$MediaPeriodId;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 2
+
+    new-instance v0, Lio/bidmachine/media3/exoplayer/source/MediaSource$MediaPeriodId;
+
+    new-instance v1, Ljava/lang/Object;
+
+    invoke-direct {v1}, Ljava/lang/Object;-><init>()V
+
+    invoke-direct {v0, v1}, Lio/bidmachine/media3/exoplayer/source/MediaSource$MediaPeriodId;-><init>(Ljava/lang/Object;)V
+
+    sput-object v0, Lio/bidmachine/media3/exoplayer/LoadControl;->EMPTY_MEDIA_PERIOD_ID:Lio/bidmachine/media3/exoplayer/source/MediaSource$MediaPeriodId;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public abstract getAllocator()Lio/bidmachine/media3/exoplayer/upstream/Allocator;
+.end method
+
+.method public getBackBufferDurationUs()J
+    .locals 1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    new-instance p0, Ljava/lang/IllegalStateException;
+
+    const-string v0, "getBackBufferDurationUs not implemented"
+
+    invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+.end method
+
+.method public getBackBufferDurationUs(Lio/bidmachine/media3/exoplayer/analytics/PlayerId;)J
+    .locals 0
+
+    .line 8
+    invoke-interface {p0}, Lio/bidmachine/media3/exoplayer/LoadControl;->getBackBufferDurationUs()J
+
+    move-result-wide p0
+
+    return-wide p0
+.end method
+
+.method public onPrepared()V
+    .locals 1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    new-instance p0, Ljava/lang/IllegalStateException;
+
+    const-string v0, "onPrepared not implemented"
+
+    invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+.end method
+
+.method public onPrepared(Lio/bidmachine/media3/exoplayer/analytics/PlayerId;)V
+    .locals 0
+
+    .line 8
+    invoke-interface {p0}, Lio/bidmachine/media3/exoplayer/LoadControl;->onPrepared()V
+
+    return-void
+.end method
+
+.method public onReleased()V
+    .locals 1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    new-instance p0, Ljava/lang/IllegalStateException;
+
+    const-string v0, "onReleased not implemented"
+
+    invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+.end method
+
+.method public onReleased(Lio/bidmachine/media3/exoplayer/analytics/PlayerId;)V
+    .locals 0
+
+    .line 8
+    invoke-interface {p0}, Lio/bidmachine/media3/exoplayer/LoadControl;->onReleased()V
+
+    return-void
+.end method
+
+.method public onStopped()V
+    .locals 1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    new-instance p0, Ljava/lang/IllegalStateException;
+
+    const-string v0, "onStopped not implemented"
+
+    invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+.end method
+
+.method public onStopped(Lio/bidmachine/media3/exoplayer/analytics/PlayerId;)V
+    .locals 0
+
+    .line 8
+    invoke-interface {p0}, Lio/bidmachine/media3/exoplayer/LoadControl;->onStopped()V
+
+    return-void
+.end method
+
+.method public onTracksSelected(Lio/bidmachine/media3/common/Timeline;Lio/bidmachine/media3/exoplayer/source/MediaSource$MediaPeriodId;[Lio/bidmachine/media3/exoplayer/Renderer;Lio/bidmachine/media3/exoplayer/source/TrackGroupArray;[Lio/bidmachine/media3/exoplayer/trackselection/ExoTrackSelection;)V
+    .locals 0
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    .line 10
+    invoke-interface {p0, p3, p4, p5}, Lio/bidmachine/media3/exoplayer/LoadControl;->onTracksSelected([Lio/bidmachine/media3/exoplayer/Renderer;Lio/bidmachine/media3/exoplayer/source/TrackGroupArray;[Lio/bidmachine/media3/exoplayer/trackselection/ExoTrackSelection;)V
+
+    return-void
+.end method
+
+.method public onTracksSelected(Lio/bidmachine/media3/exoplayer/LoadControl$Parameters;Lio/bidmachine/media3/exoplayer/source/TrackGroupArray;[Lio/bidmachine/media3/exoplayer/trackselection/ExoTrackSelection;)V
+    .locals 0
+
+    .line 9
+    new-instance p0, Ljava/lang/IllegalStateException;
+
+    const-string p1, "onTracksSelected not implemented"
+
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+.end method
+
+.method public onTracksSelected(Lio/bidmachine/media3/exoplayer/analytics/PlayerId;Lio/bidmachine/media3/common/Timeline;Lio/bidmachine/media3/exoplayer/source/MediaSource$MediaPeriodId;[Lio/bidmachine/media3/exoplayer/Renderer;Lio/bidmachine/media3/exoplayer/source/TrackGroupArray;[Lio/bidmachine/media3/exoplayer/trackselection/ExoTrackSelection;)V
+    .locals 0
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    move-object p1, p2
+
+    move-object p2, p3
+
+    move-object p3, p4
+
+    move-object p4, p5
+
+    move-object p5, p6
+
+    invoke-interface/range {p0 .. p5}, Lio/bidmachine/media3/exoplayer/LoadControl;->onTracksSelected(Lio/bidmachine/media3/common/Timeline;Lio/bidmachine/media3/exoplayer/source/MediaSource$MediaPeriodId;[Lio/bidmachine/media3/exoplayer/Renderer;Lio/bidmachine/media3/exoplayer/source/TrackGroupArray;[Lio/bidmachine/media3/exoplayer/trackselection/ExoTrackSelection;)V
+
+    return-void
+.end method
+
+.method public onTracksSelected([Lio/bidmachine/media3/exoplayer/Renderer;Lio/bidmachine/media3/exoplayer/source/TrackGroupArray;[Lio/bidmachine/media3/exoplayer/trackselection/ExoTrackSelection;)V
+    .locals 0
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    .line 11
+    new-instance p0, Ljava/lang/IllegalStateException;
+
+    const-string p1, "onTracksSelected not implemented"
+
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+.end method
+
+.method public retainBackBufferFromKeyframe()Z
+    .locals 1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    new-instance p0, Ljava/lang/IllegalStateException;
+
+    const-string v0, "retainBackBufferFromKeyframe not implemented"
+
+    invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+.end method
+
+.method public retainBackBufferFromKeyframe(Lio/bidmachine/media3/exoplayer/analytics/PlayerId;)Z
+    .locals 0
+
+    .line 8
+    invoke-interface {p0}, Lio/bidmachine/media3/exoplayer/LoadControl;->retainBackBufferFromKeyframe()Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public shouldContinueLoading(JJF)Z
+    .locals 0
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    .line 12
+    new-instance p0, Ljava/lang/IllegalStateException;
+
+    const-string p1, "shouldContinueLoading not implemented"
+
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+.end method
+
+.method public shouldContinueLoading(Lio/bidmachine/media3/exoplayer/LoadControl$Parameters;)Z
+    .locals 6
+
+    iget-wide v1, p1, Lio/bidmachine/media3/exoplayer/LoadControl$Parameters;->playbackPositionUs:J
+
+    iget-wide v3, p1, Lio/bidmachine/media3/exoplayer/LoadControl$Parameters;->bufferedDurationUs:J
+
+    iget v5, p1, Lio/bidmachine/media3/exoplayer/LoadControl$Parameters;->playbackSpeed:F
+
+    move-object v0, p0
+
+    invoke-interface/range {v0 .. v5}, Lio/bidmachine/media3/exoplayer/LoadControl;->shouldContinueLoading(JJF)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public shouldContinuePreloading(Lio/bidmachine/media3/common/Timeline;Lio/bidmachine/media3/exoplayer/source/MediaSource$MediaPeriodId;J)Z
+    .locals 0
+
+    const-string p0, "LoadControl"
+
+    const-string p1, "shouldContinuePreloading needs to be implemented when playlist preloading is enabled"
+
+    invoke-static {p0, p1}, Lio/bidmachine/media3/common/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
+
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
+.method public shouldStartPlayback(JFZJ)Z
+    .locals 0
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    .line 19
+    new-instance p0, Ljava/lang/IllegalStateException;
+
+    const-string p1, "shouldStartPlayback not implemented"
+
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+.end method
+
+.method public shouldStartPlayback(Lio/bidmachine/media3/common/Timeline;Lio/bidmachine/media3/exoplayer/source/MediaSource$MediaPeriodId;JFZJ)Z
+    .locals 0
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    move-wide p1, p3
+
+    move p3, p5
+
+    move p4, p6
+
+    move-wide p5, p7
+
+    .line 18
+    invoke-interface/range {p0 .. p6}, Lio/bidmachine/media3/exoplayer/LoadControl;->shouldStartPlayback(JFZJ)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public shouldStartPlayback(Lio/bidmachine/media3/exoplayer/LoadControl$Parameters;)Z
+    .locals 9
+
+    iget-object v1, p1, Lio/bidmachine/media3/exoplayer/LoadControl$Parameters;->timeline:Lio/bidmachine/media3/common/Timeline;
+
+    iget-object v2, p1, Lio/bidmachine/media3/exoplayer/LoadControl$Parameters;->mediaPeriodId:Lio/bidmachine/media3/exoplayer/source/MediaSource$MediaPeriodId;
+
+    iget-wide v3, p1, Lio/bidmachine/media3/exoplayer/LoadControl$Parameters;->bufferedDurationUs:J
+
+    iget v5, p1, Lio/bidmachine/media3/exoplayer/LoadControl$Parameters;->playbackSpeed:F
+
+    iget-boolean v6, p1, Lio/bidmachine/media3/exoplayer/LoadControl$Parameters;->rebuffering:Z
+
+    iget-wide v7, p1, Lio/bidmachine/media3/exoplayer/LoadControl$Parameters;->targetLiveOffsetUs:J
+
+    move-object v0, p0
+
+    invoke-interface/range {v0 .. v8}, Lio/bidmachine/media3/exoplayer/LoadControl;->shouldStartPlayback(Lio/bidmachine/media3/common/Timeline;Lio/bidmachine/media3/exoplayer/source/MediaSource$MediaPeriodId;JFZJ)Z
+
+    move-result p0
+
+    return p0
+.end method

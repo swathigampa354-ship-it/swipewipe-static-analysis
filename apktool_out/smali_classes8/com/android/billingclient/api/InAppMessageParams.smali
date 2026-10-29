@@ -1,0 +1,52 @@
+.class public final Lcom/android/billingclient/api/InAppMessageParams;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/android/billingclient/api/InAppMessageParams$Builder;,
+        Lcom/android/billingclient/api/InAppMessageParams$InAppMessageCategoryId;
+    }
+.end annotation
+
+
+# instance fields
+.field public final a:Ljava/util/ArrayList;
+
+
+# direct methods
+.method public synthetic constructor <init>(Ljava/util/HashSet;)V
+    .locals 2
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    new-instance v1, Ljava/util/ArrayList;
+
+    invoke-direct {v1, p1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+
+    invoke-static {v1}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
+
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+
+    iput-object v0, p0, Lcom/android/billingclient/api/InAppMessageParams;->a:Ljava/util/ArrayList;
+
+    return-void
+.end method
+
+.method public static newBuilder()Lcom/android/billingclient/api/InAppMessageParams$Builder;
+    .locals 1
+    .annotation build Landroidx/annotation/NonNull;
+    .end annotation
+
+    new-instance v0, Lcom/android/billingclient/api/InAppMessageParams$Builder;
+
+    invoke-direct {v0}, Lcom/android/billingclient/api/InAppMessageParams$Builder;-><init>()V
+
+    return-object v0
+.end method

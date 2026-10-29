@@ -1,0 +1,84 @@
+.class public final Lcom/google/android/gms/internal/ads/zzgoy;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Lcom/google/android/gms/internal/ads/zzimz;
+
+
+# instance fields
+.field private final zza:Lcom/google/android/gms/internal/ads/zzini;
+
+.field private final zzb:Lcom/google/android/gms/internal/ads/zzini;
+
+.field private final zzc:Lcom/google/android/gms/internal/ads/zzini;
+
+
+# direct methods
+.method private constructor <init>(Lcom/google/android/gms/internal/ads/zzini;Lcom/google/android/gms/internal/ads/zzini;Lcom/google/android/gms/internal/ads/zzini;)V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/google/android/gms/internal/ads/zzgoy;->zza:Lcom/google/android/gms/internal/ads/zzini;
+
+    iput-object p2, p0, Lcom/google/android/gms/internal/ads/zzgoy;->zzb:Lcom/google/android/gms/internal/ads/zzini;
+
+    iput-object p3, p0, Lcom/google/android/gms/internal/ads/zzgoy;->zzc:Lcom/google/android/gms/internal/ads/zzini;
+
+    return-void
+.end method
+
+.method public static zza(Lcom/google/android/gms/internal/ads/zzini;Lcom/google/android/gms/internal/ads/zzini;Lcom/google/android/gms/internal/ads/zzini;)Lcom/google/android/gms/internal/ads/zzgoy;
+    .locals 1
+
+    new-instance v0, Lcom/google/android/gms/internal/ads/zzgoy;
+
+    invoke-direct {v0, p0, p1, p2}, Lcom/google/android/gms/internal/ads/zzgoy;-><init>(Lcom/google/android/gms/internal/ads/zzini;Lcom/google/android/gms/internal/ads/zzini;Lcom/google/android/gms/internal/ads/zzini;)V
+
+    return-object v0
+.end method
+
+
+# virtual methods
+.method public final bridge synthetic zzb()Ljava/lang/Object;
+    .locals 4
+
+    iget-object v0, p0, Lcom/google/android/gms/internal/ads/zzgoy;->zza:Lcom/google/android/gms/internal/ads/zzini;
+
+    invoke-interface {v0}, Lcom/google/android/gms/internal/ads/zzino;->zzb()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/io/File;
+
+    iget-object v1, p0, Lcom/google/android/gms/internal/ads/zzgoy;->zzb:Lcom/google/android/gms/internal/ads/zzini;
+
+    invoke-interface {v1}, Lcom/google/android/gms/internal/ads/zzino;->zzb()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/google/android/gms/internal/ads/zzgfn;
+
+    iget-object p0, p0, Lcom/google/android/gms/internal/ads/zzgoy;->zzc:Lcom/google/android/gms/internal/ads/zzini;
+
+    invoke-interface {p0}, Lcom/google/android/gms/internal/ads/zzino;->zzb()Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/google/android/gms/internal/ads/zzgqo;
+
+    invoke-static {}, Lcom/google/android/gms/internal/ads/zzggb;->zzh()Lcom/google/android/gms/internal/ads/zzggb;
+
+    move-result-object v2
+
+    new-instance v3, Lcom/google/android/gms/internal/ads/zzgox;
+
+    invoke-direct {v3, p0}, Lcom/google/android/gms/internal/ads/zzgox;-><init>(Lcom/google/android/gms/internal/ads/zzgqo;)V
+
+    invoke-virtual {v1, v0, v2, v3}, Lcom/google/android/gms/internal/ads/zzgfn;->zza(Ljava/io/File;Lcom/google/android/gms/internal/ads/zzifz;Lcom/google/android/gms/internal/ads/zzgti;)Lcom/google/android/gms/internal/ads/zzgfe;
+
+    move-result-object p0
+
+    return-object p0
+.end method

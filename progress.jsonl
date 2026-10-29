@@ -1,0 +1,73 @@
+{"ts":"2026-10-24T12:33:46+05:30","step":0,"ok":true,"detail":"no progress.jsonl existed; starting fresh"}
+{"ts": "2026-10-26T04:29:47+0530", "step": "summary", "ok": true, "detail": "java=0 smali=0 errors=0"}
+{"ts":"2026-10-29T11:57:39+05:30","step":"task2-1","ok":true,"detail":"staged state audited: jar=42619858B jar.done=DONE_JAR, lock free, prior run OOMed at -Xmx1200m (driver.log:33)"}
+{"ts":"2026-10-29T12:09:03+05:30","step":"1","ok":true,"detail":"jar.done=DONE_JAR; unzip -t RC=12 (overlapped-components false positive on shadow jar) BUT jar tf RC=0 23368 entries; sha256 6e5eacf500b64292bfb73c49797c1958f6ee44646e43e868039ae7feb573ff75 vs summary.json match"}
+{"ts":"2026-10-29T12:09:03+05:30","step":"2","ok":true,"detail":"--help RC=0; all run_mcp.py argv flags valid for this build; no argv fix needed"}
+{"ts": "2026-10-29T12:11:39+0530", "step": "initialize", "ok": true, "detail": "{\"name\": \"jadx-headless-mcp\", \"version\": \"0.7.1\"}"}
+{"ts": "2026-10-29T12:11:39+0530", "step": "tools/list", "ok": true, "detail": "26 tools, sha256 eea900c54df8"}
+{"ts": "2026-10-29T12:11:39+0530", "step": "load_apk", "ok": true, "detail": "skipped: status reports the CLI-loaded APK"}
+{"ts": "2026-10-29T12:11:40+0530", "step": "get_app_info", "ok": true, "detail": "1455 chars sha 0b32783afefb"}
+{"ts": "2026-10-29T12:11:40+0530", "step": "get_android_manifest", "ok": true, "detail": "588 chars sha 8279d54cc8f4"}
+{"ts": "2026-10-29T12:11:40+0530", "step": "class inventory", "ok": true, "detail": "52 classes"}
+{"ts": "2026-10-29T12:12:09+0530", "step": "class", "ok": true, "detail": "cloud_provider_sync.CloudProviderSyncCoroutineWorker.java 15001 chars sha ddf99e2543"}
+{"ts": "2026-10-29T12:12:09+0530", "step": "class", "ok": true, "detail": "cloud_provider_sync.a.java 895 chars sha 22a1995719"}
+{"ts": "2026-10-29T12:12:09+0530", "step": "class", "ok": true, "detail": "one_drive_data_source.BatchRequest.java 3135 chars sha 4fc16e6aea"}
+{"ts": "2026-10-29T12:12:09+0530", "step": "class", "ok": true, "detail": "one_drive_data_source.BatchRequestItem.java 4682 chars sha 9fda3d29b3"}
+{"ts": "2026-10-29T12:12:09+0530", "step": "class", "ok": true, "detail": "one_drive_data_source.BatchResponse.java 3470 chars sha d2c7210b13"}
+{"ts": "2026-10-29T12:12:09+0530", "step": "class", "ok": true, "detail": "one_drive_data_source.BatchResponseItem.java 8306 chars sha 4fc8e9757f"}
+{"ts": "2026-10-29T12:12:09+0530", "step": "class", "ok": true, "detail": "one_drive_data_source.OneDriveApiService.java 4586 chars sha 6a9f989808"}
+{"ts": "2026-10-29T12:12:09+0530", "step": "class", "ok": true, "detail": "one_drive_data_source.OneDriveDataSourceManager.java 5441 chars sha 03daf791b2"}
+{"ts": "2026-10-29T12:12:17+0530", "step": "class", "ok": true, "detail": "one_drive_data_source.OneDriveDataSourceManagerImpl.smali (server fallback) 196410 chars sha 41309e830d"}
+{"ts": "2026-10-29T12:12:17+0530", "step": "class", "ok": true, "detail": "one_drive_data_source.OneDriveDataSourceModule.java 2738 chars sha 66d64b1488"}
+{"ts": "2026-10-29T12:12:17+0530", "step": "class", "ok": true, "detail": "one_drive_data_source.OneDriveFileFacet.java 3334 chars sha 5776080a93"}
+{"ts": "2026-10-29T12:12:17+0530", "step": "class", "ok": true, "detail": "one_drive_data_source.OneDriveImageFacet.java 3922 chars sha 5fc828a0f0"}
+{"ts": "2026-10-29T12:12:17+0530", "step": "class", "ok": true, "detail": "one_drive_data_source.OneDriveItem.java 18416 chars sha f612174480"}
+{"ts": "2026-10-29T12:12:17+0530", "step": "class", "ok": true, "detail": "one_drive_data_source.OneDriveItemListResponse.java 6189 chars sha 6b34b793af"}
+{"ts": "2026-10-29T12:12:17+0530", "step": "class", "ok": true, "detail": "one_drive_data_source.OneDriveLocationFacet.java 5871 chars sha 4871382b3d"}
+{"ts": "2026-10-29T12:12:17+0530", "step": "class", "ok": true, "detail": "one_drive_data_source.OneDriveMappersKt.java 5080 chars sha bbe8e81a95"}
+{"ts": "2026-10-29T12:12:18+0530", "step": "class", "ok": true, "detail": "one_drive_data_source.OneDrivePhotoFacet.java 5767 chars sha 6852f9a0f2"}
+{"ts": "2026-10-29T12:12:18+0530", "step": "class", "ok": true, "detail": "one_drive_data_source.OneDriveThumbnail.java 4941 chars sha 57eaff2d8e"}
+{"ts": "2026-10-29T12:12:18+0530", "step": "class", "ok": true, "detail": "one_drive_data_source.OneDriveThumbnailSet.java 7506 chars sha 4fc77346c7"}
+{"ts": "2026-10-29T12:12:18+0530", "step": "class", "ok": true, "detail": "one_drive_data_source.OneDriveVideoFacet.java 4895 chars sha 8f55ead945"}
+{"ts": "2026-10-29T12:12:18+0530", "step": "class", "ok": true, "detail": "data.AppDatabase.java 1031 chars sha 3f36348a4f"}
+{"ts": "2026-10-29T12:12:18+0530", "step": "class", "ok": true, "detail": "data.AppDatabase_Impl.java 11892 chars sha ec58860c73"}
+{"ts": "2026-10-29T12:12:18+0530", "step": "class", "ok": true, "detail": "data.model.BookmarkModel.java 4768 chars sha 322a5449ce"}
+{"ts": "2026-10-29T12:12:18+0530", "step": "class", "ok": true, "detail": "data.model.CloudMediaItemModel.java 12449 chars sha a2d886481a"}
+{"ts": "2026-10-29T12:12:18+0530", "step": "class", "ok": true, "detail": "data.model.CloudMonthAggregateModel.java 6846 chars sha 5571fe2b00"}
+{"ts": "2026-10-29T12:12:18+0530", "step": "class", "ok": true, "detail": "data.model.CompletedPeriodModel.java 4734 chars sha 986b5e12e4"}
+{"ts": "2026-10-29T12:12:18+0530", "step": "class", "ok": true, "detail": "data.model.LocalDecisionReconstructionModel.java 2779 chars sha b42e196d62"}
+{"ts": "2026-10-29T12:12:18+0530", "step": "class", "ok": true, "detail": "data.model.MediaDecisionModel.java 5033 chars sha afc5070842"}
+{"ts": "2026-10-29T12:12:18+0530", "step": "class", "ok": true, "detail": "data.model.SimilarImageModel.java 6373 chars sha 35fb274f7f"}
+{"ts": "2026-10-29T12:12:18+0530", "step": "class", "ok": true, "detail": "data.model.StatsModel.java 5607 chars sha fa668f9f6d"}
+{"ts": "2026-10-29T12:12:18+0530", "step": "class", "ok": true, "detail": "glide_config.SwipewipeAppGlideModule.java 881 chars sha 8368562904"}
+{"ts": "2026-10-29T12:12:18+0530", "step": "class", "ok": true, "detail": "photo_compress_batch.PhotoCompressBatchCancelReceiver.java 1203 chars sha a103cfb2d0"}
+{"ts": "2026-10-29T12:12:20+0530", "step": "class", "ok": true, "detail": "photo_compress_batch.PhotoCompressBatchWorker.smali (server fallback) 26205 chars sha fcda79588e"}
+{"ts": "2026-10-29T12:12:20+0530", "step": "class", "ok": true, "detail": "photo_compress_batch.a.java 803 chars sha 6934020020"}
+{"ts": "2026-10-29T12:12:20+0530", "step": "class", "ok": true, "detail": "photo_compress_batch.b.java 740 chars sha 8bcf6f6afd"}
+{"ts": "2026-10-29T12:12:33+0530", "step": "class", "ok": true, "detail": "image_grouping.ImageGroupingWorker.java 3158 chars sha 6004df0c81"}
+{"ts": "2026-10-29T12:12:33+0530", "step": "class", "ok": true, "detail": "image_grouping.a.java 696 chars sha 6bdd0c5ebe"}
+{"ts": "2026-10-29T12:12:33+0530", "step": "class", "ok": true, "detail": "boot.BootReceiver.java 925 chars sha b8c24730cb"}
+{"ts": "2026-10-29T12:12:33+0530", "step": "class", "ok": true, "detail": "push_local.LocalNotificationTrampolineActivity.java 2909 chars sha 7c010069c7"}
+{"ts": "2026-10-29T12:12:33+0530", "step": "class", "ok": true, "detail": "push_local.OtdReminderWorker.java 3566 chars sha baa6fdd75f"}
+{"ts": "2026-10-29T12:12:33+0530", "step": "class", "ok": true, "detail": "push_local.SimilarImagesReminderWorker.smali (server fallback) 6994 chars sha 8f4c46bb85"}
+{"ts": "2026-10-29T12:12:33+0530", "step": "class", "ok": true, "detail": "push_local.a.java 684 chars sha 43266c42a0"}
+{"ts": "2026-10-29T12:12:33+0530", "step": "class", "ok": true, "detail": "push_local.b.java 724 chars sha bfa93ec08d"}
+{"ts": "2026-10-29T12:12:33+0530", "step": "class", "ok": true, "detail": "push_local_schedule.AlarmReceiver.java 1253 chars sha d46d0771a2"}
+{"ts": "2026-10-29T12:12:50+0530", "step": "class", "ok": true, "detail": "application.SwipeApp.java 21946 chars sha fc0eb1c42c"}
+{"ts": "2026-10-29T12:12:50+0530", "step": "class", "ok": true, "detail": "main_activity.Hilt_MainActivity.java 1769 chars sha bc65cb8fa6"}
+{"ts": "2026-10-29T12:12:52+0530", "step": "class", "ok": true, "detail": "main_activity.MainActivity.java 3833 chars sha f2746dd0e1"}
+{"ts": "2026-10-29T12:12:52+0530", "step": "class", "ok": true, "detail": "splash_activity.Hilt_SplashActivity.java 1771 chars sha 6e14f4f6bd"}
+{"ts": "2026-10-29T12:12:52+0530", "step": "class", "ok": true, "detail": "splash_activity.SplashActivity.java 9216 chars sha b743a2eccb"}
+{"ts": "2026-10-29T12:12:53+0530", "step": "class", "ok": true, "detail": "swipeable_card.SwipeableCardState.smali (server fallback) 20283 chars sha 3f86cadee1"}
+{"ts": "2026-10-29T12:12:53+0530", "step": "class", "ok": true, "detail": "swipeable_card.a.java 761 chars sha 9843362d70"}
+{"ts": "2026-10-29T12:12:54+0530", "step": "class", "ok": true, "detail": "R.java 400059 chars sha 223cd7fe59"}
+{"ts": "2026-10-29T12:12:54+0530", "step": "xref", "ok": true, "detail": "get_xrefs_to_class:{\"class_name\": \"com.afternoonproducts.swipewipe.one_drive_data_source.OneDriveDataSourceManagerImpl\"}"}
+{"ts": "2026-10-29T12:12:54+0530", "step": "xref", "ok": true, "detail": "get_xrefs_to_class:{\"class_name\": \"com.afternoonproducts.swipewipe.data.AppDatabase_Impl\"}"}
+{"ts": "2026-10-29T12:12:54+0530", "step": "xref", "ok": true, "detail": "get_xrefs_to_method:{\"class_name\": \"com.afternoonproducts.swipewipe.one_drive_data_source.OneDriveDataSourceManagerImpl\""}
+{"ts": "2026-10-29T12:12:54+0530", "step": "xref", "ok": true, "detail": "search_classes_by_keyword:{\"keyword\": \"http://\"}"}
+{"ts": "2026-10-29T12:12:54+0530", "step": "xref", "ok": true, "detail": "search_classes_by_keyword:{\"keyword\": \"Retrofit\"}"}
+{"ts": "2026-10-29T12:12:54+0530", "step": "xref", "ok": true, "detail": "search_classes_by_keyword:{\"keyword\": \"allowBackup\"}"}
+{"ts": "2026-10-29T12:12:56+0530", "step": "summary", "ok": true, "detail": "java=48 smali=4 errors=0"}
+{"ts":"2026-10-29T12:17:45+05:30","step":"3-4","ok":true,"detail":"driver launched once (pid7589, java 7631, -Xmx1800m guard 2000000); completed initialize->tools->app_info->manifest->52 classes->6 xrefs; summary.json ok=true"}
+{"ts":"2026-10-29T12:17:45+05:30","step":"5","ok":true,"detail":"summary.json errors=[] — no individual retries needed; 4 smali-fallback classes match lost-code warning set"}
+{"ts":"2026-10-29T12:17:45+05:30","step":"6-7","ok":true,"detail":"HANDOFF.md written w/ file:line citations; allowBackup=false contradicts briefing; PRUNE/deleteOldSyncLogEntries wv2.l zd0.a not found — recorded as not established"}

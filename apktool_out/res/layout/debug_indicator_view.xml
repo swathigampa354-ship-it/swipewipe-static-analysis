@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="9.0sp" android:textStyle="bold" android:textColor="#ffffff" android:layout_gravity="center_horizontal" android:background="#88000000" android:paddingTop="2.0dp" android:paddingBottom="2.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="DEBUG PAGE CONTAINER" android:paddingStart="8.0dp" android:paddingEnd="8.0dp" />
+</merge>

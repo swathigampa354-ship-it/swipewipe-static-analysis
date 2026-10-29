@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="exo_controls_fastforward_by_amount_description">
+        <item quantity="one">Fast forward %d second</item>
+        <item quantity="other">Fast forward %d seconds</item>
+    </plurals>
+    <plurals name="exo_controls_rewind_by_amount_description">
+        <item quantity="one">Rewind %d second</item>
+        <item quantity="other">Rewind %d seconds</item>
+    </plurals>
+    <plurals name="media_picker__confirm__title">
+        <item quantity="one">Compress %d photo</item>
+        <item quantity="other">Compress %d photos</item>
+    </plurals>
+    <plurals name="media_picker__confirm__title_max">
+        <item quantity="one">Compress %d photo · max</item>
+        <item quantity="other">Compress %d photos · max</item>
+    </plurals>
+    <plurals name="media_tools_result__delete__action">
+        <item quantity="one">Delete original</item>
+        <item quantity="other">Delete originals</item>
+    </plurals>
+    <plurals name="media_tools_result__keep__action">
+        <item quantity="one">Keep original</item>
+        <item quantity="other">Keep originals</item>
+    </plurals>
+    <plurals name="media_tools_result__message__delete_failed">
+        <item quantity="one">The original could not be deleted and is still on your device.</item>
+        <item quantity="other">%d originals could not be deleted and are still on your device.</item>
+    </plurals>
+    <plurals name="media_tools_result__message__saved">
+        <item quantity="one">New version saved. Deleting the original frees %2$s.</item>
+        <item quantity="other">%1$d new versions saved. Deleting the originals frees %2$s.</item>
+    </plurals>
+    <plurals name="month_cell_view__item_count">
+        <item quantity="one">%d item</item>
+        <item quantity="other">%d items</item>
+    </plurals>
+    <plurals name="mtrl_badge_content_description">
+        <item quantity="one">%d new notification</item>
+        <item quantity="other">%d new notifications</item>
+    </plurals>
+    <plurals name="notification__similar_images__body">
+        <item quantity="one">You have %d set of similar photos waiting</item>
+        <item quantity="other">You have %d sets of similar photos waiting</item>
+    </plurals>
+    <plurals name="notification__streak__last_chance__body">
+        <item quantity="one">Your streak is about to end. Swipe now to save your %d day.</item>
+        <item quantity="other">Your streak is about to end. Swipe now to save your %d days.</item>
+    </plurals>
+    <plurals name="photo_compress__error__failed">
+        <item quantity="one">One photo could not be compressed.</item>
+        <item quantity="other">%d photos could not be compressed.</item>
+    </plurals>
+    <plurals name="photo_compress__error__unsupported">
+        <item quantity="one">One photo is in a format this Android version cannot open.</item>
+        <item quantity="other">%d photos are in a format this Android version cannot open.</item>
+    </plurals>
+    <plurals name="photo_compress__selection__count">
+        <item quantity="one">%d photo selected</item>
+        <item quantity="other">%d photos selected</item>
+    </plurals>
+    <plurals name="photo_compress__skipped">
+        <item quantity="one">%d left as it was: already optimized or animated.</item>
+        <item quantity="other">%d left as they were: already optimized or animated.</item>
+    </plurals>
+    <plurals name="streak__best_streak">
+        <item quantity="one">Best streak: %d day</item>
+        <item quantity="other">Best streak: %d days</item>
+    </plurals>
+    <plurals name="streak_catch_up__days_missed">
+        <item quantity="one">%d day missed</item>
+        <item quantity="other">%d days missed</item>
+    </plurals>
+</resources>

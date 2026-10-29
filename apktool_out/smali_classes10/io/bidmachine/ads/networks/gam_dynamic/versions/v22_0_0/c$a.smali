@@ -1,0 +1,14 @@
+.class abstract synthetic Lio/bidmachine/ads/networks/gam_dynamic/versions/v22_0_0/c$a;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lio/bidmachine/ads/networks/gam_dynamic/versions/v22_0_0/c;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1009
+    name = null
+.end annotation
